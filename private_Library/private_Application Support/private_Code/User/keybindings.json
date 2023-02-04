@@ -1,0 +1,47 @@
+// Place your key bindings in this file to override the defaults
+[
+	{
+		"key": "ctrl+\\",
+		"command": "workbench.action.terminal.toggleTerminal"
+	},
+	{
+		"key": "ctrl+w l",
+		"command": "workbench.action.focusFirstEditorGroup",
+		"when": "sideBarFocus"
+	},
+	{
+		"key": "ctrl+j",
+		"command": "workbench.action.nextSideBarView",
+		"when": "sideBarFocus"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "workbench.action.previousSideBarView",
+		"when": "sideBarFocus"
+	},
+	{
+		"key": "s",
+		"command": "explorer.openToSide",
+		"when": "explorerViewletFocus && !inputFocus"
+	},
+	{
+		"key": "n",
+		"command": "explorer.newFile",
+		"when": "explorerViewletFocus && !inputFocus"
+	},
+	{
+		"key": "D",
+		"command": "explorer.newFolder",
+		"when": "explorerViewletFocus && !inputFocus"
+	},
+	{
+		"key": "r",
+		"command": "renameFile",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+	},
+	{
+		"key": "enter",
+		"command": "filesExplorer.openFilePreserveFocus",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+	}
+]
