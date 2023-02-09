@@ -16,7 +16,7 @@ return function()
     vim.keymap.set("n", "<C-p>", "<CMD>Legendary find<CR>")
 
 
-    -- which-key config --
+    -- which-key leader config --
     local leader_opts = {
         mode = "n", -- NORMAL mode
         -- prefix: use "<leader>f" for example to map everything related to finding files
@@ -46,7 +46,7 @@ return function()
         nowait = false,
     }
 
-
+    -- which-key map config --
     local telescope_map = {
         f = {
             name = "Telescope", -- optional group name
@@ -69,7 +69,7 @@ return function()
     local toggleterm_map = {
         ["\\"] = {
             name = "ToggleTerm", -- optional name
-            g = { "<CMD>lua _lazygit_toggle()<CR>", "LazyGit" },
+            g = { "<CMD>lua _LAZYGIT_TOGGLE()<CR>", "LazyGit" },
         },
     }
 
@@ -83,15 +83,7 @@ return function()
         },
     }
 
-    vim.keymap.set("n", "gR", "<CMD>TroubleToggle lsp_references<CR>")
-
-    -- register calls
-    wk.register(telescope_map, leader_opts)
-    wk.register(fugitive_map, leader_opts)
-    wk.register(toggleterm_map, leader_opts)
-    wk.register(trouble_map, leader_opts)
-
-    -- Hop keymap --
+    -- Hop manual keymap register --
     local status_hop, _ = pcall(require, "hop")
     if status_hop then
         wk.register(
@@ -115,6 +107,25 @@ return function()
             leader2_opts
         )
     end
+
+    -- Manual personal keymap --
+    vim.keymap.set("n", "gR", "<CMD>TroubleToggle lsp_references<CR>")
+    vim.keymap.set("i", "<C-CR>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+    wk.register(
+        {
+            w = { "<CMD>:w<CR>", "Save" },
+            q = { "<CMD>:q<CR>", "Close" },
+            ["="] = { "<CMD>:lua vim.lsp.buf.format()<CR>", "Format" },
+            N = { "<CMD>:lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" }
+        },
+        leader_opts
+    )
+
+    -- which-key register calls --
+    wk.register(telescope_map, leader_opts)
+    wk.register(fugitive_map, leader_opts)
+    wk.register(toggleterm_map, leader_opts)
+    wk.register(trouble_map, leader_opts)
 
     wk.setup()
 end

@@ -51,9 +51,6 @@ vk.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- clear search highlight until next highlight
 vk.set("n", "<leader>n", ":noh<CR>")
 
--- formmatting
-vk.set("n", "<leader>=", ":lua vim.lsp.buf.format()<CR>")
-
 -- create new lines and stay at the same position
 vk.set("n", "<leader>o", "mzo<ESC>`z")
 vk.set("n", "<leader>O", "mzO<ESC>`z")
