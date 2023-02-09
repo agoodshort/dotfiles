@@ -163,8 +163,8 @@ return function()
                 ["q"] = "close_window",
                 ["R"] = "refresh",
                 ["?"] = "show_help",
-                ["<C-h>"] = "prev_source",
-                ["<C-l>"] = "next_source",
+                ["<"] = "prev_source",
+                [">"] = "next_source",
             }
         },
         nesting_rules = {},
