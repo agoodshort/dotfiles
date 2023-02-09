@@ -1,0 +1,4 @@
+# MacOS specific
+{{ if ne .chezmoi.os "darwin" }}
+Library
+{{ end }}
