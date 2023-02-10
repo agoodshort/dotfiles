@@ -1,6 +1,8 @@
 # MacOS specific
 {{ if ne .chezmoi.os "darwin" }}
 Library
+dot_zshenv
+dot_config/zsh
 {{ end }}
 
 # Windows specific
