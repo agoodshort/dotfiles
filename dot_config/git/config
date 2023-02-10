@@ -1,0 +1,5 @@
+[user]
+	name = Adrien Biencourt
+	email = adrien@revanista.com
+[core]
+	editor = vim
