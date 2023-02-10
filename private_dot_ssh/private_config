@@ -1,4 +1,0 @@
-Host github.com
-    AddKeysToAgent yes
-    UseKeychain yes # Required if IdentifyFile uses a passphrase
-    IdentityFile ~/.ssh/id_ed25519_github
