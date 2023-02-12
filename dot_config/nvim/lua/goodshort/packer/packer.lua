@@ -49,16 +49,20 @@ return packer.startup(function(use)
     use { "alker0/chezmoi.vim" }
 
     -- theme
-    use({ "rebelot/kanagawa.nvim", config = require("goodshort.plugins.kanagawa") })
-    use({ "petertriho/nvim-scrollbar", config = require("goodshort.plugins.scrollbar") })
+    use { "rebelot/kanagawa.nvim", config = require("goodshort.plugins.kanagawa") }
+    use { "petertriho/nvim-scrollbar", config = require("goodshort.plugins.scrollbar") }
     use("lukas-reineke/indent-blankline.nvim")
+    use {
+        'glepnir/dashboard-nvim', event = 'VimEnter', config = require("goodshort.plugins.dashboard"),
+        requires = { 'nvim-tree/nvim-web-devicons' }
+    }
 
     -- displays shortcuts
-    use({ "mrjones2014/legendary.nvim",
+    use { "mrjones2014/legendary.nvim",
         requires = { "stevearc/dressing.nvim", "folke/which-key.nvim" },
         config = require("goodshort.plugins.legendary-whichkey"),
         after = "toggleterm.nvim"
-    })
+    }
 
     -- fuzzy-finder w/ telescope
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = "make" }
