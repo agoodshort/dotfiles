@@ -67,9 +67,13 @@ return function()
     }
 
     local toggleterm_map = {
-        ["\\"] = {
+        ["\\"] = { -- map to "\"
             name = "ToggleTerm", -- optional name
             g = { "<CMD>lua _LAZYGIT_TOGGLE()<CR>", "LazyGit" },
+            ["\\"] = { "<CMD>ToggleTermToggleAll<CR>", "Toggle All Terminals" },
+            ["1"] = { "<CMD>1ToggleTerm<CR>", "Terminal 1" },
+            ["2"] = { "<CMD>2ToggleTerm<CR>", "Terminal 2" },
+            ["3"] = { "<CMD>3ToggleTerm<CR>", "Terminal 3" }
         },
     }
 
@@ -113,7 +117,6 @@ return function()
     vim.keymap.set("i", "<C-CR>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
     wk.register(
         {
-            w = { "<CMD>:w<CR>", "Save" },
             q = { "<CMD>:q<CR>", "Close" },
             ["="] = { "<CMD>:lua vim.lsp.buf.format()<CR>", "Format" },
             N = { "<CMD>:lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" }
