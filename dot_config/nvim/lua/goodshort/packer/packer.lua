@@ -46,6 +46,7 @@ return packer.startup(function(use)
     use { "kwkarlwang/bufresize.nvim", config = require("goodshort.plugins.bufresize") }
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end } -- comment with gc
     use { "sitiom/nvim-numbertoggle" }
+    use { "alker0/chezmoi.vim" }
 
     -- theme
     use({ "rebelot/kanagawa.nvim", config = require("goodshort.plugins.kanagawa") })
