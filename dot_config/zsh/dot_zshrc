@@ -1,5 +1,6 @@
 [[ -f "$ZDOTDIR/alias.zsh" ]] && source "$ZDOTDIR/alias.zsh"
 [[ -f "$ZDOTDIR/nvm.zsh" ]] && source "$ZDOTDIR/nvm.zsh"
+[[ -f "/usr/local/etc/profile.d/z.sh" ]] && source "/usr/local/etc/profile.d/z.sh"
 
 # zsh-syntax-highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
