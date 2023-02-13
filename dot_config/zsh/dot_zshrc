@@ -1,6 +1,9 @@
 [[ -f "$ZDOTDIR/alias.zsh" ]] && source "$ZDOTDIR/alias.zsh"
 [[ -f "$ZDOTDIR/nvm.zsh" ]] && source "$ZDOTDIR/nvm.zsh"
+
+# rupa/z (installed through hombrew)
 [[ -f "/usr/local/etc/profile.d/z.sh" ]] && source "/usr/local/etc/profile.d/z.sh"
+export "_Z_DATA=$XDG_CONFIG_HOME/z"
 
 # zsh-syntax-highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
