@@ -47,17 +47,24 @@ return function()
     }
 
     -- which-key map config --
-    local telescope_map = {
-        f = {
-            name = "Telescope", -- optional group name
-            f = { "<CMD>Telescope find_files<CR>", "Find Files" },
-            g = { "<CMD>Telescope git_files<CR>", "Git Files" },
-            b = { "<CMD>Telescope buffers<CR>", "Buffers" },
-            h = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
-            s = { "<CMD>Telescope grep_string<CR>", "Grep String" },
-            l = { "<CMD>Telescope live_grep<CR>", "Live Grep" },
-        },
-    }
+    local status_telescope, _ = pcall(require, "telescope")
+    if status_telescope then
+        local telescope_map = {
+            f = {
+                name = "Telescope", -- optional group name
+                f = { "<CMD>Telescope find_files<CR>", "Find Files" },
+                g = { "<CMD>Telescope git_files<CR>", "Git Files" },
+                b = { "<CMD>Telescope buffers<CR>", "Buffers" },
+                h = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
+                s = { "<CMD>Telescope grep_string<CR>", "Grep String" },
+                l = { "<CMD>Telescope live_grep<CR>", "Live Grep" },
+                z = { "<CMD>Telescope z list<CR>", "List z" },
+                e = { "<CMD>Telescope env<CR>", "List Environment Variables" },
+                p = { "<CMD>Telescope packer<CR>", "List Packer Plugins" },
+            },
+        }
+        wk.register(telescope_map, leader_opts)
+    end
 
     local fugitive_map = {
         g = {
@@ -77,15 +84,25 @@ return function()
         },
     }
 
-    local trouble_map = {
-        x = {
-            name = "Trouble", -- optional group name
-            x = { "<CMD>TroubleToggle<CR>", "Toggle Trouble" },
-            w = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Workspace Diagnostics" },
-            d = { "<CMD>TroubleToggle document_diagnostics<CR>", "Document Diagnostics" },
-            q = { "<CMD>TroubleToggle quickfix<CR>", "Quickfix" },
-        },
-    }
+    -- Trouble keymap --
+    local status_trouble, _ = pcall(require, "trouble")
+    if status_trouble then
+        local trouble_map = {
+            x = {
+                name = "Trouble", -- optional group name
+                x = { "<CMD>TroubleToggle<CR>", "Toggle Trouble" },
+                w = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Workspace Diagnostics" },
+                d = { "<CMD>TroubleToggle document_diagnostics<CR>", "Document Diagnostics" },
+                q = { "<CMD>TroubleToggle quickfix<CR>", "Quickfix" },
+            },
+        }
+        wk.register(trouble_map, leader_opts)
+        wk.register(
+            {
+                gR = { "<CMD>TroubleToggle lsp_references<CR>", "LSP References" }
+            },
+            blank_opts)
+    end
 
     -- Hop manual keymap register --
     local status_hop, _ = pcall(require, "hop")
@@ -113,7 +130,6 @@ return function()
     end
 
     -- Manual personal keymap --
-    vim.keymap.set("n", "gR", "<CMD>TroubleToggle lsp_references<CR>")
     vim.keymap.set("i", "<C-CR>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
     wk.register(
         {
@@ -125,10 +141,8 @@ return function()
     )
 
     -- which-key register calls --
-    wk.register(telescope_map, leader_opts)
     wk.register(fugitive_map, leader_opts)
     wk.register(toggleterm_map, leader_opts)
-    wk.register(trouble_map, leader_opts)
 
     wk.setup()
 end
