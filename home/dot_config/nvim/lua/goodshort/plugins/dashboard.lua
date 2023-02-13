@@ -29,7 +29,7 @@ return function()
                     desc = ' Dotfiles',
                     group = 'DiagnosticHint',
                     action = 'edit $XDG_CONFIG_HOME',
-                    key = 'a',
+                    key = 'd',
                 },
                 {
                     desc = ' Configuration',
