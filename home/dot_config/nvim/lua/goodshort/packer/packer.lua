@@ -78,7 +78,8 @@ return packer.startup(function(use)
             requires = {
                 "nvim-lua/plenary.nvim",
                 "LinArcX/telescope-env.nvim",
-                "nvim-telescope/telescope-packer.nvim"
+                "nvim-telescope/telescope-packer.nvim",
+                "goodshort/telescope-http.nvim"
             },
             config = require("goodshort.plugins.telescope"),
         }
