@@ -18,7 +18,7 @@ return function()
     lsp.ensure_installed({
         'tsserver',
         'eslint',
-        'sumneko_lua',
+        'lua_ls'
     })
 
     lsp.set_preferences({
@@ -44,21 +44,21 @@ return function()
     end
 
     local cmp_mappings = lsp.defaults.cmp_mappings({
-        ['<C-j>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            else
-                fallback()
-            end
-        end,
-        ['<C-k>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            else
-                fallback()
-            end
-        end,
-    })
+            ['<C-j>'] = function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                else
+                    fallback()
+                end
+            end,
+            ['<C-k>'] = function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                else
+                    fallback()
+                end
+            end,
+        })
 
     lsp.setup_nvim_cmp({
         mapping = cmp_mappings
