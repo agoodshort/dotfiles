@@ -20,4 +20,7 @@ return function()
         }
     })
     telescope.load_extension("fzf")
+    telescope.load_extension("z")
+    telescope.load_extension("env")
+    telescope.load_extension("packer")
 end
