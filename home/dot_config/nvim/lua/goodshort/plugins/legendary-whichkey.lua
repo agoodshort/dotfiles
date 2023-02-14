@@ -61,7 +61,7 @@ return function()
                 z = { "<CMD>Telescope z list<CR>", "List z" },
                 e = { "<CMD>Telescope env<CR>", "List Environment Variables" },
                 p = { "<CMD>Telescope packer<CR>", "List Packer Plugins" },
-                http = { "<CMD>Telescope http list<CR>", "List HTTP Status Code" },
+                t = { "<CMD>Telescope http list<CR>", "List HTTP Status Code" },
             },
         }
         wk.register(telescope_map, leader_opts)
