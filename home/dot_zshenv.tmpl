@@ -18,3 +18,8 @@ export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ output "scutil" 
 {{ else }}
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ .chezmoi.hostname }}"
 {{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+# Adds Homebrew to PATH
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{ end }}
