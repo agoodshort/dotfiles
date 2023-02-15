@@ -1,0 +1,80 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Validate CloudFormation templates against the CloudFormation spec
+brew "cfn-lint"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Modern replacement for 'ls'
+brew "exa"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Distributed revision control system
+brew "git"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Port scanning utility for large networks
+brew "nmap"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Opinionated Lua code formatter
+brew "stylua"
+# User interface to the TELNET protocol
+brew "telnet"
+# Internet file retriever
+brew "wget"
+# Tracks most-used directories to make cd smarter
+brew "z"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# GPU-accelerated terminal emulator
+cask "alacritty"
+# Automatic tiling window manager similar to xmonad
+cask "amethyst"
+# Configuration tool for the Betaflight firmware
+cask "betaflight-configurator"
+# Use the Bing daily image as your wallpaper
+cask "bing-wallpaper"
+# Tool to remove unnecessary files and folders from disk
+cask "cleanmymac"
+# Remote desktop and second display tool
+cask "duet"
+# Screenshot software
+cask "flameshot"
+# Developer targeted fonts with a high number of glyphs
+cask "font-hack-nerd-font"
+# Free and open-source media player
+cask "iina"
+# Configuration tool for the INAV flight control system
+cask "inav-configurator"
+# Keyboard customizer
+cask "karabiner-elements"
+# Snippet management app
+cask "lepton"
+# Web browser
+cask "microsoft-edge"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Collaboration platform for API development
+cask "postman"
+# Team communication and collaboration software
+cask "slack"
+# Menu bar indicator showing the currently selected space
+cask "spaceid"
+# Free and open-source OpenVPN client
+cask "tunnelblick"
+# Open-source code editor
+cask "visual-studio-code"
+# Video communication and virtual meeting platform
+cask "zoom"
