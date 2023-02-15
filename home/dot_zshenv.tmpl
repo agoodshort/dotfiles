@@ -1,11 +1,18 @@
+# XDG configs
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ output "scutil" "--get" "ComputerName" | trim }}"
 export WAKATIME_HOME="$HOME/.config/wakatime"
+
 # Points vim to .config
 # export VIMINIT="source $HOME/.config/vim/vimrc"
 
 # Any additional .zsh files should be stored in .config
 export ZDOTDIR="$HOME/.config/zsh"
+
+{{ if eq .chezmoi.os "darwin" }}
+export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ output "scutil" "--get" "ComputerName" | trim }}"
+{{ else }}
+export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ .chezmoi.hostname }}"
+{{ end }}
