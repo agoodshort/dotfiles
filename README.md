@@ -11,7 +11,13 @@ brew bundle dump --force --describe
 brew bundle
 ```
 
+```
+sudo apt install zsh
+chsh -s $(which zsh)
+```
+
 ## To-Do
 
 - [ ] Change keymaps for git view in neotree to match the ones from lazygit
 - [ ] Review Fugitive usage
+- [ ] Review steps to install zsh
