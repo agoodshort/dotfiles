@@ -24,3 +24,4 @@ chsh -s $(which zsh)
 - [ ] Review bashrc and profile (use only profile)
 - [ ] Review required `brew casks/formula` to run the zsh or bash properly
 - [ ] Review vim XDG location
+- [ ] Add VSCode config to share how vim keybindings works
