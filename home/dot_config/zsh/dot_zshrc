@@ -3,4 +3,4 @@
 [[ -f "$ZDOTDIR/homebrew.zsh" ]] && source "$ZDOTDIR/homebrew.zsh"
 
 # Starship
-eval "$(starship init zsh)"
+[[ -x $(which starship) ]] && eval "$(starship init zsh)"
