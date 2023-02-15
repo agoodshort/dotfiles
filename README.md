@@ -21,3 +21,4 @@ chsh -s $(which zsh)
 - [ ] Change keymaps for git view in neotree to match the ones from lazygit
 - [ ] Review Fugitive usage
 - [ ] Review steps to install zsh
+- [ ] Review bashrc and profile (use only profile)
