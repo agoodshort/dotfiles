@@ -23,3 +23,4 @@ chsh -s $(which zsh)
 - [ ] Review steps to install zsh
 - [ ] Review bashrc and profile (use only profile)
 - [ ] Review required `brew casks/formula` to run the zsh or bash properly
+- [ ] Review vim XDG location

@@ -3,16 +3,20 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
+# AWS
 export AWS_PROFILE=revanistaLocal
+export AWS_REGION=eu-west-1
+
 export WAKATIME_HOME="$HOME/.config/wakatime"
 
 # Points vim to .config
-# export VIMINIT="source $HOME/.config/vim/vimrc"
+# export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
 # Any additional .zsh files should be stored in .config
 export ZDOTDIR="$HOME/.config/zsh"
 
 # Machine specific handled through chezmoi
+##########################################################
 {{ if eq .chezmoi.os "darwin" }}
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ output "scutil" "--get" "ComputerName" | trim }}"
 {{ else }}

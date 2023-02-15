@@ -20,5 +20,4 @@ alias cat='bat'
 alias grep='grep --color'
 
 # vim
-alias vim='VIMINIT="source $HOME/.config/vim/vimrc" vim'
-alias nvim='env -u VIMINIT nvim'
+# alias vim='VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc" vim'
