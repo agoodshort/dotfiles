@@ -1,0 +1,90 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Validate CloudFormation templates against the CloudFormation spec
+brew "cfn-lint"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Modern replacement for 'ls'
+brew "exa"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Distributed revision control system
+brew "git"
+# Update of iperf: measures TCP, UDP, and SCTP bandwidth
+brew "iperf3"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Port scanning utility for large networks
+brew "nmap"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Cross-shell prompt for astronauts
+brew "starship"
+# User interface to the TELNET protocol
+brew "telnet"
+# Internet file retriever
+brew "wget"
+# X.Org: Protocol Headers
+brew "xorgproto"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# GPU-accelerated terminal emulator
+cask "alacritty"
+# Automatic tiling window manager similar to xmonad
+cask "amethyst"
+# Configuration tool for the Betaflight firmware
+cask "betaflight-configurator"
+# Tool to remove unnecessary files and folders from disk
+cask "cleanmymac"
+# Developer targeted fonts with a high number of glyphs
+cask "font-hack-nerd-font"
+# 3D parametric modeler
+cask "freecad"
+# Free and open-source image editor
+cask "gimp"
+# Web browser
+cask "google-chrome"
+# Free and open-source media player
+cask "iina"
+# Configuration tool for the INAV flight control system
+cask "inav-configurator"
+# Keyboard customizer
+cask "karabiner-elements"
+# Snippet management app
+cask "lepton"
+# Web browser
+cask "microsoft-edge"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Remote desktop
+cask "parsec"
+# Collaboration platform for API development
+cask "postman"
+# Tool to format memory cards complying with the SD File System spec
+cask "sdformatter"
+# Team communication and collaboration software
+cask "slack"
+# 3D printer and slicing GUI
+cask "ultimaker-cura"
+# Keyboard configurator
+cask "via"
+# Virtualizer for x86 hardware
+cask "virtualbox"
+# Open-source code editor
+cask "visual-studio-code"
+# Open-source version of the X.Org X Window System
+cask "xquartz"
+# Video communication and virtual meeting platform
+cask "zoom"

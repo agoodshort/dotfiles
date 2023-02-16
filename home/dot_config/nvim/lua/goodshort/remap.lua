@@ -3,7 +3,7 @@ local vk = vim.keymap
 vim.g.mapleader = " "
 
 -- ESC
-vk.set("i", "<C-c>", "<ESC>") -- Press ESC
+-- vk.set("i", "<C-c>", "<ESC>") -- Press ESC
 
 -- windows
 vk.set("n", "<C-w>n", ":vsplit<CR>") -- open new window vertically
