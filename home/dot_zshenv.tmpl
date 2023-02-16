@@ -19,11 +19,8 @@ export ZDOTDIR="$HOME/.config/zsh"
 ##########################################################
 {{ if eq .chezmoi.os "darwin" }}
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ output "scutil" "--get" "ComputerName" | trim }}"
-{{ else }}
+eval "$(/usr/local/bin/brew shellenv)" # Adds Homebrew to PATH
+{{ else if eq .chezmoi.os "linux" }}
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ .chezmoi.hostname }}"
-{{ end }}
-
-{{ if eq .chezmoi.os "linux" }}
-# Adds Homebrew to PATH
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Adds Homebrew to PATH
 {{ end }}
