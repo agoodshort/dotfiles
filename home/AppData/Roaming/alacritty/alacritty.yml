@@ -119,7 +119,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Hack Nerd Font Mono
+    family: Hack NFM
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -793,7 +793,7 @@ shell:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-#key_bindings:
+key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -882,6 +882,7 @@ shell:
 
   # (Windows only)
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
+  - { key: Backslash, mods: Control,       chars: "\x1c"                      } # CTRL + \
 
   # (macOS only)
   #- { key: K,              mods: Command, mode: ~Vi|~Search, chars: "\x0c"                 }
