@@ -5,10 +5,10 @@ Host github.com
     UseKeychain yes # Required if IdentifyFile uses a passphrase
     IdentityFile ~/.ssh/id_ed25519_github
 
-{{ else if eq .chezmoi.os "linux" -}}
+{{- else if eq .chezmoi.os "linux" -}}
 
 Host github.com
     AddKeysToAgent yes
     IdentityFile ~/.ssh/id_ed25519_wsl_ubuntu
 
-{{ end -}}
+{{- end -}}
