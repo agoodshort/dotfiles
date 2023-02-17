@@ -39,7 +39,7 @@
             "colorScheme": "Kanagawa",
             "font": 
             {
-                "face": "Hack Nerd Font Mono"
+                "face": "Hack NFM"
             },
             "opacity": 95
         },
@@ -53,7 +53,6 @@
             },
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
-                "elevate": true,
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
