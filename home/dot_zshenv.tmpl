@@ -15,12 +15,17 @@ export WAKATIME_HOME="$HOME/.config/wakatime"
 # Any additional .zsh files should be stored in .config
 export ZDOTDIR="$HOME/.config/zsh"
 
-# Machine specific handled through chezmoi
-##########################################################
+############################################
+# Machine specific handled through chezmoi #
+############################################
 {{ if eq .chezmoi.os "darwin" }}
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ output "scutil" "--get" "ComputerName" | trim }}"
-eval "$(/usr/local/bin/brew shellenv)" # Adds Homebrew to PATH
-{{ else if eq .chezmoi.os "linux" }}
+
+# Adds Homebrew to PATH
+eval "$(/usr/local/bin/brew shellenv)"
+{{- else if eq .chezmoi.os "linux" }}
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ .chezmoi.hostname }}"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Adds Homebrew to PATH
-{{ end }}
+
+# Adds Homebrew to PATH
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{- end }}
