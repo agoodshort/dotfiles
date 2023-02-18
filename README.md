@@ -9,6 +9,7 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 brew bundle dump --force --describe
 brew bundle
+brew autoremove
 ```
 
 ```
