@@ -16,6 +16,10 @@ sudo apt install zsh
 chsh -s $(which zsh)
 ```
 
+```
+/usr/local/opt/fzf/install --xdg --no-bash --no-fish --no-update-rc --key-bindings --completion
+```
+
 ## To-Do
 
 - [ ] Change keymaps for git view in neotree to match the ones from lazygit
