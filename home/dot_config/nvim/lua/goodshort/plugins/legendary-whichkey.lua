@@ -58,7 +58,7 @@ return function()
                 h = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
                 s = { "<CMD>Telescope grep_string<CR>", "Grep String" },
                 l = { "<CMD>Telescope live_grep<CR>", "Live Grep" },
-                z = { "<CMD>:lua require'telescope'.extensions.z.list { cmd = { 'zsh', '-ic', 'z -l' } }<CR>", "List z" },
+                z = { "<CMD>Telescope zoxide list<CR>", "List z" },
                 e = { "<CMD>Telescope env<CR>", "List Environment Variables" },
                 p = { "<CMD>Telescope packer<CR>", "List Packer Plugins" },
                 t = { "<CMD>Telescope http list<CR>", "List HTTP Status Code" },

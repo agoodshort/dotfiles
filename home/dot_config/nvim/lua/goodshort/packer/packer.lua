@@ -64,22 +64,16 @@ return packer.startup(function(use)
             after = "toggleterm.nvim"
         }
 
-        -- fuzzy-finder w/ telescope
+        -- telescope
         use { 'nvim-telescope/telescope-fzf-native.nvim', run = "make" }
-        use { 'nvim-telescope/telescope-z.nvim',
-            requires = {
-                'nvim-lua/plenary.nvim',
-                'nvim-lua/popup.nvim',
-                'nvim-telescope/telescope.nvim',
-            }
-        }
         use {
             "nvim-telescope/telescope.nvim", branch = "0.1.x",
             requires = {
                 "nvim-lua/plenary.nvim",
                 "LinArcX/telescope-env.nvim",
                 "nvim-telescope/telescope-packer.nvim",
-                "barrett-ruth/telescope-http.nvim"
+                "barrett-ruth/telescope-http.nvim",
+                "jvgrootveld/telescope-zoxide"
             },
             config = require("goodshort.plugins.telescope"),
         }
