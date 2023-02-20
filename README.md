@@ -27,3 +27,8 @@ chsh -s $(which zsh)
 - [ ] Add VSCode config to share how vim keybindings works
 - [ ] Review the PowerToys config
 - [ ] Using Scoop and Chocolatey as package manager (prioritze Scoop)
+
+
+# Windows nvim
+
+- requires nvm, node install and C
