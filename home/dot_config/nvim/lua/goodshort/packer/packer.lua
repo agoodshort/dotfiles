@@ -31,7 +31,10 @@ packer.init {
         open_fn = require('packer.util').float,
     },
     autoremove = true, -- Remove disabled or unused plugins without prompting the users
-    snapshot_path = vim.fn.stdpath('config') .. '/lua/goodshort/packer/snapshots' -- Save directory for snapshots
+    profile = {
+        enable = true,
+        threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
+    }, snapshot_path = vim.fn.stdpath('config') .. '/lua/goodshort/packer/snapshots' -- Save directory for snapshots
 }
 
 -- add list of plugins to install
@@ -73,7 +76,8 @@ return packer.startup(function(use)
                 "LinArcX/telescope-env.nvim",
                 "nvim-telescope/telescope-packer.nvim",
                 "barrett-ruth/telescope-http.nvim",
-                "jvgrootveld/telescope-zoxide"
+                "jvgrootveld/telescope-zoxide",
+"keyvchan/telescope-find-pickers.nvim"
             },
             config = require("goodshort.plugins.telescope"),
         }

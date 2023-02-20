@@ -24,4 +24,5 @@ return function()
     telescope.load_extension("packer")
     telescope.load_extension("http")
     telescope.load_extension("zoxide")
+    telescope.load_extension("find_pickers")
 end
