@@ -30,6 +30,7 @@ vk.set("n", "<C-d>", "<C-d>zz") -- move down
 
 -- Paste before the cursor
 vk.set("n", "p", "P")
+vk.set("n", "P", "p")
 
 -- paste by deleting and sending to void buffer
 vk.set("n", "<leader>p", "\"_dP")

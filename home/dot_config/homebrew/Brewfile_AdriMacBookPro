@@ -14,6 +14,8 @@ brew "chezmoi"
 brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
 # Distributed revision control system
 brew "git"
 # Simple terminal UI for git commands
@@ -32,8 +34,8 @@ brew "stylua"
 brew "telnet"
 # Internet file retriever
 brew "wget"
-# Tracks most-used directories to make cd smarter
-brew "z"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh

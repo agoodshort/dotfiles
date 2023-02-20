@@ -9,11 +9,16 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 brew bundle dump --force --describe
 brew bundle
+brew autoremove
 ```
 
 ```
 sudo apt install zsh
 chsh -s $(which zsh)
+```
+
+```
+/usr/local/opt/fzf/install --xdg --no-bash --no-fish --no-update-rc --key-bindings --completion
 ```
 
 ## To-Do

@@ -58,10 +58,11 @@ return function()
                 h = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
                 s = { "<CMD>Telescope grep_string<CR>", "Grep String" },
                 l = { "<CMD>Telescope live_grep<CR>", "Live Grep" },
-                z = { "<CMD>Telescope z list<CR>", "List z" },
+                z = { "<CMD>Telescope zoxide list<CR>", "List z" },
                 e = { "<CMD>Telescope env<CR>", "List Environment Variables" },
                 p = { "<CMD>Telescope packer<CR>", "List Packer Plugins" },
                 t = { "<CMD>Telescope http list<CR>", "List HTTP Status Code" },
+                ["?"] = { "<CMD>Telescope find_pickers<CR>", "List Telescope Pickers" }
             },
         }
         wk.register(telescope_map, leader_opts)
