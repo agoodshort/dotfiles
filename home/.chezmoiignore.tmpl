@@ -11,7 +11,8 @@ Library
 AppData
 {{ end }}
 {{ if eq .chezmoi.os "windows" }}
-.config
+.config/*
+!.config/nvim
 .ssh
 .zshenv
 {{ end }}
