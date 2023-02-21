@@ -4,22 +4,46 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character] # The name of the module we are configuring is "character"
-success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+[sudo]
+disabled = false
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+[directory]
+fish_style_pwd_dir_length = 1
+
+[character]
+success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
 
 [aws]
 format = 'on [$symbol$profile]($style) '
 
-[custom.chezmoi]
+[custom.chezmoi_status]
+disabled = true
 description = "The current chezmoi status"
 symbol = ' '
-# format = 'at [$symbol$output]($style)'
 format = '- [$symbol](bold purple)[\[!\]](bold red) '
-# command = 'echo $(chezmoi status $PWD | wc -l)'
-# when = ''' [ $(chezmoi managed $PWD | wc -l) -gt  0 ] '''
 when = ''' ! chezmoi verify '''
+
+[custom.chezmoi_status_diff]
+disabled = false
+description = "The current chezmoi status and number of changes"
+symbol = ' '
+format = '- [$symbol](bold purple)[\[!$output\]](bold red) '
+command = 'echo $(chezmoi status | wc -l)'
+when = ''' ! chezmoi verify '''
+
+[custom.chezmoi_diff_current_directory]
+disabled = true
+description = "The current chezmoi number of changes in current directory"
+symbol = ' '
+format = '- [$symbol$output]($style) '
+command = 'echo $(chezmoi status $PWD | wc -l)'
+when = ''' [ $(chezmoi managed $PWD | wc -l) -gt  0 ] '''
+
+
+[custom.chezmoi_diff]
+disabled = true
+description = "The current chezmoi number of changes"
+symbol = ' '
+format = '- [$symbol$output]($style) '
+command = 'echo $(chezmoi status | wc -l)'
+when = ''' [ $(chezmoi managed | wc -l) -gt  0 ] '''
