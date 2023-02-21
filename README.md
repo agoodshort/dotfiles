@@ -21,6 +21,10 @@ chsh -s $(which zsh)
 /usr/local/opt/fzf/install --xdg --no-bash --no-fish --no-update-rc --key-bindings --completion
 ```
 
+```
+scoop export > $env:HOMEPATH/.config/scoop/backup_$env:COMPUTERNAME.json
+```
+
 ## To-Do
 
 - [ ] Change keymaps for git view in neotree to match the ones from lazygit
@@ -31,7 +35,6 @@ chsh -s $(which zsh)
 - [ ] Review vim XDG location
 - [ ] Add VSCode config to share how vim keybindings works
 - [ ] Review the PowerToys config
-- [ ] Using Scoop and Chocolatey as package manager (prioritze Scoop)
 - [ ] Create template so that chezmoi points correctly to dotfiles and nvim config when in dashboard ( use {{ .chezmoi.homeDir}} )
 
 # Windows nvim
