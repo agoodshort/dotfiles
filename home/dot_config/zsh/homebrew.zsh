@@ -10,4 +10,5 @@ export "_ZO_DATA_DIR=$XDG_CONFIG_HOME/zoxide"
 [[ -f "$HOMEBREW_PREFIX/bin/zoxide" ]] && eval "$(zoxide init zsh)"
 
 # junegunn/fzf
-[ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/fzf.zsh
+# Required to use `zf` with zoxide
+[[ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ]] && source $XDG_CONFIG_HOME/fzf/fzf.zsh
