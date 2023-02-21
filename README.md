@@ -32,7 +32,7 @@ chsh -s $(which zsh)
 - [ ] Add VSCode config to share how vim keybindings works
 - [ ] Review the PowerToys config
 - [ ] Using Scoop and Chocolatey as package manager (prioritze Scoop)
-
+- [ ] Create template so that chezmoi points correctly to dotfiles and nvim config when in dashboard ( use {{ .chezmoi.homeDir}} )
 
 # Windows nvim
 
