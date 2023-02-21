@@ -77,7 +77,7 @@ return packer.startup(function(use)
                 "nvim-telescope/telescope-packer.nvim",
                 "barrett-ruth/telescope-http.nvim",
                 "jvgrootveld/telescope-zoxide",
-"keyvchan/telescope-find-pickers.nvim"
+                "keyvchan/telescope-find-pickers.nvim"
             },
             config = require("goodshort.plugins.telescope"),
         }
@@ -130,6 +130,16 @@ return packer.startup(function(use)
         -- statusline and lsp info
         use({ "j-hui/fidget.nvim", config = require("goodshort.plugins.fidget") })
         use({ 'nvim-lualine/lualine.nvim', after = "kanagawa.nvim", config = require("goodshort.plugins.lualine") })
+        use({
+            "glepnir/lspsaga.nvim",
+            branch = "main",
+            config = require("goodshort.plugins.lspsaga"),
+            requires = {
+                { "nvim-tree/nvim-web-devicons" },
+                --Please make sure you install markdown and markdown_inline parser
+                { "nvim-treesitter/nvim-treesitter" }
+            }
+        })
 
         -- pretty list for LSP diagnostics
         use { "folke/trouble.nvim",
