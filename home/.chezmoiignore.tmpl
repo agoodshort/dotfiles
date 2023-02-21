@@ -9,6 +9,7 @@ Library
 # Windows specific
 {{ if ne .chezmoi.os "windows" }}
 AppData
+.config/scoop
 {{ end }}
 {{ if eq .chezmoi.os "windows" }}
 .config/*
