@@ -11,3 +11,16 @@ success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
+
+[aws]
+format = 'on [$symbol$profile]($style) '
+
+[custom.chezmoi]
+description = "The current chezmoi status"
+symbol = ' '
+# format = 'at [$symbol$output]($style)'
+format = '- [$symbol]($style)[\[!\]](red)'
+style = 'purple'
+# command = 'echo $(chezmoi status $PWD | wc -l)'
+# when = ''' [ $(chezmoi managed $PWD | wc -l) -gt  0 ] '''
+when = ''' ! chezmoi verify '''
