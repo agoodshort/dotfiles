@@ -53,7 +53,12 @@ return function()
             f = {
                 name = "Telescope", -- optional group name
                 f = { "<CMD>Telescope find_files<CR>", "Find Files" },
-                g = { "<CMD>Telescope git_files<CR>", "Git Files" },
+                g = {
+                    name = "Git",
+                    f = { "<CMD>Telescope git_files<CR>", "Git Files" },
+                    d = { "<CMD>Telescope git_diffs<CR>", "Git Diffs" },
+                    c = { "<CMD>Telescope git_commits<CR>", "Git Commits" },
+                },
                 b = { "<CMD>Telescope buffers<CR>", "Buffers" },
                 h = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
                 s = { "<CMD>Telescope grep_string<CR>", "Grep String" },
@@ -62,6 +67,7 @@ return function()
                 e = { "<CMD>Telescope env<CR>", "List Environment Variables" },
                 p = { "<CMD>Telescope packer<CR>", "List Packer Plugins" },
                 t = { "<CMD>Telescope http list<CR>", "List HTTP Status Code" },
+                u = { "<CMD>Telescope undo<CR>", "Visualize Undo Tree" },
                 ["?"] = { "<CMD>Telescope find_pickers<CR>", "List Telescope Pickers" }
             },
         }

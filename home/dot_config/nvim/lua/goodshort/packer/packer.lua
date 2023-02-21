@@ -70,6 +70,13 @@ return packer.startup(function(use)
         -- telescope
         use { 'nvim-telescope/telescope-fzf-native.nvim', run = "make" }
         use {
+            'paopaol/telescope-git-diffs.nvim',
+            requires = {
+                "nvim-lua/plenary.nvim",
+                "sindrets/diffview.nvim",
+            },
+        }
+        use {
             "nvim-telescope/telescope.nvim", branch = "0.1.x",
             requires = {
                 "nvim-lua/plenary.nvim",
@@ -77,7 +84,8 @@ return packer.startup(function(use)
                 "nvim-telescope/telescope-packer.nvim",
                 "barrett-ruth/telescope-http.nvim",
                 "jvgrootveld/telescope-zoxide",
-                "keyvchan/telescope-find-pickers.nvim"
+                "keyvchan/telescope-find-pickers.nvim",
+                "debugloop/telescope-undo.nvim",
             },
             config = require("goodshort.plugins.telescope"),
         }
