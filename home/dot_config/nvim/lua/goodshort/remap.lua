@@ -28,10 +28,6 @@ vk.set("v", "K", ":m '<-2<CR>gv=gv") -- move down
 vk.set("n", "<C-u>", "<C-u>zz") -- move up
 vk.set("n", "<C-d>", "<C-d>zz") -- move down
 
--- Paste before the cursor
-vk.set("n", "p", "P")
-vk.set("n", "P", "p")
-
 -- paste by deleting and sending to void buffer
 vk.set("n", "<leader>p", "\"_dP")
 vk.set("v", "<leader>p", "\"_dP")
