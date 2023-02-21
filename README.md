@@ -37,3 +37,7 @@ chsh -s $(which zsh)
 # Windows nvim
 
 - requires nvm, node install and C
+
+```
+scoop install mingw
+```
