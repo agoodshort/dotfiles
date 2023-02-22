@@ -48,3 +48,6 @@ symbol = ' '
 format = '- [$symbol$output]($style) '
 command = 'echo $(chezmoi status -x scripts | wc -l)'
 when = ' ! chezmoi verify -x scripts '
+
+
+# Do a number of files managed in this directory => (status $PWD) / (ls -l | wc -l)
