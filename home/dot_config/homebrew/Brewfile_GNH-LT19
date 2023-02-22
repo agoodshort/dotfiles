@@ -21,8 +21,14 @@ brew "git"
 brew "lazygit"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Internet file retriever
+brew "wget"
+# X.Org: Protocol Headers
+brew "xorgproto"
 # Tracks most-used directories to make cd smarter
 brew "z"
 # Shell extension to navigate your filesystem faster
