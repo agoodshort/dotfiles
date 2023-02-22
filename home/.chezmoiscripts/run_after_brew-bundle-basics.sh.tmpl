@@ -1,3 +1,5 @@
+{{ if ne .chezmoi.os "windows" -}}
+
 #!/bin/bash
 
 if [[ -e $HOME/.config/homebrew/Brewfile_Basics ]]; then
@@ -8,3 +10,5 @@ else
     echo "HOMEBREW_BUNDLE_FILE isn't set, impossible to generate Brewfile"
 fi
 echo "-------------------------------"
+
+{{ end }}
