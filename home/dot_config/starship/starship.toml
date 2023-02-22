@@ -30,7 +30,7 @@ symbol = ' '
 format = '- [$symbol](bold purple)[\[$output\]](bold red) '
 # command = 'echo $(chezmoi status -x scripts | wc -l)'
 # command = "echo M$(chezmoi status | cut -c 1-2 | grep 'M' | wc -l)"
-command = "~/.config/starship/chezmoi_status_diff.sh"
+command = "$XDG_CONFIG_HOME/starship/chezmoi_status_diff.sh"
 when = ' ! chezmoi verify -x scripts '
 
 [custom.chezmoi_diff_current_directory]

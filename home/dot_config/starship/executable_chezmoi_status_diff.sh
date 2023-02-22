@@ -12,8 +12,14 @@ destinationStatus=$(echo "$status" | cut -c 1)
 # source
 [[ $(echo $sourceStatus | wc -l) > 0 ]] && output="${output}⇣"
 
+# destination
+[[ $(echo $destinationStatus | wc -l) > 0 ]] && output="${output}⇡"
+
 # modified
 [[ ($sourceStatus == *'M'*) || ($destinationStatus == *'M'*) ]] && output="${output}!"
+
+# added
+[[ ($sourceStatus == *'A'*) || ($destinationStatus == *'A'*) ]] && output="${output}+"
 
 # deleted
 [[ ($sourceStatus == *'D'*) || ($destinationStatus == *'D'*) ]] && output="${output}✘"
