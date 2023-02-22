@@ -44,3 +44,5 @@ scoop export > $env:HOMEPATH/.config/scoop/backup_$env:COMPUTERNAME.json
 ```
 scoop install mingw
 ```
+
+chezmoi should create (or edit if not existing) the Powershell profile ($PROFILE) and have the line `Invoke-Expression (&starship init powershell)`
