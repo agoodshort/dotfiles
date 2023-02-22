@@ -36,6 +36,7 @@ scoop export > $env:HOMEPATH/.config/scoop/backup_$env:COMPUTERNAME.json
 - [ ] Add VSCode config to share how vim keybindings works
 - [ ] Review the PowerToys config
 - [ ] Create template so that chezmoi points correctly to dotfiles and nvim config when in dashboard ( use {{ .chezmoi.homeDir}} )
+- [ ] Auto update if nvim config was changed
 
 # Windows nvim
 
