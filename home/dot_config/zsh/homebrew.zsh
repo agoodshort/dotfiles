@@ -12,3 +12,7 @@ export "_ZO_DATA_DIR=$XDG_CONFIG_HOME/zoxide"
 # junegunn/fzf
 # Required to use `zf` with zoxide
 [[ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ]] && source $XDG_CONFIG_HOME/fzf/fzf.zsh
+
+# starship
+export "STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml"
+[[ -x $(which starship) ]] && eval "$(starship init zsh)"

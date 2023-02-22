@@ -1,6 +1,3 @@
 [[ -f "$ZDOTDIR/alias.zsh" ]] && source "$ZDOTDIR/alias.zsh"
 [[ -f "$ZDOTDIR/nvm.zsh" ]] && source "$ZDOTDIR/nvm.zsh"
 [[ -f "$ZDOTDIR/homebrew.zsh" ]] && source "$ZDOTDIR/homebrew.zsh"
-
-# Starship
-[[ -x $(which starship) ]] && eval "$(starship init zsh)"
