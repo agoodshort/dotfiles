@@ -1,3 +1,14 @@
+## Uncomment to profile zsh startup
+# zmodload zsh/zprof
+
+## Loading config files
 [[ -f "$ZDOTDIR/alias.zsh" ]] && source "$ZDOTDIR/alias.zsh"
-[[ -f "$ZDOTDIR/nvm.zsh" ]] && source "$ZDOTDIR/nvm.zsh"
 [[ -f "$ZDOTDIR/homebrew.zsh" ]] && source "$ZDOTDIR/homebrew.zsh"
+
+## zsh config options
+setopt interactivecomments # Allow comments on the command line
+setopt correct # Turn on spelling correction
+setopt ignoreeof # Force user to use `exit`
+
+## Uncomment to profile zsh startup
+# zprof
