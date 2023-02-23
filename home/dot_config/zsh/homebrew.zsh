@@ -45,11 +45,11 @@ if [[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" && -s "$HOMEBREW_PREFIX/opt/nvm/etc/b
 
     node() {
         lazynvm
-        nvm $@
+        node $@
     }
 
     npm() {
         lazynvm
-        nvm $@
+        npm $@
     }
 fi
