@@ -2,8 +2,9 @@ local vk = vim.keymap
 
 vim.g.mapleader = " "
 
--- ESC
--- vk.set("i", "<C-c>", "<ESC>") -- Press ESC
+-- Escape insert mode
+vk.set("i", "<C-c>", "<ESC>")
+vk.set("n", "<C-c>", "<ESC>")
 
 -- windows
 vk.set("n", "<C-w>n", ":vsplit<CR>") -- open new window vertically
@@ -29,28 +30,25 @@ vk.set("n", "<C-u>", "<C-u>zz") -- move up
 vk.set("n", "<C-d>", "<C-d>zz") -- move down
 
 -- paste by deleting and sending to void buffer
-vk.set("n", "<leader>p", "\"_dP")
-vk.set("v", "<leader>p", "\"_dP")
+vk.set("n", "<leader>p", '"_dP')
+vk.set("v", "<leader>p", '"_dP')
 
 -- yank to system clipboard
-vk.set("n", "<leader>y", "\"+y")
-vk.set("v", "<leader>y", "\"+y")
-vk.set("n", "<leader>Y", "\"+Y")
+vk.set("n", "<leader>y", '"+y')
+vk.set("v", "<leader>y", '"+y')
+vk.set("n", "<leader>Y", '"+Y')
 
 -- yank to system clipboard
-vk.set("n", "<leader>p", "\"+p")
-vk.set("v", "<leader>p", "\"+p")
-vk.set("n", "<leader>P", "\"+P")
+vk.set("n", "<leader>p", '"+p')
+vk.set("v", "<leader>p", '"+p')
+vk.set("n", "<leader>P", '"+P')
 
 -- delete to void buffer
-vk.set("n", "<leader>d", "\"_d")
-vk.set("v", "<leader>d", "\"_d")
+vk.set("n", "<leader>d", '"_d')
+vk.set("v", "<leader>d", '"_d')
 
 -- to replace words
 vk.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- clear search highlight until next highlight
-vk.set("n", "<leader>n", ":noh<CR>")
 
 -- create new lines and stay at the same position
 vk.set("n", "<leader>o", "mzo<ESC>`z")
