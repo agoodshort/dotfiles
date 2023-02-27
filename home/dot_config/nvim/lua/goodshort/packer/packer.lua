@@ -1,12 +1,12 @@
 local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
 end
 
 local packer_bootstrap = ensure_packer()
@@ -22,167 +22,205 @@ vim.cmd([[
 -- import packer safely
 local status, packer = pcall(require, "packer")
 if not status then
-    return
+	return
 end
 
 -- packer configs
-packer.init {
-    display = {
-        open_fn = require('packer.util').float,
-    },
-    autoremove = true, -- Remove disabled or unused plugins without prompting the users
-    profile = {
-        enable = true,
-        threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
-    }, snapshot_path = vim.fn.stdpath('config') .. '/lua/goodshort/packer/snapshots' -- Save directory for snapshots
-}
+packer.init({
+	display = {
+		open_fn = require("packer.util").float,
+	},
+	autoremove = true, -- Remove disabled or unused plugins without prompting the users
+	profile = {
+		enable = true,
+		threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
+	},
+	snapshot_path = vim.fn.stdpath("config") .. "/lua/goodshort/packer/snapshots", -- Save directory for snapshots
+})
 
 -- add list of plugins to install
 return packer.startup(function(use)
-        -- package manager
-        use("wbthomason/packer.nvim")
-        use("lewis6991/impatient.nvim")
+	-- package manager
+	use("wbthomason/packer.nvim")
+	use("lewis6991/impatient.nvim")
 
-        -- Simple plugin
-        use("dstein64/vim-startuptime")
-        use("wakatime/vim-wakatime")
-        use { "kwkarlwang/bufresize.nvim", config = require("goodshort.plugins.bufresize") }
-        use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end } -- comment with gc
-        use { "sitiom/nvim-numbertoggle" }
-        use { "alker0/chezmoi.vim" }
+	-- Simple plugin
+	use("dstein64/vim-startuptime")
+	use("wakatime/vim-wakatime")
+	use({ "kwkarlwang/bufresize.nvim", config = require("goodshort.plugins.bufresize") })
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	}) -- comment with gc
+	use({ "sitiom/nvim-numbertoggle" })
+	use({ "alker0/chezmoi.vim" })
 
-        -- theme
-        use { "rebelot/kanagawa.nvim", config = require("goodshort.plugins.kanagawa") }
-        use { "petertriho/nvim-scrollbar", config = require("goodshort.plugins.scrollbar") }
-        use("lukas-reineke/indent-blankline.nvim")
-        use {
-            'glepnir/dashboard-nvim', event = 'VimEnter', config = require("goodshort.plugins.dashboard"),
-            requires = { 'nvim-tree/nvim-web-devicons' }
-        }
+	-- theme
+	use({ "rebelot/kanagawa.nvim", config = require("goodshort.plugins.kanagawa") })
+	use({ "petertriho/nvim-scrollbar", config = require("goodshort.plugins.scrollbar") })
+	use("lukas-reineke/indent-blankline.nvim")
+	use({
+		"glepnir/dashboard-nvim",
+		event = "VimEnter",
+		config = require("goodshort.plugins.dashboard"),
+		requires = { "nvim-tree/nvim-web-devicons" },
+	})
 
-        -- displays shortcuts
-        use { "mrjones2014/legendary.nvim",
-            requires = { "stevearc/dressing.nvim", "folke/which-key.nvim" },
-            config = require("goodshort.plugins.legendary-whichkey"),
-            after = "toggleterm.nvim"
-        }
+	-- telescope
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({
+		"paopaol/telescope-git-diffs.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+		},
+	})
+	use({
+		"nvim-telescope/telescope.nvim",
+		branch = "0.1.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"LinArcX/telescope-env.nvim",
+			"nvim-telescope/telescope-packer.nvim",
+			"barrett-ruth/telescope-http.nvim",
+			"jvgrootveld/telescope-zoxide",
+			"keyvchan/telescope-find-pickers.nvim",
+			"debugloop/telescope-undo.nvim",
+		},
+		config = require("goodshort.plugins.telescope"),
+	})
 
-        -- telescope
-        use { 'nvim-telescope/telescope-fzf-native.nvim', run = "make" }
-        use {
-            'paopaol/telescope-git-diffs.nvim',
-            requires = {
-                "nvim-lua/plenary.nvim",
-                "sindrets/diffview.nvim",
-            },
-        }
-        use {
-            "nvim-telescope/telescope.nvim", branch = "0.1.x",
-            requires = {
-                "nvim-lua/plenary.nvim",
-                "LinArcX/telescope-env.nvim",
-                "nvim-telescope/telescope-packer.nvim",
-                "barrett-ruth/telescope-http.nvim",
-                "jvgrootveld/telescope-zoxide",
-                "keyvchan/telescope-find-pickers.nvim",
-                "debugloop/telescope-undo.nvim",
-            },
-            config = require("goodshort.plugins.telescope"),
-        }
+	-- treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			ts_update()
+		end,
+		config = require("goodshort.plugins.treesitter"),
+	})
 
-        -- treesitter
-        use {
-            'nvim-treesitter/nvim-treesitter',
-            run = function()
-                local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-                ts_update()
-            end,
-            config = require("goodshort.plugins.treesitter")
-        }
+	-- auto-closing
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	}) -- autoclose parens, brackets, quotes, etc...
+	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+	use("mrjones2014/nvim-ts-rainbow") -- rainbow parentheses
 
-        -- auto-closing
-        use({ "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end }) -- autoclose parens, brackets, quotes, etc...
-        use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
-        use("mrjones2014/nvim-ts-rainbow") -- rainbow parentheses
+	--neo-tree
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			{ "s1n7ax/nvim-window-picker", tag = "v1.*" }, -- only needed if you want to use the commands with "_with_window_picker" suffix
+		},
+		config = require("goodshort.plugins.neo-tree"),
+	})
 
-        --neo-tree
-        use {
-            "nvim-neo-tree/neo-tree.nvim",
-            branch = "v2.x",
-            requires = {
-                "nvim-lua/plenary.nvim",
-                "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-                "MunifTanjim/nui.nvim",
-                { 's1n7ax/nvim-window-picker', tag = "v1.*" } -- only needed if you want to use the commands with "_with_window_picker" suffix
-            },
-            config = require("goodshort.plugins.neo-tree")
-        }
+	-- tabby
+	use({
+		"nanozuki/tabby.nvim",
+		keys = { [[<C-t>]] }, -- loads when these keys are pressed
+		config = require("goodshort.plugins.tabby"),
+	})
 
-        -- tabby
-        use { "nanozuki/tabby.nvim",
-            keys = { [[<C-t>]] }, -- loads when these keys are pressed
-            config = require("goodshort.plugins.tabby")
-        }
+	-- Easymotion like plugin
+	use({
+		"phaazon/hop.nvim",
+		branch = "v2",
+		config = function()
+			require("hop").setup({})
+		end,
+	}) -- keymaps configured through Which-key
 
-        -- Easymotion like plugin
-        use { 'phaazon/hop.nvim', branch = 'v2', config = function() require("hop").setup {} end } -- keymaps configured through Which-key
+	-- terminal
+	use({ "akinsho/toggleterm.nvim", config = require("goodshort.plugins.toggleterm") })
 
-        -- terminal
-        use { "akinsho/toggleterm.nvim", config = require("goodshort.plugins.toggleterm") }
+	-- git integration
+	use("tpope/vim-fugitive")
+	use("tpope/vim-rhubarb")
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
 
-        -- git integration
-        use("tpope/vim-fugitive")
-        use("tpope/vim-rhubarb")
-        use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
+	-- statusline and lsp info
+	use({ "j-hui/fidget.nvim", config = require("goodshort.plugins.fidget") })
+	use({ "nvim-lualine/lualine.nvim", after = "kanagawa.nvim", config = require("goodshort.plugins.lualine") })
+	use({
+		"adoyle-h/lsp-toggle.nvim",
+		config = function()
+			require("lsp-toggle").setup()
+		end,
+	})
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = require("goodshort.plugins.lspsaga"),
+		requires = {
+			{ "nvim-tree/nvim-web-devicons" },
+			--Please make sure you install markdown and markdown_inline parser
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
 
-        -- statusline and lsp info
-        use({ "j-hui/fidget.nvim", config = require("goodshort.plugins.fidget") })
-        use({ 'nvim-lualine/lualine.nvim', after = "kanagawa.nvim", config = require("goodshort.plugins.lualine") })
-        use({
-            "glepnir/lspsaga.nvim",
-            branch = "main",
-            config = require("goodshort.plugins.lspsaga"),
-            requires = {
-                { "nvim-tree/nvim-web-devicons" },
-                --Please make sure you install markdown and markdown_inline parser
-                { "nvim-treesitter/nvim-treesitter" }
-            }
-        })
+	-- pretty list for LSP diagnostics
+	use({
+		"folke/trouble.nvim",
+		requires = "nvim-tree/nvim-web-devicons",
+		config = require("goodshort.plugins.trouble"),
+	})
 
-        -- pretty list for LSP diagnostics
-        use { "folke/trouble.nvim",
-            requires = "nvim-tree/nvim-web-devicons",
-            cmd = { "Trouble", "TroubleToggle" },
-            config = require("goodshort.plugins.trouble")
-        }
+	-- LSP config
+	use({
+		"goodshort/lsp-zero.nvim",
+		-- branch = "v1.x",
+		config = require("goodshort.plugins.lsp"),
+		requires = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" }, -- Required
+			{ "williamboman/mason.nvim" }, -- Optional
+			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
 
-        -- LSP zero
-        use {
-            'VonHeikemen/lsp-zero.nvim',
-            branch = 'v1.x',
-            config = require("goodshort.plugins.lsp"),
-            requires = {
-                -- LSP Support
-                { 'neovim/nvim-lspconfig' }, -- Required
-                { 'williamboman/mason.nvim' }, -- Optional
-                { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+			-- Formatter
+			{ "jose-elias-alvarez/null-ls.nvim" },
+			{ "jay-babu/mason-null-ls.nvim" },
 
-                -- Autocompletion
-                { 'hrsh7th/nvim-cmp' }, -- Required
-                { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-                { 'hrsh7th/cmp-buffer' }, -- Optional
-                { 'hrsh7th/cmp-path' }, -- Optional
-                { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-                { 'hrsh7th/cmp-nvim-lua' }, -- Optional
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" }, -- Required
+			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
+			{ "hrsh7th/cmp-buffer" }, -- Optional
+			{ "hrsh7th/cmp-path" }, -- Optional
+			{ "saadparwaiz1/cmp_luasnip" }, -- Optional
+			{ "hrsh7th/cmp-nvim-lua" }, -- Optional
 
-                -- Snippets
-                { 'L3MON4D3/LuaSnip' }, -- Required
-                { 'rafamadriz/friendly-snippets' }, -- Optional
-            }
-        }
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" }, -- Required
+			{ "rafamadriz/friendly-snippets" }, -- Optional
+		},
+	})
 
-        -- bootstrapping packer
-        if packer_bootstrap then
-            require("packer").sync()
-        end
-    end)
+	-- displays shortcuts
+    -- This needs to stay at the bottom of the list
+	use({
+		"mrjones2014/legendary.nvim",
+		requires = { "stevearc/dressing.nvim", "folke/which-key.nvim" },
+		config = require("goodshort.plugins.legendary-whichkey"),
+		after = "toggleterm.nvim",
+	})
+
+	-- bootstrapping packer
+	if packer_bootstrap then
+		require("packer").sync()
+	end
+end)
