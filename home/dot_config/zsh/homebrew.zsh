@@ -28,28 +28,9 @@ if [[ -f "$HOMEBREW_PREFIX/bin/starship" ]]; then
 fi
 
 ## nvm
-# lazy loaded manually
 if [[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" && -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ]]; then
-    lazynvm() {
-        unset -f nvm node npm
-        export NVM_DIR="$XDG_CONFIG_HOME/nvm"
-        mkdir -p $NVM_DIR
-        source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"  # This loads nvm
-        source "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-    }
-
-    nvm() {
-        lazynvm
-        nvm $@
-    }
-
-    node() {
-        lazynvm
-        node $@
-    }
-
-    npm() {
-        lazynvm
-        npm $@
-    }
+    export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+    mkdir -p $NVM_DIR
+    source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"  # This loads nvm
+    source "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
