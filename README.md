@@ -25,6 +25,16 @@ chsh -s $(which zsh)
 scoop export > $env:HOMEPATH/.config/scoop/backup_$env:COMPUTERNAME.json
 ```
 
+Windows nvim installation requires that:
+```
+npm install -g tree-sitter-cli
+```
+
+```
+cd C:\Users\Digital6\AppData\Local\nvim-data\site\pack\packer\start\telescope-fzf-native.nvim
+make
+```
+
 ## To-Do
 
 - [ ] Change keymaps for git view in neotree to match the ones from lazygit
