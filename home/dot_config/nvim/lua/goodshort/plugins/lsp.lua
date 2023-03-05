@@ -77,7 +77,7 @@ return function()
 	local null_opts = lsp.build_options("null-ls", {})
 
 	null_ls.setup({
-        -- Creates function `NullFormat` to foramt only using null_ls
+		-- Creates function `NullFormat` to format only using null_ls
 		on_attach = function(client, bufnr)
 			null_opts.on_attach(client, bufnr)
 
@@ -93,7 +93,7 @@ return function()
 			bufcmd(bufnr, "NullFormat", format_cmd, {
 				bang = true,
 				range = true,
-				desc = "Format using null-ls",
+				desc = "Format Using Null-ls Only",
 			})
 		end,
 		sources = {
