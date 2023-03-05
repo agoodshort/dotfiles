@@ -121,6 +121,7 @@ return function()
 		wk.register({
 			h = { "<CMD>HopChar2MW<CR>", "Hop Anywhere" },
 			["="] = { "<CMD>NullFormat<CR>", "Format only using Null-ls" },
+			d = { "<CMD>Neogen<CR>", "Generate documentation" },
 		}, leader2_opts)
 	end
 

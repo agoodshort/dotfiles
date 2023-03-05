@@ -48,17 +48,30 @@ return packer.startup(function(use)
 	use("dstein64/vim-startuptime")
 	use("wakatime/vim-wakatime")
 	use({ "kwkarlwang/bufresize.nvim", config = require("goodshort.plugins.bufresize") })
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	}) -- comment with gc
 	use({ "sitiom/nvim-numbertoggle" })
 	use({ "alker0/chezmoi.vim" })
 
+	-- Comments
+	use({
+		"danymat/neogen",
+		config = function()
+			require("neogen").setup({
+				enabled = true, --if you want to disable Neogen
+				snippet_engine = "luasnip",
+				input_after_comment = true, -- (default: true) automatic jump (with insert mode) on inserted annotation
+			})
+		end,
+		requires = "nvim-treesitter/nvim-treesitter",
+		tag = "*", -- folllow only stable versions
+	})
+	use({
+		"numToStr/Comment.nvim", -- comment with gc
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 	-- theme
-	use({ "rebelot/kanagawa.nvim", config = require("goodshort.plugins.kanagawa") })
+	use({ "rebelot/kanagawa.nvim", commit = "de7fb5f", config = require("goodshort.plugins.kanagawa") })
 	use({ "petertriho/nvim-scrollbar", config = require("goodshort.plugins.scrollbar") })
 	use("lukas-reineke/indent-blankline.nvim")
 	use({
@@ -211,7 +224,7 @@ return packer.startup(function(use)
 	})
 
 	-- displays shortcuts
-    -- This needs to stay at the bottom of the list
+	-- This needs to stay at the bottom of the list
 	use({
 		"mrjones2014/legendary.nvim",
 		requires = { "stevearc/dressing.nvim", "folke/which-key.nvim" },
