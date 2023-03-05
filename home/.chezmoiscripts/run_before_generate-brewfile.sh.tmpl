@@ -1,8 +1,6 @@
-{{ if ne .chezmoi.os "windows" -}}
-
 #!/bin/bash
 
-echo "----- beginning: generate-brewfile.sh -----"
+echo "----- start: generate-brewfile.sh -----"
 
 if [[ -n $HOMEBREW_BUNDLE_FILE ]]; then
     echo "Generating Brewfile..."
@@ -13,5 +11,3 @@ else
 fi
 
 echo "----- end: generate-brewfile.sh -----"
-
-{{ end }}
