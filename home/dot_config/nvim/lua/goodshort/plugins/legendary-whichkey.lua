@@ -45,10 +45,10 @@ return function()
 		nowait = false,
 	}
 
-	-- which-key map config --
+	-- telescope --
 	local status_telescope, _ = pcall(require, "telescope")
 	if status_telescope then
-		local telescope_map = {
+		wk.register({
 			f = {
 				name = "Telescope", -- optional group name
 				f = { "<CMD>Telescope find_files<CR>", "Find Files" },
@@ -63,10 +63,10 @@ return function()
 				u = { "<CMD>Telescope undo<CR>", "Visualize Undo Tree" },
 				["?"] = { "<CMD>Telescope find_pickers<CR>", "List Telescope Pickers" },
 			},
-		}
-		wk.register(telescope_map, leader_opts)
+		}, leader_opts)
 
-		local fugitive_map = {
+		-- fugitive --
+		wk.register({
 			g = {
 				name = "Git Tools", -- optional name
 				s = { "<CMD>Git<CR>", "Fugitive Git Status" },
@@ -75,19 +75,22 @@ return function()
 				c = { "<CMD>Telescope git_commits<CR>", "Telescope Git Commits" },
 				g = { "<CMD>lua _LAZYGIT_TOGGLE()<CR>", "LazyGit" },
 			},
-		}
-		wk.register(fugitive_map, leader_opts)
+		}, leader_opts)
 	end
 
-	local toggleterm_map = {
-		["\\"] = { -- map to "\"
-			name = "ToggleTerm", -- optional name
-			["\\"] = { "<CMD>ToggleTermToggleAll<CR>", "Toggle All Terminals" },
-			["1"] = { "<CMD>1ToggleTerm<CR>", "Terminal 1" },
-			["2"] = { "<CMD>2ToggleTerm<CR>", "Terminal 2" },
-			["3"] = { "<CMD>3ToggleTerm<CR>", "Terminal 3" },
-		},
-	}
+	-- toggleterm --
+	local status_toggleterm, _ = pcall(require, "toggleterm")
+	if status_toggleterm then
+		wk.register({
+			["\\"] = { -- map to "\"
+				name = "ToggleTerm", -- optional name
+				["\\"] = { "<CMD>ToggleTermToggleAll<CR>", "Toggle All Terminals" },
+				["1"] = { "<CMD>1ToggleTerm<CR>", "Terminal 1" },
+				["2"] = { "<CMD>2ToggleTerm<CR>", "Terminal 2" },
+				["3"] = { "<CMD>3ToggleTerm<CR>", "Terminal 3" },
+			},
+		}, leader_opts)
+	end
 
 	-- Trouble keymap --
 	local status_trouble, _ = pcall(require, "trouble")
@@ -107,6 +110,14 @@ return function()
 		}, blank_opts)
 	end
 
+	-- neogen --
+	local status_neogen, _ = pcall(require, "neogen")
+	if status_neogen then
+		wk.register({
+			d = { "<CMD>Neogen<CR>", "Generate documentation" },
+		}, leader2_opts)
+	end
+
 	-- Hop manual keymap register --
 	local status_hop, _ = pcall(require, "hop")
 	if status_hop then
@@ -120,13 +131,21 @@ return function()
 		}, leader_opts)
 		wk.register({
 			h = { "<CMD>HopChar2MW<CR>", "Hop Anywhere" },
-			["="] = { "<CMD>NullFormat<CR>", "Format only using Null-ls" },
-			d = { "<CMD>Neogen<CR>", "Generate documentation" },
 		}, leader2_opts)
 	end
 
-	-- Manual personal keymap and LSP --
+	-- LSP --
 	local status_lsp_toggle, _ = pcall(require, "lsp-toggle")
+	local status_toggle_lsp_diagnostics, _ = pcall(require, "toggle_lsp_diagnostics")
+	if status_toggle_lsp_diagnostics then
+		wk.register({
+			l = {
+				name = "LSP",
+				d = { "<CMD>ToggleDiag<CR>", "ToggleDiag" },
+			},
+		}, leader_opts)
+	end
+
 	if status_lsp_toggle then
 		wk.register({
 			l = {
@@ -134,16 +153,25 @@ return function()
 				l = { "<CMD>ToggleLSP<CR>", "ToggleLSP" },
 				n = { "<CMD>ToggleNullLSP<CR>", "ToggleNullLSP" },
 			},
-			n = { "<CMD>:noh<CR>", "Clear Search Highlight" },
-			N = { "<CMD>lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" },
-			c = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-			["="] = { "<CMD>lua vim.lsp.buf.format()<CR>", "Format" },
-			["+"] = { "<CMD>NullFormat<CR>", "Null-ls Format Only" },
 		}, leader_opts)
 	end
 
-	-- which-key register calls --
-	wk.register(toggleterm_map, leader_opts)
+	-- Null-ls --
+
+	local status_null_ls, _ = pcall(require, "null-ls")
+	if status_null_ls then
+		wk.register({
+			["="] = { "<CMD>NullFormat<CR>", "Format Using Null-ls Only" },
+		}, leader_opts)
+	end
+
+	-- Default vim keymaps --
+	wk.register({
+		n = { "<CMD>:noh<CR>", "Clear Search Highlight" },
+		N = { "<CMD>lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" },
+		c = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+		["+"] = { "<CMD>lua vim.lsp.buf.format()<CR>", "Format" },
+	}, leader_opts)
 
 	wk.setup()
 end
