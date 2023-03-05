@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "----- start: packer-sync.sh -----"
+
+# neovim directory hash: {{ include "dot_config/nvim/lua/goodshort/packer/packer.lua" | sha256sum }}
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+echo "----- end: packer-sync.sh -----"
