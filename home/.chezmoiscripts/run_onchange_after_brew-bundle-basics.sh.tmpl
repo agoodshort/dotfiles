@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# Brewfile_Basics hash: {{ include "dot_config/homebrew/Brewfile_Basics" | sha256sum }}
+
 echo "----- start: brew-bundle-basics.sh -----"
 
 if [[ -e $HOME/.config/homebrew/Brewfile_Basics ]]; then
-    echo "Installing  homebrew basics..."
+    echo "Installing homebrew basics..."
     brew bundle --no-upgrade --file $HOME/.config/homebrew/Brewfile_Basics
     echo "Done installing homebrew basics basics"
 else
@@ -11,4 +13,3 @@ else
 fi
 
 echo "----- end: brew-bundle-basics.sh -----"
-echo "Running chezmoi apply..."
