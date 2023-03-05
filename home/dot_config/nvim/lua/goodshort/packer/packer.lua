@@ -177,6 +177,12 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
+		"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+		config = function()
+			require("toggle_lsp_diagnostics").init()
+		end,
+	})
+	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 		config = require("goodshort.plugins.lspsaga"),
