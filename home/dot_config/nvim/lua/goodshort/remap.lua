@@ -47,9 +47,6 @@ vk.set("n", "<leader>P", '"+P')
 vk.set("n", "<leader>d", '"_d')
 vk.set("v", "<leader>d", '"_d')
 
--- to replace words
-vk.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
 -- create new lines and stay at the same position
 vk.set("n", "<leader>o", "mzo<ESC>`z")
 vk.set("n", "<leader>O", "mzO<ESC>`z")

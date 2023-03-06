@@ -70,7 +70,7 @@ return packer.startup(function(use)
 			require("Comment").setup()
 		end,
 	})
-	-- theme
+	-- theme --
 	use({ "rebelot/kanagawa.nvim", commit = "de7fb5f", config = require("goodshort.plugins.kanagawa") })
 	use({ "petertriho/nvim-scrollbar", config = require("goodshort.plugins.scrollbar") })
 	use("lukas-reineke/indent-blankline.nvim")
@@ -81,8 +81,20 @@ return packer.startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
-	-- telescope
+	-- Which-key --
+	-- Used to configure keymaps
+	-- Can be listed though telescope
+	use({ "folke/which-key.nvim", config = require("goodshort.plugins.whichkey") })
+
+	-- telescope --
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({
+		"AckslD/nvim-neoclip.lua",
+		requires = { "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("neoclip").setup()
+		end,
+	})
 	use({
 		"paopaol/telescope-git-diffs.nvim",
 		requires = {
@@ -105,7 +117,7 @@ return packer.startup(function(use)
 		config = require("goodshort.plugins.telescope"),
 	})
 
-	-- treesitter
+	-- Treesitter --
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -115,7 +127,7 @@ return packer.startup(function(use)
 		config = require("goodshort.plugins.treesitter"),
 	})
 
-	-- auto-closing
+	-- auto-closing --
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
@@ -125,7 +137,7 @@ return packer.startup(function(use)
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 	use("mrjones2014/nvim-ts-rainbow") -- rainbow parentheses
 
-	--neo-tree
+	-- neo-tree --
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
@@ -138,7 +150,7 @@ return packer.startup(function(use)
 		config = require("goodshort.plugins.neo-tree"),
 	})
 
-	-- tabby
+	-- tabby --
 	use({
 		"nanozuki/tabby.nvim",
 		keys = { [[<C-t>]] }, -- loads when these keys are pressed
@@ -227,15 +239,6 @@ return packer.startup(function(use)
 			{ "L3MON4D3/LuaSnip" }, -- Required
 			{ "rafamadriz/friendly-snippets" }, -- Optional
 		},
-	})
-
-	-- displays shortcuts
-	-- This needs to stay at the bottom of the list
-	use({
-		"mrjones2014/legendary.nvim",
-		requires = { "stevearc/dressing.nvim", "folke/which-key.nvim" },
-		config = require("goodshort.plugins.legendary-whichkey"),
-		after = "toggleterm.nvim",
 	})
 
 	-- bootstrapping packer

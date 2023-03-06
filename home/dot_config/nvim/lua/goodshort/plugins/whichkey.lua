@@ -1,19 +1,8 @@
 return function()
-	local status, legendary = pcall(require, "legendary")
-	if not status then
-		return
-	end
-
 	local status_wk, wk = pcall(require, "which-key")
 	if not status_wk then
 		return
 	end
-
-	-- automatically register which-key.nvim tables with legendary.nvim
-	-- when you register them with which-key.nvim.
-	-- `setup()` must be called before `require('which-key).register()`
-	legendary.setup({ which_key = { auto_register = true } })
-	vim.keymap.set("n", "<C-p>", "<CMD>Legendary find<CR>")
 
 	-- which-key leader config --
 	local leader_opts = {
@@ -51,6 +40,7 @@ return function()
 		wk.register({
 			f = {
 				name = "Telescope", -- optional group name
+				k = { "<CMD>Telescope keymaps<CR>", "List Keymaps" },
 				f = { "<CMD>Telescope find_files<CR>", "Find Files" },
 				b = { "<CMD>Telescope buffers<CR>", "Buffers" },
 				h = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
@@ -61,6 +51,7 @@ return function()
 				p = { "<CMD>Telescope packer<CR>", "List Packer Plugins" },
 				t = { "<CMD>Telescope http list<CR>", "List HTTP Status Code" },
 				u = { "<CMD>Telescope undo<CR>", "Visualize Undo Tree" },
+				c = { "<CMD>Telescope neoclip<CR>", "List Clipboard" },
 				["?"] = { "<CMD>Telescope find_pickers<CR>", "List Telescope Pickers" },
 			},
 		}, leader_opts)
@@ -95,7 +86,7 @@ return function()
 	-- Trouble keymap --
 	local status_trouble, _ = pcall(require, "trouble")
 	if status_trouble then
-		local trouble_map = {
+		wk.register({
 			x = {
 				name = "Trouble", -- optional group name
 				x = { "<CMD>TroubleToggle<CR>", "Toggle Trouble" },
@@ -103,8 +94,7 @@ return function()
 				d = { "<CMD>TroubleToggle document_diagnostics<CR>", "Document Diagnostics" },
 				q = { "<CMD>TroubleToggle quickfix<CR>", "Quickfix" },
 			},
-		}
-		wk.register(trouble_map, leader_opts)
+		}, leader_opts)
 		wk.register({
 			gR = { "<CMD>TroubleToggle lsp_references<CR>", "LSP References" },
 		}, blank_opts)

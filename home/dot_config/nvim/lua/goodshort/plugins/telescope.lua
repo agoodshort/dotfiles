@@ -48,4 +48,5 @@ return function()
     telescope.load_extension("find_pickers")
     telescope.load_extension('git_diffs')
     telescope.load_extension('undo')
+    telescope.load_extension('neoclip')
 end
