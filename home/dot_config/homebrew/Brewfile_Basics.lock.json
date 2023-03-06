@@ -5,10 +5,10 @@
         "revision": "99dc787b5095521ef071fbca970c822936733009"
       },
       "homebrew/cask-fonts": {
-        "revision": "15de5d2d32b23aeb4c219bb1fd9c95425ffdefb7"
+        "revision": "f505bb92c2710827cf5a6741464bd9975d80d983"
       },
       "homebrew/core": {
-        "revision": "acecc14d2b35860b516a3fdc1273a2c0e275a281"
+        "revision": "e81b712dfaf458002cb70fd7de10f343778540d0"
       },
       "homebrew/cask": {
         "revision": "5a48e04994f7ca5a4f78750c5ce185567514c24c"
@@ -16,7 +16,7 @@
     },
     "brew": {
       "awscli": {
-        "version": "2.11.0",
+        "version": "2.10.3",
         "bottle": {
           "rebuild": 0,
           "root_url": "https://ghcr.io/v2/homebrew/core",
@@ -109,7 +109,7 @@
         }
       },
       "chezmoi": {
-        "version": "2.31.1",
+        "version": "2.31.0",
         "bottle": {
           "rebuild": 0,
           "root_url": "https://ghcr.io/v2/homebrew/core",
@@ -197,7 +197,7 @@
         }
       },
       "fd": {
-        "version": "8.7.0",
+        "version": "8.6.0",
         "bottle": {
           "rebuild": 0,
           "root_url": "https://ghcr.io/v2/homebrew/core",
@@ -422,7 +422,7 @@
         }
       },
       "starship": {
-        "version": "1.13.1",
+        "version": "1.12.0",
         "bottle": {
           "rebuild": 0,
           "root_url": "https://ghcr.io/v2/homebrew/core",
@@ -710,7 +710,7 @@
   "system": {
     "linux": {
       "Ubuntu 22.04.2 LTS (jammy)": {
-        "HOMEBREW_VERSION": "4.0.3",
+        "HOMEBREW_VERSION": "4.0.4",
         "HOMEBREW_PREFIX": "/home/linuxbrew/.linuxbrew",
         "Homebrew/homebrew-core": "api",
         "GCC": "11.3.0"
