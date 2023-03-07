@@ -65,6 +65,7 @@ return function()
 				d = { "<CMD>Telescope git_diffs<CR>", "Telescope Git Diffs" },
 				c = { "<CMD>Telescope git_commits<CR>", "Telescope Git Commits" },
 				g = { "<CMD>lua _LAZYGIT_TOGGLE()<CR>", "LazyGit" },
+				u = { "<CMD>lua _GITUI_TOGGLE()<CR>", "GitUI" },
 			},
 		}, leader_opts)
 	end
