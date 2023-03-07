@@ -1,5 +1,6 @@
 ## Homebrew config
-export "HOMEBREW_NO_ENV_HINTS=1"
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_BUNDLE_NO_LOCK=1
 
 # zsh-syntax-highlighting
 [[ -f "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
