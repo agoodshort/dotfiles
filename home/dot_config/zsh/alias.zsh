@@ -1,11 +1,9 @@
-# Alias
-
 # exa
 alias l="exa --icons --group-directories-first"
 alias ll="exa --icons --group-directories-first -la"
 alias lg="exa --icons --group-directories-first --git -la"
 function tree {
-    if [ "$1" != "" ]
+    if [[ "$1" != "" ]]
     then
         exa --tree "$1"
     else

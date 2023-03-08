@@ -1,4 +1,4 @@
-## Homebrew config
+# Homebrew config
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_BUNDLE_NO_LOCK=1
 
@@ -8,7 +8,7 @@ export HOMEBREW_BUNDLE_NO_LOCK=1
 # zsh-autosuggestions
 [[ -f "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-## ajeetdsouza/zoxide
+# ajeetdsouza/zoxide
 if [[ -f "$HOMEBREW_PREFIX/bin/zoxide" ]]; then
     export "_ZO_DATA_DIR=$XDG_CONFIG_HOME/zoxide"
     eval "$(zoxide init zsh)"
@@ -28,7 +28,7 @@ if [[ -f "$HOMEBREW_PREFIX/bin/starship" ]]; then
     export "STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml"
 fi
 
-## nvm
+# nvm
 if [[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" && -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ]]; then
     export NVM_DIR="$XDG_CONFIG_HOME/nvm"
     mkdir -p $NVM_DIR
