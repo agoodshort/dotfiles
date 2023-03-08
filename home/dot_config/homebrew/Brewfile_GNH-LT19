@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
+tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazynpm"
 # Official Amazon AWS command-line interface
 brew "awscli"
@@ -20,6 +21,8 @@ brew "fzf"
 brew "gcc"
 # Distributed revision control system
 brew "git"
+# Blazing fast terminal-ui for git written in rust
+brew "gitui"
 # Lazier way to manage everything docker
 brew "lazydocker"
 # Simple terminal UI for git commands
