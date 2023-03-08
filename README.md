@@ -2,18 +2,6 @@
 
 I will groom a little bit more this README later, for now here is the command I wanted to save somewhere.
 
-Some ideas for auto-update nvim with a `run_after_onchange_file`
-```
-# neovim directory hash: {{ include "dot_config/nvim/lua/goodshort/packer/snapshots/packer-lock.json" | sha256sum }}
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-```
-
-```
-brew bundle dump --force --describe
-brew bundle
-brew autoremove
-```
-
 ```
 sudo apt install zsh
 chsh -s $(which zsh)
@@ -27,7 +15,7 @@ chsh -s $(which zsh)
 scoop export > $env:HOMEPATH/.config/scoop/backup_$env:COMPUTERNAME.json
 ```
 
-Windows nvim installation requires that:
+Windows nvim installation requires the below. To review and automate
 ```
 npm install -g tree-sitter-cli
 ```
@@ -39,7 +27,7 @@ make
 
 ## Scripts
 
-Scripts under the Windows directory will run because they finish with `.ps1` extension. `.sh` scripts are not run on Windows machines.
+Scripts under the Windows directory will run because they finish with `.ps1` extension. `.sh` scripts are not run on Windows machines. Based on this: https://www.chezmoi.io/reference/target-types/#scripts-on-windows
 
 ## To-Do
 
