@@ -28,6 +28,8 @@ brew "lazygit"
 brew "neovim"
 # Port scanning utility for large networks
 brew "nmap"
+# Manage multiple Node.js versions
+brew "nvm"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Cross-shell prompt for astronauts
