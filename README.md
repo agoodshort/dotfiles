@@ -34,7 +34,7 @@ Scripts under `linux` and `windows` are running based on the OS because of `.che
 - [ ] Review required `brew casks/formula` to run the zsh or bash properly
 - [ ] Review vim XDG location
 - [ ] Add VSCode config to share how vim keybindings works
-- [ ] Review the PowerToys config
+- [ ] Review the PowerToys config (get the backup to be saved properly)
 - [ ] Create template so that chezmoi points correctly to dotfiles and nvim config when in dashboard ( use {{ .chezmoi.homeDir}} )
 - [ ] Auto update if nvim config was changed
 
