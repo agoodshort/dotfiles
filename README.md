@@ -11,10 +11,6 @@ chsh -s $(which zsh)
 /usr/local/opt/fzf/install --xdg --no-bash --no-fish --no-update-rc --key-bindings --completion
 ```
 
-```
-scoop export > $env:HOMEPATH/.config/scoop/backup_$env:COMPUTERNAME.json
-```
-
 Windows nvim installation requires the below. To review and automate
 ```
 npm install -g tree-sitter-cli
@@ -27,7 +23,7 @@ make
 
 ## Scripts
 
-Scripts under the Windows directory will run because they finish with `.ps1` extension. `.sh` scripts are not run on Windows machines. Based on this: https://www.chezmoi.io/reference/target-types/#scripts-on-windows
+Scripts under `linux` and `windows` are running based on the OS because of `.chezmoiignore.tmpl`
 
 ## To-Do
 
