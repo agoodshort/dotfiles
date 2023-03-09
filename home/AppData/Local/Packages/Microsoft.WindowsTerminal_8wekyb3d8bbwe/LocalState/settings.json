@@ -37,6 +37,7 @@
         "defaults": 
         {
             "colorScheme": "Kanagawa",
+            "cursorShape": "filledBox",
             "font": 
             {
                 "face": "Hack NFM"
