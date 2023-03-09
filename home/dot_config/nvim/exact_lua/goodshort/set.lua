@@ -12,6 +12,8 @@ vim.opt.relativenumber = true
 vim.opt.showmatch = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- display things the way I like
 vim.opt.smartindent = true
