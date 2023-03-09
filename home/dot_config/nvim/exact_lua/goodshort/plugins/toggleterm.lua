@@ -39,8 +39,8 @@ return function()
 	vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 	local Terminal = require("toggleterm.terminal").Terminal
-	local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
-	local gitui = Terminal:new({ cmd = "gitui", hidden = true, direction = "float" })
+	local lazygit = Terminal:new({ cmd = "lazygit", close_on_exit = true, hidden = true, direction = "float" })
+	local gitui = Terminal:new({ cmd = "gitui", close_on_exit = true, hidden = true, direction = "float" })
 
 	function _LAZYGIT_TOGGLE()
 		lazygit.dir = vim.fn.expand("%:p:h")

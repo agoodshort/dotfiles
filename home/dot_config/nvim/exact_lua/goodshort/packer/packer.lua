@@ -48,8 +48,8 @@ return packer.startup(function(use)
 	use("dstein64/vim-startuptime")
 	use("wakatime/vim-wakatime")
 	use({ "kwkarlwang/bufresize.nvim", config = require("goodshort.plugins.bufresize") })
-	use({ "sitiom/nvim-numbertoggle" })
-	use({ "alker0/chezmoi.vim" })
+	use("sitiom/nvim-numbertoggle")
+	use("alker0/chezmoi.vim")
 
 	-- Comments
 	use({
@@ -94,13 +94,6 @@ return packer.startup(function(use)
 		config = function()
 			require("neoclip").setup()
 		end,
-	})
-	use({
-		"paopaol/telescope-git-diffs.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"sindrets/diffview.nvim",
-		},
 	})
 	use({
 		"nvim-telescope/telescope.nvim",

@@ -40,32 +40,34 @@ return function()
 		wk.register({
 			f = {
 				name = "Telescope", -- optional group name
-				k = { "<CMD>Telescope keymaps<CR>", "List Keymaps" },
-				f = { "<CMD>Telescope find_files<CR>", "Find Files" },
-				b = { "<CMD>Telescope buffers<CR>", "Buffers" },
-				h = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
-				s = { "<CMD>Telescope grep_string<CR>", "Grep String" },
-				l = { "<CMD>Telescope live_grep<CR>", "Live Grep" },
-				z = { "<CMD>Telescope zoxide list<CR>", "List z" },
-				e = { "<CMD>Telescope env<CR>", "List Environment Variables" },
-				p = { "<CMD>Telescope packer<CR>", "List Packer Plugins" },
-				t = { "<CMD>Telescope http list<CR>", "List HTTP Status Code" },
-				u = { "<CMD>Telescope undo<CR>", "Visualize Undo Tree" },
-				c = { "<CMD>Telescope neoclip<CR>", "List Clipboard" },
-				["?"] = { "<CMD>Telescope find_pickers<CR>", "List Telescope Pickers" },
+				k = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" },
+				f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
+				b = { "<Cmd>Telescope buffers<CR>", "Buffers" },
+				h = { "<Cmd>Telescope help_tags<CR>", "Help Tags" },
+				s = { "<Cmd>Telescope grep_string<CR>", "Grep String" },
+				l = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
+				z = { "<Cmd>Telescope zoxide list<CR>", "List z" },
+				e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
+				p = { "<Cmd>Telescope packer<CR>", "List Packer Plugins" },
+				t = { "<Cmd>Telescope http list<CR>", "List HTTP Status Code" },
+				u = { "<Cmd>Telescope undo<CR>", "Visualize Undo Tree" },
+				c = { "<Cmd>Telescope neoclip<CR>", "List Clipboard" },
+				["?"] = { "<Cmd>Telescope find_pickers<CR>", "List Telescope Pickers" },
 			},
 		}, leader_opts)
+
+		wk.register({ ["<C-p>"] = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" } }, blank_opts)
 
 		-- fugitive --
 		wk.register({
 			g = {
 				name = "Git Tools", -- optional name
-				s = { "<CMD>Git<CR>", "Fugitive Git Status" },
-				f = { "<CMD>Telescope git_files<CR>", "Telescope Git Files" },
-				d = { "<CMD>Telescope git_diffs<CR>", "Telescope Git Diffs" },
-				c = { "<CMD>Telescope git_commits<CR>", "Telescope Git Commits" },
-				g = { "<CMD>lua _LAZYGIT_TOGGLE()<CR>", "LazyGit" },
-				u = { "<CMD>lua _GITUI_TOGGLE()<CR>", "GitUI" },
+				s = { "<Cmd>Git<CR>", "Fugitive Git Status" },
+				f = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
+				c = { "<Cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
+				g = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "LazyGit" },
+				u = { "<Cmd>lua _GITUI_TOGGLE()<CR>", "GitUI" },
+				b = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Gitsigns Blame" },
 			},
 		}, leader_opts)
 	end
@@ -76,10 +78,10 @@ return function()
 		wk.register({
 			["\\"] = { -- map to "\"
 				name = "ToggleTerm", -- optional name
-				["\\"] = { "<CMD>ToggleTermToggleAll<CR>", "Toggle All Terminals" },
-				["1"] = { "<CMD>1ToggleTerm<CR>", "Terminal 1" },
-				["2"] = { "<CMD>2ToggleTerm<CR>", "Terminal 2" },
-				["3"] = { "<CMD>3ToggleTerm<CR>", "Terminal 3" },
+				["\\"] = { "<Cmd>ToggleTermToggleAll<CR>", "Toggle All Terminals" },
+				["1"] = { "<Cmd>1ToggleTerm<CR>", "Terminal 1" },
+				["2"] = { "<Cmd>2ToggleTerm<CR>", "Terminal 2" },
+				["3"] = { "<Cmd>3ToggleTerm<CR>", "Terminal 3" },
 			},
 		}, leader_opts)
 	end
@@ -90,14 +92,14 @@ return function()
 		wk.register({
 			x = {
 				name = "Trouble", -- optional group name
-				x = { "<CMD>TroubleToggle<CR>", "Toggle Trouble" },
-				w = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Workspace Diagnostics" },
-				d = { "<CMD>TroubleToggle document_diagnostics<CR>", "Document Diagnostics" },
-				q = { "<CMD>TroubleToggle quickfix<CR>", "Quickfix" },
+				x = { "<Cmd>TroubleToggle<CR>", "Toggle Trouble" },
+				w = { "<Cmd>TroubleToggle workspace_diagnostics<CR>", "Workspace Diagnostics" },
+				d = { "<Cmd>TroubleToggle document_diagnostics<CR>", "Document Diagnostics" },
+				q = { "<Cmd>TroubleToggle quickfix<CR>", "Quickfix" },
 			},
 		}, leader_opts)
 		wk.register({
-			gR = { "<CMD>TroubleToggle lsp_references<CR>", "LSP References" },
+			gR = { "<Cmd>TroubleToggle lsp_references<CR>", "LSP References" },
 		}, blank_opts)
 	end
 
@@ -105,7 +107,7 @@ return function()
 	local status_neogen, _ = pcall(require, "neogen")
 	if status_neogen then
 		wk.register({
-			d = { "<CMD>Neogen<CR>", "Generate documentation" },
+			d = { "<Cmd>Neogen<CR>", "Generate documentation" },
 		}, leader2_opts)
 	end
 
@@ -113,15 +115,15 @@ return function()
 	local status_hop, _ = pcall(require, "hop")
 	if status_hop then
 		wk.register({
-			f = { "<CMD>HopChar1CurrentLineAC<CR>", "Hop Current Line After" },
-			F = { "<CMD>HopChar1CurrentLineBC<CR>", "Hop Current Line Before" },
+			f = { "<Cmd>HopChar1CurrentLineAC<CR>", "Hop Current Line After" },
+			F = { "<Cmd>HopChar1CurrentLineBC<CR>", "Hop Current Line Before" },
 		}, blank_opts)
 		wk.register({
-			h = { "<CMD>HopChar1AC<CR>", "Hop After" },
-			H = { "<CMD>HopChar1BC<CR>", "Hop Before" },
+			h = { "<Cmd>HopChar1AC<CR>", "Hop After" },
+			H = { "<Cmd>HopChar1BC<CR>", "Hop Before" },
 		}, leader_opts)
 		wk.register({
-			h = { "<CMD>HopChar2MW<CR>", "Hop Anywhere" },
+			h = { "<Cmd>HopChar2MW<CR>", "Hop Anywhere" },
 		}, leader2_opts)
 	end
 
@@ -132,7 +134,7 @@ return function()
 		wk.register({
 			l = {
 				name = "LSP",
-				d = { "<CMD>ToggleDiag<CR>", "ToggleDiag" },
+				d = { "<Plug>(toggle-lsp-diag-vtext)", "Toggle LSP Virtual Text" },
 			},
 		}, leader_opts)
 	end
@@ -141,8 +143,8 @@ return function()
 		wk.register({
 			l = {
 				name = "LSP",
-				l = { "<CMD>ToggleLSP<CR>", "ToggleLSP" },
-				n = { "<CMD>ToggleNullLSP<CR>", "ToggleNullLSP" },
+				l = { "<Cmd>ToggleLSP<CR>", "ToggleLSP" },
+				n = { "<Cmd>ToggleNullLSP<CR>", "ToggleNullLSP" },
 			},
 		}, leader_opts)
 	end
@@ -152,16 +154,16 @@ return function()
 	local status_null_ls, _ = pcall(require, "null-ls")
 	if status_null_ls then
 		wk.register({
-			["="] = { "<CMD>NullFormat<CR>", "Format Using Null-ls Only" },
+			["="] = { "<Cmd>NullFormat<CR>", "Format Using Null-ls Only" },
 		}, leader_opts)
 	end
 
 	-- Default vim keymaps --
 	wk.register({
-		n = { "<CMD>:noh<CR>", "Clear Search Highlight" },
-		N = { "<CMD>lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" },
-		c = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-		["+"] = { "<CMD>lua vim.lsp.buf.format()<CR>", "Format" },
+		n = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
+		N = { "<Cmd>lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" },
+		c = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+		["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format" },
 	}, leader_opts)
 
 	wk.setup()
