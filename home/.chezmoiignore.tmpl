@@ -8,12 +8,12 @@ Library
 
 # Windows specific
 {{ if ne .chezmoi.os "windows" }}
-.chezmoiscripts/linux/**
+.chezmoiscripts/windows/**
 AppData
 .config/scoop
 {{ end }}
 {{ if eq .chezmoi.os "windows" }}
-.chezmoiscripts/windows/**
+.chezmoiscripts/linux/**
 .config/*
 !.config/nvim
 !.config/scoop
