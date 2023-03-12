@@ -38,12 +38,12 @@ return function()
             next = '<C-c>n',
         },
         code_action = {
-            num_shortcut = true,
-            show_server_name = false,
+            num_shortcut = false,
+            show_server_name = true,
             extend_gitsigns = true,
             keys = {
                 -- string | table type
-                quit = "q",
+                quit = {"q", "<ESC>"},
                 exec = "<CR>",
             },
         },

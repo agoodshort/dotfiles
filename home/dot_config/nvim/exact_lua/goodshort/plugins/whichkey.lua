@@ -130,11 +130,13 @@ return function()
 	-- LSP --
 	local status_lsp_toggle, _ = pcall(require, "lsp-toggle")
 	local status_toggle_lsp_diagnostics, _ = pcall(require, "toggle_lsp_diagnostics")
+	local status_lspsaga, _ = pcall(require, "lspsaga")
+
 	if status_toggle_lsp_diagnostics then
 		wk.register({
 			l = {
 				name = "LSP",
-				d = { "<Plug>(toggle-lsp-diag-vtext)", "Toggle LSP Virtual Text" },
+				v = { "<Plug>(toggle-lsp-diag-vtext)", "Toggle LSP Virtual Text" },
 			},
 		}, leader_opts)
 	end
@@ -145,6 +147,18 @@ return function()
 				name = "LSP",
 				l = { "<Cmd>ToggleLSP<CR>", "ToggleLSP" },
 				n = { "<Cmd>ToggleNullLSP<CR>", "ToggleNullLSP" },
+			},
+		}, leader_opts)
+	end
+
+	if status_lspsaga then
+		wk.register({
+			l = {
+				name = "LSP",
+				f = { "<Cmd>Lspsaga lsp_finder<CR>", "Lspsaga Definition Finder" },
+				o = { "<Cmd>Lspsaga outline<CR>", "Lspsaga Outline" },
+				c = { "<Cmd>Lspsaga code_action<CR>", "Lspsaga Code Action" },
+				d = { "<Cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga Show Line Diagnostics" },
 			},
 		}, leader_opts)
 	end
