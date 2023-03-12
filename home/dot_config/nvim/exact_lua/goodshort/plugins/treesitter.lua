@@ -21,6 +21,7 @@ return function()
             "html",
             "css",
             "markdown",
+            "markdown_inline",
             "bash",
             "lua",
             "vim",
