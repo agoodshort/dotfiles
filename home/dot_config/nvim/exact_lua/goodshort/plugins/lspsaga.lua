@@ -5,7 +5,7 @@ return function()
     end
     lspsaga.setup({
         preview = {
-            lines_above = 0,
+            lines_above = 5,
             lines_below = 10,
         },
         scroll_preview = {
@@ -23,7 +23,7 @@ return function()
                 split = 'i',
                 tabe = 't',
                 tabnew = 'r',
-                quit = { 'q', '<ESC>' },
+                quit = { 'q', '<ESC>', '<C-c>' },
                 close_in_preview = '<ESC>'
             },
         },
@@ -38,12 +38,12 @@ return function()
             next = '<C-c>n',
         },
         code_action = {
-            num_shortcut = false,
+            num_shortcut = true,
             show_server_name = true,
             extend_gitsigns = true,
             keys = {
                 -- string | table type
-                quit = {"q", "<ESC>"},
+                quit = { 'q', '<ESC>', '<C-c>' },
                 exec = "<CR>",
             },
         },
