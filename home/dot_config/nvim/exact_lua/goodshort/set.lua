@@ -33,3 +33,6 @@ vim.opt.updatetime = 250
 
 -- Format on save
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+-- Make sure .env.* files get syntax hightlight
+vim.cmd([[autocmd BufNewFile,BufRead .env.* set ft=sh]])
