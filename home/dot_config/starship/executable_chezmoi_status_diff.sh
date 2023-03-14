@@ -1,19 +1,18 @@
 #!/bin/bash
 
 output=""
-status=$(chezmoi status)
+status=$(chezmoi status 2>&1)
+
+[[ "$status" == *"warning:"*  ]] && output="${output}" # Unlikely that a file is called "warning:"
+
 sourceStatus=$(echo "$status" | cut -c 2)
 destinationStatus=$(echo "$status" | cut -c 1)
 
-# [[ $status == *'M'* ]] && output="${output}M"
-# [[ $status == *'A'* ]] && output="${output}A"
-# [[ $status == *'D'* ]] && output="${output}D"
+# destination
+[[ $(echo $destinationStatus | wc -l) > 0 ]] && output="${output}⇡"
 
 # source
 [[ $(echo $sourceStatus | wc -l) > 0 ]] && output="${output}⇣"
-
-# destination
-[[ $(echo $destinationStatus | wc -l) > 0 ]] && output="${output}⇡"
 
 # modified
 [[ ($sourceStatus == *'M'*) || ($destinationStatus == *'M'*) ]] && output="${output}!"
