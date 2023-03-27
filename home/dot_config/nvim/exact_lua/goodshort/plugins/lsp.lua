@@ -17,13 +17,15 @@ return function()
 		-- set_lsp_keymaps = { preserve_mappings = false }, -- This does not overwrite keybindings created through which-key
 		set_lsp_keymaps = true,
 		manage_nvim_cmp = true,
-		suggest_lsp_servers = false,
+		suggest_lsp_servers = true,
 		call_servers = "local",
 	})
 
 	-- Install these servers
 	lsp.ensure_installed({
+        "jsonls",
 		"lua_ls",
+        "tsserver",
 	})
 
 	-- remap completion
@@ -99,6 +101,7 @@ return function()
 		sources = {
 			null_ls.builtins.formatting.stylua,
 			null_ls.builtins.formatting.prettier,
+			null_ls.builtins.formatting.beautysh,
 		},
 	})
 
