@@ -66,6 +66,7 @@ return function()
 				f = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
 				c = { "<Cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
 				g = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "LazyGit" },
+				-- g = { "<Cmd>Telescope lazygit<CR>", "LazyGit" },
 				u = { "<Cmd>lua _GITUI_TOGGLE()<CR>", "GitUI" },
 				b = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Gitsigns Blame" },
 			},
