@@ -2,4 +2,6 @@
 	name = Adrien Biencourt
 	email = adrien@revanista.com
 [core]
-	editor = vim
+    editor = nvim --cmd 'let g:unception_block_while_host_edits=1'
+[push]
+	autoSetupRemote = true

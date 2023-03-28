@@ -106,6 +106,7 @@ return packer.startup(function(use)
 			"jvgrootveld/telescope-zoxide",
 			"keyvchan/telescope-find-pickers.nvim",
 			"debugloop/telescope-undo.nvim",
+			"kdheepak/lazygit.nvim",
 		},
 		config = require("goodshort.plugins.telescope"),
 	})
@@ -146,7 +147,7 @@ return packer.startup(function(use)
 	-- tabby --
 	use({
 		"nanozuki/tabby.nvim",
-		keys = { [[<C-t>]] }, -- loads when these keys are pressed
+		event = "TabNew", -- load when new tab is opened
 		config = require("goodshort.plugins.tabby"),
 	})
 
@@ -169,6 +170,12 @@ return packer.startup(function(use)
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
+		end,
+	})
+	use({
+		"samjwill/nvim-unception",
+		setup = function()
+			vim.g.unception_open_buffer_in_new_tab = true
 		end,
 	})
 
