@@ -7,7 +7,7 @@ return function()
 	local config = {
 		options = {
 			theme = "auto",
-			disabled_filetypes = { "packer", "neo-tree" },
+			disabled_filetypes = { "packer", "neo-tree", "lspsagaoutline" },
 		},
 		sections = {
 			lualine_a = { "mode" },
