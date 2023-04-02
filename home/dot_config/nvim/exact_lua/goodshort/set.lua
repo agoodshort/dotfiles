@@ -42,3 +42,4 @@ vim.cmd([[autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete]])
 
 -- Make sure .env.* files get syntax hightlight
 vim.cmd([[autocmd BufNewFile,BufRead .env.* set ft=sh]])
+vim.cmd([[autocmd BufNewFile,BufRead Brewfile* set ft=sh]])
