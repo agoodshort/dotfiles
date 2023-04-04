@@ -106,7 +106,7 @@ return packer.startup(function(use)
 			"jvgrootveld/telescope-zoxide",
 			"keyvchan/telescope-find-pickers.nvim",
 			"debugloop/telescope-undo.nvim",
-			"kdheepak/lazygit.nvim",
+			"goodshort/telescope-lazygit-toggleterm.nvim",
 		},
 		config = require("goodshort.plugins.telescope"),
 	})

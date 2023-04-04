@@ -48,5 +48,5 @@ return function()
 	telescope.load_extension("find_pickers")
 	telescope.load_extension("undo")
 	telescope.load_extension("neoclip")
-	telescope.load_extension("lazygit")
+	telescope.load_extension("lazygit_toggleterm")
 end

@@ -35,7 +35,7 @@ vim.opt.updatetime = 250
 -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- Makes sure that any opened buffer which is contained in a git repo will be tracked
-vim.cmd([[autocmd BufEnter * :lua require('lazygit.utils').project_root_dir()]])
+-- vim.cmd([[autocmd BufEnter * :lua require('lazygit.utils').project_root_dir()]])
 
 -- nvim-unception trick
 vim.cmd([[autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete]])
