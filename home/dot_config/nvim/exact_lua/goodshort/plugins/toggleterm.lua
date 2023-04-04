@@ -42,9 +42,13 @@ return function()
 	local lazygit = Terminal:new({ cmd = "lazygit", close_on_exit = true, hidden = true, direction = "float" })
 	local gitui = Terminal:new({ cmd = "gitui", close_on_exit = true, hidden = true, direction = "float" })
 
-	function _LAZYGIT_TOGGLE()
-		lazygit.dir = vim.fn.expand("%:p:h")
-		lazygit:toggle()
+	function _LAZYGIT_TOGGLE(dir)
+		if dir == nil then
+			lazygit.dir = vim.fn.expand("%:p:h")
+        else
+			lazygit.dir = vim.fn.expand("%:p:h") .. dir
+        end
+			lazygit:toggle()
 	end
 
 	function _GITUI_TOGGLE()
