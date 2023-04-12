@@ -16,8 +16,26 @@ return function()
 		nowait = false, -- use `nowait` when creating keymaps
 	}
 
+	local leader_opts_visual = {
+		mode = "v",
+		prefix = "<leader>",
+		buffer = nil,
+		silent = true,
+		noremap = true,
+		nowait = false,
+	}
+
 	local leader2_opts = {
 		mode = "n",
+		prefix = "<leader><leader>",
+		buffer = nil,
+		silent = true,
+		noremap = true,
+		nowait = false,
+	}
+
+	local leader2_opts_visual = {
+		mode = "v",
 		prefix = "<leader><leader>",
 		buffer = nil,
 		silent = true,
@@ -33,6 +51,27 @@ return function()
 		noremap = true,
 		nowait = false,
 	}
+
+	-- yank/paste --
+	wk.register({
+		y = { '"+y', "Yank to System Clipboard" },
+		p = { '"+p', "Paste from System Clipboard" },
+	}, leader_opts)
+
+	wk.register({
+		y = { '"+y', "Yank to System Clipboard" },
+		p = { '"+p', "Paste from System Clipboard" },
+	}, leader_opts_visual)
+
+	wk.register({
+		d = { '"_d', "Delete using Void Buffer" },
+		p = { '"_dp', "Paste and Delete using Void Buffer" },
+	}, leader2_opts)
+
+	wk.register({
+		d = { '"_d', "Delete using Void Buffer" },
+		p = { '"_dp', "Paste and Delete using Void Buffer" },
+	}, leader2_opts_visual)
 
 	-- telescope --
 	local status_telescope, _ = pcall(require, "telescope")
@@ -85,7 +124,7 @@ return function()
 				["h"] = { "<Cmd>tabp<CR>", "Go To Left Tab" },
 			},
 		}, blank_opts)
-    vim.keymap.set("n", "<C-t>r", ":TabRename ")
+		vim.keymap.set("n", "<C-t>r", ":TabRename ")
 	end
 
 	-- toggleterm --

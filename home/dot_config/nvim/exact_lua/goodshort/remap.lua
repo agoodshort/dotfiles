@@ -22,23 +22,23 @@ vk.set("v", "K", ":m '<-2<CR>gv=gv") -- move down
 vk.set("n", "<C-u>", "<C-u>zz") -- move up
 vk.set("n", "<C-d>", "<C-d>zz") -- move down
 
--- yank to system clipboard
-vk.set("n", "<leader>y", '"+y')
-vk.set("v", "<leader>y", '"+y')
-vk.set("n", "<leader>Y", '"+Y')
-
--- paste from system clipboard
-vk.set("n", "<leader>p", '"+p')
-vk.set("v", "<leader>p", '"+p')
-vk.set("n", "<leader>P", '"+P')
-
--- paste by deleting and sending to void buffer
-vk.set("n", "<leader><leader>p", '"_dP')
-vk.set("v", "<leader><leader>p", '"_dP')
-
--- delete to void buffer
-vk.set("n", "<leader><leader>d", '"_d')
-vk.set("v", "<leader><leader>d", '"_d')
+-- -- yank to system clipboard
+-- vk.set("n", "<leader>y", '"+y')
+-- vk.set("v", "<leader>y", '"+y')
+-- vk.set("n", "<leader>Y", '"+Y')
+--
+-- -- paste from system clipboard
+-- vk.set("n", "<leader>p", '"+p')
+-- vk.set("v", "<leader>p", '"+p')
+-- vk.set("n", "<leader>P", '"+P')
+--
+-- -- paste by deleting and sending to void buffer
+-- vk.set("n", "<leader><leader>p", '"_dP')
+-- vk.set("v", "<leader><leader>p", '"_dP')
+--
+-- -- delete to void buffer
+-- vk.set("n", "<leader><leader>d", '"_d')
+-- vk.set("v", "<leader><leader>d", '"_d')
 
 -- create new lines and stay at the same position
 vk.set("n", "<leader>o", "mzo<ESC>`z")
