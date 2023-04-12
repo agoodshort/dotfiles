@@ -10,13 +10,6 @@ vk.set("n", "<C-c>", "<ESC>")
 vk.set("n", "<C-w>n", ":vsplit<CR>") -- open new window vertically
 vk.set("n", "<C-w>x", "<C-w>c") -- close current window
 
--- tabs
--- renaming tab through tabby
-vk.set("n", "<C-t>n", ":tabnew<CR>") -- open new tab
-vk.set("n", "<C-t>x", ":tabclose<CR>") -- close new tab
-vk.set("n", "<C-t>l", ":tabn<CR>") -- go to tab left
-vk.set("n", "<C-t>h", ":tabp<CR>") -- go to tab right
-
 -- buffers
 vk.set("n", "<C-h>", ":bprevious<CR>")
 vk.set("n", "<C-l>", ":bnext<CR>")
@@ -29,23 +22,23 @@ vk.set("v", "K", ":m '<-2<CR>gv=gv") -- move down
 vk.set("n", "<C-u>", "<C-u>zz") -- move up
 vk.set("n", "<C-d>", "<C-d>zz") -- move down
 
--- paste by deleting and sending to void buffer
-vk.set("n", "<leader>p", '"_dP')
-vk.set("v", "<leader>p", '"_dP')
-
 -- yank to system clipboard
 vk.set("n", "<leader>y", '"+y')
 vk.set("v", "<leader>y", '"+y')
 vk.set("n", "<leader>Y", '"+Y')
 
--- yank to system clipboard
+-- paste from system clipboard
 vk.set("n", "<leader>p", '"+p')
 vk.set("v", "<leader>p", '"+p')
 vk.set("n", "<leader>P", '"+P')
 
+-- paste by deleting and sending to void buffer
+vk.set("n", "<leader><leader>p", '"_dP')
+vk.set("v", "<leader><leader>p", '"_dP')
+
 -- delete to void buffer
-vk.set("n", "<leader>d", '"_d')
-vk.set("v", "<leader>d", '"_d')
+vk.set("n", "<leader><leader>d", '"_d')
+vk.set("v", "<leader><leader>d", '"_d')
 
 -- create new lines and stay at the same position
 vk.set("n", "<leader>o", "mzo<ESC>`z")
