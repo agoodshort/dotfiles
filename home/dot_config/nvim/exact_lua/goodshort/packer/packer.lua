@@ -119,6 +119,7 @@ return packer.startup(function(use)
 			ts_update()
 		end,
 		config = require("goodshort.plugins.treesitter"),
+		requires = { "HiPhish/nvim-ts-rainbow2" }, -- rainbow parentheses
 	})
 
 	-- auto-closing --
@@ -129,7 +130,6 @@ return packer.startup(function(use)
 		end,
 	}) -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
-	use("mrjones2014/nvim-ts-rainbow") -- rainbow parentheses
 
 	-- neo-tree --
 	use({
@@ -150,6 +150,12 @@ return packer.startup(function(use)
 		event = "TabNew", -- load when new tab is opened
 		config = require("goodshort.plugins.tabby"),
 	})
+	use({
+		"tiagovla/scope.nvim",
+		config = function()
+			require("scope").setup()
+		end,
+	})
 
 	-- Easymotion like plugin
 	use({
@@ -164,8 +170,9 @@ return packer.startup(function(use)
 	use({ "akinsho/toggleterm.nvim", config = require("goodshort.plugins.toggleterm") })
 
 	-- git integration
-	use("tpope/vim-fugitive")
-	use("tpope/vim-rhubarb")
+	-- use("tpope/vim-fugitive")
+	-- use("tpope/vim-rhubarb")
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()
