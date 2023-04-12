@@ -65,12 +65,27 @@ return function()
 				s = { "<Cmd>Git<CR>", "Fugitive Git Status" },
 				f = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
 				c = { "<Cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
-				g = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "LazyGit" },
-				-- g = { "<Cmd>Telescope lazygit<CR>", "LazyGit" },
+				g = { "<Cmd>Telescope lazygit_toggleterm<CR>", "LazyGit" },
 				u = { "<Cmd>lua _GITUI_TOGGLE()<CR>", "GitUI" },
 				b = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Gitsigns Blame" },
+				d = { "<Cmd>DiffviewOpen<CR>", "Diffview" },
 			},
 		}, leader_opts)
+	end
+
+	-- Tab Management --
+	local status_tab, _ = pcall(require, "tabby")
+	if status_tab then
+		wk.register({
+			["<C-t>"] = {
+				name = "Tabs", -- optional name
+				["n"] = { "<Cmd>tabnew<CR>:Dashboard<CR>", "New Tab" },
+				["x"] = { "<Cmd>tabclose<CR>", "Close Tab" },
+				["l"] = { "<Cmd>tabn<CR>", "Go To Right Tab" },
+				["h"] = { "<Cmd>tabp<CR>", "Go To Left Tab" },
+			},
+		}, blank_opts)
+    vim.keymap.set("n", "<C-t>r", ":TabRename ")
 	end
 
 	-- toggleterm --
