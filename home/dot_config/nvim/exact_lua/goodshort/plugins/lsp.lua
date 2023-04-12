@@ -23,9 +23,11 @@ return function()
 
 	-- Install these servers
 	lsp.ensure_installed({
-        "jsonls",
+		"jsonls",
 		"lua_ls",
-        "tsserver",
+		"tsserver",
+        "powershell_es",
+        "yamlls"
 	})
 
 	-- remap completion
@@ -102,6 +104,7 @@ return function()
 			null_ls.builtins.formatting.stylua,
 			null_ls.builtins.formatting.prettier,
 			null_ls.builtins.formatting.beautysh,
+			null_ls.builtins.formatting.black,
 		},
 	})
 
@@ -113,7 +116,7 @@ return function()
 	null_mason.setup({
 		-- A list of sources to install if they're not already installed.
 		-- This setting has no relation with the `automatic_installation setting.
-		ensure_installed = { "stylua", "prettier" },
+		ensure_installed = { "stylua", "prettier", "beautysh" },
 		-- Run `require("null-ls).setup.
 		-- Will automatically install masons tools based on selected sources in `null-ls.
 		-- Can also be an exclusion list.
@@ -128,5 +131,4 @@ return function()
 		--  Ex: { types = { eslint_d = {'formatting} } }
 		automatic_setup = true,
 	})
-	null_mason.setup_handlers()
 end
