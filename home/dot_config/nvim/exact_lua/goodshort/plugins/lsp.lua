@@ -26,8 +26,17 @@ return function()
 		"jsonls",
 		"lua_ls",
 		"tsserver",
-        "powershell_es",
-        "yamlls"
+		"powershell_es",
+		"yamlls",
+		"marksman",
+	})
+
+	lsp.configure("yamlls", {
+		settings = {
+			yaml = {
+				keyOrdering = false,
+			},
+		},
 	})
 
 	-- remap completion
@@ -116,7 +125,7 @@ return function()
 	null_mason.setup({
 		-- A list of sources to install if they're not already installed.
 		-- This setting has no relation with the `automatic_installation setting.
-		ensure_installed = { "stylua", "prettier", "beautysh" },
+		ensure_installed = { "stylua", "prettier", "beautysh", "black" },
 		-- Run `require("null-ls).setup.
 		-- Will automatically install masons tools based on selected sources in `null-ls.
 		-- Can also be an exclusion list.
