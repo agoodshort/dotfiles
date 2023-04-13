@@ -85,6 +85,7 @@ return {
 					fallback()
 				end
 			end,
+			["<CR>"] = cmp.mapping.confirm({ select = true }),
 		})
 
 		lsp.setup_nvim_cmp({
