@@ -2,6 +2,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
+tap "jesseduffield/lazydocker"
+tap "jesseduffield/lazynpm"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -16,6 +18,8 @@ brew "exa"
 brew "fd"
 # Distributed revision control system
 brew "git"
+# Blazing fast terminal-ui for git written in rust
+brew "gitui"
 # Update of iperf: measures TCP, UDP, and SCTP bandwidth
 brew "iperf3"
 # Simple terminal UI for git commands
@@ -24,6 +28,8 @@ brew "lazygit"
 brew "neovim"
 # Port scanning utility for large networks
 brew "nmap"
+# Manage multiple Node.js versions
+brew "nvm"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
 # Search tool like grep and The Silver Searcher
@@ -36,10 +42,16 @@ brew "telnet"
 brew "wget"
 # X.Org: Protocol Headers
 brew "xorgproto"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# A simple terminal UI for docker, written in Go
+brew "jesseduffield/lazydocker/lazydocker"
+# A simple terminal UI for git commands, written in Go
+brew "jesseduffield/lazynpm/lazynpm"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # Automatic tiling window manager similar to xmonad
