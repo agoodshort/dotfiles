@@ -9,6 +9,7 @@ return {
 		"keyvchan/telescope-find-pickers.nvim",
 		"debugloop/telescope-undo.nvim",
 		"goodshort/telescope-lazygit-toggleterm.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	config = function()
 		local status_t, telescope = pcall(require, "telescope")
