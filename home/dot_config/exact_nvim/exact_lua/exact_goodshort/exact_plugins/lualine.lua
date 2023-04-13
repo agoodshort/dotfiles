@@ -1,9 +1,14 @@
 return {
 	"nvim-lualine/lualine.nvim",
+	after = "kanagawa.nvim",
 	config = function()
 		local status_lualine, lualine = pcall(require, "lualine")
 		if not status_lualine then
 			return
+		end
+
+		local function fileloc()
+			return vim.fn.expand("%:p:.")
 		end
 
 		local config = {
@@ -13,7 +18,7 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "filename" },
+				lualine_b = { fileloc },
 				lualine_c = { "branch", "diff" },
 				lualine_x = { "diagnostics" },
 				lualine_y = { "filetype" },
