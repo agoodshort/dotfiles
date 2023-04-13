@@ -64,4 +64,5 @@ cask "slack"
 cask "visual-studio-code"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
-
+# Shell extension to navigate your filesystem faster
+brew "zoxide"

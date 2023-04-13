@@ -39,8 +39,6 @@ brew "starship"
 brew "wget"
 # X.Org: Protocol Headers
 brew "xorgproto"
-# Tracks most-used directories to make cd smarter
-brew "z"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
