@@ -1,10 +1,9 @@
 return {
 	-- simple plugin
-	"lewis6991/impatient.nvim",
-	"dstein64/vim-startuptime",
 	"wakatime/vim-wakatime",
 	"sitiom/nvim-numbertoggle",
 	"alker0/chezmoi.vim",
+    "lukas-reineke/indent-blankline.nvim",
 
 	-- Comments
 	{
@@ -26,15 +25,6 @@ return {
 		end,
 	},
 
-	"lukas-reineke/indent-blankline.nvim",
-	{
-		"AckslD/nvim-neoclip.lua",
-		dependencies = { "nvim-telescope/telescope.nvim" },
-		config = function()
-			require("neoclip").setup()
-		end,
-	},
-
 	-- auto-closing --
 	{
 		"windwp/nvim-autopairs",
@@ -42,7 +32,6 @@ return {
 			require("nvim-autopairs").setup({})
 		end,
 	}, -- autoclose parens, brackets, quotes, etc...
-
 	{
 		"tiagovla/scope.nvim",
 		config = function()

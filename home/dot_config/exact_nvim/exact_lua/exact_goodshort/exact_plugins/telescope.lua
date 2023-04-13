@@ -10,6 +10,7 @@ return {
 		"debugloop/telescope-undo.nvim",
 		"goodshort/telescope-lazygit-toggleterm.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		"AckslD/nvim-neoclip.lua",
 	},
 	config = function()
 		local status_t, telescope = pcall(require, "telescope")

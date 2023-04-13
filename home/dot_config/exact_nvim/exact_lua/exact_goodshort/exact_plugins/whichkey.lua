@@ -167,7 +167,7 @@ return {
 		if status_neogen then
 			wk.register({
 				d = { "<Cmd>Neogen<CR>", "Generate documentation" },
-			}, leader2_opts)
+			}, leader_opts)
 		end
 
 		-- Hop manual keymap register --
