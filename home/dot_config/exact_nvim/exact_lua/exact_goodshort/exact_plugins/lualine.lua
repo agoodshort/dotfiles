@@ -1,6 +1,5 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	after = "kanagawa.nvim",
 	config = function()
 		local status_lualine, lualine = pcall(require, "lualine")
 		if not status_lualine then

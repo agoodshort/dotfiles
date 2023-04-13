@@ -3,7 +3,7 @@ return {
 	"wakatime/vim-wakatime",
 	"sitiom/nvim-numbertoggle",
 	"alker0/chezmoi.vim",
-    "lukas-reineke/indent-blankline.nvim",
+	"lukas-reineke/indent-blankline.nvim",
 
 	-- Comments
 	{
@@ -49,7 +49,7 @@ return {
 	}, -- keymaps configured through Which-key
 
 	-- git integration
-	{ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" },
+	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -58,7 +58,7 @@ return {
 	},
 	{
 		"samjwill/nvim-unception",
-		setup = function()
+		config = function()
 			vim.g.unception_open_buffer_in_new_tab = true
 		end,
 	},
