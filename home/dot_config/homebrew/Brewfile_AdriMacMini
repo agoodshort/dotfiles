@@ -88,6 +88,8 @@ cask "postman"
 cask "sdformatter"
 # Team communication and collaboration software
 cask "slack"
+# Menu bar indicator showing the currently selected space
+cask "spaceid"
 # 3D printer and slicing GUI
 cask "ultimaker-cura"
 # Keyboard configurator
