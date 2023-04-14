@@ -7,3 +7,5 @@
 	autoSetupRemote = true
 [diff]
 	tool = nvimdiff
+[pull]
+	rebase = false
