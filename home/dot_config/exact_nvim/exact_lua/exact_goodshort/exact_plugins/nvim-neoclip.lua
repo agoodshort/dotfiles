@@ -4,7 +4,7 @@ return {
 		"kkharji/sqlite.lua", -- Ensure you have sqlite3 installed locally
 	},
 	config = function()
-		if vim.fn.has("win32") or vim.fn.has("win64") then
+		if jit.os == "Windows" then
 			vim.g.sqlite_clib_path = vim.fn.expand("$HOME") .. "/scoop/apps/sqlite3dll/current/sqlite3.dll"
 		end
 		require("neoclip").setup({
@@ -42,7 +42,7 @@ return {
 					i = {
 						select = "<cr>",
 						paste = "<c-p>",
-						paste_behind = "<c-k>",
+						paste_behind = "<c-P>",
 						replay = "<c-q>", -- replay a macro
 						delete = "<c-d>", -- delete an entry
 						edit = "<c-e>", -- edit an entry
@@ -59,12 +59,6 @@ return {
 						edit = "e",
 						custom = {},
 					},
-				},
-				fzf = {
-					select = "default",
-					paste = "ctrl-p",
-					paste_behind = "ctrl-k",
-					custom = {},
 				},
 			},
 		})
