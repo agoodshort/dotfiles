@@ -89,7 +89,7 @@ return {
 					e = { "<Cmd>Neotree toggle<CR>", "List Keymaps" },
 				-- },
 			}, leader_opts)
-		-- end
+		end
 
 		-- telescope --
 		local status_telescope, _ = pcall(require, "telescope")
