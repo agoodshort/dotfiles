@@ -1,7 +1,7 @@
 return {
 	"rebelot/kanagawa.nvim",
-	commit = "de7fb5f",
-	config = function()
+    priority = 1000,
+    config = function()
 		local status_kanagawa, kanagawa = pcall(require, "kanagawa")
 		if not status_kanagawa then
 			return
@@ -21,7 +21,24 @@ return {
 			dimInactive = true, -- dim inactive window `:h hl-NormalNC`
 			globalStatus = false, -- adjust window separators highlight for laststatus=3
 			terminalColors = true, -- define vim.g.terminal_color_{0,17}
-			colors = {},
+			colors = {
+				palette = {},
+				theme = {
+					wave = {},
+					lotus = {},
+					dragon = {},
+					all = {
+						ui = {
+							bg_gutter = "none", --removes the background LineNr
+						},
+					},
+				},
+			},
+			theme = "wave", -- Load "wave" theme when 'background' option is not set
+			background = { -- map the value of 'background' option to a theme
+				dark = "wave", -- try "dragon" !
+				light = "lotus",
+			},
 		})
 
 		-- setup must be called before loading
