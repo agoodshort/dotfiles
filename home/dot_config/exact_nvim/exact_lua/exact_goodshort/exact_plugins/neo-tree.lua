@@ -62,6 +62,20 @@ return {
 			--   end , -- this sorts files and directories descendantly
 			source_selector = {
 				winbar = true,
+				sources = { -- table
+					{
+						source = "filesystem", -- string
+						display_name = "  Files ", -- string | nil
+					},
+					{
+						source = "buffers", -- string
+						display_name = "  Buffers   ", -- string | nil
+					},
+					-- {
+					-- 	source = "git_status",
+					-- 	display_name = "  Git  Test",
+					-- },
+				},
 			},
 			default_component_configs = {
 				container = {
