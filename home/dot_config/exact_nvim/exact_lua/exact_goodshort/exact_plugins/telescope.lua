@@ -9,8 +9,18 @@ return {
 		"keyvchan/telescope-find-pickers.nvim",
 		"debugloop/telescope-undo.nvim",
 		"goodshort/telescope-lazygit-toggleterm.nvim",
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"AckslD/nvim-neoclip.lua",
+		"nvim-telescope/telescope-ui-select.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{
+			"adoyle-h/lsp-toggle.nvim",
+			config = function()
+				require("lsp-toggle").setup({
+					create_cmds = true, -- Whether to create user commands
+					telescope = true, -- Whether to load telescope extensions
+				})
+			end,
+		},
 	},
 	config = function()
 		local status_t, telescope = pcall(require, "telescope")
@@ -55,6 +65,7 @@ return {
 		telescope.load_extension("find_pickers")
 		telescope.load_extension("undo")
 		telescope.load_extension("neoclip")
+		telescope.load_extension("ui-select")
 		telescope.load_extension("lazygit_toggleterm")
 	end,
 }
