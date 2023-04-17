@@ -61,18 +61,13 @@ return {
 		config = function()
 			vim.g.unception_open_buffer_in_new_tab = true
 		end,
-	},
 
-	{
-		"adoyle-h/lsp-toggle.nvim",
-		config = function()
-			require("lsp-toggle").setup()
-		end,
-	},
-	{
-		"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
-		config = function()
-			require("toggle_lsp_diagnostics").init()
-		end,
+		-- LSP
+		{
+			"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+			config = function()
+				require("toggle_lsp_diagnostics").init()
+			end,
+		},
 	},
 }
