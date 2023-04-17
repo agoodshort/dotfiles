@@ -20,4 +20,6 @@ if not status then
 	return
 end
 
-lazy.setup("goodshort.plugins")
+lazy.setup("goodshort.plugins", { defaults = {
+	lazy = false,
+} })
