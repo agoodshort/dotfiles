@@ -1,9 +1,12 @@
 return {
 	"AckslD/nvim-neoclip.lua",
 	dependencies = {
-		"kkharji/sqlite.lua",
+		"kkharji/sqlite.lua", -- Ensure you have sqlite3 installed locally
 	},
 	config = function()
+		if vim.fn.has("win32") or vim.fn.has("win64") then
+			vim.g.sqlite_clib_path = vim.fn.expand("$HOME") .. "/scoop/apps/sqlite3dll/current/sqlite3.dll"
+		end
 		require("neoclip").setup({
 			history = 1000,
 			enable_persistent_history = true,
