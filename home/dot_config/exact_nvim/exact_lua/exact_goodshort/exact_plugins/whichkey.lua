@@ -3,6 +3,9 @@
 return {
 	"folke/which-key.nvim",
 	config = function()
+		vim.o.timeout = true
+		vim.o.timeoutlen = 300
+
 		local status_wk, wk = pcall(require, "which-key")
 		if not status_wk then
 			return
@@ -77,6 +80,17 @@ return {
 			p = { '"_dp', "Paste and Delete using Void Buffer" },
 		}, leader2_opts_visual)
 
+		-- neo tree --
+		local status_neotree, _ = pcall(require, "neo-tree")
+		if status_neotree then
+			wk.register({
+				-- e = {
+				-- 	name = "Neo-tree",
+					e = { "<Cmd>Neotree toggle<CR>", "List Keymaps" },
+				-- },
+			}, leader_opts)
+		-- end
+
 		-- telescope --
 		local status_telescope, _ = pcall(require, "telescope")
 		if status_telescope then
@@ -128,7 +142,7 @@ return {
 					["h"] = { "<Cmd>tabp<CR>", "Go To Left Tab" },
 				},
 			}, blank_opts)
-			vim.keymap.set("n", "<C-t>r", ":TabRename ")
+			vim.keymap.set("n", "<C-t>r", ":TabRename ") -- to review
 		end
 
 		-- toggleterm --
