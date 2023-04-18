@@ -3,13 +3,13 @@ return {
 	event = "VimEnter",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		local status_dashboard, dashboard = pcall(require, "dashboard")
-		if not status_dashboard then
-			return
-		end
-
-		dashboard.setup({
+		require("dashboard").setup({
 			theme = "hyper",
+			hide = {
+				statusline = true, -- hide statusline default is true
+				tabline = false, -- hide the tabline
+				winbar = true, -- hide winbar
+			},
 			config = {
 				week_header = {
 					enable = true,
@@ -18,10 +18,10 @@ return {
 				project = { limit = 8, action = "edit" },
 				shortcut = {
 					{
-						desc = " Update",
+						desc = " Lazy",
 						group = "@property",
-						action = "PackerSync",
-						key = "u",
+						action = "Lazy",
+						key = "l",
 					},
 					{
 						desc = " Files",
