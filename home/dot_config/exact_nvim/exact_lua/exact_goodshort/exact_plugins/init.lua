@@ -3,7 +3,6 @@ return {
 	"wakatime/vim-wakatime",
 	"sitiom/nvim-numbertoggle",
 	"alker0/chezmoi.vim",
-	"lukas-reineke/indent-blankline.nvim",
 
 	-- Comments
 	{
@@ -15,6 +14,7 @@ return {
 				input_after_comment = true, -- (default: true) automatic jump (with insert mode) on inserted annotation
 			})
 		end,
+		event = "BufRead",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		version = "*", -- folllow only stable versions
 	},
