@@ -1,19 +1,14 @@
 return {
-
 	"glepnir/lspsaga.nvim",
-	branch = "main",
-    event = "BufRead",
+	event = "LspAttach",
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons" },
 		--Please make sure you install markdown and markdown_inline parser
 		{ "nvim-treesitter/nvim-treesitter" },
+		{ "neovim/nvim-lspconfig" },
 	},
 	config = function()
-		local status_lspsaga, lspsaga = pcall(require, "lspsaga")
-		if not status_lspsaga then
-			return
-		end
-		lspsaga.setup({
+		require("lspsaga").setup({
 			preview = {
 				lines_above = 5,
 				lines_below = 10,

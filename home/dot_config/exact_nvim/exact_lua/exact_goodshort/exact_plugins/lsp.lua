@@ -1,7 +1,7 @@
 return {
 	"VonHeikemen/lsp-zero.nvim",
 	branch = "v2.x",
-	-- lazy = true, -- To remove when https://github.com/nvim-neo-tree/neo-tree.nvim/issues/828 is resolved
+	lazy = true, -- Might need to comment again if bugs with neo-tree https://github.com/nvim-neo-tree/neo-tree.nvim/issues/828 is resolved
 	dependencies = {
 		-- LSP Support
 		{
@@ -21,6 +21,7 @@ return {
 						pcall(vim.cmd, "MasonUpdate")
 					end,
 				},
+				{ "glepnir/lspsaga.nvim" },
 			},
 			config = function()
 				-- Reserve space for diagnostic icons
