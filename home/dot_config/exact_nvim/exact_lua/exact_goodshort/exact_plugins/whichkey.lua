@@ -84,7 +84,8 @@ return {
 		wk.register({
 			-- e = {
 			-- 	name = "Neo-tree",
-			e = { "<Cmd>Neotree toggle<CR>", "List Keymaps" },
+			e = { "<Cmd>Neotree toggle filesystem<CR>", "Neotree Filesystem" },
+			b = { "<Cmd>Neotree toggle buffers<CR>", "Neotree Buffers" },
 			-- },
 		}, leader_opts)
 
