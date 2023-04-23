@@ -8,8 +8,6 @@ tap "jesseduffield/lazynpm"
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Validate CloudFormation templates against the CloudFormation spec
-brew "cfn-lint"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # Modern replacement for 'ls'
@@ -78,6 +76,8 @@ cask "karabiner-elements"
 cask "lepton"
 # Web browser
 cask "microsoft-edge"
+# Client-side GUI application for modern database development and operations
+cask "nosql-workbench"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Remote desktop
