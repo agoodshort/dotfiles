@@ -15,6 +15,7 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{
 			"adoyle-h/lsp-toggle.nvim",
+			cmd = { "ToggleLSP", "ToggleNullLSP" },
 			config = function()
 				require("lsp-toggle").setup({
 					create_cmds = true, -- Whether to create user commands
