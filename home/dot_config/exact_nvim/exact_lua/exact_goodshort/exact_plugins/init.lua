@@ -14,12 +14,13 @@ return {
 				input_after_comment = true, -- (default: true) automatic jump (with insert mode) on inserted annotation
 			})
 		end,
-		event = "BufRead",
+		event = "BufReadPost",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		version = "*", -- folllow only stable versions
 	},
 	{
 		"numToStr/Comment.nvim", -- comment with gc
+		event = "BufReadPost",
 		config = function()
 			require("Comment").setup()
 		end,
