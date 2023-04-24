@@ -4,20 +4,6 @@ return {
 	"sitiom/nvim-numbertoggle",
 	"alker0/chezmoi.vim",
 
-	-- Comments
-	{
-		"danymat/neogen",
-		config = function()
-			require("neogen").setup({
-				enabled = true, --if you want to disable Neogen
-				snippet_engine = "luasnip",
-				input_after_comment = true, -- (default: true) automatic jump (with insert mode) on inserted annotation
-			})
-		end,
-		event = "BufReadPost",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		version = "*", -- folllow only stable versions
-	},
 	{
 		"numToStr/Comment.nvim", -- comment with gc
 		event = "BufReadPost",
@@ -50,7 +36,6 @@ return {
 	}, -- keymaps configured through Which-key
 
 	-- git integration
-	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -62,13 +47,5 @@ return {
 		config = function()
 			vim.g.unception_open_buffer_in_new_tab = true
 		end,
-
-		-- LSP
-		{
-			"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
-			config = function()
-				require("toggle_lsp_diagnostics").init()
-			end,
-		},
 	},
 }
