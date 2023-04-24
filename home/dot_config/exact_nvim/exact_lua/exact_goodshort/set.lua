@@ -28,9 +28,6 @@ vim.opt.termguicolors = true
 -- Vim updates faster
 vim.opt.updatetime = 250
 
--- Format on save
--- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-
 -- nvim-unception trick
 vim.cmd([[autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete]])
 
