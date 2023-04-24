@@ -35,6 +35,7 @@ return {
 				"vim",
 				"dockerfile",
 				"gitignore",
+				"regex",
 			},
 			-- select blocks with <CR>
 			auto_install = true,
