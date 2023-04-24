@@ -12,7 +12,35 @@ return {
 		"goodshort/telescope-lazygit-toggleterm.nvim",
 		"AckslD/nvim-neoclip.lua",
 		"nvim-telescope/telescope-ui-select.nvim",
+		"nvim-telescope/telescope-node-modules.nvim",
+		{ "nvim-telescope/telescope.nvim", dependencies = "tsakirist/telescope-lazy.nvim" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{
+			"paopaol/telescope-git-diffs.nvim",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				{
+					"sindrets/diffview.nvim",
+					dependencies = "nvim-lua/plenary.nvim",
+					config = function()
+						local actions = require("diffview.actions")
+						require("diffview").setup({
+							keymaps = {
+								view = {
+									{
+										"n",
+										"<leader>e",
+										actions.toggle_files,
+										{ desc = "Toggle the file panel." },
+									},
+								},
+							},
+						})
+					end,
+				},
+			},
+		},
+		{ "nvim-telescope/telescope-media-files.nvim", dependencies = "nvim-lua/popup.nvim" },
 		{
 			"adoyle-h/lsp-toggle.nvim",
 			cmd = { "ToggleLSP", "ToggleNullLSP" },
@@ -25,23 +53,14 @@ return {
 		},
 	},
 	config = function()
-		local status_t, telescope = pcall(require, "telescope")
-		if not status_t then
-			return
-		end
-
-		local status_ta, ta = pcall(require, "telescope.actions")
-		if not status_ta then
-			return
-		end
-
-		telescope.setup({
+		require("telescope").setup({
 			defaults = {
 				mappings = {
 					i = {
-						["<C-k>"] = ta.move_selection_previous,
-						["<C-j>"] = ta.move_selection_next,
-						["<C-s>"] = ta.select_vertical,
+						["<C-k>"] = require("telescope.actions").move_selection_previous,
+						["<C-j>"] = require("telescope.actions").move_selection_next,
+						["<C-s>"] = require("telescope.actions").select_vertical,
+						["<tab>"] = require("telescope.actions").toggle_selection,
 					},
 				},
 			},
@@ -58,16 +77,43 @@ return {
 						},
 					},
 				},
+				media_files = {
+					-- filetypes whitelist
+					-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+					filetypes = { "png", "webp", "jpg", "jpeg" },
+					-- find command (defaults to `fd`)
+					find_cmd = "rg",
+				},
+				lazy = {
+					-- Whether or not to show the icon in the first column
+					show_icon = true,
+					-- Mappings for the actions
+					mappings = {
+						open_in_browser = "<C-o>",
+						open_in_file_browser = "<M-b>",
+						open_in_find_files = "<C-f>",
+						open_in_live_grep = "<C-g>",
+						open_plugins_picker = "<C-b>", -- Works only after having called first another action
+						open_lazy_root_find_files = "<C-r>f",
+						open_lazy_root_live_grep = "<C-r>g",
+					},
+					-- Other telescope configuration options
+				},
 			},
 		})
-		telescope.load_extension("fzf")
-		telescope.load_extension("env")
-		telescope.load_extension("http")
-		telescope.load_extension("zoxide")
-		telescope.load_extension("find_pickers")
-		telescope.load_extension("undo")
-		telescope.load_extension("neoclip")
-		telescope.load_extension("ui-select")
-		telescope.load_extension("lazygit_toggleterm")
+		require("telescope").load_extension("fzf")
+		require("telescope").load_extension("env")
+		require("telescope").load_extension("http")
+		require("telescope").load_extension("zoxide")
+		require("telescope").load_extension("find_pickers")
+		require("telescope").load_extension("undo")
+		require("telescope").load_extension("neoclip")
+		require("telescope").load_extension("ui-select")
+		require("telescope").load_extension("lazygit_toggleterm")
+		require("telescope").load_extension("media_files")
+		require("telescope").load_extension("node_modules")
+		require("telescope").load_extension("lazy")
+		require("telescope").load_extension("git_diffs")
+		require("telescope").load_extension("noice")
 	end,
 }

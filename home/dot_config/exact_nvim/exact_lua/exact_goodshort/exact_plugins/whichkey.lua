@@ -101,10 +101,13 @@ return {
 				l = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
 				z = { "<Cmd>Telescope zoxide list<CR>", "List z" },
 				e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
-				p = { "<Cmd>Telescope packer<CR>", "List Packer Plugins" },
 				t = { "<Cmd>Telescope http list<CR>", "List HTTP Status Code" },
 				u = { "<Cmd>Telescope undo<CR>", "Visualize Undo Tree" },
 				c = { "<Cmd>Telescope neoclip<CR>", "List Clipboard" },
+				m = { "<Cmd>Telescope media_files<CR>", "Preview Images" },
+				n = { "<Cmd>Telescope node_modules<CR>", "List Node Modules" },
+				a = { "<Cmd>Telescope lazy<CR>", "List Lazy plugins" },
+				H = { "<Cmd>Telescope noice<CR>", "Noice History" },
 				["?"] = { "<Cmd>Telescope find_pickers<CR>", "List Telescope Pickers" },
 			},
 		}, leader_opts)
@@ -121,7 +124,7 @@ return {
 				g = { "<Cmd>Telescope lazygit_toggleterm<CR>", "LazyGit" },
 				u = { "<Cmd>lua _GITUI_TOGGLE()<CR>", "GitUI" },
 				b = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Gitsigns Blame" },
-				d = { "<Cmd>DiffviewOpen<CR>", "Diffview" },
+				d = { "<Cmd>Telescope git_diffs diff_commits<CR>", "Diffview" },
 			},
 		}, leader_opts)
 
