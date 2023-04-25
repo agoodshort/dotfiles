@@ -87,11 +87,10 @@ return {
 
 		wk.register({ ["<C-p>"] = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" } }, blank_opts)
 
-		-- fugitive --
+		-- Git --
 		wk.register({
 			g = {
 				name = "Git Tools", -- optional name
-				s = { "<Cmd>Git<CR>", "Fugitive Git Status" },
 				f = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
 				c = { "<Cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
 				g = { "<Cmd>Telescope lazygit_toggleterm<CR>", "LazyGit" },
@@ -99,7 +98,7 @@ return {
 				b = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Gitsigns Blame" },
 				d = { "<Cmd>Telescope git_diffs diff_commits<CR>", "Diffview" },
 			},
-		}, leader_opts)
+		}, leader2_opts)
 
 		-- Tab Management --
 		wk.register({
