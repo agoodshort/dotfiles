@@ -22,21 +22,37 @@ return {
 				{
 					"sindrets/diffview.nvim",
 					dependencies = "nvim-lua/plenary.nvim",
-					config = function()
-						local actions = require("diffview.actions")
-						require("diffview").setup({
-							keymaps = {
-								view = {
-									{
-										"n",
-										"<leader>e",
-										actions.toggle_files,
-										{ desc = "Toggle the file panel." },
-									},
-								},
-							},
-						})
-					end,
+					-- config = function()
+					-- 	local actions = require("diffview.actions")
+					-- 	require("diffview").setup({
+					-- 		keymaps = {
+					-- 			view = {
+					-- 				{
+					-- 					"n",
+					-- 					"<leader>e",
+					-- 					actions.toggle_files,
+					-- 					{ desc = "Toggle the file panel." },
+					-- 				},
+					-- 			},
+					-- 			file_panel = {
+					-- 				{
+					-- 					"n",
+					-- 					"<leader>e",
+					-- 					actions.toggle_files,
+					-- 					{ desc = "Toggle the file panel" },
+					-- 				},
+					-- 			},
+					-- 			file_history_panel = {
+					-- 				{
+					-- 					"n",
+					-- 					"<leader>e",
+					-- 					actions.toggle_files,
+					-- 					{ desc = "Toggle the file panel" },
+					-- 				},
+					-- 			},
+					-- 		},
+					-- 	})
+					-- end,
 				},
 			},
 		},
