@@ -71,7 +71,7 @@ return {
 		}, leader_opts_visual)
 
 		wk.register({
-			d = { '"_d', "Delete using Void Buffer" },
+			d = { '"_dd', "Delete using Void Buffer" },
 			p = { '"_dp', "Paste and Delete using Void Buffer" },
 		}, leader2_opts)
 
@@ -82,11 +82,8 @@ return {
 
 		-- neo tree --
 		wk.register({
-			-- e = {
-			-- 	name = "Neo-tree",
 			e = { "<Cmd>Neotree toggle filesystem<CR>", "Neotree Filesystem" },
 			b = { "<Cmd>Neotree toggle buffers<CR>", "Neotree Buffers" },
-			-- },
 		}, leader_opts)
 
 		-- telescope --
@@ -105,7 +102,7 @@ return {
 				u = { "<Cmd>Telescope undo<CR>", "Visualize Undo Tree" },
 				c = { "<Cmd>Telescope neoclip<CR>", "List Clipboard" },
 				m = { "<Cmd>Telescope media_files<CR>", "Preview Images" },
-				n = { "<Cmd>Telescope node_modules<CR>", "List Node Modules" },
+				n = { "<Cmd>Telescope node_modules list<CR>", "List Node Modules" },
 				a = { "<Cmd>Telescope lazy<CR>", "List Lazy plugins" },
 				H = { "<Cmd>Telescope noice<CR>", "Noice History" },
 				["?"] = { "<Cmd>Telescope find_pickers<CR>", "List Telescope Pickers" },
@@ -150,20 +147,6 @@ return {
 				["3"] = { "<Cmd>3ToggleTerm<CR>", "Terminal 3" },
 			},
 		}, leader_opts)
-
-		-- Trouble keymap --
-		wk.register({
-			x = {
-				name = "Trouble", -- optional group name
-				x = { "<Cmd>TroubleToggle<CR>", "Toggle Trouble" },
-				w = { "<Cmd>TroubleToggle workspace_diagnostics<CR>", "Workspace Diagnostics" },
-				d = { "<Cmd>TroubleToggle document_diagnostics<CR>", "Document Diagnostics" },
-				q = { "<Cmd>TroubleToggle quickfix<CR>", "Quickfix" },
-			},
-		}, leader_opts)
-		wk.register({
-			gR = { "<Cmd>TroubleToggle lsp_references<CR>", "LSP References" },
-		}, blank_opts)
 
 		-- neogen --
 		wk.register({
