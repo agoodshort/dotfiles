@@ -8,17 +8,7 @@ return {
 		{ "s1n7ax/nvim-window-picker", version = "v1.*" }, -- only needed if you want to use the commands with "_with_window_picker" suffix
 	},
 	config = function()
-		local setup, neotree = pcall(require, "neo-tree")
-		if not setup then
-			return
-		end
-
-		local setup_win_pick, window_picker = pcall(require, "window-picker")
-		if not setup_win_pick then
-			return
-		end
-
-		window_picker.setup({
+		require("window-picker").setup({
 			autoselect_one = true,
 			include_current = false,
 			filter_rules = {
@@ -45,7 +35,7 @@ return {
 		-- NOTE: this is changed from v1.x, which used the old style of highlight groups
 		-- in the form "LspDiagnosticsSignWarning"
 
-		neotree.setup({
+		require("neo-tree").setup({
 			close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
 			popup_border_style = "rounded",
 			enable_git_status = true,
@@ -192,9 +182,9 @@ return {
 			filesystem = {
 				filtered_items = {
 					visible = false, -- when true, they will just be displayed differently than normal items
-					hide_dotfiles = false,
-					hide_gitignored = false,
-					hide_hidden = false, -- only works on Windows for hidden files/directories
+					hide_dotfiles = true,
+					hide_gitignored = true,
+					hide_hidden = true, -- only works on Windows for hidden files/directories
 					hide_by_name = {
 						--"node_modules"
 					},
