@@ -35,13 +35,6 @@ return {
 		end,
 	}, -- keymaps configured through Which-key
 
-	-- git integration
-	{
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup()
-		end,
-	},
 	{
 		"samjwill/nvim-unception",
 		config = function()
