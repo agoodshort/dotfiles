@@ -8,6 +8,12 @@ tap "jesseduffield/lazynpm"
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# X.Org: Protocol Headers
+brew "xorgproto"
+# Validate CloudFormation templates against the CloudFormation spec
+brew "cfn-lint"
+# Versatile and fast Unicode/ASCII/ANSI graphics renderer
+brew "chafa"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # Modern replacement for 'ls'
@@ -38,8 +44,6 @@ brew "starship"
 brew "telnet"
 # Internet file retriever
 brew "wget"
-# X.Org: Protocol Headers
-brew "xorgproto"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
