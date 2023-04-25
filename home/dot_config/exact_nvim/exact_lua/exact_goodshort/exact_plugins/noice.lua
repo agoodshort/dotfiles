@@ -41,10 +41,19 @@ return {
 					--- @type NoiceFormat|string
 					format_done = "lsp_progress_done",
 					throttle = 1000 / 30, -- frequency to update lsp progress message
-					view = "notify",
+					view = "lsp_notify",
 				},
 				hover = { enabled = false },
 				signature = { enabled = false },
+			},
+			views = {
+				lsp_notify = {
+					backend = "notify",
+					fallback = "mini",
+					format = "notify",
+					replace = true,
+					merge = false,
+				},
 			},
 			-- you can enable a preset for easier configuration
 			presets = {
