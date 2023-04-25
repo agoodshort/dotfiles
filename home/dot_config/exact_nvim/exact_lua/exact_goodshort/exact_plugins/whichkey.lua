@@ -6,10 +6,7 @@ return {
 		vim.o.timeout = true
 		vim.o.timeoutlen = 300
 
-		local status_wk, wk = pcall(require, "which-key")
-		if not status_wk then
-			return
-		end
+		local wk = require("which-key")
 
 		-- which-key leader config --
 		local leader_opts = {
@@ -58,27 +55,6 @@ return {
 			noremap = true,
 			nowait = false,
 		}
-
-		-- yank/paste --
-		wk.register({
-			y = { '"+y', "Yank to System Clipboard" },
-			p = { '"+p', "Paste from System Clipboard" },
-		}, leader_opts)
-
-		wk.register({
-			y = { '"+y', "Yank to System Clipboard" },
-			p = { '"+p', "Paste from System Clipboard" },
-		}, leader_opts_visual)
-
-		wk.register({
-			d = { '"_dd', "Delete using Void Buffer" },
-			p = { '"_dp', "Paste and Delete using Void Buffer" },
-		}, leader2_opts)
-
-		wk.register({
-			d = { '"_d', "Delete using Void Buffer" },
-			p = { '"_dp', "Paste and Delete using Void Buffer" },
-		}, leader2_opts_visual)
 
 		-- neo tree --
 		wk.register({
@@ -158,10 +134,12 @@ return {
 			f = { "<Cmd>HopChar1CurrentLineAC<CR>", "Hop Current Line After" },
 			F = { "<Cmd>HopChar1CurrentLineBC<CR>", "Hop Current Line Before" },
 		}, blank_opts)
+
 		wk.register({
 			h = { "<Cmd>HopChar1AC<CR>", "Hop After" },
 			H = { "<Cmd>HopChar1BC<CR>", "Hop Before" },
 		}, leader_opts)
+
 		wk.register({
 			h = { "<Cmd>HopChar2MW<CR>", "Hop Anywhere" },
 		}, leader2_opts)
@@ -171,26 +149,24 @@ return {
 			l = {
 				name = "LSP",
 				v = { "<Plug>(toggle-lsp-diag-vtext)", "Toggle LSP Virtual Text" },
-			},
-		}, leader_opts)
-
-		wk.register({
-			l = {
-				name = "LSP",
 				l = { "<Cmd>ToggleLSP<CR>", "ToggleLSP" },
 				n = { "<Cmd>ToggleNullLSP<CR>", "ToggleNullLSP" },
-			},
-		}, leader_opts)
-
-		wk.register({
-			l = {
-				name = "LSP",
 				f = { "<Cmd>Lspsaga lsp_finder<CR>", "Lspsaga Definition Finder" },
 				o = { "<Cmd>Lspsaga outline<CR>", "Lspsaga Outline" },
 				c = { "<Cmd>Lspsaga code_action<CR>", "Lspsaga Code Action" },
 				d = { "<Cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga Show Line Diagnostics" },
+				r = { "<Cmd>Lspsaga rename<CR>", "Lspsaga Rename" },
+			},
+			g = {
+				p = { "<Cmd>Lspsaga peek_definition<CR>", "Lspsaga Peek Definition" },
+				d = { "<Cmd>Lspsaga goto_definition<CR>", "Lspsaga Go to Definition" },
+				t = { "<Cmd>Lspsaga peek_type_definition<CR>", "Lspsaga Peek Type Definition" },
 			},
 		}, leader_opts)
+
+		wk.register({
+			K = { "<Cmd>Lspsaga hover_doc<CR>", "Lspsaga Hover Doc" },
+		}, blank_opts)
 
 		-- Null-ls --
 		wk.register({
@@ -204,6 +180,27 @@ return {
 			c = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
 			["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format" },
 		}, leader_opts)
+
+		-- yank/paste --
+		wk.register({
+			y = { '"+y', "Yank to System Clipboard" },
+			p = { '"+p', "Paste from System Clipboard" },
+		}, leader_opts)
+
+		wk.register({
+			y = { '"+y', "Yank to System Clipboard" },
+			p = { '"+p', "Paste from System Clipboard" },
+		}, leader_opts_visual)
+
+		wk.register({
+			d = { '"_dd', "Delete using Void Buffer" },
+			p = { '"_dp', "Paste and Delete using Void Buffer" },
+		}, leader2_opts)
+
+		wk.register({
+			d = { '"_d', "Delete using Void Buffer" },
+			p = { '"_dp', "Paste and Delete using Void Buffer" },
+		}, leader2_opts_visual)
 
 		wk.setup()
 	end,
