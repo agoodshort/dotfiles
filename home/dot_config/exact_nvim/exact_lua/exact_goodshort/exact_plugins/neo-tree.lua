@@ -71,10 +71,6 @@ return {
 						source = "buffers", -- string
 						display_name = "  Buffers   ", -- string | nil
 					},
-					-- {
-					-- 	source = "git_status",
-					-- 	display_name = "  Git  Test",
-					-- },
 				},
 			},
 			default_component_configs = {
@@ -153,51 +149,52 @@ return {
 					-- ["<cr>"] = "open_drop",
 					-- ["t"] = "open_tab_drop",
 					["w"] = "open_with_window_picker",
-					-- ["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
 					["C"] = "close_node",
 					["z"] = "close_all_nodes",
-					-- ["Z"] = "expand_all_nodes",
-					["a"] = {
-						"add",
-						-- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
-						-- some commands may take optional config options, see `:h neo-tree-mappings` for details
-						config = {
-							show_path = "none", -- "none", "relative", "absolute"
-						},
-					},
-					["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
+					["Z"] = "expand_all_nodes",
 					["d"] = "delete",
 					["r"] = "rename",
 					["y"] = "copy_to_clipboard",
 					["x"] = "cut_to_clipboard",
 					["p"] = "paste_from_clipboard",
-					["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
-					-- ["c"] = {
-					--  "copy",
-					--  config = {
-					--    show_path = "none" -- "none", "relative", "absolute"
-					--  }
-					--}
+					["q"] = "close_window",
+					["R"] = "refresh",
+					["?"] = "show_help",
+					["["] = "prev_source",
+					["]"] = "next_source",
+					["a"] = {
+						"add",
+						config = {
+							show_path = "none", -- "none", "relative", "absolute"
+						},
+					},
+					["A"] = {
+						"add_directory",
+						config = {
+							show_path = "none", -- "none", "relative", "absolute"
+						},
+					},
+					["c"] = {
+						"copy",
+						config = {
+							show_path = "none", -- "none", "relative", "absolute"
+						},
+					},
 					["m"] = {
 						"move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
 						config = {
 							show_path = "relative",
 						},
 					},
-					["q"] = "close_window",
-					["R"] = "refresh",
-					["?"] = "show_help",
-					["["] = "prev_source",
-					["]"] = "next_source",
 				},
 			},
 			nesting_rules = {},
 			filesystem = {
 				filtered_items = {
 					visible = false, -- when true, they will just be displayed differently than normal items
-					hide_dotfiles = true,
-					hide_gitignored = true,
-					hide_hidden = true, -- only works on Windows for hidden files/directories
+					hide_dotfiles = false,
+					hide_gitignored = false,
+					hide_hidden = false, -- only works on Windows for hidden files/directories
 					hide_by_name = {
 						--"node_modules"
 					},
@@ -215,6 +212,11 @@ return {
 					never_show_by_pattern = { -- uses glob style patterns
 						--".null-ls_*",
 					},
+				},
+				bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
+				cwd_target = {
+					sidebar = "tab", -- sidebar is when position = left or right
+					current = "tab", -- current is when position = current
 				},
 				follow_current_file = true, -- This will find and focus the file in the active buffer every
 				-- time the current file is changed while the tree is open.
@@ -248,19 +250,6 @@ return {
 				window = {
 					mappings = {
 						["d"] = "buffer_delete",
-					},
-				},
-			},
-			git_status = {
-				window = {
-					mappings = {
-						["A"] = "git_add_all",
-						["gu"] = "git_unstage_file",
-						["ga"] = "git_add_file",
-						["gr"] = "git_revert_file",
-						["gc"] = "git_commit",
-						["gp"] = "git_push",
-						["gg"] = "git_commit_and_push",
 					},
 				},
 			},
