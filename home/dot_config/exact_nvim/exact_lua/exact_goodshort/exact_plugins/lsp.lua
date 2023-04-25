@@ -41,7 +41,7 @@ return {
 
 			require("lsp-zero.cmp").extend({
 				set_basic_mappings = true,
-				set_extra_mappings = false,
+				set_extra_mappings = true,
 				use_luasnip = true,
 				set_format = true,
 				documentation_window = true,
@@ -49,7 +49,7 @@ return {
 
 			-- And you can configure cmp even more, if you want to.
 			local cmp = require("cmp")
-			local cmp_action = require("lsp-zero").cmp_action()
+			local cmp_action = require("lsp-zero.cmp").action()
 
 			cmp.setup({
 				sources = {
@@ -76,7 +76,6 @@ return {
 		dependencies = {
 			"hrsh7th/nvim-cmp", -- Required
 			"williamboman/mason-lspconfig.nvim",
-			"glepnir/lspsaga.nvim",
 
 			-- Formatter
 			"jose-elias-alvarez/null-ls.nvim",
@@ -115,42 +114,42 @@ return {
 				},
 			})
 
-			local on_attach = function(client, bufnr)
-				local opts = { buffer = bufnr, remap = false }
-
-				vim.keymap.set("n", "gd", function()
-					vim.lsp.buf.definition()
-				end, opts)
-				vim.keymap.set("n", "K", function()
-					vim.lsp.buf.hover()
-				end, opts)
-				vim.keymap.set("n", "<leader>e", function()
-					vim.diagnostic.open_float()
-				end, opts)
-				vim.keymap.set("n", "[d", function()
-					vim.diagnostic.goto_next()
-				end, opts)
-				vim.keymap.set("n", "]d", function()
-					vim.diagnostic.goto_prev()
-				end, opts)
-				vim.keymap.set("n", "<leader>ca", function()
-					vim.lsp.buf.code_action()
-				end, opts)
-				vim.keymap.set("n", "<leader>gr", function()
-					vim.lsp.buf.references()
-				end, opts)
-				vim.keymap.set("n", "<leader>rn", function()
-					vim.lsp.buf.rename()
-				end, opts)
-				vim.keymap.set("i", "<C-h>", function()
-					vim.lsp.buf.signature_help()
-				end, opts)
-				vim.keymap.set("n", "<leader>dl", function()
-					vim.diagnostic.setqflist()
-				end, opts)
-			end
-
-			lsp.on_attach(on_attach)
+			-- local on_attach = function(client, bufnr)
+			-- 	local opts = { buffer = bufnr, remap = false }
+			--
+			-- 	vim.keymap.set("n", "gd", function()
+			-- 		vim.lsp.buf.definition()
+			-- 	end, opts)
+			-- 	vim.keymap.set("n", "K", function()
+			-- 		vim.lsp.buf.hover()
+			-- 	end, opts)
+			-- 	vim.keymap.set("n", "<leader>e", function()
+			-- 		vim.diagnostic.open_float()
+			-- 	end, opts)
+			-- 	vim.keymap.set("n", "[d", function()
+			-- 		vim.diagnostic.goto_next()
+			-- 	end, opts)
+			-- 	vim.keymap.set("n", "]d", function()
+			-- 		vim.diagnostic.goto_prev()
+			-- 	end, opts)
+			-- 	vim.keymap.set("n", "<leader>ca", function()
+			-- 		vim.lsp.buf.code_action()
+			-- 	end, opts)
+			-- 	vim.keymap.set("n", "<leader>gr", function()
+			-- 		vim.lsp.buf.references()
+			-- 	end, opts)
+			-- 	vim.keymap.set("n", "<leader>rn", function()
+			-- 		vim.lsp.buf.rename()
+			-- 	end, opts)
+			-- 	vim.keymap.set("i", "<C-h>", function()
+			-- 		vim.lsp.buf.signature_help()
+			-- 	end, opts)
+			-- 	vim.keymap.set("n", "<leader>dl", function()
+			-- 		vim.diagnostic.setqflist()
+			-- 	end, opts)
+			-- end
+			--
+			-- lsp.on_attach(on_attach)
 
 			lsp.setup()
 
@@ -194,6 +193,7 @@ return {
 					null_ls.builtins.formatting.prettier,
 					null_ls.builtins.formatting.beautysh,
 					null_ls.builtins.formatting.black,
+					null_ls.builtins.diagnostics.cfn_lint,
 				},
 			})
 
@@ -201,7 +201,7 @@ return {
 			require("mason-null-ls").setup({
 				-- A list of sources to install if they're not already installed.
 				-- This setting has no relation with the `automatic_installation setting.
-				ensure_installed = { "stylua", "prettier", "beautysh", "black" },
+				ensure_installed = { "stylua", "prettier", "beautysh", "black", "cfn_lint" },
 				-- Run `require("null-ls).setup.
 				-- Will automatically install masons tools based on selected sources in `null-ls.
 				-- Can also be an exclusion list.
