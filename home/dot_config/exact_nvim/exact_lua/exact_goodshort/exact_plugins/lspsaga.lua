@@ -53,7 +53,7 @@ return {
 				},
 			},
 			lightbulb = {
-				enable = true,
+				enable = false,
 				enable_in_insert = true,
 				sign = false,
 				sign_priority = 40,
