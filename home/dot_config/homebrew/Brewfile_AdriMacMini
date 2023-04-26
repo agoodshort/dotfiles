@@ -76,6 +76,8 @@ cask "iina"
 cask "inav-configurator"
 # Keyboard customizer
 cask "karabiner-elements"
+# Open-source keystroke visualizer
+cask "keycastr"
 # Snippet management app
 cask "lepton"
 # Web browser
