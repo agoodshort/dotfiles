@@ -1,6 +1,6 @@
 return {
 	"nanozuki/tabby.nvim",
-	-- event = "TabNew", -- load when new tab is opened
+	event = "TabNew", -- load when new tab is opened
 	config = function()
 		local status, tabline = pcall(require, "tabby.tabline")
 		if not status then
