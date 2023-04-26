@@ -16,11 +16,11 @@ return {
 					opts = { enter = true, format = "details" },
 					filter = {
 						any = {
-							{ event = true },
+							{ event = "notify" },
 							{ error = true },
 							{ warning = true },
-							{ event = true },
-							{ event = true },
+							{ event = "msg_show", kind = { "" } },
+							{ event = "lsp", kind = "message" },
 						},
 					},
 				},
@@ -41,7 +41,7 @@ return {
 					--- @type NoiceFormat|string
 					format_done = "lsp_progress_done",
 					throttle = 1000 / 30, -- frequency to update lsp progress message
-					view = "lsp_notify",
+					view = "mini",
 				},
 				hover = { enabled = false },
 				signature = { enabled = false },
