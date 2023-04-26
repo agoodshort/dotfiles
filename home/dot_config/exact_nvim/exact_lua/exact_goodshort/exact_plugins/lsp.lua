@@ -7,6 +7,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 		"hrsh7th/cmp-nvim-lsp",
+		"folke/neodev.nvim",
 		{
 			"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
 			config = function()
@@ -32,6 +33,8 @@ return {
 		-- local lsp_attach = function(client, bufnr)
 		-- 	-- Create your keybindings here...
 		-- end
+		--
+		require("neodev").setup({})
 
 		local lspconfig = require("lspconfig")
 		require("mason-lspconfig").setup_handlers({
@@ -80,7 +83,6 @@ return {
 				null_ls.builtins.formatting.beautysh,
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.diagnostics.cfn_lint,
-				null_ls.builtins.code_actions.gitsigns,
 			},
 		})
 	end,
