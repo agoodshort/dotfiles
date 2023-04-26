@@ -1,7 +1,7 @@
 return {
 	-- simple plugin
 	"wakatime/vim-wakatime",
-	"sitiom/nvim-numbertoggle",
+	"sitiom/nvim-numbertoggle", -- toggles relative number off when leaving buffer
 	"alker0/chezmoi.vim",
 
 	{
@@ -26,7 +26,6 @@ return {
 		end,
 	},
 
-	-- Easymotion like plugin
 	{
 		"phaazon/hop.nvim",
 		branch = "v2",
