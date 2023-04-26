@@ -57,6 +57,7 @@
   "telescope-undo.nvim": { "branch": "main", "commit": "231b5ebb4328d2768c830c9a8d1b9c696116848d" },
   "telescope-zoxide": { "branch": "main", "commit": "68966349aa1b8e9ade403e18479ecf79447389a7" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "9de317bdea2bc393074651179c4fc7f93e9b2d56" },
+  "toggle-lsp-diagnostics.nvim": { "branch": "main", "commit": "77399c5f8fc68541b222aeae278afd0988ab660c" },
   "toggleterm.nvim": { "branch": "main", "commit": "026dff5e2b504941cf172691561a67ea362596aa" },
   "vim-wakatime": { "branch": "master", "commit": "515dbcc2278a9279a19de838fa29fc5078e34e56" },
   "which-key.nvim": { "branch": "main", "commit": "94cb020ff33a1e0e22fac1c41663d2c439741f17" }
