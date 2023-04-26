@@ -32,7 +32,7 @@ return {
 		config = function()
 			require("hop").setup({})
 		end,
-	}, -- keymaps configured through Which-key
+	},
 
 	{
 		"samjwill/nvim-unception",
