@@ -20,9 +20,9 @@ return {
 				lualine_a = { "mode" },
 				lualine_b = { fileloc },
 				lualine_c = { "branch", "diff" },
-				lualine_x = { "diagnostics" },
-				lualine_y = { "filetype" },
-				lualine_z = { "location" },
+				lualine_x = {},
+				lualine_y = { "diagnostics" },
+				lualine_z = { "filetype" },
 			},
 			inactive_sections = {
 				lualine_a = {},
@@ -38,11 +38,11 @@ return {
 			extensions = {},
 		}
 
-		local function ins_left(component)
-			table.insert(config.sections.lualine_x, component)
+		local function ins_right(component)
+			table.insert(config.sections.lualine_y, component)
 		end
 
-		ins_left({
+		ins_right({
 			-- Lsp server name
 			function()
 				local msg = "No Active Lsp"
