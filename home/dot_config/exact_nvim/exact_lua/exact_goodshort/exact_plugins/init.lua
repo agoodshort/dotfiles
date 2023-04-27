@@ -3,7 +3,6 @@ return {
 	"wakatime/vim-wakatime",
 	"sitiom/nvim-numbertoggle", -- toggles relative number off when leaving buffer
 	"alker0/chezmoi.vim",
-
 	{
 		"numToStr/Comment.nvim", -- comment with gc
 		event = "BufReadPost",

@@ -43,8 +43,6 @@ return {
 					throttle = 1000 / 30, -- frequency to update lsp progress message
 					view = "mini",
 				},
-				hover = { enabled = false },
-				signature = { enabled = false },
 			},
 			views = {
 				lsp_notify = {
