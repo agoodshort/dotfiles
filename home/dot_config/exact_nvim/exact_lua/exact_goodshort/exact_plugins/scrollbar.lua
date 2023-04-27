@@ -1,12 +1,8 @@
 return {
 	"petertriho/nvim-scrollbar",
+	event = "BufReadPost",
 	config = function()
-		local status_scroll, scrollbar = pcall(require, "scrollbar")
-		if not status_scroll then
-			return
-		end
-
-		scrollbar.setup({
+		require("scrollbar").setup({
 			show = true,
 			show_in_active_only = false,
 			set_highlights = true,
@@ -121,6 +117,7 @@ return {
 				"TelescopePrompt",
 				"noice",
 				"neo-tree",
+                "lazy"
 			},
 			autocmd = {
 				render = {
