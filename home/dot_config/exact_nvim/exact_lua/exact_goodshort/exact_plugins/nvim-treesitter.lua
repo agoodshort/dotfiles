@@ -1,11 +1,10 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = function()
-		local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-		ts_update()
+		require("nvim-treesitter.install").update({ with_sync = true })
 	end,
 	event = "BufReadPost",
-	dependencies = { "HiPhish/nvim-ts-rainbow2", "windwp/nvim-ts-autotag" }, --autoclose tags
+	dependencies = { "HiPhish/nvim-ts-rainbow2", "windwp/nvim-ts-autotag" },
 	config = function()
 		local status, treesitter = pcall(require, "nvim-treesitter.configs")
 		if not status then
