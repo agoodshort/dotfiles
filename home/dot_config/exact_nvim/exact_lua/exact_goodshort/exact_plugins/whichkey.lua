@@ -89,7 +89,7 @@ return {
 
 		-- Git --
 		wk.register({
-			g = {
+			gg = {
 				name = "Git Tools", -- optional name
 				f = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
 				c = { "<Cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
@@ -98,7 +98,7 @@ return {
 				b = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Gitsigns Blame" },
 				d = { "<Cmd>Telescope git_diffs diff_commits<CR>", "Diffview" },
 			},
-		}, leader2_opts)
+		}, leader_opts)
 
 		-- Tab Management --
 		wk.register({
