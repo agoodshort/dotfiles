@@ -1,13 +1,8 @@
 return {
 	"rebelot/kanagawa.nvim",
-    priority = 1000,
-    config = function()
-		local status_kanagawa, kanagawa = pcall(require, "kanagawa")
-		if not status_kanagawa then
-			return
-		end
-
-		kanagawa.setup({
+	priority = 1000,
+	config = function()
+		require("kanagawa").setup({
 			undercurl = true, -- enable undercurls
 			commentStyle = { italic = true },
 			functionStyle = {},

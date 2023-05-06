@@ -6,12 +6,7 @@ return {
 	event = "BufReadPost",
 	dependencies = { "HiPhish/nvim-ts-rainbow2", "windwp/nvim-ts-autotag" },
 	config = function()
-		local status, treesitter = pcall(require, "nvim-treesitter.configs")
-		if not status then
-			return
-		end
-
-		treesitter.setup({
+		require("nvim-treesitter.configs").setup({
 			highlight = {
 				enable = true,
 			},

@@ -1,13 +1,8 @@
 return {
 	"kwkarlwang/bufresize.nvim",
 	config = function()
-		local status_bufresize, bufresize = pcall(require, "bufresize")
-		if not status_bufresize then
-			return
-		end
-
 		local opts = { noremap = true, silent = true }
-		bufresize.setup({
+		require("bufresize").setup({
 			register = {
 				keys = {
 					{ "n", "<C-w><", "30<C-w><", opts },
