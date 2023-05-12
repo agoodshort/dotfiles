@@ -9,3 +9,5 @@
 	tool = nvimdiff
 [pull]
 	rebase = false
+[url "git@github.com:"]
+	insteadOf = https://github.com/
