@@ -17,6 +17,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"folke/neodev.nvim",
 			"kevinhwang91/nvim-ufo",
+			"someone-stole-my-name/yaml-companion.nvim",
 		},
 		config = function()
 			require("mason").setup()
@@ -41,9 +42,9 @@ return {
 			}
 
 			-- local lsp_attach = function(client, bufnr)
-			-- 	-- Create your keybindings here...
+			--              -- Create your keybindings here...
 			-- end
-			--
+
 			require("neodev").setup({})
 
 			local lspconfig = require("lspconfig")
@@ -54,15 +55,21 @@ return {
 						capabilities = lsp_capabilities,
 					})
 				end,
+
+				-- YAML
+				["yamlls"] = function()
+					-- TODO: Figure out how to call my lsp_attach from inside plugin on_attach
+					local yamlconfig = require("yaml-companion").setup({
+						settings = {
+							yaml = {
+								keyOrdering = false,
+							},
+						},
+					})
+					lspconfig.yamlls.setup(yamlconfig)
+				end,
 			})
 
-			lspconfig.yamlls.setup({
-				settings = {
-					yaml = {
-						keyOrdering = false,
-					},
-				},
-			})
 			require("mason-null-ls").setup({
 				ensure_installed = { "stylua", "prettier", "beautysh", "black", "cfn_lint" },
 				automatic_installation = true,
