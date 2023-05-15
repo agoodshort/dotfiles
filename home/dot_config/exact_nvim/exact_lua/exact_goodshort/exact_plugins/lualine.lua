@@ -13,6 +13,7 @@ return {
 			end
 
 			require("staline").setup({
+				-- need to add yaml-companion
 				sections = {
 					left = {
 						" ",
