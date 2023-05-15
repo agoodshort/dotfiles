@@ -6,31 +6,23 @@ return {
 	{
 		"numToStr/Comment.nvim", -- comment with gc
 		event = "BufReadPost",
-		config = function()
-			require("Comment").setup()
-		end,
+		opts = {},
 	},
 
 	-- auto-closing --
 	{
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	}, -- autoclose parens, brackets, quotes, etc...
+		"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
+		opts = {},
+	},
 	{
 		"tiagovla/scope.nvim",
-		config = function()
-			require("scope").setup()
-		end,
+		opts = {},
 	},
 
 	{
 		"phaazon/hop.nvim",
 		branch = "v2",
-		config = function()
-			require("hop").setup({})
-		end,
+		opts = {},
 	},
 
 	{
