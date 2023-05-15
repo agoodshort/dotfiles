@@ -13,8 +13,10 @@ return {
 		"AckslD/nvim-neoclip.lua",
 		"nvim-telescope/telescope-ui-select.nvim",
 		"nvim-telescope/telescope-node-modules.nvim",
-		{ "nvim-telescope/telescope.nvim", dependencies = "tsakirist/telescope-lazy.nvim" },
+		"tsakirist/telescope-lazy.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "nvim-telescope/telescope-media-files.nvim", dependencies = "nvim-lua/popup.nvim" },
+		{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "neovim/nvim-lspconfig" },
 		{
 			"paopaol/telescope-git-diffs.nvim",
 			dependencies = {
@@ -22,41 +24,40 @@ return {
 				{
 					"sindrets/diffview.nvim",
 					dependencies = "nvim-lua/plenary.nvim",
-					-- config = function()
-					-- 	local actions = require("diffview.actions")
-					-- 	require("diffview").setup({
-					-- 		keymaps = {
-					-- 			view = {
-					-- 				{
-					-- 					"n",
-					-- 					"<leader>e",
-					-- 					actions.toggle_files,
-					-- 					{ desc = "Toggle the file panel." },
-					-- 				},
-					-- 			},
-					-- 			file_panel = {
-					-- 				{
-					-- 					"n",
-					-- 					"<leader>e",
-					-- 					actions.toggle_files,
-					-- 					{ desc = "Toggle the file panel" },
-					-- 				},
-					-- 			},
-					-- 			file_history_panel = {
-					-- 				{
-					-- 					"n",
-					-- 					"<leader>e",
-					-- 					actions.toggle_files,
-					-- 					{ desc = "Toggle the file panel" },
-					-- 				},
-					-- 			},
-					-- 		},
-					-- 	})
-					-- end,
+					config = function()
+						local actions = require("diffview.actions")
+						require("diffview").setup({
+							keymaps = {
+								view = {
+									{
+										"n",
+										"<leader>e",
+										actions.toggle_files,
+										{ desc = "Toggle the file panel." },
+									},
+								},
+								file_panel = {
+									{
+										"n",
+										"<leader>e",
+										actions.toggle_files,
+										{ desc = "Toggle the file panel" },
+									},
+								},
+								file_history_panel = {
+									{
+										"n",
+										"<leader>e",
+										actions.toggle_files,
+										{ desc = "Toggle the file panel" },
+									},
+								},
+							},
+						})
+					end,
 				},
 			},
 		},
-		{ "nvim-telescope/telescope-media-files.nvim", dependencies = "nvim-lua/popup.nvim" },
 		{
 			"adoyle-h/lsp-toggle.nvim",
 			cmd = { "ToggleLSP", "ToggleNullLSP" },
@@ -76,6 +77,7 @@ return {
 						["<C-k>"] = require("telescope.actions").move_selection_previous,
 						["<C-j>"] = require("telescope.actions").move_selection_next,
 						["<C-s>"] = require("telescope.actions").select_vertical,
+						["<C-h>"] = require("telescope.actions").which_key,
 						["<tab>"] = require("telescope.actions").toggle_selection,
 					},
 				},
@@ -131,5 +133,6 @@ return {
 		require("telescope").load_extension("lazy")
 		require("telescope").load_extension("git_diffs")
 		require("telescope").load_extension("noice")
+		require("telescope").load_extension("yaml_schema")
 	end,
 }
