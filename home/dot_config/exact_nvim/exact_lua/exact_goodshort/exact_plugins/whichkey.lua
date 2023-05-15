@@ -56,6 +56,17 @@ return {
 			nowait = false,
 		}
 
+		local blank_opts_insert = {
+			mode = "i",
+			prefix = "",
+			buffer = nil,
+			silent = true,
+			noremap = true,
+			nowait = false,
+		}
+
+		-- ####################################################################
+
 		-- neo tree --
 		wk.register({
 			e = { "<Cmd>Neotree toggle filesystem<CR>", "Neotree Filesystem" },
@@ -103,7 +114,7 @@ return {
 		-- Tab Management --
 		wk.register({
 			["<C-t>"] = {
-				name = "Tabs", -- optional name
+				name = "Tabs",
 				["n"] = { "<Cmd>tabnew<CR>:Dashboard<CR>", "New Tab" },
 				["x"] = { "<Cmd>tabclose<CR>", "Close Tab" },
 				["l"] = { "<Cmd>tabn<CR>", "Go To Right Tab" },
@@ -115,13 +126,21 @@ return {
 		-- toggleterm --
 		wk.register({
 			["\\"] = { -- map to "\"
-				name = "ToggleTerm", -- optional name
+				name = "ToggleTerm",
 				["\\"] = { "<Cmd>ToggleTermToggleAll<CR>", "Toggle All Terminals" },
 				["1"] = { "<Cmd>1ToggleTerm<CR>", "Terminal 1" },
 				["2"] = { "<Cmd>2ToggleTerm<CR>", "Terminal 2" },
 				["3"] = { "<Cmd>3ToggleTerm<CR>", "Terminal 3" },
 			},
 		}, leader_opts)
+		wk.register({
+			["\\"] = { -- map to "\"
+				name = "ToggleTerm",
+				["1"] = { "<Cmd>ToggleTermSendVisualLines<CR>", "Send to Terminal 1" },
+				["2"] = { "<Cmd>ToggleTermSendVisualLines 2<CR>", "Send to Terminal 2" },
+				["3"] = { "<Cmd>ToggleTermSendVisualLines 3<CR>", "Send to Terminal 3" },
+			},
+		}, leader_opts_visual)
 
 		-- neogen --
 		wk.register({
@@ -171,6 +190,15 @@ return {
 		wk.register({
 			["="] = { "<Cmd>NullFormat<CR>", "Format Using Null-ls Only" },
 		}, leader_opts)
+
+		-- Codeium --
+		wk.register({
+			["<C-l>"] = { "<Cmd>call codeium#CycleCompletions(1)<CR>", "Codeium next" },
+			["<C-h>"] = { "<Cmd>call codeium#CycleCompletions(-1)<CR>", "Codeium previous" },
+			["<S-Tab>"] = { "<Cmd>call codeium#Clear()<CR>", "Codeium clear" },
+		}, blank_opts_insert)
+
+		-- ####################################################################
 
 		-- Default vim keymaps --
 		wk.register({
