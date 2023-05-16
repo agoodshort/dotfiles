@@ -1,9 +1,14 @@
 return {
 	{
-		"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		event = "LspAttach",
 		config = function()
-			require("toggle_lsp_diagnostics").init()
+			vim.diagnostic.config({
+				virtual_text = false, -- Disable virtual_text since it's redundant due to lsp_lines.
+				virtual_lines = { only_current_line = true },
+			})
+			vim.diagnostic.config({ virtual_lines = false }, require("lazy.core.config").ns) -- https://github.com/folke/lazy.nvim/issues/620
+			require("lsp_lines").setup()
 		end,
 	},
 	{
