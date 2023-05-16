@@ -25,7 +25,7 @@ return {
 				{
 					desc = " Files",
 					group = "Label",
-					action = "Neotree position=current",
+					action = "edit .",
 					key = "f",
 				},
 				{
