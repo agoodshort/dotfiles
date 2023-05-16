@@ -1,6 +1,7 @@
-[user]
-	name = Adrien Biencourt
-	email = adrien@revanista.com
+[includeIf  "hasconfig:remote.*.url:git@revanista.github.com:**/**"]
+    path = revanista
+[includeIf  "hasconfig:remote.*.url:git@agoodshort.github.com:**/**"]
+    path = agoodshort
 [core]
     editor = nvim --cmd 'let g:unception_block_while_host_edits=1'
 [push]
@@ -9,5 +10,3 @@
 	tool = nvimdiff
 [pull]
 	rebase = false
-[url "git@github.com:"]
-	insteadOf = https://github.com/

@@ -1,9 +1,17 @@
 {{ if eq .chezmoi.os "darwin" -}}
 
-Host github.com
+Host revanista.github.com
+    HostName github.com
+    User git
     AddKeysToAgent yes
     UseKeychain yes # Required if IdentifyFile uses a passphrase
-    IdentityFile ~/.ssh/id_ed25519_github
+    IdentityFile ~/.ssh/github-revanista
+Host agoodshort.github.com
+    HostName github.com
+    User git
+    AddKeysToAgent yes
+    UseKeychain yes # Required if IdentifyFile uses a passphrase
+    IdentityFile ~/.ssh/github-agoodshort
 
 {{- else if eq .chezmoi.os "linux" -}}
 
