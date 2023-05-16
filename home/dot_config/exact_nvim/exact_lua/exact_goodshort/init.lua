@@ -1,5 +1,4 @@
 require("goodshort.set")
-require("goodshort.remap")
 
 if vim.g.vscode then
 	-- VSCode extension

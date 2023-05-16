@@ -56,6 +56,15 @@ return {
 			nowait = false,
 		}
 
+		local blank_opts_visual = {
+			mode = "v",
+			prefix = "",
+			buffer = nil,
+			silent = true,
+			noremap = true,
+			nowait = false,
+		}
+
 		local blank_opts_insert = {
 			mode = "i",
 			prefix = "",
@@ -166,7 +175,7 @@ return {
 		wk.register({
 			l = {
 				name = "LSP",
-				v = { "<Plug>(toggle-lsp-diag-vtext)", "Toggle LSP Virtual Text" },
+				v = { "<Cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Virtual Text" },
 				l = { "<Cmd>ToggleLSP<CR>", "ToggleLSP" },
 				n = { "<Cmd>ToggleNullLSP<CR>", "ToggleNullLSP" },
 				f = { "<Cmd>Lspsaga lsp_finder<CR>", "Lspsaga Definition Finder" },
@@ -189,6 +198,11 @@ return {
 		-- Null-ls --
 		wk.register({
 			["="] = { "<Cmd>NullFormat<CR>", "Format Using Null-ls Only" },
+		}, leader_opts)
+
+		-- Undotree --
+		wk.register({
+			["u"] = { "<Cmd>UndotreeToggle<CR>", "Undotree" },
 		}, leader_opts)
 
 		-- Codeium --
@@ -228,6 +242,46 @@ return {
 			d = { '"_d', "Delete using Void Buffer" },
 			p = { '"_dp', "Paste and Delete using Void Buffer" },
 		}, leader2_opts_visual)
+
+		-- windows
+		wk.register({
+			["<C-w>"] = { -- map to "\"
+				["n"] = { "<Cmd>vsplit<CR>", "Open New Window vertically" },
+				["x"] = { "<C-w>c", "Close Current Window" },
+			},
+		}, blank_opts)
+
+		-- buffers
+		wk.register({
+			["<C-h>"] = { "<Cmd>bprevious<CR>", "Previous buffer" },
+			["<C-l>"] = { "<Cmd>bnext<CR>", "Next buffer" },
+		}, blank_opts)
+
+		-- Create line and stay at same position
+		wk.register({
+			["o"] = { "mzo<ESC>`z", "Create line below" },
+			["O"] = { "mzO<ESC>`z", "Create line above" },
+		}, leader_opts)
+
+		-- Move highlighted text
+		wk.register({
+			["J"] = { ":m '>+1<CR>gv=gv", "Move Text to Next line" },
+			["K"] = { ":m '<-2<CR>gv=gv", "Move Text to Previous line" },
+		}, blank_opts_visual)
+
+		-- Up and down centered
+		wk.register({
+			["<C-u>"] = { "<C-u>zz", "Move up centered" },
+			["<C-d>"] = { "<C-d>zz", "Move down centered" },
+		}, blank_opts)
+
+		-- Escape
+		wk.register({
+			["<C-c>"] = { "<ESC>", "Escape" },
+		}, blank_opts)
+		wk.register({
+			["<C-c>"] = { "<ESC>", "Escape" },
+		}, blank_opts_insert)
 
 		wk.setup()
 	end,
