@@ -62,6 +62,8 @@ cask "amethyst"
 cask "betaflight-configurator"
 # Tool to remove unnecessary files and folders from disk
 cask "cleanmymac"
+# Screenshot software
+cask "flameshot"
 # Developer targeted fonts with a high number of glyphs
 cask "font-hack-nerd-font"
 # 3D parametric modeler
