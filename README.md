@@ -47,3 +47,9 @@ scoop install mingw
 ```
 
 chezmoi should create (or edit if not existing) the Powershell profile ($PROFILE) and have the line `Invoke-Expression (&starship init powershell)`
+
+## Git config resources
+
+- https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610
+- https://stackoverflow.com/a/74832574/13795415
+- https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3
