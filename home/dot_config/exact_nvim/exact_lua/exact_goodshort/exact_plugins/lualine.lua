@@ -8,6 +8,9 @@ return {
 		"goodshort/staline.nvim",
 		branch = "fn_color_invert",
 		config = function()
+			-- Sets the statusline to full width
+			vim.opt.laststatus = 3
+
 			local function fileloc()
 				return vim.fn.expand("%:p:.")
 			end

@@ -31,5 +31,3 @@ vim.opt.updatetime = 250
 -- Make sure .env.* files get syntax hightlight
 vim.cmd([[autocmd BufNewFile,BufReadPost .env.* set ft=sh]])
 vim.cmd([[autocmd BufNewFile,BufReadPost Brewfile* set ft=sh]])
-
-vim.opt.laststatus = 3
