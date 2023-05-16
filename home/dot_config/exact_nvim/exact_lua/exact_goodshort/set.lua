@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 -- Big cursor at all time
 vim.opt.guicursor = ""
 
