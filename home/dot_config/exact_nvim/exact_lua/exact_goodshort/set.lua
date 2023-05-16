@@ -28,9 +28,6 @@ vim.opt.termguicolors = true
 -- Vim updates faster
 vim.opt.updatetime = 250
 
--- nvim-unception trick
-vim.cmd([[autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete]])
-
 -- Make sure .env.* files get syntax hightlight
 vim.cmd([[autocmd BufNewFile,BufReadPost .env.* set ft=sh]])
 vim.cmd([[autocmd BufNewFile,BufReadPost Brewfile* set ft=sh]])
