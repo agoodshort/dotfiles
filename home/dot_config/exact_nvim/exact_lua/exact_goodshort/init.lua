@@ -23,7 +23,13 @@ else
 		return
 	end
 
-	lazy.setup("goodshort.plugins", { defaults = {
-		lazy = false,
-	} })
+	lazy.setup(
+		"goodshort.plugins",
+		{ defaults = {
+			lazy = false,
+			git = {
+				url_format = "git@agoodshort.github.com/%s.git",
+			},
+		} }
+	)
 end
