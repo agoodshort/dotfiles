@@ -53,3 +53,11 @@ chezmoi should create (or edit if not existing) the Powershell profile ($PROFILE
 - https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610
 - https://stackoverflow.com/a/74832574/13795415
 - https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3
+
+## To setup ssh
+
+```
+ssh-keygen -t ed25519 -C "adrien.goodshort@gmail.com" -f "github-agoodshort"
+pbcopy < ~/.ssh/github-agoodshort.pub
+```
+And add the key in GitHub => https://github.com/settings/keys
