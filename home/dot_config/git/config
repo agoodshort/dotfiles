@@ -2,6 +2,8 @@
     path = revanista
 [includeIf  "hasconfig:remote.*.url:git@agoodshort.github.com:**/**"]
     path = agoodshort
+[includeIf  "hasconfig:remote.*.url:https://github.com/agoodshort/dotfiles.git"]
+    path = agoodshort
 [core]
     editor = nvim --cmd 'let g:unception_block_while_host_edits=1'
 [push]
