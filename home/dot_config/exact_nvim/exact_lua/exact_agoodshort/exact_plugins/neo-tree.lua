@@ -1,5 +1,5 @@
 return {
-	"goodshort/neo-tree.nvim",
+	"agoodshort/neo-tree.nvim",
 	branch = "898-split-from-buffer-view-opens-blank-buffer",
 	dependencies = {
 		"nvim-lua/plenary.nvim",

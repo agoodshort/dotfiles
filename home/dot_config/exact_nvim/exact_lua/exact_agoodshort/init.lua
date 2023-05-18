@@ -1,4 +1,4 @@
-require("goodshort.set")
+require("agoodshort.set")
 
 if vim.g.vscode then
 	-- VSCode extension
@@ -24,7 +24,7 @@ else
 	end
 
 	lazy.setup(
-		"goodshort.plugins",
+		"agoodshort.plugins",
 		{ defaults = {
 			lazy = false,
 			git = {
