@@ -1,1 +1,1 @@
-require("goodshort")
+require("agoodshort")

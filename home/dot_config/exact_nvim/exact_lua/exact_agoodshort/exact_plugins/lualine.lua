@@ -5,7 +5,7 @@ return {
 		opts = {},
 	},
 	{
-		"goodshort/staline.nvim",
+		"agoodshort/staline.nvim",
 		enabled = false,
 		branch = "fn_color_invert",
 		dependencies = {
@@ -13,9 +13,6 @@ return {
 			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "neovim/nvim-lspconfig" },
 		},
 		config = function()
-			-- Sets the statusline to full width
-			vim.opt.laststatus = 3
-
 			local function fileloc()
 				return vim.fn.expand("%:p:.")
 			end

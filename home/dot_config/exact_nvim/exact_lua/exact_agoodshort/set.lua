@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 
+-- Sets the statusline to full width
+vim.opt.laststatus = 3
+
 -- Big cursor at all time
 vim.opt.guicursor = ""
 

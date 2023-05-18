@@ -9,7 +9,7 @@ return {
 		"jvgrootveld/telescope-zoxide",
 		"keyvchan/telescope-find-pickers.nvim",
 		"debugloop/telescope-undo.nvim",
-		"goodshort/telescope-lazygit-toggleterm.nvim",
+		"agoodshort/telescope-lazygit-toggleterm.nvim",
 		"AckslD/nvim-neoclip.lua",
 		"nvim-telescope/telescope-ui-select.nvim",
 		"nvim-telescope/telescope-node-modules.nvim",
