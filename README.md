@@ -12,6 +12,7 @@ chsh -s $(which zsh)
 ```
 
 Windows nvim installation requires the below. To review and automate
+
 ```
 npm install -g tree-sitter-cli
 ```
@@ -38,7 +39,7 @@ Scripts under `linux` and `windows` are running based on the OS because of `.che
 - [ ] Create template so that chezmoi points correctly to dotfiles and nvim config when in dashboard ( use {{ .chezmoi.homeDir}} )
 - [ ] Auto update if nvim config was changed
 
-# Windows nvim
+## Windows nvim
 
 - requires nvm, node install and C
 
@@ -47,6 +48,8 @@ scoop install mingw
 ```
 
 chezmoi should create (or edit if not existing) the Powershell profile ($PROFILE) and have the line `Invoke-Expression (&starship init powershell)`
+
+https://github.com/twpayne/chezmoi/issues/2273
 
 ## Git config resources
 
@@ -60,4 +63,5 @@ chezmoi should create (or edit if not existing) the Powershell profile ($PROFILE
 ssh-keygen -t ed25519 -C "adrien.goodshort@gmail.com" -f "github-agoodshort"
 pbcopy < ~/.ssh/github-agoodshort.pub
 ```
+
 And add the key in GitHub => https://github.com/settings/keys
