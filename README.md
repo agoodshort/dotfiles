@@ -65,3 +65,9 @@ pbcopy < ~/.ssh/github-agoodshort.pub
 ```
 
 And add the key in GitHub => https://github.com/settings/keys
+
+## To get started
+
+```
+chezmoi init --apply agoodshort
+```
