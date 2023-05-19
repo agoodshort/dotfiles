@@ -3,15 +3,15 @@ Host revanista.github.com
     HostName github.com
     User git
     AddKeysToAgent yes
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
     UseKeychain yes # Required if IdentifyFile uses a passphrase
-{{- end -}}
+{{- end }}
     IdentityFile ~/.ssh/github-revanista
 Host agoodshort.github.com
     HostName github.com
     User git
     AddKeysToAgent yes
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
     UseKeychain yes # Required if IdentifyFile uses a passphrase
-{{- end -}}
+{{- end }}
     IdentityFile ~/.ssh/github-agoodshort
