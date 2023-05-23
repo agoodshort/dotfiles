@@ -15,12 +15,13 @@
     - [1. Install Microsoft Edge](#1-install-microsoft-edge)
     - [2. Install docker](#2-install-docker)
     - [3. Basic snaps](#3-basic-snaps)
-  - [Scripts](#scripts)
+    - [4. Install and configure Gnome-tweak](#4-install-and-configure-gnome-tweak)
   - [Windows](#windows)
     - [nvim](#nvim)
-  - [Git config resources](#git-config-resources)
+  - [Notes](#notes)
   - [To review](#to-review)
   - [To-Do](#to-do)
+  - [References](#references) - [Git multi user](#git-multi-user)
   <!--toc:end-->
 
 I will make this a little more readable later, for now here is the command I wanted to save somewhere.
@@ -86,7 +87,7 @@ sudo apt install microsoft-edge-stable
 
 ### 2. Install docker
 
-```
+```sh
 sudo snap install docker
 sudo addgroup --system docker
 sudo adduser $USER docker
@@ -98,13 +99,14 @@ sudo chmod 666 /var/run/docker.sock
 
 ### 3. Basic snaps
 
-```
+```sh
 sudo snap install --classic code
 sudo snap install --classic brave
 sudo snap install --classic slack
 ```
 
 ### 4. Install and configure Gnome-tweak
+
 TODO: needs to be saved
 
 - capslock
@@ -117,7 +119,7 @@ TODO: needs to be saved
 - requires nvm, node and C
 - needed to have the steps below ran:
 
-```
+```sh
 scoop install mingw
 npm install -g tree-sitter-cli
 
@@ -136,7 +138,7 @@ https://github.com/twpayne/chezmoi/issues/2273
 
 ## To review
 
-```
+```sh
 /usr/local/opt/fzf/install --xdg --no-bash --no-fish --no-update-rc --key-bindings --completion
 ```
 
