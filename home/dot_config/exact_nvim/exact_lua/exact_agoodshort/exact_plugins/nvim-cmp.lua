@@ -1,16 +1,12 @@
 return {
 	{
-		"danymat/neogen", -- write documentation
-		lazy = true,
+		"kkoomen/vim-doge",
+		build = ":call doge#install()",
 		config = function()
-			require("neogen").setup({
-				enabled = true, --if you want to disable Neogen
-				snippet_engine = "luasnip",
-				input_after_comment = true, -- (default: true) automatic jump (with insert mode) on inserted annotation
-			})
+			vim.g.doge_enaable_mapping = 0
+			vim.g.doge_mapping_comment_jump_forward = "<C-j>"
+			vim.g.doge_mapping_comment_jump_backward = "<C-k>"
 		end,
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		version = "*", -- folllow only stable versions
 	},
 	{
 		"David-Kunz/cmp-npm",
@@ -41,7 +37,6 @@ return {
 			-- My own
 			"hrsh7th/cmp-nvim-lua",
 			"rafamadriz/friendly-snippets",
-			"danymat/neogen", -- Configured above
 			"David-Kunz/cmp-npm", -- Configured above
 			"onsails/lspkind.nvim",
 		},
