@@ -151,9 +151,9 @@ return {
 			},
 		}, leader_opts_visual)
 
-		-- neogen --
+		-- vim-doge --
 		wk.register({
-			d = { "<Cmd>Neogen<CR>", "Generate documentation" },
+			d = { "<Cmd>DogeGenerate<CR>", "Generate documentation" },
 		}, leader_opts)
 
 		-- Hop manual keymap register --
