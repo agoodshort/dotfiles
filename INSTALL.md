@@ -27,6 +27,7 @@ git sparse-checkout add patched-fonts/Hack
 
 ### Notes
 
+- https://github.com/Homebrew/homebrew-bundle
 - Nice installation steps => https://github.com/tcardonne/dotfiles
 - AppImage manager (look GItHUb)
 - Flameshot
