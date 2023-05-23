@@ -12,3 +12,5 @@
 	tool = nvimdiff
 [pull]
 	rebase = false
+[url "git@revanista.github.com:mgtgnh"]
+    insteadOf = ssh://git@github.com/mgtgnh
