@@ -1,9 +1,8 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazynpm"
+tap "homebrew/command-not-found"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -20,6 +19,8 @@ brew "chezmoi"
 brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # Blazing fast terminal-ui for git written in rust
@@ -30,6 +31,8 @@ brew "iperf3"
 brew "lazygit"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Find/fix obsolete Nerd Font icons
+brew "nerdfix"
 # Port scanning utility for large networks
 brew "nmap"
 # Manage multiple Node.js versions

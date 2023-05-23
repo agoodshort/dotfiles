@@ -35,3 +35,9 @@ if [[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" && -s "$HOMEBREW_PREFIX/opt/nvm/etc/b
     source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"  # This loads nvm
     source "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
+
+# Homebrew Command Not Found
+HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+if [ -f "$HB_CNF_HANDLER" ]; then
+    source "$HB_CNF_HANDLER";
+fi
