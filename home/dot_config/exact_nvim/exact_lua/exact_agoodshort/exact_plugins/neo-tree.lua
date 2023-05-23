@@ -155,23 +155,23 @@ return {
 					["a"] = {
 						"add",
 						config = {
-							show_path = "none", -- "none", "relative", "absolute"
+							show_path = "relative", -- "none", "relative", "absolute"
 						},
 					},
 					["A"] = {
 						"add_directory",
 						config = {
-							show_path = "none", -- "none", "relative", "absolute"
+							show_path = "relatve", -- "none", "relative", "absolute"
 						},
 					},
 					["c"] = {
 						"copy",
 						config = {
-							show_path = "none", -- "none", "relative", "absolute"
+							show_path = "relative", -- "none", "relative", "absolute"
 						},
 					},
 					["m"] = {
-						"move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
+						"move",
 						config = {
 							show_path = "relative",
 						},
