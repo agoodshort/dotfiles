@@ -92,4 +92,10 @@ git sparse-checkout add patched-fonts/Hack
 
 ### Notes
 
-Nice installation steps => https://github.com/tcardonne/dotfiles
+- Nice installation steps => https://github.com/tcardonne/dotfiles
+- AppImage manager (look GItHUb)
+- Flameshot
+- Way to automate snap => https://github.com/twpayne/dotfiles/blob/798742d79da7186267083e3c6b37d2250248ba1d/home/.chezmoiscripts/linux/run_onchange_before_install-packages.sh.tmpl
+- install wezterm through cask on MacOs
+- Add the aws profiles
+- SHortcut for ctrl+e to esc
