@@ -1,6 +1,7 @@
 # My chezmoi dotfiles
 
 <!--toc:start-->
+
 - [My chezmoi dotfiles](#my-chezmoi-dotfiles)
   - [To get started](#to-get-started)
     - [1. Setup ssh for GitHub](#1-setup-ssh-for-github)
@@ -28,12 +29,8 @@
   - [To-Do](#to-do)
   - [References](#references)
     - [Git multi user](#git-multi-user)
-  - [NEXT](#next)
-    - [Install GNOME Shell Extensions](#install-gnome-shell-extensions)
-    - [Install Brave](#install-brave)
-    - [Install Kanagawa theme](#install-kanagawa-theme)
-    - [Install regolith (should not be installed)](#install-regolith-should-not-be-installed)
-<!--toc:end-->
+  - [NEXT](#next) - [Install GNOME Shell Extensions](#install-gnome-shell-extensions) - [Install Brave](#install-brave) - [Install Kanagawa theme](#install-kanagawa-theme) - [Install regolith (should not be installed)](#install-regolith-should-not-be-installed)
+  <!--toc:end-->
 
 I will make this a little more readable later, for now here is the command I wanted to save somewhere.
 
@@ -143,6 +140,7 @@ sudo chmod 666 /var/run/docker.sock
 ```sh
 sudo snap install --classic code
 sudo snap install --classic slack
+sudo snap install zoom-client
 ```
 
 ### 4. Install and configure Gnome-tweak
@@ -215,6 +213,8 @@ https://github.com/twpayne/chezmoi/issues/2273
 - [ ] Auto update to latest lazylock if nvim config was changed
 - [ ] brew should not install git on Linux
 - [ ] Add `pbcopy` on Linux => https://ostechnix.com/how-to-use-pbcopy-and-pbpaste-commands-on-linux/
+- [ ] balena etcher through brew
+- [ ] wezterm on macos
 
 ## References
 
