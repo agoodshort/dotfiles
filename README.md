@@ -107,11 +107,12 @@ git pull
 nvm install lts/gallium
 ```
 
-### 6. Coding folder
+### 6. Create the Coding folder
 
 ```sh
-mkdir -p ~/Coding/Personal
-mkdir -p ~/Coding/AUR && cd $_  
+mkdir -p ~/Coding/Persona
+# If Arch create the below
+mkdir -p ~/Coding/AUR
 ```
 
 ## Linux specific
@@ -142,6 +143,10 @@ newgrp docker
 sudo snap disable docker
 sudo snap enable docker
 sudo chmod 666 /var/run/docker.sock
+```
+```
+# arch, I just did it simple
+brew install docker
 ```
 
 ### 3. Basic snaps
