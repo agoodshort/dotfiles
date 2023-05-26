@@ -82,10 +82,25 @@ chsh -s $(which zsh)
 
 **Note**: After this step you will need to log out and log back in.
 
+### 5. Add the GitHub SSH key to known host
+
+The easiest way is to do it through a pull to test that `agoodshort` profiles works as well.
+
+```
+chezmoi cd
+git pull
+```
+
 ### 5. Configure node with nvm
 
 ```
 nvm install lts/gallium
+```
+
+### 6. Coding folder
+
+```sh
+mkdir -p ~/Coding/Personal && cd $_
 ```
 
 ## Linux specific
