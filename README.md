@@ -80,6 +80,8 @@ sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 ```
 
+**Note**: After this step you will need to log out and log back in.
+
 ### 5. Configure node with nvm
 
 ```
