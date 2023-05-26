@@ -123,6 +123,10 @@ sudo snap install --classic slack
 
 ### 4. Install and configure Gnome-tweak
 
+```sh
+sudo apt install gnome-tweaks
+```
+
 TODO: needs to be saved
 
 - capslock
