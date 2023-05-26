@@ -1,7 +1,6 @@
 # My chezmoi dotfiles
 
 <!--toc:start-->
-
 - [My chezmoi dotfiles](#my-chezmoi-dotfiles)
   - [To get started](#to-get-started)
     - [1. Setup ssh for GitHub](#1-setup-ssh-for-github)
@@ -12,19 +11,29 @@
       - [2.2. Installation](#22-installation)
     - [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
     - [4. Set zsh as default shell](#4-set-zsh-as-default-shell)
+    - [5. Add the GitHub SSH key to known host](#5-add-the-github-ssh-key-to-known-host)
     - [5. Configure node with nvm](#5-configure-node-with-nvm)
+    - [6. Coding folder](#6-coding-folder)
   - [Linux specific](#linux-specific)
     - [1. Install Microsoft Edge](#1-install-microsoft-edge)
     - [2. Install docker](#2-install-docker)
     - [3. Basic snaps](#3-basic-snaps)
     - [4. Install and configure Gnome-tweak](#4-install-and-configure-gnome-tweak)
+    - [5. Install wezterm](#5-install-wezterm)
+      - [5.1. Install AppImageLauncher](#51-install-appimagelauncher)
   - [Windows](#windows)
     - [nvim](#nvim)
   - [Notes](#notes)
   - [To review](#to-review)
   - [To-Do](#to-do)
-  - [References](#references) - [Git multi user](#git-multi-user) - [NEXT](#next) - [Install GNOME Shell Extensions](#install-gnome-shell-extensions) - [Install Brave](#install-brave) - [Install Kanagawa theme](#install-kanagawa-theme) - [Install regolith (should not be installed)](#install-regolith-should-not-be-installed)
-  <!--toc:end-->
+  - [References](#references)
+    - [Git multi user](#git-multi-user)
+  - [NEXT](#next)
+    - [Install GNOME Shell Extensions](#install-gnome-shell-extensions)
+    - [Install Brave](#install-brave)
+    - [Install Kanagawa theme](#install-kanagawa-theme)
+    - [Install regolith (should not be installed)](#install-regolith-should-not-be-installed)
+<!--toc:end-->
 
 I will make this a little more readable later, for now here is the command I wanted to save somewhere.
 
@@ -209,13 +218,13 @@ https://github.com/twpayne/chezmoi/issues/2273
 
 ## References
 
-## Git multi user
+### Git multi user
 
 - https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610
 - https://stackoverflow.com/a/74832574/13795415
 - https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3
 
-### NEXT
+## NEXT
 
 ```sh
 cd ~/Coding/Personal
