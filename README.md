@@ -147,6 +147,23 @@ TODO: needs to be saved
 - capslock
 - Access to 3rd layer
 
+### 5. Install wezterm
+
+#### 5.1. Install AppImageLauncher
+
+```sh
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:appimagelauncher-team/stable
+sudo apt update
+sudo apt install appimagelauncher
+```
+
+```sh
+brew install wezterm
+cd /home/linuxbrew/.linuxbrew/Cellar/wezterm/
+# Start wezterm manually and AppImageLauncher will pop-up
+```
+
 ## Windows
 
 ### nvim
