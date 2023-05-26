@@ -59,8 +59,11 @@ Add the copied key in your [GitHub Profile SSH keys](https://github.com/settings
 [Homebrew requirements for Linux](https://docs.brew.sh/Homebrew-on-Linux#requirements)
 
 ```sh
-# Linux only
+# Ubuntu only
 sudo apt-get install build-essential procps curl file git
+
+# Arch Linux
+sudo  pacman -S base-devel
 ```
 
 #### 2.2. Installation
@@ -107,7 +110,8 @@ nvm install lts/gallium
 ### 6. Coding folder
 
 ```sh
-mkdir -p ~/Coding/Personal && cd $_
+mkdir -p ~/Coding/Personal
+mkdir -p ~/Coding/AUR && cd $_  
 ```
 
 ## Linux specific
@@ -121,6 +125,11 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge sta
 sudo rm microsoft.gpg
 sudo apt update
 sudo apt install microsoft-edge-stable
+```
+
+```sh
+cd ~/Coding/AUR
+git clone https://aur.archlinux.org/microsoft-edge-stable-bin.git && cd microsoft-edge-stable-bin && makepkg -si
 ```
 
 ### 2. Install docker
@@ -169,6 +178,11 @@ sudo apt install appimagelauncher
 brew install wezterm
 cd /home/linuxbrew/.linuxbrew/Cellar/wezterm/
 # Start wezterm manually and AppImageLauncher will pop-up
+```
+
+```sh
+# Arch Linux
+sudo pacman -Sy wezterm
 ```
 
 ## Windows
