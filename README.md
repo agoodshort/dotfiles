@@ -8,6 +8,8 @@
       - [1.1. Create ssh key](#11-create-ssh-key)
       - [1.2. Associate the key with GitHub](#12-associate-the-key-with-github)
     - [2. Install Homebrew](#2-install-homebrew)
+      - [2.1. Linux requirements](#21-linux-requirements)
+      - [2.2. Installation](#22-installation)
     - [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
     - [4. Set zsh as default shell](#4-set-zsh-as-default-shell)
     - [5. Configure node with nvm](#5-configure-node-with-nvm)
@@ -21,7 +23,7 @@
   - [Notes](#notes)
   - [To review](#to-review)
   - [To-Do](#to-do)
-  - [References](#references) - [Git multi user](#git-multi-user)
+  - [References](#references) - [Git multi user](#git-multi-user) - [NEXT](#next) - [Install GNOME Shell Extensions](#install-gnome-shell-extensions) - [Install Brave](#install-brave) - [Install Kanagawa theme](#install-kanagawa-theme) - [Install regolith (should not be installed)](#install-regolith-should-not-be-installed)
   <!--toc:end-->
 
 I will make this a little more readable later, for now here is the command I wanted to save somewhere.
@@ -49,7 +51,6 @@ Add the copied key in your [GitHub Profile SSH keys](https://github.com/settings
 **Note**: If you are on MacOS, skip this step.
 
 [Homebrew requirements for Linux](https://docs.brew.sh/Homebrew-on-Linux#requirements)
-
 
 ```sh
 # Linux only
@@ -117,7 +118,6 @@ sudo chmod 666 /var/run/docker.sock
 
 ```sh
 sudo snap install --classic code
-sudo snap install --classic brave
 sudo snap install --classic slack
 ```
 
@@ -177,8 +177,65 @@ https://github.com/twpayne/chezmoi/issues/2273
 
 ## References
 
-### Git multi user
+## Git multi user
 
 - https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610
 - https://stackoverflow.com/a/74832574/13795415
 - https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3
+
+### NEXT
+
+```sh
+cd ~/Coding/Personal
+git clone --filter=blob:none --sparse git@agoodshort.github.com:ryanoasis/nerd-fonts
+cd nerd-fonts
+git sparse-checkout add patched-fonts/Hack
+git sparse-checkout add patched-fonts/UbuntuMono
+git sparse-checkout add patched-fonts/Ubuntu
+./install.sh Hack
+```
+
+### Install GNOME Shell Extensions
+
+https://wiki.gnome.org/action/show/Projects/GnomeShellIntegration/Installation#Ubuntu_Linux
+
+```
+sudo apt install chrome-gnome-shell
+```
+
+### Install Brave
+
+```sh
+sudo apt install curl
+
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+sudo apt update
+
+sudo apt install brave-browser
+```
+
+### Install Kanagawa theme
+
+```
+cd ~/Coding/Personal/
+git clone git@agoodshort.github.com:Fausto-Korpsvart/Kanagawa-GKT-Theme.git
+cd Kanagawa-GKT-Theme
+cp -r themes/Kanagawa-B ~/.themes
+cp -r themes/Kanagawa-B/gtk-4.0/* ~/.config/gtk-4.0/
+```
+
+### Install regolith (should not be installed)
+
+```
+wget -qO - https://regolith-desktop.org/regolith.key | gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null
+
+echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/release-ubuntu-jammy-amd64 jammy main" | \
+sudo tee /etc/apt/sources.list.d/regolith.list
+
+sudo apt update
+sudo apt install regolith-desktop regolith-compositor-picom-glx
+sudo apt upgrade
+```
