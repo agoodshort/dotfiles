@@ -83,10 +83,25 @@ chsh -s $(which zsh)
 
 **Note**: After this step you will need to log out and log back in.
 
+### 5. Add the GitHub SSH key to known host
+
+The easiest way is to do it through a pull to test that `agoodshort` profiles works as well.
+
+```
+chezmoi cd
+git pull
+```
+
 ### 5. Configure node with nvm
 
 ```
 nvm install lts/gallium
+```
+
+### 6. Coding folder
+
+```sh
+mkdir -p ~/Coding/Personal && cd $_
 ```
 
 ## Linux specific
@@ -131,6 +146,23 @@ TODO: needs to be saved
 
 - capslock
 - Access to 3rd layer
+
+### 5. Install wezterm
+
+#### 5.1. Install AppImageLauncher
+
+```sh
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:appimagelauncher-team/stable
+sudo apt update
+sudo apt install appimagelauncher
+```
+
+```sh
+brew install wezterm
+cd /home/linuxbrew/.linuxbrew/Cellar/wezterm/
+# Start wezterm manually and AppImageLauncher will pop-up
+```
 
 ## Windows
 
