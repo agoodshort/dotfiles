@@ -14,7 +14,7 @@
     - [4. Set zsh as default shell](#4-set-zsh-as-default-shell)
     - [5. Add the GitHub SSH key to known host](#5-add-the-github-ssh-key-to-known-host)
     - [5. Configure node with nvm](#5-configure-node-with-nvm)
-    - [6. Coding folder](#6-coding-folder)
+    - [6. Create the Coding folder](#6-create-the-coding-folder)
   - [Linux specific](#linux-specific)
     - [1. Install Microsoft Edge](#1-install-microsoft-edge)
     - [2. Install docker](#2-install-docker)
@@ -144,6 +144,7 @@ sudo snap disable docker
 sudo snap enable docker
 sudo chmod 666 /var/run/docker.sock
 ```
+
 ```
 # arch, I just did it simple
 brew install docker
