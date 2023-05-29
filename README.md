@@ -33,6 +33,7 @@ I will make this a little more readable later, for now here is the command I wan
 #### 1.1. Create ssh key
 
 ```sh
+mkdir ~/.ssh && cd $_
 ssh-keygen -t ed25519 -C "adrien.goodshort@gmail.com" -f "github-agoodshort"
 pbcopy < ~/.ssh/github-agoodshort.pub # copy public key to clipboard
 ```
@@ -43,12 +44,25 @@ Add the copied key in your [GitHub Profile SSH keys](https://github.com/settings
 
 ### 2. Install Homebrew
 
+#### 2.1. Linux requirements
+
+**Note**: If you are on MacOS, skip this step.
+
 [Homebrew requirements for Linux](https://docs.brew.sh/Homebrew-on-Linux#requirements)
 
+
 ```sh
-# sudo apt-get install build-essential procps curl file git # Linux only
+# Linux only
+sudo apt-get install build-essential procps curl file git
+```
+
+#### 2.2. Installation
+
+```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+**Warning**: Make sure to follow the steps in next steps displayed after the installation.
 
 ### 3. Getting started with chezmoi
 
@@ -66,10 +80,27 @@ sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 ```
 
+**Note**: After this step you will need to log out and log back in.
+
+### 5. Add the GitHub SSH key to known host
+
+The easiest way is to do it through a pull to test that `agoodshort` profiles works as well.
+
+```
+chezmoi cd
+git pull
+```
+
 ### 5. Configure node with nvm
 
 ```
 nvm install lts/gallium
+```
+
+### 6. Coding folder
+
+```sh
+mkdir -p ~/Coding/Personal && cd $_
 ```
 
 ## Linux specific
@@ -81,7 +112,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list'
 sudo rm microsoft.gpg
-
+sudo apt update
 sudo apt install microsoft-edge-stable
 ```
 
@@ -107,10 +138,31 @@ sudo snap install --classic slack
 
 ### 4. Install and configure Gnome-tweak
 
+```sh
+sudo apt install gnome-tweaks
+```
+
 TODO: needs to be saved
 
 - capslock
 - Access to 3rd layer
+
+### 5. Install wezterm
+
+#### 5.1. Install AppImageLauncher
+
+```sh
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:appimagelauncher-team/stable
+sudo apt update
+sudo apt install appimagelauncher
+```
+
+```sh
+brew install wezterm
+cd /home/linuxbrew/.linuxbrew/Cellar/wezterm/
+# Start wezterm manually and AppImageLauncher will pop-up
+```
 
 ## Windows
 
@@ -153,6 +205,7 @@ https://github.com/twpayne/chezmoi/issues/2273
 - [ ] Create template so that chezmoi points correctly to dotfiles and nvim config when in dashboard ( use {{ .chezmoi.homeDir}} )
 - [ ] Auto update to latest lazylock if nvim config was changed
 - [ ] brew should not install git on Linux
+- [ ] Add `pbcopy` on Linux => https://ostechnix.com/how-to-use-pbcopy-and-pbpaste-commands-on-linux/
 
 ## References
 
