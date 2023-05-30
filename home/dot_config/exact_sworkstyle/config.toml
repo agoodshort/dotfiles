@@ -20,7 +20,7 @@
 [matching]
 'brave-browser' = ''
 'microsoft-edge' = '󰇩'
-'org.wezfurlong.wezterm' = ''
+'/zsh/' = ''
 '/JIRA/' = '󰌃'
 '/Outlook/' = '󰴢'
 '/GitHub/' = ''
