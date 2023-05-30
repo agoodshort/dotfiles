@@ -24,6 +24,11 @@ return {
 		branch = "v2",
 		opts = {},
 	},
+	{
+		"vuki656/package-info.nvim",
+		dependencies = "MunifTanjim/nui.nvim",
+		opts = {},
+	},
 
 	{
 		"samjwill/nvim-unception",

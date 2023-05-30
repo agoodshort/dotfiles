@@ -58,6 +58,14 @@ Add the copied key in your [GitHub Profile SSH keys](https://github.com/settings
 
 [Homebrew requirements for Linux](https://docs.brew.sh/Homebrew-on-Linux#requirements)
 
+
+```sh
+# Linux only
+sudo apt-get install build-essential procps curl file git
+```
+
+#### 2.2. Installation
+
 ```sh
 # Ubuntu only
 sudo apt-get install build-essential procps curl file git
