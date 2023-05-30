@@ -1,6 +1,7 @@
 # My chezmoi dotfiles
 
 <!--toc:start-->
+
 - [My chezmoi dotfiles](#my-chezmoi-dotfiles)
   - [To get started](#to-get-started)
     - [1. Setup ssh for GitHub](#1-setup-ssh-for-github)
@@ -23,10 +24,8 @@
   - [To-Do](#to-do)
   - [References](#references)
     - [Git multi user](#git-multi-user)
-  - [NEXT](#next)
-    - [Install Kanagawa theme](#install-kanagawa-theme)
-    - [Install regolith (should not be installed)](#install-regolith-should-not-be-installed)
-<!--toc:end-->
+  - [NEXT](#next) - [Install Kanagawa theme](#install-kanagawa-theme) - [Install regolith (should not be installed)](#install-regolith-should-not-be-installed)
+  <!--toc:end-->
 
 I will make this a little more readable later, for now here is the command I wanted to save somewhere.
 
@@ -108,14 +107,25 @@ git clone https://aur.archlinux.org/deskreen-bin.git && cd deskreen-bin && makep
 This should work fine.
 
 ```sh
-brew install docker
+pacman -Sy docker
+sudo chmod 666 /var/run/docker.sock
 ```
 
 ### 9. Basic snaps
 
 ```sh
-sudo snap install --classic slack
+git clone https://aur.archlinux.org/slack-desktop.git && cd slack-desktop && makepkg -si
 sudo snap install zoom-client
+```
+
+### 10. Install yay (AUR helper)
+
+```sh
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ../
+rm -rf yay
 ```
 
 ### 10. Install things from pacman
@@ -157,7 +167,9 @@ sudo pacman -Sy wezterm
 - [ ] Add `pbcopy` on Linux => https://ostechnix.com/how-to-use-pbcopy-and-pbpaste-commands-on-linux/
 - [ ] balena etcher through brew
 - [ ] wezterm on macos
+- [ ] Make wezterm default and remove foot automatic runner at login
 - [ ] Should we set the API key through lastpass for wakatime and codeium
+- [ ] Dont install docker through brew on Manjaro
 
 ## References
 
