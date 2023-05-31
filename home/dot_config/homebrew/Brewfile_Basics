@@ -3,7 +3,6 @@ tap "homebrew/cask-fonts"
 tap "homebrew/command-not-found"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazynpm"
-tap "wez/wezterm-linuxbrew"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -68,5 +67,7 @@ cask "postman"
 cask "slack"
 # Open-source code editor
 cask "visual-studio-code"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
