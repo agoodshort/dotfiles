@@ -1,3 +1,4 @@
+# easier to keep the nvim as exact
 .config/nvim/lua/.luarc.json
 
 # MacOS specific
@@ -8,6 +9,14 @@ Library
 .config/alacritty.yml
 {{ end }}
 
+{{ if eq .chezmoi.os "darwin" }}
+.config/mimeapps.list
+.config/sway
+.config/sworkstyle
+{{ end }}
+
+###################################
+
 # Windows specific
 {{ if ne .chezmoi.os "windows" }}
 .chezmoiscripts/windows/**
@@ -15,6 +24,7 @@ AppData
 .config/scoop
 OneDrive - Great National Hotels/**
 {{ end }}
+
 {{ if eq .chezmoi.os "windows" }}
 .chezmoiscripts/linux/**
 .config/*
