@@ -76,26 +76,17 @@ return {
 
 		-- ####################################################################
 
-		-- neo tree --
-		wk.register({
-			e = { "<Cmd>Neotree toggle filesystem<CR>", "Neotree Filesystem" },
-			b = { "<Cmd>Neotree toggle buffers<CR>", "Neotree Buffers" },
-		}, leader_opts)
-
 		-- telescope --
 		wk.register({
+			B = { "<Cmd>Telescope scope buffers<CR>", "Scoped Buffers" },
+			b = { "<Cmd>Telescope buffers<CR>", "Buffers" },
+			e = { "<Cmd>Telescope file_browser<CR>", "File Browser" },
 			f = {
 				name = "Telescope", -- optional group name
 				a = { "<Cmd>Telescope lazy<CR>", "List Lazy plugins" },
-				b = {
-					name = "Buffers",
-					b = { "<Cmd>Telescope buffers<CR>", "Buffers" },
-					s = { "<Cmd>Telescope scope buffers<CR>", "Scoped Buffers" },
-				},
 				c = { "<Cmd>Telescope neoclip<CR>", "List Clipboard" },
 				e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
 				f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
-				F = { "<Cmd>Telescope file_browser<CR>", "File Browser" },
 				h = { "<Cmd>Telescope help_tags<CR>", "Help Tags" },
 				H = { "<Cmd>Telescope noice<CR>", "Noice History" },
 				k = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" },
