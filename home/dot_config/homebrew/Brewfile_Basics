@@ -45,8 +45,6 @@ brew "zsh-syntax-highlighting"
 brew "jesseduffield/lazydocker/lazydocker"
 # A simple terminal UI for git commands, written in Go
 brew "jesseduffield/lazynpm/lazynpm"
-# A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
-brew "wez/wezterm-linuxbrew/wezterm"
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
 # Developer targeted fonts with a high number of glyphs
