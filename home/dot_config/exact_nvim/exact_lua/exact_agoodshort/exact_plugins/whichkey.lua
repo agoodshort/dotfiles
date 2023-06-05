@@ -150,7 +150,7 @@ return {
 
 		-- vim-doge --
 		wk.register({
-			d = { "<Cmd>DogeGenerate<CR>", "Generate documentation" },
+			D = { "<Cmd>DogeGenerate<CR>", "Generate documentation" },
 		}, leader_opts)
 
 		-- Hop manual keymap register --
@@ -172,15 +172,21 @@ return {
 		wk.register({
 			l = {
 				name = "LSP",
-				v = { "<Cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Virtual Text" },
+                c = { "<Cmd>Lspsaga code_action<CR>", "Lspsaga Code Action" },
+                f = { "<Cmd>Lspsaga lsp_finder<CR>", "Lspsaga Definition Finder" },
 				l = { "<Cmd>ToggleLSP<CR>", "ToggleLSP" },
 				n = { "<Cmd>ToggleNullLSP<CR>", "ToggleNullLSP" },
-				f = { "<Cmd>Lspsaga lsp_finder<CR>", "Lspsaga Definition Finder" },
+                v = { "<Cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Virtual Text" },
 				o = { "<Cmd>Lspsaga outline<CR>", "Lspsaga Outline" },
-				c = { "<Cmd>Lspsaga code_action<CR>", "Lspsaga Code Action" },
-				d = { "<Cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga Show Line Diagnostics" },
 				r = { "<Cmd>Lspsaga rename<CR>", "Lspsaga Rename" },
 			},
+            d = {
+                name = "Diagnostics",
+                c = { "<Cmd>Lspsaga show_cursor_diagnostics<CR>", "Lspsaga Show Cursor Diagnostics" },
+                l = { "<Cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga Show Line Diagnostics" },
+                b = { "<Cmd>Lspsaga show_buffer_diagnostics<CR>", "Lspsaga Show Buffer Diagnostics" },
+                w = { "<Cmd>Lspsaga show_workspace_diagnostics<CR>", "Lspsaga Show Workspace Diagnostics" },
+            }
 			g = {
 				p = { "<Cmd>Lspsaga peek_definition<CR>", "Lspsaga Peek Definition" },
 				d = { "<Cmd>Lspsaga goto_definition<CR>", "Lspsaga Go to Definition" },
