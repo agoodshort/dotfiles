@@ -213,8 +213,7 @@ return {
 		wk.register({
 			n = {
 				name = "NPM Package Info",
-				s = { "<Cmd>PackageInfoShow<CR>", "Show" },
-				-- "<Cmd>PackageInfoShow<CR><Cmd>lua require('noice').redirect(require('package-info').get_status())<CR>",
+				s = { "<Cmd>lua require('package-info').toggle()<CR>", "Show" },
 				d = { "<Cmd>PackageInfoDelete<CR>", "Delete" },
 				v = { "<Cmd>PackageInfoChangeVersion", "Change Version" },
 				i = { "<Cmd>PackageInfoInstall<CR>", "Install" },
