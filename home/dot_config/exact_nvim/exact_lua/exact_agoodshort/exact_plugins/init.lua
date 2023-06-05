@@ -1,31 +1,18 @@
 return {
 	-- simple plugin
 	"wakatime/vim-wakatime",
-	"sitiom/nvim-numbertoggle", -- toggles relative number off when leaving buffer
 	"alker0/chezmoi.vim",
-	{
-		"numToStr/Comment.nvim", -- comment with gc
-		event = "BufReadPost",
-		opts = {},
-	},
-
-	-- auto-closing --
-	{
-		"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
-		opts = {},
-	},
-	{
-		"tiagovla/scope.nvim",
-		opts = {},
-	},
-
+	{ "sitiom/nvim-numbertoggle", event = "BufReadPost" }, -- toggles relative number off when leaving buffer
+	{ "numToStr/Comment.nvim", event = "BufReadPost", opts = {} }, -- comment with gc
 	{
 		"phaazon/hop.nvim",
 		branch = "v2",
+		event = "BufReadPost",
 		opts = {},
 	},
 	{
 		"vuki656/package-info.nvim",
+		ft = "json",
 		dependencies = "MunifTanjim/nui.nvim",
 		opts = {},
 	},
