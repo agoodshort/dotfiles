@@ -44,15 +44,6 @@ return {
 					view = "mini",
 				},
 			},
-			views = {
-				lsp_notify = {
-					backend = "notify",
-					fallback = "mini",
-					format = "notify",
-					replace = true,
-					merge = false,
-				},
-			},
 			-- you can enable a preset for easier configuration
 			presets = {
 				bottom_search = true, -- use a classic bottom cmdline for search
