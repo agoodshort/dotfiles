@@ -10,6 +10,10 @@ return {
 				return vim.fn.getcwd()
 			end
 
+			local function package_info()
+				return require("package-info").get_status()
+			end
+
 			local function codeium()
 				return vim.fn["codeium#GetStatusString"]()
 			end
@@ -23,7 +27,7 @@ return {
 					lualine_a = { "mode" },
 					lualine_b = { fileloc },
 					lualine_c = { "branch", "diff" },
-					lualine_x = { "diagnostics" },
+					lualine_x = { package_info, "diagnostics" },
 					lualine_y = { "filetype" },
 					lualine_z = {
 						{
