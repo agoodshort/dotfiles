@@ -35,9 +35,15 @@ return {
 					key = "d",
 				},
 				{
-					desc = " Configuration",
+					desc = "  Neovim",
 					group = "String",
 					action = "tcd $XDG_CONFIG_HOME/nvim | edit .",
+					key = "n",
+				},
+				{
+					desc = "󰌵 Chezmoi",
+					group = "@property",
+					action = "tcd $XDG_DATA_HOME/chezmoi | edit .",
 					key = "c",
 				},
 			},
