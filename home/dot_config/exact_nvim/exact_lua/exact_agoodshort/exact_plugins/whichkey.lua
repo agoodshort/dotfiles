@@ -209,14 +209,26 @@ return {
 			["<S-Tab>"] = { "<Cmd>call codeium#Clear()<CR>", "Codeium clear" },
 		}, blank_opts_insert)
 
+		-- NPM Package Info --
+		wk.register({
+			n = {
+				name = "NPM Package Info",
+				s = { "<Cmd>PackageInfoShow<CR>", "Show" },
+				-- "<Cmd>PackageInfoShow<CR><Cmd>lua require('noice').redirect(require('package-info').get_status())<CR>",
+				d = { "<Cmd>PackageInfoDelete<CR>", "Delete" },
+				v = { "<Cmd>PackageInfoChangeVersion", "Change Version" },
+				i = { "<Cmd>PackageInfoInstall<CR>", "Install" },
+			},
+		}, leader_opts)
+
 		-- ####################################################################
 
 		-- Default vim keymaps --
 		wk.register({
-			n = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
 			N = { "<Cmd>lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" },
 			c = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
 			["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format" },
+			["/"] = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
 		}, leader_opts)
 
 		-- yank/paste --
