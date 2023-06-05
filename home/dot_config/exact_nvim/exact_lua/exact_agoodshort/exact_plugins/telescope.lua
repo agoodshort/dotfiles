@@ -33,6 +33,13 @@ return {
 							["<C-h>"] = require("telescope.actions").which_key,
 							["<tab>"] = require("telescope.actions").toggle_selection,
 						},
+						n = {
+							["k"] = require("telescope.actions").move_selection_previous,
+							["j"] = require("telescope.actions").move_selection_next,
+							["s"] = require("telescope.actions").select_vertical,
+							["h"] = require("telescope.actions").which_key,
+							["<tab>"] = require("telescope.actions").toggle_selection,
+						},
 					},
 				},
 				extensions = {
@@ -51,10 +58,8 @@ return {
 					},
 					media_files = {
 						-- filetypes whitelist
-						-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-						filetypes = { "png", "webp", "jpg", "jpeg" },
-						-- find command (defaults to `fd`)
-						find_cmd = "rg",
+						filetypes = { "png", "webp", "jpg", "jpeg" }, -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+						find_cmd = "rg", -- find command (defaults to `fd`)
 					},
 					lazy = {
 						-- Whether or not to show the icon in the first column
