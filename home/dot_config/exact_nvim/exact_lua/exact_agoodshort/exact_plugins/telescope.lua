@@ -84,9 +84,6 @@ return {
 					},
 					file_browser = {
 						initial_mode = "normal",
-						-- path
-						-- cwd
-						cwd_to_path = false,
 						grouped = true,
 						files = true,
 						add_dirs = true,
@@ -95,7 +92,7 @@ return {
 						select_buffer = true,
 						hidden = true,
 						hide_parent_dir = false,
-						collapse_dirs = true,
+						-- collapse_dirs = true, -- if present breaks the config
 						prompt_path = false,
 						quiet = false,
 						display_stat = { date = true, size = true, mode = true },
