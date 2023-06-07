@@ -75,163 +75,163 @@ return {
 		}
 
 		-- ####################################################################
+		if not vim.g.vscode then
+			-- telescope --
+			wk.register({
+				B = { "<Cmd>Telescope scope buffers<CR>", "Scoped Buffers" },
+				b = { "<Cmd>Telescope buffers<CR>", "Buffers" },
+				e = { "<Cmd>Telescope file_browser<CR>", "File Browser" },
+				f = {
+					name = "Telescope", -- optional group name
+					a = { "<Cmd>Telescope lazy<CR>", "List Lazy plugins" },
+					c = { "<Cmd>Telescope neoclip<CR>", "List Clipboard" },
+					e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
+					f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
+					h = { "<Cmd>Telescope help_tags<CR>", "Help Tags" },
+					H = { "<Cmd>Telescope noice<CR>", "Noice History" },
+					k = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" },
+					l = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
+					m = { "<Cmd>Telescope media_files<CR>", "Preview Images" },
+					n = { "<Cmd>Telescope node_modules list<CR>", "List Node Modules" },
+					N = { "<Cmd>Telescope package_info<CR>", "Package Info" },
+					s = { "<Cmd>Telescope grep_string<CR>", "Grep String" },
+					t = { "<Cmd>Telescope http list<CR>", "List HTTP Status Code" },
+					u = { "<Cmd>Telescope undo<CR>", "Visualize Undo Tree" },
+					z = { "<Cmd>Telescope zoxide list<CR>", "List z" },
+					["?"] = { "<Cmd>Telescope find_pickers<CR>", "List Telescope Pickers" },
+				},
+			}, leader_opts)
 
-		-- telescope --
-		wk.register({
-			B = { "<Cmd>Telescope scope buffers<CR>", "Scoped Buffers" },
-			b = { "<Cmd>Telescope buffers<CR>", "Buffers" },
-			e = { "<Cmd>Telescope file_browser<CR>", "File Browser" },
-			f = {
-				name = "Telescope", -- optional group name
-				a = { "<Cmd>Telescope lazy<CR>", "List Lazy plugins" },
-				c = { "<Cmd>Telescope neoclip<CR>", "List Clipboard" },
-				e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
-				f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
-				h = { "<Cmd>Telescope help_tags<CR>", "Help Tags" },
-				H = { "<Cmd>Telescope noice<CR>", "Noice History" },
-				k = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" },
-				l = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
-				m = { "<Cmd>Telescope media_files<CR>", "Preview Images" },
-				n = { "<Cmd>Telescope node_modules list<CR>", "List Node Modules" },
-				N = { "<Cmd>Telescope package_info<CR>", "Package Info" },
-				s = { "<Cmd>Telescope grep_string<CR>", "Grep String" },
-				t = { "<Cmd>Telescope http list<CR>", "List HTTP Status Code" },
-				u = { "<Cmd>Telescope undo<CR>", "Visualize Undo Tree" },
-				z = { "<Cmd>Telescope zoxide list<CR>", "List z" },
-				["?"] = { "<Cmd>Telescope find_pickers<CR>", "List Telescope Pickers" },
-			},
-		}, leader_opts)
+			wk.register({ ["<C-p>"] = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" } }, blank_opts)
 
-		wk.register({ ["<C-p>"] = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" } }, blank_opts)
+			-- Git --
+			wk.register({
+				gg = {
+					name = "Git Tools", -- optional name
+					f = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
+					c = { "<Cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
+					g = { "<Cmd>Telescope lazygit_toggleterm<CR>", "LazyGit" },
+					u = { "<Cmd>lua _GITUI_TOGGLE()<CR>", "GitUI" },
+					b = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Gitsigns Blame" },
+					d = { "<Cmd>Telescope git_diffs diff_commits<CR>", "Diffview" },
+				},
+			}, leader_opts)
 
-		-- Git --
-		wk.register({
-			gg = {
-				name = "Git Tools", -- optional name
-				f = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
-				c = { "<Cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
-				g = { "<Cmd>Telescope lazygit_toggleterm<CR>", "LazyGit" },
-				u = { "<Cmd>lua _GITUI_TOGGLE()<CR>", "GitUI" },
-				b = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Gitsigns Blame" },
-				d = { "<Cmd>Telescope git_diffs diff_commits<CR>", "Diffview" },
-			},
-		}, leader_opts)
+			-- Tab Management --
+			wk.register({
+				["<C-t>"] = {
+					name = "Tabs",
+					["n"] = { "<Cmd>tabnew<CR>:Dashboard<CR>", "New Tab" },
+					["x"] = { "<Cmd>tabclose<CR>", "Close Tab" },
+					["l"] = { "<Cmd>tabn<CR>", "Go To Right Tab" },
+					["h"] = { "<Cmd>tabp<CR>", "Go To Left Tab" },
+				},
+			}, blank_opts)
+			vim.keymap.set("n", "<C-t>r", ":TabRename ") -- to review
 
-		-- Tab Management --
-		wk.register({
-			["<C-t>"] = {
-				name = "Tabs",
-				["n"] = { "<Cmd>tabnew<CR>:Dashboard<CR>", "New Tab" },
-				["x"] = { "<Cmd>tabclose<CR>", "Close Tab" },
-				["l"] = { "<Cmd>tabn<CR>", "Go To Right Tab" },
-				["h"] = { "<Cmd>tabp<CR>", "Go To Left Tab" },
-			},
-		}, blank_opts)
-		vim.keymap.set("n", "<C-t>r", ":TabRename ") -- to review
+			-- toggleterm --
+			wk.register({
+				["\\"] = { -- map to "\"
+					name = "ToggleTerm",
+					["\\"] = { "<Cmd>ToggleTermToggleAll<CR>", "Toggle All Terminals" },
+					["1"] = { "<Cmd>1ToggleTerm<CR>", "Terminal 1" },
+					["2"] = { "<Cmd>2ToggleTerm<CR>", "Terminal 2" },
+					["3"] = { "<Cmd>3ToggleTerm<CR>", "Terminal 3" },
+				},
+			}, leader_opts)
+			wk.register({
+				["\\"] = { -- map to "\"
+					name = "ToggleTerm",
+					["1"] = { "<Cmd>ToggleTermSendVisualLines<CR>", "Send to Terminal 1" },
+					["2"] = { "<Cmd>ToggleTermSendVisualLines 2<CR>", "Send to Terminal 2" },
+					["3"] = { "<Cmd>ToggleTermSendVisualLines 3<CR>", "Send to Terminal 3" },
+				},
+			}, leader_opts_visual)
 
-		-- toggleterm --
-		wk.register({
-			["\\"] = { -- map to "\"
-				name = "ToggleTerm",
-				["\\"] = { "<Cmd>ToggleTermToggleAll<CR>", "Toggle All Terminals" },
-				["1"] = { "<Cmd>1ToggleTerm<CR>", "Terminal 1" },
-				["2"] = { "<Cmd>2ToggleTerm<CR>", "Terminal 2" },
-				["3"] = { "<Cmd>3ToggleTerm<CR>", "Terminal 3" },
-			},
-		}, leader_opts)
-		wk.register({
-			["\\"] = { -- map to "\"
-				name = "ToggleTerm",
-				["1"] = { "<Cmd>ToggleTermSendVisualLines<CR>", "Send to Terminal 1" },
-				["2"] = { "<Cmd>ToggleTermSendVisualLines 2<CR>", "Send to Terminal 2" },
-				["3"] = { "<Cmd>ToggleTermSendVisualLines 3<CR>", "Send to Terminal 3" },
-			},
-		}, leader_opts_visual)
+			-- vim-doge --
+			wk.register({
+				d = { "<Cmd>DogeGenerate<CR>", "Generate documentation" },
+			}, leader_opts)
 
-		-- vim-doge --
-		wk.register({
-			D = { "<Cmd>DogeGenerate<CR>", "Generate documentation" },
-		}, leader_opts)
+			-- Hop manual keymap register --
+			wk.register({
+				f = { "<Cmd>HopChar1CurrentLineAC<CR>", "Hop Current Line After" },
+				F = { "<Cmd>HopChar1CurrentLineBC<CR>", "Hop Current Line Before" },
+			}, blank_opts)
 
-		-- Hop manual keymap register --
-		wk.register({
-			f = { "<Cmd>HopChar1CurrentLineAC<CR>", "Hop Current Line After" },
-			F = { "<Cmd>HopChar1CurrentLineBC<CR>", "Hop Current Line Before" },
-		}, blank_opts)
+			wk.register({
+				h = { "<Cmd>HopChar1AC<CR>", "Hop After" },
+				H = { "<Cmd>HopChar1BC<CR>", "Hop Before" },
+			}, leader_opts)
 
-		wk.register({
-			h = { "<Cmd>HopChar1AC<CR>", "Hop After" },
-			H = { "<Cmd>HopChar1BC<CR>", "Hop Before" },
-		}, leader_opts)
+			wk.register({
+				h = { "<Cmd>HopChar2MW<CR>", "Hop Anywhere" },
+			}, leader2_opts)
 
-		wk.register({
-			h = { "<Cmd>HopChar2MW<CR>", "Hop Anywhere" },
-		}, leader2_opts)
+			-- LSP --
+			wk.register({
+				l = {
+					name = "LSP",
+					c = { "<Cmd>Lspsaga code_action<CR>", "Lspsaga Code Action" },
+					f = { "<Cmd>Lspsaga lsp_finder<CR>", "Lspsaga Definition Finder" },
+					l = { "<Cmd>ToggleLSP<CR>", "ToggleLSP" },
+					n = { "<Cmd>ToggleNullLSP<CR>", "ToggleNullLSP" },
+					v = { "<Cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Virtual Text" },
+					o = { "<Cmd>Lspsaga outline<CR>", "Lspsaga Outline" },
+					r = { "<Cmd>Lspsaga rename<CR>", "Lspsaga Rename" },
+					d = {
+						name = "Diagnostics",
+						c = { "<Cmd>Lspsaga show_cursor_diagnostics<CR>", "Lspsaga Show Cursor Diagnostics" },
+						l = { "<Cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga Show Line Diagnostics" },
+						b = { "<Cmd>Lspsaga show_buffer_diagnostics<CR>", "Lspsaga Show Buffer Diagnostics" },
+						w = { "<Cmd>Lspsaga show_workspace_diagnostics<CR>", "Lspsaga Show Workspace Diagnostics" },
+					},
+				},
+				g = {
+					p = { "<Cmd>Lspsaga peek_definition<CR>", "Lspsaga Peek Definition" },
+					d = { "<Cmd>Lspsaga goto_definition<CR>", "Lspsaga Go to Definition" },
+					t = { "<Cmd>Lspsaga peek_type_definition<CR>", "Lspsaga Peek Type Definition" },
+				},
+			}, leader_opts)
 
-		-- LSP --
-		wk.register({
-			l = {
-				name = "LSP",
-                c = { "<Cmd>Lspsaga code_action<CR>", "Lspsaga Code Action" },
-                f = { "<Cmd>Lspsaga lsp_finder<CR>", "Lspsaga Definition Finder" },
-				l = { "<Cmd>ToggleLSP<CR>", "ToggleLSP" },
-				n = { "<Cmd>ToggleNullLSP<CR>", "ToggleNullLSP" },
-                v = { "<Cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Virtual Text" },
-				o = { "<Cmd>Lspsaga outline<CR>", "Lspsaga Outline" },
-				r = { "<Cmd>Lspsaga rename<CR>", "Lspsaga Rename" },
-			},
-            d = {
-                name = "Diagnostics",
-                c = { "<Cmd>Lspsaga show_cursor_diagnostics<CR>", "Lspsaga Show Cursor Diagnostics" },
-                l = { "<Cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga Show Line Diagnostics" },
-                b = { "<Cmd>Lspsaga show_buffer_diagnostics<CR>", "Lspsaga Show Buffer Diagnostics" },
-                w = { "<Cmd>Lspsaga show_workspace_diagnostics<CR>", "Lspsaga Show Workspace Diagnostics" },
-            }
-			g = {
-				p = { "<Cmd>Lspsaga peek_definition<CR>", "Lspsaga Peek Definition" },
-				d = { "<Cmd>Lspsaga goto_definition<CR>", "Lspsaga Go to Definition" },
-				t = { "<Cmd>Lspsaga peek_type_definition<CR>", "Lspsaga Peek Type Definition" },
-			},
-		}, leader_opts)
+			wk.register({
+				K = { "<Cmd>Lspsaga hover_doc<CR>", "Lspsaga Hover Doc" },
+			}, blank_opts)
 
-		wk.register({
-			K = { "<Cmd>Lspsaga hover_doc<CR>", "Lspsaga Hover Doc" },
-		}, blank_opts)
+			-- Null-ls --
+			wk.register({
+				["="] = { "<Cmd>NullFormat<CR>", "Format Using Null-ls Only" },
+			}, leader_opts)
 
-		-- Null-ls --
-		wk.register({
-			["="] = { "<Cmd>NullFormat<CR>", "Format Using Null-ls Only" },
-		}, leader_opts)
+			-- Undotree --
+			wk.register({
+				["u"] = { "<Cmd>UndotreeToggle<CR>", "Undotree" },
+			}, leader_opts)
 
-		-- Undotree --
-		wk.register({
-			["u"] = { "<Cmd>UndotreeToggle<CR>", "Undotree" },
-		}, leader_opts)
+			-- Codeium --
+			wk.register({
+				["<C-l>"] = { "<Cmd>call codeium#CycleCompletions(1)<CR>", "Codeium next" },
+				["<C-h>"] = { "<Cmd>call codeium#CycleCompletions(-1)<CR>", "Codeium previous" },
+				["<S-Tab>"] = { "<Cmd>call codeium#Clear()<CR>", "Codeium clear" },
+			}, blank_opts_insert)
 
-		-- Codeium --
-		wk.register({
-			["<C-l>"] = { "<Cmd>call codeium#CycleCompletions(1)<CR>", "Codeium next" },
-			["<C-h>"] = { "<Cmd>call codeium#CycleCompletions(-1)<CR>", "Codeium previous" },
-			["<S-Tab>"] = { "<Cmd>call codeium#Clear()<CR>", "Codeium clear" },
-		}, blank_opts_insert)
-
-		-- NPM Package Info --
-		wk.register({
-			n = {
-				name = "NPM Package Info",
-				s = { "<Cmd>lua require('package-info').toggle()<CR>", "Show" },
-				d = { "<Cmd>PackageInfoDelete<CR>", "Delete" },
-				v = { "<Cmd>PackageInfoChangeVersion", "Change Version" },
-				i = { "<Cmd>PackageInfoInstall<CR>", "Install" },
-			},
-		}, leader_opts)
+			-- NPM Package Info --
+			wk.register({
+				n = {
+					name = "NPM Package Info",
+					s = { "<Cmd>lua require('package-info').toggle()<CR>", "Show" },
+					d = { "<Cmd>PackageInfoDelete<CR>", "Delete" },
+					v = { "<Cmd>PackageInfoChangeVersion", "Change Version" },
+					i = { "<Cmd>PackageInfoInstall<CR>", "Install" },
+				},
+			}, leader_opts)
+		end
 
 		-- ####################################################################
 
 		-- Default vim keymaps --
 		wk.register({
 			N = { "<Cmd>lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" },
-			c = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
 			["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format" },
 			["/"] = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
 		}, leader_opts)
