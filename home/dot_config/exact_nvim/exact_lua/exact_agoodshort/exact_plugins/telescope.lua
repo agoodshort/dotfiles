@@ -25,22 +25,25 @@ return {
 		},
 		config = function()
 			local fb_actions = require("telescope._extensions.file_browser.actions")
+			local actions = require("telescope.actions")
 			require("telescope").setup({
 				defaults = {
 					mappings = {
 						i = {
-							["<C-k>"] = require("telescope.actions").move_selection_previous,
-							["<C-j>"] = require("telescope.actions").move_selection_next,
-							["<C-s>"] = require("telescope.actions").select_vertical,
-							["<C-h>"] = require("telescope.actions").which_key,
-							["<tab>"] = require("telescope.actions").toggle_selection,
+							["<C-k>"] = actions.move_selection_previous,
+							["<C-j>"] = actions.move_selection_next,
+							["<C-s>"] = actions.select_vertical,
+							["<C-?>"] = actions.which_key,
+							["<C-c>"] = actions.close,
+							["<tab>"] = actions.toggle_selection,
 						},
 						n = {
-							["k"] = require("telescope.actions").move_selection_previous,
-							["j"] = require("telescope.actions").move_selection_next,
-							["s"] = require("telescope.actions").select_vertical,
-							["h"] = require("telescope.actions").which_key,
-							["<tab>"] = require("telescope.actions").toggle_selection,
+							["k"] = actions.move_selection_previous,
+							["j"] = actions.move_selection_next,
+							["s"] = actions.select_vertical,
+							["?"] = actions.which_key,
+							["<C-c>"] = actions.close,
+							["<tab>"] = actions.toggle_selection,
 						},
 					},
 				},
@@ -101,9 +104,9 @@ return {
 						git_status = true,
 						mappings = {
 							["i"] = {
-								["<A-c>"] = fb_actions.create,
+								["<C-n>"] = fb_actions.create,
 								["<S-CR>"] = fb_actions.create_from_prompt,
-								["<A-r>"] = fb_actions.rename,
+								["<C-r>"] = fb_actions.rename,
 								["<A-m>"] = fb_actions.move,
 								["<A-y>"] = fb_actions.copy,
 								["<A-d>"] = fb_actions.remove,
@@ -114,11 +117,11 @@ return {
 								["<C-t>"] = fb_actions.change_cwd,
 								["<C-f>"] = fb_actions.toggle_browser,
 								["<C-h>"] = fb_actions.toggle_hidden,
-								["<C-s>"] = fb_actions.toggle_all,
+								["<C-a>"] = fb_actions.toggle_all,
 								["<bs>"] = fb_actions.backspace,
 							},
 							["n"] = {
-								["c"] = fb_actions.create,
+								["n"] = fb_actions.create,
 								["r"] = fb_actions.rename,
 								["m"] = fb_actions.move,
 								["y"] = fb_actions.copy,
@@ -130,7 +133,7 @@ return {
 								["t"] = fb_actions.change_cwd,
 								["f"] = fb_actions.toggle_browser,
 								["h"] = fb_actions.toggle_hidden,
-								["s"] = fb_actions.toggle_all,
+								["a"] = fb_actions.toggle_all,
 							},
 						},
 					},
