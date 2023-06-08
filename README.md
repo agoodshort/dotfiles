@@ -242,6 +242,7 @@ https://github.com/twpayne/chezmoi/issues/2273
 - [ ] Add `pbcopy` on Linux => https://ostechnix.com/how-to-use-pbcopy-and-pbpaste-commands-on-linux/
 - [ ] balena etcher through brew
 - [ ] wezterm on macos
+- [ ] Mission Control is left by default as karabiner keymaps are built on top of it
 
 ## References
 
