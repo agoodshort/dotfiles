@@ -84,14 +84,12 @@ nvm install lts/gallium
 
 ```sh
 mkdir -p ~/Coding/Personal
-mkdir -p ~/Coding/AUR
 ```
 
 ### 7. Install Microsoft Edge
 
 ```sh
-cd ~/Coding/AUR
-git clone https://aur.archlinux.org/microsoft-edge-stable-bin.git && cd microsoft-edge-stable-bin && makepkg -si
+yay -S microsoft-edge-stable-bin
 xdg-settings set default-web-browser microsoft-edge.desktop
 ```
 
@@ -126,6 +124,10 @@ cd yay
 makepkg -si
 cd ../
 rm -rf yay
+```
+
+```sh
+yay -S nosql-workbench
 ```
 
 ### 10. Install things from pacman
