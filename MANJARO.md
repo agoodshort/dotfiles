@@ -172,6 +172,8 @@ sudo pacman -Sy wezterm
 - [ ] Make wezterm default and remove foot automatic runner at login
 - [ ] Should we set the API key through lastpass for wakatime and codeium
 - [ ] Dont install docker through brew on Manjaro
+- [ ] Add the wakatime key using lastpass
+- [ ] `tap "wez/wezterm-linuxbrew"` only for llinux
 
 ## References
 

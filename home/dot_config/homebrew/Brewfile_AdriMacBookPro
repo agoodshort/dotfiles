@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
+tap "homebrew/command-not-found"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazynpm"
 # Official Amazon AWS command-line interface
@@ -46,6 +47,8 @@ brew "wget"
 brew "xorgproto"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# UNIX shell (command interpreter)
+brew "zsh"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
@@ -54,8 +57,6 @@ brew "zsh-syntax-highlighting"
 brew "jesseduffield/lazydocker/lazydocker"
 # A simple terminal UI for git commands, written in Go
 brew "jesseduffield/lazynpm/lazynpm"
-# GPU-accelerated terminal emulator
-cask "alacritty"
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
 # Configuration tool for the Betaflight firmware
@@ -96,7 +97,37 @@ cask "spaceid"
 cask "tunnelblick"
 # Open-source code editor
 cask "visual-studio-code"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
 # Video communication and virtual meeting platform
 cask "zoom"
+vscode "adpyke.codesnap"
+vscode "arr.marksman"
+vscode "asvetliakov.vscode-neovim"
+vscode "bierner.github-markdown-preview"
+vscode "bierner.markdown-checkbox"
+vscode "bierner.markdown-emoji"
+vscode "bierner.markdown-footnotes"
+vscode "bierner.markdown-mermaid"
+vscode "bierner.markdown-preview-github-styles"
+vscode "bierner.markdown-yaml-preamble"
+vscode "ChakrounAnas.turbo-console-log"
+vscode "CircleCI.circleci"
+vscode "Codeium.codeium"
+vscode "dbaeumer.vscode-eslint"
+vscode "eamodio.gitlens"
+vscode "esbenp.prettier-vscode"
+vscode "JulianIaquinandi.nvim-ui-modifier"
+vscode "metaphore.kanagawa-vscode-color-theme"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode-remote.remote-wsl"
+vscode "ms-vscode.remote-explorer"
+vscode "steoates.autoimport"
+vscode "ThreadHeap.serverless-ide-vscode"
+vscode "WakaTime.vscode-wakatime"
+vscode "wix.vscode-import-cost"

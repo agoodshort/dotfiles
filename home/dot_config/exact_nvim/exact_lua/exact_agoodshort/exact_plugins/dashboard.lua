@@ -1,7 +1,7 @@
 return {
 	"glepnir/dashboard-nvim",
 	event = "VimEnter",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = "nvim-tree/nvim-web-devicons",
 	opts = {
 		theme = "hyper",
 		hide = {
@@ -24,20 +24,26 @@ return {
 				},
 				{
 					desc = " Files",
-					group = "Label",
-					action = "edit .",
+					group = "Float",
+					action = "Telescope file_browser",
 					key = "f",
 				},
 				{
 					desc = " Dotfiles",
 					group = "DiagnosticHint",
-					action = "edit $XDG_CONFIG_HOME",
+					action = "tcd $XDG_CONFIG_HOME | Telescope file_browser",
 					key = "d",
 				},
 				{
-					desc = " Configuration",
-					group = "Number",
-					action = "edit $XDG_CONFIG_HOME/nvim",
+					desc = "  Neovim",
+					group = "String",
+					action = "tcd $XDG_CONFIG_HOME/nvim | Telescope file_browser",
+					key = "n",
+				},
+				{
+					desc = "󰌵 Chezmoi",
+					group = "@property",
+					action = "tcd $XDG_DATA_HOME/chezmoi | Telescope file_browser",
 					key = "c",
 				},
 			},

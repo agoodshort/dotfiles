@@ -9,11 +9,14 @@ return {
 		end,
 	},
 	{
+		"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
+		event = "InsertEnter",
+		opts = {},
+	},
+	{
 		"David-Kunz/cmp-npm",
 		lazy = true,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
+		dependencies = "nvim-lua/plenary.nvim",
 		opts = {
 			ignore = {},
 			only_semantic_versions = false,
@@ -41,9 +44,12 @@ return {
 			"onsails/lspkind.nvim",
 		},
 		config = function()
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			local lspkind = require("lspkind")
+
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 			cmp.setup({
 				snippet = {

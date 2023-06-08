@@ -1,109 +1,17 @@
 return {
 	{
-		"b0o/incline.nvim",
-		dependencies = "nvim-lualine/lualine.nvim",
-		opts = {},
-	},
-	{
-		"agoodshort/staline.nvim",
-		enabled = false,
-		branch = "fn_color_invert",
-		dependencies = {
-			"kanagawa.nvim",
-			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "neovim/nvim-lspconfig" },
-		},
-		config = function()
-			local function fileloc()
-				return vim.fn.expand("%:p:.")
-			end
-
-			local function codeium()
-				return vim.fn["codeium#GetStatusString"]()
-			end
-
-			local function yaml_companion()
-				local schema = require("yaml-companion").get_buf_schema(0)
-				if schema.result[1].name == "none" then
-					return " "
-				end
-				return schema.result[1].name
-			end
-
-			local function lsp_name()
-				local msg = "No Active Lsp"
-				local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-				local clients = vim.lsp.get_active_clients()
-				if next(clients) == nil then
-					return msg
-				end
-				for _, client in ipairs(clients) do
-					local filetypes = client.config.filetypes
-					if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-						return client.name
-					end
-				end
-				return msg
-			end
-
-			require("staline").setup({
-				sections = {
-					left = {
-						" ",
-						"right_sep",
-						"-mode",
-						"left_sep",
-						" ",
-						"right_sep",
-						"-cool_symbol",
-						fileloc,
-						"left_sep",
-						" ",
-						"right_sep",
-						"-branch",
-						"left_sep",
-						" ",
-					},
-					mid = { "lsp" },
-					right = {
-						" ",
-						"right_sep",
-						"- ",
-						lsp_name,
-						"- ",
-						"-lsp",
-						"left_sep",
-						" ",
-						"right_sep",
-						yaml_companion,
-						"left_sep",
-						" ",
-						"right_sep",
-						"- ",
-						codeium,
-						"left_sep",
-						" ",
-					},
-				},
-
-				defaults = {
-					left_separator = "",
-					right_separator = "",
-					true_colors = true,
-					fn_invert_color = true,
-				},
-			})
-		end,
-	},
-	{
 		"nvim-lualine/lualine.nvim",
-		-- enabled = false,
 		dependencies = {
 			"kanagawa.nvim",
 			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "neovim/nvim-lspconfig" },
 		},
 		config = function()
 			local function fileloc()
-				return vim.fn.expand("%:p:.")
+				return vim.fn.getcwd()
+			end
+
+			local function package_info()
+				return require("package-info").get_status()
 			end
 
 			local function codeium()
@@ -112,14 +20,14 @@ return {
 
 			local config = {
 				options = {
-					disabled_filetypes = { "dashboard", "neo-tree", "lspsagaoutline" },
+					disabled_filetypes = { "dashboard", "lspsagaoutline" },
 					-- component_separators = "|",
 				},
 				sections = {
 					lualine_a = { "mode" },
 					lualine_b = { fileloc },
 					lualine_c = { "branch", "diff" },
-					lualine_x = { "diagnostics" },
+					lualine_x = { package_info, "diagnostics" },
 					lualine_y = { "filetype" },
 					lualine_z = {
 						{
@@ -176,5 +84,44 @@ return {
 
 			require("lualine").setup(config)
 		end,
+	},
+	{
+		"b0o/incline.nvim",
+		dependencies = "nvim-lualine/lualine.nvim",
+		opts = {
+			render = function(props)
+				local filename = vim.fn.expand("%")
+				local colors = require("kanagawa.colors").setup()
+				local palette_colors = colors.palette
+				local filetype_icon, color = require("nvim-web-devicons").get_icon_color(filename)
+				local buffer = {
+					{
+						filetype_icon,
+						guifg = color,
+					},
+					{
+						" " .. filename,
+					},
+				}
+
+				if props.focused == true then
+					return {
+						{
+							buffer,
+							guibg = palette_colors.sumiInk0,
+							guifg = palette_colors.oldWhite,
+						},
+					}
+				else
+					return {
+						{
+							buffer,
+							guibg = palette_colors.sumiInk0,
+							guifg = palette_colors.sumiInk4,
+						},
+					}
+				end
+			end,
+		},
 	},
 }
