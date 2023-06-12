@@ -91,6 +91,7 @@ mkdir -p ~/Coding/Personal
 ```sh
 yay -S microsoft-edge-stable-bin
 xdg-settings set default-web-browser microsoft-edge.desktop
+yay -Sy flameshot-git
 ```
 
 ### 8. Install Deskreen
