@@ -36,7 +36,6 @@ config.colors = {
 	indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
 }
 
-config.enable_tab_bar = false
-
+config.hide_tab_bar_if_only_one_tab = true
 -- and finally, return the configuration to wezterm
 return config
