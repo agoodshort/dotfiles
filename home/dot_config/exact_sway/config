@@ -35,8 +35,24 @@ include $HOME/.config/sway/config.d/*.conf
 # Personal configuration #
 ##########################
 
+## Key bindings
+# At the moment, this is the only place I found where setting the key bindings works
 
 
+# unassign default key bindings to be re-used
+$unbindsym $mod+space
+$unbindsym $mod+Return
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Start your launcher
+bindsym $mod+space exec $menu
+
+# Start a terminal
+bindsym $mod+Return exec /usr/bin/wezterm
+
+##########################
 
 # Icon trays
 exec sworkstyle &> /tmp/sworkstyle.log
