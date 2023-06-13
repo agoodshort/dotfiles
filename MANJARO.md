@@ -134,7 +134,8 @@ yay -S nosql-workbench
 ### 10. Install things from pacman
 
 ```sh
-sudo pacman -Sy code brave-browser
+sudo pacman -Sy brave-browser
+sudo yay -Sy visual-studio-code-bin
 ```
 
 ### 11. Keyboard mapping to review
