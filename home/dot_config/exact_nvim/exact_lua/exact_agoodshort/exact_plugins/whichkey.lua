@@ -78,8 +78,8 @@ return {
 		if not vim.g.vscode then
 			-- telescope --
 			wk.register({
-				B = { "<Cmd>Telescope scope buffers<CR>", "Scoped Buffers" },
-				b = { "<Cmd>Telescope buffers<CR>", "Buffers" },
+				B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
+				b = { "<Cmd>Telescope buffers initial_mode=normal<CR>", "Tabbed Buffers" },
 				e = { "<Cmd>Telescope file_browser<CR>", "File Browser" },
 				f = {
 					name = "Telescope", -- optional group name
