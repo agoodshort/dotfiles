@@ -221,7 +221,7 @@ return {
 					name = "NPM Package Info",
 					s = { "<Cmd>lua require('package-info').toggle()<CR>", "Show" },
 					d = { "<Cmd>PackageInfoDelete<CR>", "Delete" },
-					v = { "<Cmd>PackageInfoChangeVersion", "Change Version" },
+					v = { "<Cmd>PackageInfoChangeVersion<CR>", "Change Version" },
 					i = { "<Cmd>PackageInfoInstall<CR>", "Install" },
 				},
 			}, leader_opts)
