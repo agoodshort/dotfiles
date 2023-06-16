@@ -2,6 +2,13 @@ return {
 	-- simple plugin
 	"wakatime/vim-wakatime",
 	"alker0/chezmoi.vim",
+	{
+		"norcalli/nvim-colorizer.lua",
+		event = "BufReadPost",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
 	{ "sitiom/nvim-numbertoggle", event = "BufReadPost" }, -- toggles relative number off when leaving buffer
 	{ "numToStr/Comment.nvim", event = "BufReadPost", opts = {} }, -- comment with gc
 	{
