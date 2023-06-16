@@ -243,6 +243,7 @@ https://github.com/twpayne/chezmoi/issues/2273
 - [ ] balena etcher through brew
 - [ ] wezterm on macos
 - [ ] Mission Control is left by default as karabiner keymaps are built on top of it
+- [ ] List desktop to be assigned on MacOS and display (with the right click on icon)
 
 ## References
 
