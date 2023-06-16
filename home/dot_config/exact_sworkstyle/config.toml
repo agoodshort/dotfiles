@@ -18,10 +18,10 @@
 # Anything added in here will override the defaults in the package.
 
 [matching]
-'brave-browser' = ''
+'brave-browser' = ''
 'microsoft-edge' = '󰇩'
 '/zsh/' = ''
 '/JIRA/' = '󰌃'
 '/Outlook/' = '󰴢'
 '/GitHub/' = ''
-'code-oss' = '󰨞'
+'/Visual Studio Code/' = '󰨞'

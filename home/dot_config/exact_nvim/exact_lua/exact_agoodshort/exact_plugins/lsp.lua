@@ -71,7 +71,7 @@ return {
 							},
 						},
 					})
-					lspconfig.yamlls.setup(yamlconfig)
+					lspconfig.yamlls.setup({ yamlconfig, capabilities = lsp_capabilities })
 				end,
 			})
 

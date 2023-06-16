@@ -37,10 +37,13 @@ include $HOME/.config/sway/config.d/*.conf
 
 ## Key bindings
 # At the moment, this is the only place I found where setting the key bindings works
+# https://github.com/manjaro-sway/manjaro-sway/blob/main/SUPPORT.md#shortcuts
+
 
 
 # unassign default key bindings to be re-used
 $unbindsym $mod+space
+$unbindsym $mod+d
 $unbindsym $mod+Return
 
 # Kill focused window

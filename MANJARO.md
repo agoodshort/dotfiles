@@ -12,15 +12,9 @@
     - [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
     - [4. Set zsh (already by default the shell)](#4-set-zsh-already-by-default-the-shell)
     - [5. Configure node with nvm](#5-configure-node-with-nvm)
-    - [6. Create the Coding folder](#6-create-the-coding-folder)
-    - [7. Install Microsoft Edge](#7-install-microsoft-edge)
-    - [8. Install Deskreen](#8-install-deskreen)
-    - [8. Install docker](#8-install-docker)
-    - [9. Basic snaps](#9-basic-snaps)
-    - [10. Install things from pacman](#10-install-things-from-pacman)
-    - [11. Keyboard mapping to review](#11-keyboard-mapping-to-review)
-    - [5. Install wezterm](#5-install-wezterm)
-  - [To review](#to-review)
+    - [6. Install yay (AUR helper)](#6-install-yay-aur-helper)
+    - [7. Install packages](#7-install-packages)
+    - [9. Keyboard mapping to review](#9-keyboard-mapping-to-review)
   - [To-Do](#to-do)
   - [References](#references)
     - [Git multi user](#git-multi-user)
@@ -80,46 +74,10 @@ TODO: do not install zsh with brew if on arch
 nvm install lts/gallium
 ```
 
-### 6. Create the Coding folder
+### 6. Install yay (AUR helper)
 
 ```sh
-mkdir -p ~/Coding/Personal
-```
-
-### 7. Install Microsoft Edge
-
-```sh
-yay -S microsoft-edge-stable-bin
-xdg-settings set default-web-browser microsoft-edge.desktop
-yay -Sy flameshot-git
-```
-
-### 8. Install Deskreen
-
-```sh
-cd ~/Coding/AUR
-git clone https://aur.archlinux.org/deskreen-bin.git && cd deskreen-bin && makepkg -si
-```
-
-### 8. Install docker
-
-This should work fine.
-
-```sh
-pacman -Sy docker
-sudo chmod 666 /var/run/docker.sock
-```
-
-### 9. Basic snaps
-
-```sh
-git clone https://aur.archlinux.org/slack-desktop.git && cd slack-desktop && makepkg -si
-sudo snap install zoom-client
-```
-
-### 10. Install yay (AUR helper)
-
-```sh
+mkdir -p ~/Coding/Personal && cd $_
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
@@ -127,34 +85,28 @@ cd ../
 rm -rf yay
 ```
 
-```sh
-yay -S nosql-workbench
-```
-
-### 10. Install things from pacman
+### 7. Install packages
 
 ```sh
-sudo pacman -Sy code brave-browser
+yay -Sy microsoft-edge-stable-bin \
+flameshot-git \
+postman-bin \
+visual-studio-code-bin \
+nosql-workbench \
+sworkstyle \
+zoom \
+slack-desktop \
+deskreen-bin
+pacman -Sy docker \
+brave-browser
+sudo chmod 666 /var/run/docker.sock
+xdg-settings set default-web-browser microsoft-edge.desktop
 ```
 
-### 11. Keyboard mapping to review
+### 9. Keyboard mapping to review
 
 TODO: needs to be saved
-
-- capslock
 - Access to 3rd layer
-
-### 5. Install wezterm
-
-```sh
-sudo pacman -Sy wezterm
-```
-
-## To review
-
-```sh
-/usr/local/opt/fzf/install --xdg --no-bash --no-fish --no-update-rc --key-bindings --completion
-```
 
 ## To-Do
 
@@ -169,8 +121,6 @@ sudo pacman -Sy wezterm
 - [ ] brew should not install git on Linux
 - [ ] Add `pbcopy` on Linux => https://ostechnix.com/how-to-use-pbcopy-and-pbpaste-commands-on-linux/
 - [ ] balena etcher through brew
-- [ ] wezterm on macos
-- [ ] Make wezterm default and remove foot automatic runner at login
 - [ ] Should we set the API key through lastpass for wakatime and codeium
 - [ ] Dont install docker through brew on Manjaro
 - [ ] Add the wakatime key using lastpass
