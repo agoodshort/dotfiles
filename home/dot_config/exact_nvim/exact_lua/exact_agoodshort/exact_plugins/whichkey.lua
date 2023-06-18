@@ -249,12 +249,12 @@ return {
 
 		wk.register({
 			d = { '"_dd', "Delete using Void Buffer" },
-			p = { '"_dp', "Paste and Delete using Void Buffer" },
+			p = { '"_dP', "Paste and Delete using Void Buffer" },
 		}, leader2_opts)
 
 		wk.register({
 			d = { '"_d', "Delete using Void Buffer" },
-			p = { '"_dp', "Paste and Delete using Void Buffer" },
+			p = { '"_dP', "Paste and Delete using Void Buffer" },
 		}, leader2_opts_visual)
 
 		-- windows
