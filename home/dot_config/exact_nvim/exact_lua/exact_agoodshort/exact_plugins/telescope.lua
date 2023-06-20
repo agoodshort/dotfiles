@@ -21,7 +21,7 @@ return {
 			{ "nvim-telescope/telescope-media-files.nvim", dependencies = "nvim-lua/popup.nvim" },
 			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "neovim/nvim-lspconfig" },
 			{ "nvim-telescope/telescope-file-browser.nvim", dependencies = "nvim-lua/plenary.nvim" },
-			{ "tiagovla/scope.nvim", event = "TabNew", opts = {} },
+			{ "agoodshort/scope.nvim", opts = {} },
 		},
 		config = function()
 			local fb_actions = require("telescope._extensions.file_browser.actions")
