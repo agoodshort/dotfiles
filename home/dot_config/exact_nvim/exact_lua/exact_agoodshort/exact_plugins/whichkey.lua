@@ -153,6 +153,11 @@ return {
 				d = { "<Cmd>DogeGenerate<CR>", "Generate documentation" },
 			}, leader_opts)
 
+			-- incline --
+			wk.register({
+				i = { "<Cmd>lua require('incline').toggle()<CR>", "Toggle Incline" },
+			}, leader_opts)
+
 			-- Hop manual keymap register --
 			wk.register({
 				f = { "<Cmd>HopChar1CurrentLineAC<CR>", "Hop Current Line After" },

@@ -65,6 +65,8 @@ cask "betaflight-configurator"
 cask "bing-wallpaper"
 # Tool to remove unnecessary files and folders from disk
 cask "cleanmymac"
+# Turns any device with a web browser into a secondary screen
+cask "deskreen"
 # Remote desktop and second display tool
 cask "duet"
 # Screenshot software
@@ -119,6 +121,7 @@ vscode "Codeium.codeium"
 vscode "dbaeumer.vscode-eslint"
 vscode "eamodio.gitlens"
 vscode "esbenp.prettier-vscode"
+vscode "github.vscode-github-actions"
 vscode "JulianIaquinandi.nvim-ui-modifier"
 vscode "metaphore.kanagawa-vscode-color-theme"
 vscode "ms-azuretools.vscode-docker"
