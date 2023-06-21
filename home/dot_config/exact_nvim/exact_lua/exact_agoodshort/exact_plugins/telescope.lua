@@ -104,6 +104,7 @@ return {
 						git_status = true,
 						mappings = {
 							["i"] = {
+								["<C-c>"] = actions.close,
 								["<C-n>"] = fb_actions.create,
 								["<S-CR>"] = fb_actions.create_from_prompt,
 								["<C-r>"] = fb_actions.rename,
@@ -121,6 +122,7 @@ return {
 								["<bs>"] = fb_actions.backspace,
 							},
 							["n"] = {
+								["c"] = actions.close,
 								["n"] = fb_actions.create,
 								["r"] = fb_actions.rename,
 								["m"] = fb_actions.move,
