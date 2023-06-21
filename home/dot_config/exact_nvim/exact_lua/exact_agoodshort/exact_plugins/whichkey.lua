@@ -76,6 +76,12 @@ return {
 
 		-- ####################################################################
 		if not vim.g.vscode then
+			-- Neo-tree --
+			wk.register({
+				bb = { "<Cmd>Neotree toggle buffers<CR>", "Neotree Filesystem" },
+				ee = { "<Cmd>Neotree toggle filesystem<CR>", "Neotree Filesystem" },
+			}, leader_opts)
+
 			-- telescope --
 			wk.register({
 				B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
