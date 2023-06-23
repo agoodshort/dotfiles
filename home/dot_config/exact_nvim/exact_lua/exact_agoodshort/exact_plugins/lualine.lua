@@ -18,6 +18,14 @@ return {
 				return vim.fn["codeium#GetStatusString"]()
 			end
 
+			local function get_schema()
+				local schema = require("yaml-companion").get_buf_schema(0)
+				if schema.result[1].name == "none" then
+					return ""
+				end
+				return schema.result[1].name
+			end
+
 			local config = {
 				options = {
 					disabled_filetypes = { "dashboard", "lspsagaoutline" },
@@ -27,7 +35,7 @@ return {
 					lualine_a = { "mode" },
 					lualine_b = { fileloc },
 					lualine_c = { "branch", "diff" },
-					lualine_x = { package_info, "diagnostics" },
+					lualine_x = { package_info, "diagnostics", get_schema },
 					lualine_y = { "filetype" },
 					lualine_z = {
 						{
@@ -74,54 +82,47 @@ return {
 				icon = "",
 			})
 
-			-- yaml-companion
-			local status, schema = pcall(require("yaml-companion").get_buf_schema, 0)
-			if status then
-				if schema.result[1].name ~= "none" then
-					ins_left(schema.result[1].name)
-				end
-			end
-
 			require("lualine").setup(config)
 		end,
 	},
 	{
 		"b0o/incline.nvim",
 		dependencies = "nvim-lualine/lualine.nvim",
-		opts = {
-			render = function(props)
-				local filename = vim.fn.expand("%")
-				local colors = require("kanagawa.colors").setup()
-				local palette_colors = colors.palette
-				local filetype_icon, color = require("nvim-web-devicons").get_icon_color(filename)
-				local buffer = {
-					{
-						filetype_icon,
-						guifg = color,
-					},
-					{
-						" " .. filename,
-					},
-				}
-
-				if props.focused == true then
-					return {
-						{
-							buffer,
-							guibg = palette_colors.sumiInk0,
-							guifg = palette_colors.oldWhite,
-						},
-					}
-				else
-					return {
-						{
-							buffer,
-							guibg = palette_colors.sumiInk0,
-							guifg = palette_colors.sumiInk4,
-						},
-					}
-				end
-			end,
-		},
+		opts = {},
+		-- opts = {
+		-- 	render = function(props)
+		-- 		local filename = vim.fn.expand("%")
+		-- 		local colors = require("kanagawa.colors").setup()
+		-- 		local palette_colors = colors.palette
+		-- 		local filetype_icon, color = require("nvim-web-devicons").get_icon_color(filename)
+		-- 		local buffer = {
+		-- 			{
+		-- 				filetype_icon,
+		-- 				guifg = color,
+		-- 			},
+		-- 			{
+		-- 				" " .. filename,
+		-- 			},
+		-- 		}
+		--
+		-- 		if props.focused == true then
+		-- 			return {
+		-- 				{
+		-- 					buffer,
+		-- 					guibg = palette_colors.sumiInk0,
+		-- 					guifg = palette_colors.oldWhite,
+		-- 				},
+		-- 			}
+		-- 		else
+		-- 			return {
+		-- 				{
+		-- 					buffer,
+		-- 					guibg = palette_colors.sumiInk0,
+		-- 					guifg = palette_colors.sumiInk4,
+		-- 				},
+		-- 			}
+		-- 		end
+		-- 	end,
+		-- },
 	},
 }
