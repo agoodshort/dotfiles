@@ -21,11 +21,14 @@ return {
 			{ "nvim-telescope/telescope-media-files.nvim", dependencies = "nvim-lua/popup.nvim" },
 			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "neovim/nvim-lspconfig" },
 			{ "nvim-telescope/telescope-file-browser.nvim", dependencies = "nvim-lua/plenary.nvim" },
-			{ "agoodshort/scope.nvim", opts = {} },
+			{ "tiagovla/scope.nvim", opts = {} },
 		},
 		config = function()
 			local fb_actions = require("telescope._extensions.file_browser.actions")
+			local fb_utils = require("telescope._extensions.file_browser.utils")
 			local actions = require("telescope.actions")
+			local action_state = require("telescope.actions.state")
+
 			require("telescope").setup({
 				defaults = {
 					mappings = {
@@ -115,11 +118,30 @@ return {
 								["<C-g>"] = fb_actions.goto_parent_dir,
 								["<C-e>"] = fb_actions.goto_home_dir,
 								["<C-w>"] = fb_actions.goto_cwd,
-								["<C-t>"] = fb_actions.change_cwd,
 								["<C-f>"] = fb_actions.toggle_browser,
 								["<C-h>"] = fb_actions.toggle_hidden,
 								["<C-a>"] = fb_actions.toggle_all,
 								["<bs>"] = fb_actions.backspace,
+								["<C-t>"] = function(prompt_bufnr)
+									local current_picker = action_state.get_current_picker(prompt_bufnr)
+									local finder = current_picker.finder
+									local entry_path = action_state.get_selected_entry().Path
+									finder.path = entry_path:is_dir() and entry_path:absolute()
+										or entry_path:parent():absolute()
+									finder.cwd = finder.path
+									vim.cmd("tcd " .. finder.path)
+
+									fb_utils.redraw_border_title(current_picker)
+									current_picker:refresh(
+										finder,
+										{ reset_prompt = true, multi = current_picker._multi }
+									)
+									fb_utils.notify("action.custom_change_tab_cwd", {
+										msg = "Set the tab current working directory!",
+										level = "INFO",
+										quiet = finder.quiet,
+									})
+								end,
 							},
 							["n"] = {
 								["c"] = actions.close,
@@ -132,10 +154,29 @@ return {
 								["g"] = fb_actions.goto_parent_dir,
 								["e"] = fb_actions.goto_home_dir,
 								["w"] = fb_actions.goto_cwd,
-								["t"] = fb_actions.change_cwd,
 								["f"] = fb_actions.toggle_browser,
 								["h"] = fb_actions.toggle_hidden,
 								["a"] = fb_actions.toggle_all,
+								["t"] = function(prompt_bufnr)
+									local current_picker = action_state.get_current_picker(prompt_bufnr)
+									local finder = current_picker.finder
+									local entry_path = action_state.get_selected_entry().Path
+									finder.path = entry_path:is_dir() and entry_path:absolute()
+										or entry_path:parent():absolute()
+									finder.cwd = finder.path
+									vim.cmd("tcd " .. finder.path)
+
+									fb_utils.redraw_border_title(current_picker)
+									current_picker:refresh(
+										finder,
+										{ reset_prompt = true, multi = current_picker._multi }
+									)
+									fb_utils.notify("action.custom_change_tab_cwd", {
+										msg = "Set the tab current working directory!",
+										level = "INFO",
+										quiet = finder.quiet,
+									})
+								end,
 							},
 						},
 					},
