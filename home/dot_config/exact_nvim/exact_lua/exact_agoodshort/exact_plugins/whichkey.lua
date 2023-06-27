@@ -78,15 +78,15 @@ return {
 		if not vim.g.vscode then
 			-- Neo-tree --
 			wk.register({
-				bb = { "<Cmd>Neotree toggle buffers<CR>", "Neotree Filesystem" },
-				ee = { "<Cmd>Neotree toggle filesystem<CR>", "Neotree Filesystem" },
+				b = { "<Cmd>Neotree toggle buffers<CR>", "Neotree Filesystem" },
+				e = { "<Cmd>Neotree toggle filesystem<CR>", "Neotree Filesystem" },
 			}, leader_opts)
 
 			-- telescope --
 			wk.register({
 				B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
-				b = { "<Cmd>Telescope buffers initial_mode=normal<CR>", "Tabbed Buffers" },
-				e = { "<Cmd>Telescope file_browser<CR>", "File Browser" },
+                bb = { "<Cmd>Telescope buffers initial_mode=normal<CR>", "Tabbed Buffers" },
+				ee = { "<Cmd>Telescope file_browser<CR>", "File Browser" },
 				f = {
 					name = "Telescope", -- optional group name
 					a = { "<Cmd>Telescope lazy<CR>", "List Lazy plugins" },
