@@ -88,41 +88,32 @@ return {
 	{
 		"b0o/incline.nvim",
 		dependencies = "nvim-lualine/lualine.nvim",
-		opts = {},
-		-- opts = {
-		-- 	render = function(props)
-		-- 		local filename = vim.fn.expand("%")
-		-- 		local colors = require("kanagawa.colors").setup()
-		-- 		local palette_colors = colors.palette
-		-- 		local filetype_icon, color = require("nvim-web-devicons").get_icon_color(filename)
-		-- 		local buffer = {
-		-- 			{
-		-- 				filetype_icon,
-		-- 				guifg = color,
-		-- 			},
-		-- 			{
-		-- 				" " .. filename,
-		-- 			},
-		-- 		}
-		--
-		-- 		if props.focused == true then
-		-- 			return {
-		-- 				{
-		-- 					buffer,
-		-- 					guibg = palette_colors.sumiInk0,
-		-- 					guifg = palette_colors.oldWhite,
-		-- 				},
-		-- 			}
-		-- 		else
-		-- 			return {
-		-- 				{
-		-- 					buffer,
-		-- 					guibg = palette_colors.sumiInk0,
-		-- 					guifg = palette_colors.sumiInk4,
-		-- 				},
-		-- 			}
-		-- 		end
-		-- 	end,
-		-- },
+		opts = {
+			render = function(props)
+				local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":p:.")
+
+				-- local filename = vim.fn.expand("%")
+				local colors = require("kanagawa.colors").setup()
+				local palette_colors = colors.palette
+				local filetype_icon, color = require("nvim-web-devicons").get_icon_color(filename)
+				local buffer = {
+					{
+						filetype_icon,
+						guifg = color,
+					},
+					{
+						" " .. filename,
+					},
+				}
+
+				return {
+					{
+						buffer,
+						guibg = palette_colors.sumiInk0,
+						guifg = palette_colors.oldWhite,
+					},
+				}
+			end,
+		},
 	},
 }
