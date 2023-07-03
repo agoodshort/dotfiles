@@ -49,6 +49,8 @@ brew "ripgrep"
 brew "starship"
 # User interface to the TELNET protocol
 brew "telnet"
+# Weather app for the terminal
+brew "wego"
 # Internet file retriever
 brew "wget"
 # Shell extension to navigate your filesystem faster
