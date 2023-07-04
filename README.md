@@ -86,13 +86,6 @@ git pull
 nvm install lts/gallium
 ```
 
-## Linux specific
-
-```
-# arch, I just did it simple
-brew install docker
-```
-
 ```sh
 # Arch Linux
 sudo pacman -Sy wezterm
