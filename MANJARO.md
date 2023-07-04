@@ -85,7 +85,7 @@ TODO: needs to be saved
 - [ ] brew should not install git on Linux
 - [ ] Add `pbcopy` on Linux => https://ostechnix.com/how-to-use-pbcopy-and-pbpaste-commands-on-linux/
 - [ ] balena etcher through brew
-- [ ] Should we set the API key through lastpass for wakatime and codeium
+- [ ] Should we set the API key through lastpass for codeium
 - [ ] Dont install docker through brew on Manjaro
 - [ ] Add the wakatime key using lastpass
 - [ ] `tap "wez/wezterm-linuxbrew"` only for linux
