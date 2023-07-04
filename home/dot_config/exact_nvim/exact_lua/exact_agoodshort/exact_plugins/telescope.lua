@@ -122,7 +122,7 @@ return {
 								["<C-h>"] = fb_actions.toggle_hidden,
 								["<C-a>"] = fb_actions.toggle_all,
 								["<bs>"] = fb_actions.backspace,
-								["<C-t>"] = function(prompt_bufnr)
+								["<C-.>"] = function(prompt_bufnr)
 									local current_picker = action_state.get_current_picker(prompt_bufnr)
 									local finder = current_picker.finder
 									local entry_path = action_state.get_selected_entry().Path
@@ -144,11 +144,12 @@ return {
 								end,
 							},
 							["n"] = {
-								["c"] = actions.close,
+								["<C-c>"] = actions.close,
+								["q"] = actions.close,
 								["n"] = fb_actions.create,
 								["r"] = fb_actions.rename,
 								["m"] = fb_actions.move,
-								["y"] = fb_actions.copy,
+								["c"] = fb_actions.copy,
 								["d"] = fb_actions.remove,
 								["o"] = fb_actions.open,
 								["g"] = fb_actions.goto_parent_dir,
@@ -157,7 +158,7 @@ return {
 								["f"] = fb_actions.toggle_browser,
 								["h"] = fb_actions.toggle_hidden,
 								["a"] = fb_actions.toggle_all,
-								["t"] = function(prompt_bufnr)
+								["."] = function(prompt_bufnr)
 									local current_picker = action_state.get_current_picker(prompt_bufnr)
 									local finder = current_picker.finder
 									local entry_path = action_state.get_selected_entry().Path
