@@ -265,7 +265,7 @@
     "tooltip": true,
     "interval": 3600,
     // accepts -c/--city <city> -t/--temperature <C/F> -d/--distance <km/miles>
-    "exec": "/usr/share/sway/scripts/weather.py",
+    "exec": "/usr/share/sway/scripts/weather.py -c Galway",
     "return-type": "json",
     "format-icons": {
       "Unknown": "",
