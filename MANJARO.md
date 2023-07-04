@@ -1,11 +1,19 @@
 # My chezmoi dotfiles
 
 <!--toc:start-->
-
-- [My chezmoi dotfiles](#my-chezmoi-dotfiles) - [2. Install Homebrew](#2-install-homebrew) - [3. Getting started with chezmoi](#3-getting-started-with-chezmoi) - [4. Set zsh (already by default the shell)](#4-set-zsh-already-by-default-the-shell) - [5. Configure node with nvm](#5-configure-node-with-nvm) - [6. Install yay (AUR helper) and create the personal directory](#6-install-yay-aur-helper-and-create-the-personal-directory) - [7. Install packages](#7-install-packages) - [9. Keyboard mapping to review](#9-keyboard-mapping-to-review)
+- [My chezmoi dotfiles](#my-chezmoi-dotfiles)
+    - [2. Install Homebrew](#2-install-homebrew)
+    - [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
+    - [4. Set zsh (already by default the shell)](#4-set-zsh-already-by-default-the-shell)
+    - [5. Configure node with nvm](#5-configure-node-with-nvm)
+    - [6. Install yay (AUR helper) and create the personal directory](#6-install-yay-aur-helper-and-create-the-personal-directory)
+    - [7. Install packages](#7-install-packages)
+    - [9. Keyboard mapping to review](#9-keyboard-mapping-to-review)
   - [To-Do](#to-do)
-  - [References](#references) - [Git multi user](#git-multi-user) - [Install Kanagawa theme](#install-kanagawa-theme)
-  <!--toc:end-->
+  - [References](#references)
+    - [Git multi user](#git-multi-user)
+    - [Install Kanagawa theme](#install-kanagawa-theme)
+<!--toc:end-->
 
 I will make this a little more readable later, for now here is the command I wanted to save somewhere.
 
@@ -80,13 +88,12 @@ TODO: needs to be saved
 - [ ] Review vim XDG location
 - [ ] Add VSCode config to share how vim keybindings works (or work on the neovim plguin)
 - [ ] Review the PowerToys config (get the backup to be saved properly)
-- [ ] Create template so that chezmoi points correctly to dotfiles and nvim config when in dashboard ( use {{ .chezmoi.homeDir}} )
-- [ ] Auto update to latest lazylock if nvim config was changed
-- [ ] brew should not install git on Linux
+- [ ] brew should not install git on Linux => It doesn't cause any issues so far
 - [ ] Add `pbcopy` on Linux => https://ostechnix.com/how-to-use-pbcopy-and-pbpaste-commands-on-linux/
 - [ ] balena etcher through brew
 - [ ] Mission Control is left by default as karabiner keymaps are built on top of it
 - [ ] List desktop to be assigned on MacOS and display (with the right click on icon)
+- [ ] should we use a template for Neovim dashboard to point to `{{ .chezmoi.homeDir }}` or is XDG_CONFIG_HOME fine?
 - [ ] Install docker engine through brew in MacOS?
 
 ## References
