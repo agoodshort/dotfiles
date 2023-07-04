@@ -39,7 +39,7 @@ location=Galway
 md-coords=false
 
 # openweathermap backend: the api KEY to use (default )
-owm-api-key={{ (index (lastpass "OpenWeatherMap") 0).note.key }}
+owm-api-key={{ (index (lastpass "OpenWeatherMap") 0).note.key | trim }}
 
 # openweathermap backend: print raw requests and responses (default false)
 owm-debug=false

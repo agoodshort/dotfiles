@@ -85,9 +85,7 @@ TODO: needs to be saved
 - [ ] brew should not install git on Linux
 - [ ] Add `pbcopy` on Linux => https://ostechnix.com/how-to-use-pbcopy-and-pbpaste-commands-on-linux/
 - [ ] balena etcher through brew
-- [ ] Should we set the API key through lastpass for codeium
 - [ ] Dont install docker through brew on Manjaro
-- [ ] Add the wakatime key using lastpass
 - [ ] Mission Control is left by default as karabiner keymaps are built on top of it
 - [ ] List desktop to be assigned on MacOS and display (with the right click on icon)
 
