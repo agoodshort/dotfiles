@@ -71,3 +71,9 @@ cask "visual-studio-code"
 cask "wezterm"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
+
+{{ if eq .chezmoi.os "linux" }}
+tap "wez/wezterm-linuxbrew"
+# A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
+brew "wez/wezterm-linuxbrew/wezterm"
+{{ end }}
