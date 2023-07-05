@@ -95,6 +95,7 @@ TODO: needs to be saved
 - [ ] List desktop to be assigned on MacOS and display (with the right click on icon)
 - [ ] should we use a template for Neovim dashboard to point to `{{ .chezmoi.homeDir }}` or is XDG_CONFIG_HOME fine?
 - [ ] Install docker engine through brew in MacOS?
+- [ ] Create a run-once to install the brew basics and login to lastpass
 
 ## References
 
