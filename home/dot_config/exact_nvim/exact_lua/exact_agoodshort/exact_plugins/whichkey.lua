@@ -80,12 +80,13 @@ return {
 			wk.register({
 				b = { "<Cmd>Neotree toggle buffers<CR>", "Neotree Filesystem" },
 				e = { "<Cmd>Neotree toggle filesystem<CR>", "Neotree Filesystem" },
+				s = { "<Cmd>Neotree toggle document_symbols<CR>", "Neotree Symbols" },
 			}, leader_opts)
 
 			-- telescope --
 			wk.register({
 				B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
-                bb = { "<Cmd>Telescope buffers initial_mode=normal<CR>", "Tabbed Buffers" },
+				bb = { "<Cmd>Telescope buffers initial_mode=normal<CR>", "Tabbed Buffers" },
 				ee = { "<Cmd>Telescope file_browser<CR>", "File Browser" },
 				f = {
 					name = "Telescope", -- optional group name

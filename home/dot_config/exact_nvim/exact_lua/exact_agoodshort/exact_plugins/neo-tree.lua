@@ -1,6 +1,5 @@
 return {
-	"agoodshort/neo-tree.nvim",
-	branch = "898-split-from-buffer-view-opens-blank-buffer",
+	"nvim-neo-tree/neo-tree.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -36,6 +35,12 @@ return {
 		-- in the form "LspDiagnosticsSignWarning"
 
 		require("neo-tree").setup({
+			sources = {
+				"filesystem",
+				"buffers",
+				-- "git_status",
+				"document_symbols",
+			},
 			close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
 			popup_border_style = "rounded",
 			enable_git_status = true,
@@ -43,13 +48,6 @@ return {
 			use_default_mappings = false,
 			sort_case_insensitive = false, -- used when sorting files and directories in the tree
 			sort_function = nil, -- use a custom function for sorting files and directories in the tree
-			-- sort_function = function (a,b)
-			--       if a.type == b.type then
-			--           return a.path > b.path
-			--       else
-			--           return a.type > b.type
-			--       end
-			--   end , -- this sorts files and directories descendantly
 			source_selector = {
 				winbar = true,
 				sources = { -- table
@@ -58,10 +56,10 @@ return {
 						display_name = "  Files ", -- string | nil
 					},
 					{
-						source = "buffers", -- string
-						display_name = "  Buffers   ", -- string | nil
+						source = "buffers",
+						display_name = "  Buffers ",
 					},
-					{ source = "document_symbols", display_name = " Symbols " },
+					{ source = "document_symbols", display_name = "  Symbols " },
 				},
 			},
 			default_component_configs = {
@@ -129,54 +127,24 @@ return {
 						nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
 					},
 					["<2-LeftMouse>"] = "open",
-					["<cr>"] = "open",
 					["<esc>"] = "revert_preview",
 					["P"] = { "toggle_preview", config = { use_float = true } },
 					["S"] = "open_split",
 					["s"] = "open_vsplit",
-					-- ["S"] = "split_with_window_picker",
-					-- ["s"] = "vsplit_with_window_picker",
-					["t"] = "open_tabnew",
-					-- ["<cr>"] = "open_drop",
-					-- ["t"] = "open_tab_drop",
+					-- ["<cr>"] = "open",
+					-- ["t"] = "open_tabnew",
+					["<cr>"] = "open_drop",
+					["t"] = "open_tab_drop",
 					["w"] = "open_with_window_picker",
 					["C"] = "close_node",
 					["z"] = "close_all_nodes",
 					["Z"] = "expand_all_nodes",
-					["d"] = "delete",
 					["r"] = "rename",
-					["y"] = "copy_to_clipboard",
-					["x"] = "cut_to_clipboard",
-					["p"] = "paste_from_clipboard",
 					["q"] = "close_window",
 					["R"] = "refresh",
 					["?"] = "show_help",
 					["["] = "prev_source",
 					["]"] = "next_source",
-					["a"] = {
-						"add",
-						config = {
-							show_path = "relative", -- "none", "relative", "absolute"
-						},
-					},
-					["A"] = {
-						"add_directory",
-						config = {
-							show_path = "relatve", -- "none", "relative", "absolute"
-						},
-					},
-					["c"] = {
-						"copy",
-						config = {
-							show_path = "relative", -- "none", "relative", "absolute"
-						},
-					},
-					["m"] = {
-						"move",
-						config = {
-							show_path = "relative",
-						},
-					},
 				},
 			},
 			nesting_rules = {},
@@ -211,13 +179,9 @@ return {
 				},
 				follow_current_file = true, -- This will find and focus the file in the active buffer every
 				-- time the current file is changed while the tree is open.
-				group_empty_dirs = false, -- when true, empty folders will be grouped together
-				hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
-				-- in whatever position is specified in window.position
-				-- "open_current",  -- netrw disabled, opening a directory opens within the
-				-- window like netrw would, regardless of window.position
-				-- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-				use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+				group_empty_dirs = false,
+				hijack_netrw_behavior = "open_default",
+				use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
 				-- instead of relying on nvim autocmd events.
 				window = {
 					mappings = {
@@ -230,6 +194,34 @@ return {
 						["<c-x>"] = "clear_filter",
 						["g["] = "prev_git_modified",
 						["g]"] = "next_git_modified",
+						["d"] = "delete",
+						["p"] = "paste_from_clipboard",
+						["y"] = "copy_to_clipboard",
+						["x"] = "cut_to_clipboard",
+						["a"] = {
+							"add",
+							config = {
+								show_path = "relative", -- "none", "relative", "absolute"
+							},
+						},
+						["A"] = {
+							"add_directory",
+							config = {
+								show_path = "relatve", -- "none", "relative", "absolute"
+							},
+						},
+						["c"] = {
+							"copy",
+							config = {
+								show_path = "relative", -- "none", "relative", "absolute"
+							},
+						},
+						["m"] = {
+							"move",
+							config = {
+								show_path = "relative",
+							},
+						},
 					},
 				},
 			},
@@ -244,6 +236,48 @@ return {
 					},
 				},
 			},
+			document_symbols = {
+				follow_cursor = true,
+				client_filters = "first",
+				renderers = {
+					root = {
+						{ "indent" },
+						{ "icon", default = "C" },
+						{ "name", zindex = 10 },
+					},
+					symbol = {
+						{ "indent", with_expanders = true },
+						{ "kind_icon", default = "?" },
+						{
+							"container",
+							content = {
+								{ "name", zindex = 10 },
+								{ "kind_name", zindex = 20, align = "right" },
+							},
+						},
+					},
+				},
+			},
+			-- document_symbols = {
+			-- 	kinds = {
+			-- 		File = { icon = "󰈙", hl = "Tag" },
+			-- 		Namespace = { icon = "󰌗", hl = "Include" },
+			-- 		Package = { icon = "󰏖", hl = "Label" },
+			-- 		Class = { icon = "󰌗", hl = "Include" },
+			-- 		Property = { icon = "󰆧", hl = "@property" },
+			-- 		Enum = { icon = "󰒻", hl = "@number" },
+			-- 		Function = { icon = "󰊕", hl = "Function" },
+			-- 		String = { icon = "󰀬", hl = "String" },
+			-- 		Number = { icon = "󰎠", hl = "Number" },
+			-- 		Array = { icon = "󰅪", hl = "Type" },
+			-- 		Object = { icon = "󰅩", hl = "Type" },
+			-- 		Key = { icon = "󰌋", hl = "" },
+			-- 		Struct = { icon = "󰌗", hl = "Type" },
+			-- 		Operator = { icon = "󰆕", hl = "Operator" },
+			-- 		TypeParameter = { icon = "󰊄", hl = "Type" },
+			-- 		StaticMethod = { icon = "󰠄 ", hl = "Function" },
+			-- 	},
+			-- },
 		})
 	end,
 }
