@@ -89,6 +89,16 @@ return {
 		"b0o/incline.nvim",
 		dependencies = "nvim-lualine/lualine.nvim",
 		opts = {
+			window = {
+				placement = {
+					horizontal = "right",
+					vertical = "bottom",
+				},
+				margin = {
+					horizontal = 2,
+					vertical = 2,
+				},
+			},
 			render = function(props)
 				local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":p:.")
 
