@@ -40,8 +40,6 @@
     "backlight",
 
     // system
-    "custom/adaptive-light",
-    "custom/sunset",
     "custom/pacman",
 
     "tray",
@@ -143,7 +141,7 @@
   },
 
   "temperature": {
-    "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
     "critical-threshold": 90,
     "interval": 5,
     "format": "{icon} {temperatureC}°",
@@ -191,21 +189,6 @@
     "exec": "/bin/sh /usr/share/sway/scripts/scratchpad.sh",
     "on-click": "swaymsg 'scratchpad show'",
     "signal": 7
-  },
-
-  "custom/sunset": {
-    "interval": "once",
-    "tooltip": true,
-    "return-type": "json",
-    "format": "{icon}",
-    "format-icons": {
-      "on": "",
-      "off": ""
-    },
-    "exec": "fallback_latitude=50.1 fallback_longitude=8.7 latitude= longitude= /usr/share/sway/scripts/sunset.sh",
-    "on-click": "/usr/share/sway/scripts/sunset.sh toggle; pkill -RTMIN+6 waybar",
-    "exec-if": "/usr/share/sway/scripts/sunset.sh check",
-    "signal": 6
   },
 
   "custom/wf-recorder": {
@@ -302,20 +285,5 @@
     "on-click-right": "makoctl restore",
     "exec": "printf '{\"alt\":\"%s\",\"tooltip\":\"mode: %s\"}' $(makoctl mode | grep -q 'do-not-disturb' && echo dnd || echo default) $(makoctl mode | tail -1)",
     "signal": 11
-  },
-
-  "custom/adaptive-light": {
-    "interval": "once",
-    "tooltip": true,
-    "return-type": "json",
-    "format": "{icon}",
-    "format-icons": {
-      "on": "",
-      "off": ""
-    },
-    "exec": "/usr/share/sway/scripts/wluma.sh",
-    "on-click": "/usr/share/sway/scripts/wluma.sh toggle; pkill -RTMIN+12 waybar",
-    "exec-if": "/usr/share/sway/scripts/wluma.sh check",
-    "signal": 12
   }
 }
