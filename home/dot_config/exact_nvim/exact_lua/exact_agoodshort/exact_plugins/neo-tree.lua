@@ -1,5 +1,6 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
+	branch = "v3.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -177,8 +178,11 @@ return {
 					sidebar = "tab", -- sidebar is when position = left or right
 					current = "tab", -- current is when position = current
 				},
-				follow_current_file = true, -- This will find and focus the file in the active buffer every
-				-- time the current file is changed while the tree is open.
+				follow_current_file = {
+					enabled = true, -- This will find and focus the file in the active buffer every time
+					--               -- the current file is changed while the tree is open.
+					leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+				},
 				group_empty_dirs = false,
 				hijack_netrw_behavior = "open_default",
 				use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
@@ -226,8 +230,11 @@ return {
 				},
 			},
 			buffers = {
-				follow_current_file = true, -- This will find and focus the file in the active buffer every
-				-- time the current file is changed while the tree is open.
+				follow_current_file = {
+					enabled = true, -- This will find and focus the file in the active buffer every time
+					--               -- the current file is changed while the tree is open.
+					leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+				},
 				group_empty_dirs = true, -- when true, empty folders will be grouped together
 				show_unloaded = false,
 				window = {
