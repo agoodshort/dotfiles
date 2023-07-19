@@ -35,7 +35,7 @@ return {
 					key = "d",
 				},
 				{
-					desc = "  Neovim",
+					desc = " Neovim",
 					group = "String",
 					action = "tcd $XDG_CONFIG_HOME/nvim | Telescope file_browser",
 					key = "n",
@@ -45,6 +45,12 @@ return {
 					group = "@property",
 					action = "tcd $XDG_DATA_HOME/chezmoi | Telescope file_browser",
 					key = "c",
+				},
+				{
+					desc = " GitHub",
+					group = "Float",
+					action = "Telescope lazygit_toggleterm",
+					key = "g",
 				},
 			},
 		},
