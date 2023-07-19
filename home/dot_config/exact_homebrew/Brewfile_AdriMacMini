@@ -29,6 +29,8 @@ brew "gitui"
 brew "htop"
 # Update of iperf: measures TCP, UDP, and SCTP bandwidth
 brew "iperf3"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # LastPass command-line interface tool
 brew "lastpass-cli"
 # Simple terminal UI for git commands
