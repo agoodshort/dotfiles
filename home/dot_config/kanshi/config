@@ -1,0 +1,43 @@
+# configure as many display profiles as you need
+# refer to "man kanshi" to find out how to configure profiles
+# https://github.com/emersion/kanshi#configuration-file
+# * get your current screen name: swaymsg -t get_outputs
+# * set the resolution and position for your screen: output HDMI1 mode 1920x1080 position 0,0
+# * set the scaling for your screen: output HDMI1 scale 2
+# eDP-1 => laptop screen
+
+profile office {
+    output "BNQ BenQ GW2270 4BG04011SL0" pos 0 0
+    output eDP-1 pos 1920 0 resolution 1920x1080
+    exec swaymsg workspace 1, move workspace to "BNQ BenQ GW2270 4BG04011SL0"
+    exec swaymsg workspace 2, move workspace to "BNQ BenQ GW2270 4BG04011SL0"
+    exec swaymsg workspace 3, move workspace to "BNQ BenQ GW2270 4BG04011SL0"
+    exec swaymsg workspace 4, move workspace to "BNQ BenQ GW2270 4BG04011SL0"
+    exec swaymsg workspace 5, move workspace to "BNQ BenQ GW2270 4BG04011SL0"
+    exec swaymsg workspace 6, move workspace to eDP-1
+    exec swaymsg workspace 7, move workspace to eDP-1
+    exec swaymsg workspace 8, move workspace to eDP-1
+    exec swaymsg workspace 9, move workspace to eDP-1
+    exec swaymsg workspace 10, move workspace to eDP-1
+}
+
+profile laptop {
+    output eDP-1 position 0,0 resolution 1920x1080
+    exec swaymsg workspace 1, move workspace to eDP-1
+    exec swaymsg workspace 2, move workspace to eDP-1
+    exec swaymsg workspace 3, move workspace to eDP-1
+    exec swaymsg workspace 4, move workspace to eDP-1
+    exec swaymsg workspace 5, move workspace to eDP-1
+    exec swaymsg workspace 6, move workspace to eDP-1
+    exec swaymsg workspace 7, move workspace to eDP-1
+    exec swaymsg workspace 8, move workspace to eDP-1
+    exec swaymsg workspace 9, move workspace to eDP-1
+    exec swaymsg workspace 10, move workspace to eDP-1
+}
+
+profile home {
+    output eDP-1 pos 0 0 resolution 1920x1080
+    output DP-3 pos 1920 0 resolution 1920x1080
+    output DP-1 pos 3840 0 resolution 3440x1440
+    exec swaymsg workspace 6, move workspace to eDP-1
+}
