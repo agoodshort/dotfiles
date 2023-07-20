@@ -1,5 +1,5 @@
 return {
-	"glepnir/dashboard-nvim",
+	"agoodshort/dashboard-nvim",
 	event = "VimEnter",
 	dependencies = "nvim-tree/nvim-web-devicons",
 	opts = {
@@ -17,7 +17,7 @@ return {
 			project = { limit = 8, action = "edit" },
 			shortcut = {
 				{
-					desc = " Lazy",
+					desc = "󰚰 Lazy",
 					group = "@property",
 					action = "Lazy",
 					key = "l",
@@ -45,12 +45,6 @@ return {
 					group = "@property",
 					action = "tcd $XDG_DATA_HOME/chezmoi | Telescope file_browser",
 					key = "c",
-				},
-				{
-					desc = " GitHub",
-					group = "Float",
-					action = "Telescope lazygit_toggleterm",
-					key = "g",
 				},
 			},
 		},
