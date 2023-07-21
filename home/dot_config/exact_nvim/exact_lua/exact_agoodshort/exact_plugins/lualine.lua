@@ -32,7 +32,11 @@ return {
 					-- component_separators = "|",
 				},
 				sections = {
-					lualine_a = { "mode" },
+					lualine_a = {
+						"mode",
+						require("recorder").displaySlots,
+						require("recorder").recordingStatus,
+					},
 					lualine_b = { fileloc },
 					lualine_c = { "branch", "diff" },
 					lualine_x = { package_info, "diagnostics", get_schema },
@@ -91,7 +95,7 @@ return {
 		opts = {
 			window = {
 				placement = {
-					horizontal = "right",
+					horizontal = "center",
 					vertical = "bottom",
 				},
 				margin = {
