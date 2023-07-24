@@ -11,9 +11,9 @@ return {
 		-- which-key leader config --
 		local leader_opts = {
 			mode = "n", -- NORMAL mode
-			-- prefix: use "<leader>f" for example to map everything related to finding files
+			-- prefix: use "<Leader>f" for example to map everything related to finding files
 			-- the prefix is prepended to every mapping part of `mappings`
-			prefix = "<leader>",
+			prefix = "<Leader>",
 			buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
 			silent = true, -- use `silent` when creating keymaps
 			noremap = true, -- use `noremap` when creating keymaps
@@ -22,7 +22,7 @@ return {
 
 		local leader_opts_visual = {
 			mode = "v",
-			prefix = "<leader>",
+			prefix = "<Leader>",
 			buffer = nil,
 			silent = true,
 			noremap = true,
@@ -31,7 +31,7 @@ return {
 
 		local leader2_opts = {
 			mode = "n",
-			prefix = "<leader><leader>",
+			prefix = "<Leader><Leader>",
 			buffer = nil,
 			silent = true,
 			noremap = true,
@@ -40,7 +40,7 @@ return {
 
 		local leader2_opts_visual = {
 			mode = "v",
-			prefix = "<leader><leader>",
+			prefix = "<Leader><Leader>",
 			buffer = nil,
 			silent = true,
 			noremap = true,
@@ -75,6 +75,77 @@ return {
 		}
 
 		-- ####################################################################
+
+		-- Default vim keymaps --
+		wk.register({
+			N = { "<Cmd>lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" }, -- Does not work in VSCode
+			["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format" },
+			["/"] = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
+		}, leader_opts)
+
+		-- yank/paste --
+		wk.register({
+			y = { '"+y', "Yank to System Clipboard" },
+			p = { '"+p', "Paste from System Clipboard" },
+		}, leader_opts)
+
+		wk.register({
+			y = { '"+y', "Yank to System Clipboard" },
+			p = { '"+p', "Paste from System Clipboard" },
+		}, leader_opts_visual)
+
+		wk.register({
+			d = { '"_dd', "Delete using Void Buffer" },
+			p = { '"_dP', "Paste and Delete using Void Buffer" },
+		}, leader2_opts)
+
+		wk.register({
+			d = { '"_d', "Delete using Void Buffer" },
+			p = { '"_dP', "Paste and Delete using Void Buffer" },
+		}, leader2_opts_visual)
+
+		-- windows
+		wk.register({
+			["<C-w>"] = { -- map to "\"
+				["n"] = { "<Cmd>vsplit<CR>", "Open New Window vertically" },
+				["x"] = { "<C-w>c", "Close Current Window" },
+			},
+		}, blank_opts)
+
+		-- buffers
+		wk.register({
+			["<C-h>"] = { "<Cmd>bprevious<CR>", "Previous buffer" },
+			["<C-l>"] = { "<Cmd>bnext<CR>", "Next buffer" },
+		}, blank_opts)
+
+		-- Create line and stay at same position
+		wk.register({
+			["o"] = { "mzo<ESC>`z", "Create line below" },
+			["O"] = { "mzO<ESC>`z", "Create line above" },
+		}, leader_opts)
+
+		-- Move highlighted text
+		wk.register({
+			["J"] = { ":m '>+1<CR>gv=gv", "Move Text to Next line" },
+			["K"] = { ":m '<-2<CR>gv=gv", "Move Text to Previous line" },
+		}, blank_opts_visual)
+
+		-- Up and down centered
+		wk.register({
+			["<C-u>"] = { "<C-u>zz", "Move up centered" }, -- Does not work in VSCode
+			["<C-d>"] = { "<C-d>zz", "Move down centered" },
+		}, blank_opts)
+
+		-- Escape
+		wk.register({
+			["<C-c>"] = { "<ESC>", "Escape" },
+		}, blank_opts)
+		wk.register({
+			["<C-c>"] = { "<ESC>", "Escape" },
+		}, blank_opts_insert)
+
+		-- ####################################################################
+
 		if not vim.g.vscode then
 			-- Neo-tree --
 			wk.register({
@@ -236,76 +307,6 @@ return {
 				},
 			}, leader_opts)
 		end
-
-		-- ####################################################################
-
-		-- Default vim keymaps --
-		wk.register({
-			N = { "<Cmd>lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" },
-			["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format" },
-			["/"] = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
-		}, leader_opts)
-
-		-- yank/paste --
-		wk.register({
-			y = { '"+y', "Yank to System Clipboard" },
-			p = { '"+p', "Paste from System Clipboard" },
-		}, leader_opts)
-
-		wk.register({
-			y = { '"+y', "Yank to System Clipboard" },
-			p = { '"+p', "Paste from System Clipboard" },
-		}, leader_opts_visual)
-
-		wk.register({
-			d = { '"_dd', "Delete using Void Buffer" },
-			p = { '"_dP', "Paste and Delete using Void Buffer" },
-		}, leader2_opts)
-
-		wk.register({
-			d = { '"_d', "Delete using Void Buffer" },
-			p = { '"_dP', "Paste and Delete using Void Buffer" },
-		}, leader2_opts_visual)
-
-		-- windows
-		wk.register({
-			["<C-w>"] = { -- map to "\"
-				["n"] = { "<Cmd>vsplit<CR>", "Open New Window vertically" },
-				["x"] = { "<C-w>c", "Close Current Window" },
-			},
-		}, blank_opts)
-
-		-- buffers
-		wk.register({
-			["<C-h>"] = { "<Cmd>bprevious<CR>", "Previous buffer" },
-			["<C-l>"] = { "<Cmd>bnext<CR>", "Next buffer" },
-		}, blank_opts)
-
-		-- Create line and stay at same position
-		wk.register({
-			["o"] = { "mzo<ESC>`z", "Create line below" },
-			["O"] = { "mzO<ESC>`z", "Create line above" },
-		}, leader_opts)
-
-		-- Move highlighted text
-		wk.register({
-			["J"] = { ":m '>+1<CR>gv=gv", "Move Text to Next line" },
-			["K"] = { ":m '<-2<CR>gv=gv", "Move Text to Previous line" },
-		}, blank_opts_visual)
-
-		-- Up and down centered
-		wk.register({
-			["<C-u>"] = { "<C-u>zz", "Move up centered" },
-			["<C-d>"] = { "<C-d>zz", "Move down centered" },
-		}, blank_opts)
-
-		-- Escape
-		wk.register({
-			["<C-c>"] = { "<ESC>", "Escape" },
-		}, blank_opts)
-		wk.register({
-			["<C-c>"] = { "<ESC>", "Escape" },
-		}, blank_opts_insert)
 
 		wk.setup()
 	end,

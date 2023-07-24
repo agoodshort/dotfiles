@@ -1,4 +1,3 @@
-// Place your key bindings in this file to override the defaults
 [
 	{
 		"key": "ctrl+\\",
@@ -10,12 +9,12 @@
 		"when": "sideBarFocus"
 	},
 	{
-		"key": "ctrl+j",
+		"key": "]",
 		"command": "workbench.action.nextSideBarView",
 		"when": "sideBarFocus"
 	},
 	{
-		"key": "ctrl+k",
+		"key": "[",
 		"command": "workbench.action.previousSideBarView",
 		"when": "sideBarFocus"
 	},
@@ -25,23 +24,49 @@
 		"when": "explorerViewletFocus && !inputFocus"
 	},
 	{
-		"key": "n",
-		"command": "explorer.newFile",
-		"when": "explorerViewletFocus && !inputFocus"
-	},
-	{
-		"key": "D",
-		"command": "explorer.newFolder",
-		"when": "explorerViewletFocus && !inputFocus"
-	},
-	{
-		"key": "r",
-		"command": "renameFile",
-		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-	},
-	{
 		"key": "enter",
 		"command": "filesExplorer.openFilePreserveFocus",
 		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+	},
+	{
+		"command": "editor.action.formatDocument",
+		"key": "space =",
+		"when": "editorTextFocus && neovim.mode == normal"
+	},
+	{
+		"command": "workbench.action.nextEditorInGroup",
+		"key": "ctrl+t l",
+		"when": "editorTextFocus && neovim.mode == normal"
+	},
+	{
+		"command": "workbench.action.previousEditorInGroup",
+		"key": "ctrl+t h",
+		"when": "editorTextFocus && neovim.mode == normal"
+	},
+	{
+		"command": "cursorTop",
+		"key": "g g",
+		"when": "editorTextFocus && neovim.mode == normal"
+	},
+	{
+		"command": "workbench.action.splitEditor",
+		"key": "ctrl+t n",
+		"when": "editorTextFocus && neovim.mode == normal"
+	},
+	{
+		"command": "workbench.action.toggleSidebarVisibility",
+		"key": "space e",
+		"when": "neovim.mode == normal"
+	},
+	{
+		"command": "editor.action.commentLine",
+		"key": "g c c",
+		"when": "neovim.mode == normal"
+	},
+	{
+		"command": "editor.action.commentLine",
+		"key": "g c",
+		"when": "neovim.mode == visual"
 	}
 ]
+

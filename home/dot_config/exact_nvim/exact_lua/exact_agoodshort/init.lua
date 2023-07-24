@@ -1,6 +1,5 @@
 require("agoodshort.set")
 
--- ordinary Neovim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -22,7 +21,7 @@ end
 
 if vim.g.vscode then
 	lazy.setup(
-		"agoodshort.plugins.whichkey",
+		{ { import = "agoodshort.plugins.whichkey" }, { import = "agoodshort.plugins.vscode" } },
 		{ defaults = {
 			lazy = false,
 			git = {

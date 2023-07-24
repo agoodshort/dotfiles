@@ -217,7 +217,7 @@ return {
 							view = {
 								{
 									"n",
-									"<leader>e",
+									"<Leader>e",
 									actions.toggle_files,
 									{ desc = "Toggle the file panel." },
 								},
@@ -225,7 +225,7 @@ return {
 							file_panel = {
 								{
 									"n",
-									"<leader>e",
+									"<Leader>e",
 									actions.toggle_files,
 									{ desc = "Toggle the file panel" },
 								},
@@ -233,7 +233,7 @@ return {
 							file_history_panel = {
 								{
 									"n",
-									"<leader>e",
+									"<Leader>e",
 									actions.toggle_files,
 									{ desc = "Toggle the file panel" },
 								},
