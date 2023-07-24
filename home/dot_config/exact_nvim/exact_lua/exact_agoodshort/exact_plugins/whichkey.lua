@@ -256,7 +256,7 @@ return {
 				l = {
 					name = "LSP",
 					c = { "<Cmd>Lspsaga code_action<CR>", "Lspsaga Code Action" },
-					f = { "<Cmd>Lspsaga lsp_finder<CR>", "Lspsaga Definition Finder" },
+					f = { "<Cmd>Lspsaga finder<CR>", "Lspsaga Definition Finder" },
 					v = { "<Cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Virtual Text" },
 					o = { "<Cmd>Lspsaga outline<CR>", "Lspsaga Outline" },
 					r = { "<Cmd>Lspsaga rename<CR>", "Lspsaga Rename" },
@@ -268,14 +268,15 @@ return {
 						w = { "<Cmd>Lspsaga show_workspace_diagnostics<CR>", "Lspsaga Show Workspace Diagnostics" },
 					},
 				},
-				g = {
-					p = { "<Cmd>Lspsaga peek_definition<CR>", "Lspsaga Peek Definition" },
-					d = { "<Cmd>Lspsaga goto_definition<CR>", "Lspsaga Go to Definition" },
-					t = { "<Cmd>Lspsaga peek_type_definition<CR>", "Lspsaga Peek Type Definition" },
-				},
 			}, leader_opts)
 
 			wk.register({
+				g = {
+					d = { "<Cmd>Lspsaga goto_definition<CR>", "Lspsaga Go to Definition" },
+					D = { "<Cmd>Lspsaga peek_definition<CR>", "Lspsaga Peek Definition" },
+					t = { "<Cmd>Lspsaga goto_type_definition<CR>", "Lspsaga Go To Type Definition" },
+					T = { "<Cmd>Lspsaga peek_type_definition<CR>", "Lspsaga Peek Type Definition" },
+				},
 				K = { "<Cmd>Lspsaga hover_doc<CR>", "Lspsaga Hover Doc" },
 			}, blank_opts)
 
