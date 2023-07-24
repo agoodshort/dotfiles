@@ -10,17 +10,16 @@
       - [1.3. Add the GitHub SSH key to known_host](#13-add-the-github-ssh-key-to-knownhost)
     - [2. Install Homebrew](#2-install-homebrew)
     - [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
-    - [4. Set zsh (already by default the shell)](#4-set-zsh-already-by-default-the-shell)
+    - [4. Set zsh as default shell](#4-set-zsh-as-default-shell)
     - [5. Configure node with nvm](#5-configure-node-with-nvm)
     - [6. Install yay (AUR helper) and create the personal directory](#6-install-yay-aur-helper-and-create-the-personal-directory)
     - [7. Install packages](#7-install-packages)
-    - [9. Keyboard mapping to review](#9-keyboard-mapping-to-review)
   - [To-Do](#to-do)
   - [References](#references)
     - [Git multi user](#git-multi-user)
     - [Install Kanagawa theme](#install-kanagawa-theme)
   - [Notes](#notes)
-  - [Windows](#windows) - [nvim](#nvim) - [To review](#to-review)
+  - [Windows](#windows) - [nvim](#nvim)
   <!--toc:end-->
 
 I will make this a little more readable later, for now here is the command I wanted to save somewhere.
@@ -96,6 +95,9 @@ cd yay
 makepkg -si
 cd ../
 rm -rf yay
+yay -Y --gendb
+yay -Syu --devel
+yay -Y --devel --save
 ```
 
 ### 7. Install packages
@@ -116,26 +118,17 @@ sudo chmod 666 /var/run/docker.sock
 xdg-settings set default-web-browser microsoft-edge.desktop
 ```
 
-### 9. Keyboard mapping to review
-
-TODO: needs to be saved
-
-- Access to 3rd layer
-
 ## To-Do
 
 - [ ] Review bashrc and profile (use only profile)
 - [ ] Review required `brew casks/formula` to run the zsh or bash properly
 - [ ] Review vim XDG location
-- [ ] Add VSCode config to share how vim keybindings works (or work on the neovim plguin)
 - [ ] Add `pbcopy` on Linux => https://ostechnix.com/how-to-use-pbcopy-and-pbpaste-commands-on-linux/
-- [ ] balena etcher through brew
 - [ ] Mission Control is left by default as karabiner keymaps are built on top of it
 - [ ] List desktop to be assigned on MacOS and display (with the right click on icon)
 - [ ] should we use a template for Neovim dashboard to point to `{{ .chezmoi.homeDir }}` or is XDG_CONFIG_HOME fine? => windows issue
 - [ ] Install docker engine through brew in MacOS?
 - [ ] Create a run-once to install the brew basics and login to lastpass
-- [ ] Configure Kanagawa theme below properly
 
 ## References
 
@@ -179,10 +172,3 @@ chezmoi should create (or edit if not existing) the Powershell profile ($PROFILE
 
 https://github.com/twpayne/chezmoi/issues/2273
 
-### To review
-
-I think this is required with Windows
-
-```sh
-/usr/local/opt/fzf/install --xdg --no-bash --no-fish --no-update-rc --key-bindings --completion
-```
