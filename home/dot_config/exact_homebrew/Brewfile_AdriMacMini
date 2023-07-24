@@ -71,6 +71,8 @@ brew "jesseduffield/lazydocker/lazydocker"
 brew "jesseduffield/lazynpm/lazynpm"
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
 # Configuration tool for the Betaflight firmware
 cask "betaflight-configurator"
 # Tool to remove unnecessary files and folders from disk
