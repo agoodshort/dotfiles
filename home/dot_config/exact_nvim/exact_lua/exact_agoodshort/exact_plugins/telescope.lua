@@ -16,7 +16,6 @@ return {
 			"nvim-telescope/telescope-node-modules.nvim",
 			"tsakirist/telescope-lazy.nvim",
 			"paopaol/telescope-git-diffs.nvim",
-			"adoyle-h/lsp-toggle.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "nvim-telescope/telescope-media-files.nvim", dependencies = "nvim-lua/popup.nvim" },
 			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "neovim/nvim-lspconfig" },
@@ -244,15 +243,5 @@ return {
 				end,
 			},
 		},
-	},
-	{
-		"adoyle-h/lsp-toggle.nvim",
-		cmd = { "ToggleLSP", "ToggleNullLSP" },
-		config = function()
-			require("lsp-toggle").setup({
-				create_cmds = true, -- Whether to create user commands
-				telescope = true, -- Whether to load telescope extensions
-			})
-		end,
 	},
 }

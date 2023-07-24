@@ -186,8 +186,6 @@ return {
 					name = "LSP",
 					c = { "<Cmd>Lspsaga code_action<CR>", "Lspsaga Code Action" },
 					f = { "<Cmd>Lspsaga lsp_finder<CR>", "Lspsaga Definition Finder" },
-					l = { "<Cmd>ToggleLSP<CR>", "ToggleLSP" },
-					n = { "<Cmd>ToggleNullLSP<CR>", "ToggleNullLSP" },
 					v = { "<Cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Virtual Text" },
 					o = { "<Cmd>Lspsaga outline<CR>", "Lspsaga Outline" },
 					r = { "<Cmd>Lspsaga rename<CR>", "Lspsaga Rename" },
@@ -210,9 +208,9 @@ return {
 				K = { "<Cmd>Lspsaga hover_doc<CR>", "Lspsaga Hover Doc" },
 			}, blank_opts)
 
-			-- Null-ls --
+			-- guard.nvim  --
 			wk.register({
-				["="] = { "<Cmd>NullFormat<CR>", "Format Using Null-ls Only" },
+				["="] = { "<Cmd>GuardFmt<CR>", "Format Using guard.nvim Only" },
 			}, leader_opts)
 
 			-- Undotree --

@@ -1,3 +1,4 @@
+-- ensure_installed = { "stylua", "prettier", "beautysh", "black", "cfn_lint" },
 return {
 	{
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -12,11 +13,10 @@ return {
 		end,
 	},
 	{
-		"jay-babu/mason-null-ls.nvim",
+		"williamboman/mason.nvim",
 		event = { "BufReadPre", "BufNewFile" },
+		build = ":MasonUpdate",
 		dependencies = {
-			"williamboman/mason.nvim",
-			"jose-elias-alvarez/null-ls.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"neovim/nvim-lspconfig",
 			"hrsh7th/cmp-nvim-lsp",
@@ -76,38 +76,25 @@ return {
 					lspconfig.yamlls.setup(yamlconfig)
 				end,
 			})
+		end,
+	},
+	{
+		"nvimdev/guard.nvim",
+		config = function()
+			local ft = require("guard.filetype")
 
-			require("mason-null-ls").setup({
-				ensure_installed = { "stylua", "prettier", "beautysh", "black", "cfn_lint" },
-				automatic_installation = true,
-				automatic_setup = true,
-			})
+			-- use stylua to format lua files and no linter
+			ft("lua"):fmt("stylua")
 
-			local null_ls = require("null-ls")
-			null_ls.setup({
-				-- Creates function `NullFormat` to format only using null_ls
-				on_attach = function(client, bufnr)
-					local format_cmd = function(input)
-						vim.lsp.buf.format({
-							id = client.id,
-							timeout_ms = 5000,
-							async = input.bang,
-						})
-					end
-					local bufcmd = vim.api.nvim_buf_create_user_command
-					bufcmd(bufnr, "NullFormat", format_cmd, {
-						bang = true,
-						range = true,
-						desc = "Format Using Null-ls Only",
-					})
-				end,
-				sources = {
-					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.prettier,
-					null_ls.builtins.formatting.beautysh,
-					null_ls.builtins.formatting.black,
-					null_ls.builtins.diagnostics.cfn_lint,
-				},
+			-- use lsp to format first then use golines to format
+			-- ft('go'):fmt('lsp')
+			--     :append('golines')
+			--     :lint('golangci')
+
+			-- call setup LAST
+			require("guard").setup({
+				-- the only option for the setup function
+				fmt_on_save = true,
 			})
 		end,
 	},
