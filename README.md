@@ -14,12 +14,13 @@
     - [5. Configure node with nvm](#5-configure-node-with-nvm)
     - [6. Install yay (AUR helper) and create the personal directory](#6-install-yay-aur-helper-and-create-the-personal-directory)
     - [7. Install packages](#7-install-packages)
+    - [8 Neovim post-install](#8-neovim-post-install)
   - [To-Do](#to-do)
   - [References](#references)
     - [Git multi user](#git-multi-user)
     - [Install Kanagawa theme](#install-kanagawa-theme)
   - [Notes](#notes)
-  - [Windows](#windows) - [nvim](#nvim)
+  - [Windows](#windows) - [neovim](#neovim)
   <!--toc:end-->
 
 I will make this a little more readable later, for now here is the command I wanted to save somewhere.
@@ -118,6 +119,13 @@ sudo chmod 666 /var/run/docker.sock
 xdg-settings set default-web-browser microsoft-edge.desktop
 ```
 
+### 8 Neovim post-install
+
+```sh
+python3 -m pip install --user --upgrade pynvim
+npm install -g neovim
+```
+
 ## To-Do
 
 - [ ] Review bashrc and profile (use only profile)
@@ -140,7 +148,7 @@ xdg-settings set default-web-browser microsoft-edge.desktop
 
 ### Install Kanagawa theme
 
-```
+```sh
 cd ~/Coding/Personal/
 git clone git@agoodshort.github.com:Fausto-Korpsvart/Kanagawa-GKT-Theme.git
 cd Kanagawa-GKT-Theme
@@ -154,7 +162,7 @@ cp -r themes/Kanagawa-B/gtk-4.0/* ~/.config/gtk-4.0/
 
 ## Windows
 
-### nvim
+### Neovim
 
 - requires nvm, node and C
 - needed to have the steps below ran:
