@@ -34,7 +34,12 @@ I will make this a little more readable later, for now here is the command I wan
 ```sh
 mkdir ~/.ssh && cd $_
 ssh-keygen -t ed25519 -C "adrien.goodshort@gmail.com" -f "github-agoodshort"
-pbcopy < ~/.ssh/github-agoodshort.pub # copy public key to clipboard
+if [[ $OSTYPE == 'darwin'* ]]; then
+    pbcopy < ~/.ssh/github-agoodshort.pub # copy public key to clipboard
+else
+    wl-copy < ~/.ssh/github-agoodshort.pub # https://neovim.io/doc/user/provider.html#provider-clipboard
+fi
+
 ```
 
 #### 1.2. Associate the key with GitHub
