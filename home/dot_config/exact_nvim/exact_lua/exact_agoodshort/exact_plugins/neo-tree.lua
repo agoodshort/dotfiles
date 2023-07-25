@@ -211,7 +211,7 @@ return {
 						["A"] = {
 							"add_directory",
 							config = {
-								show_path = "relatve", -- "none", "relative", "absolute"
+								show_path = "relative", -- "none", "relative", "absolute"
 							},
 						},
 						["c"] = {
