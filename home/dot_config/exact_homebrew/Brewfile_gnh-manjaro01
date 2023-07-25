@@ -54,8 +54,6 @@ brew "wget"
 brew "xorgproto"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# UNIX shell (command interpreter)
-brew "zsh"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
