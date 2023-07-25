@@ -19,16 +19,17 @@ if not status then
 	return
 end
 
-if vim.g.vscode then
-	lazy.setup(
-		{ { import = "agoodshort.plugins.whichkey" }, { import = "agoodshort.plugins.vscode" } },
-		{ defaults = {
-			lazy = false,
-			git = {
-				url_format = "git@agoodshort.github.com/%s.git",
-			},
-		} }
-	)
+local lazy_defaults = { defaults = {
+	lazy = false,
+	git = {
+		url_format = "git@agoodshort.github.com/%s.git",
+	},
+} }
+
+if not vim.g.vscode then
+	lazy.setup("agoodshort.plugins", lazy_defaults)
+else
+	lazy.setup({ { import = "agoodshort.plugins.whichkey" }, { import = "agoodshort.plugins.vscode" } }, lazy_defaults)
 	vim.api.nvim_exec(
 		[[
     " THEME CHANGER
@@ -53,15 +54,5 @@ if vim.g.vscode then
     augroup END
 ]],
 		false
-	)
-else
-	lazy.setup(
-		"agoodshort.plugins",
-		{ defaults = {
-			lazy = false,
-			git = {
-				url_format = "git@agoodshort.github.com/%s.git",
-			},
-		} }
 	)
 end
