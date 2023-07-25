@@ -7,37 +7,39 @@
 # eDP-1 => laptop screen
 
 profile office {
-    output "BNQ BenQ GW2270 4BG04011SL0" pos 0 0
-    output eDP-1 pos 1920 0 resolution 1920x1080
-    exec swaymsg workspace 1, move workspace to "BNQ BenQ GW2270 4BG04011SL0"
-    exec swaymsg workspace 2, move workspace to "BNQ BenQ GW2270 4BG04011SL0"
-    exec swaymsg workspace 3, move workspace to "BNQ BenQ GW2270 4BG04011SL0"
-    exec swaymsg workspace 4, move workspace to "BNQ BenQ GW2270 4BG04011SL0"
-    exec swaymsg workspace 5, move workspace to "BNQ BenQ GW2270 4BG04011SL0"
-    exec swaymsg workspace 6, move workspace to eDP-1
-    exec swaymsg workspace 7, move workspace to eDP-1
-    exec swaymsg workspace 8, move workspace to eDP-1
-    exec swaymsg workspace 9, move workspace to eDP-1
-    exec swaymsg workspace 10, move workspace to eDP-1
+    output "BNQ BenQ GW2270 4BG04011SL0" position 0,0
+    output eDP-1 position 1920,0 mode 1920x1080
+    exec swaymsg workspace 1 output "'BNQ BenQ GW2270 4BG04011SL0'"
+    exec swaymsg workspace 2 output "'BNQ BenQ GW2270 4BG04011SL0'"
+    exec swaymsg workspace 3 output "'BNQ BenQ GW2270 4BG04011SL0'"
+    exec swaymsg workspace 4 output "'BNQ BenQ GW2270 4BG04011SL0'"
+    exec swaymsg workspace 5 output "'BNQ BenQ GW2270 4BG04011SL0'"
+    exec swaymsg workspace 6 output eDP-1
+    exec swaymsg workspace 7 output eDP-1
+    exec swaymsg workspace 8 output eDP-1
+    exec swaymsg workspace 9 output eDP-1
+    exec swaymsg workspace 10 output eDP-1
+    exec swaymsg workspace 6
+    exec swaymsg workspace 1
 }
 
 profile laptop {
-    output eDP-1 position 0,0 resolution 1920x1080
-    exec swaymsg workspace 1, move workspace to eDP-1
-    exec swaymsg workspace 2, move workspace to eDP-1
-    exec swaymsg workspace 3, move workspace to eDP-1
-    exec swaymsg workspace 4, move workspace to eDP-1
-    exec swaymsg workspace 5, move workspace to eDP-1
-    exec swaymsg workspace 6, move workspace to eDP-1
-    exec swaymsg workspace 7, move workspace to eDP-1
-    exec swaymsg workspace 8, move workspace to eDP-1
-    exec swaymsg workspace 9, move workspace to eDP-1
-    exec swaymsg workspace 10, move workspace to eDP-1
+    output eDP-1 position 0,0 mode 1920x1080
+    exec swaymsg workspace 1 output eDP-1
+    exec swaymsg workspace 2 output eDP-1
+    exec swaymsg workspace 3 output eDP-1
+    exec swaymsg workspace 4 output eDP-1
+    exec swaymsg workspace 5 output eDP-1
+    exec swaymsg workspace 6 output eDP-1
+    exec swaymsg workspace 7 output eDP-1
+    exec swaymsg workspace 8 output eDP-1
+    exec swaymsg workspace 9 output eDP-1
+    exec swaymsg workspace 10 output eDP-1
 }
 
-profile home {
-    output eDP-1 pos 0 0 resolution 1920x1080
-    output DP-3 pos 1920 0 resolution 1920x1080
-    output DP-1 pos 3840 0 resolution 3440x1440
-    exec swaymsg workspace 6, move workspace to eDP-1
-}
+# profile home {
+#     output eDP-1 pos 0 0 resolution 1920x1080
+#     output DP-3 pos 1920 0 resolution 1920x1080
+#     output DP-1 pos 3840 0 resolution 3440x1440
+#     exec swaymsg workspace 6 output eDP-1
+# }
