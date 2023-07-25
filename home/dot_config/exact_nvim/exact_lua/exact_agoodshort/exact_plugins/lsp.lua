@@ -86,6 +86,8 @@ return {
 			-- use stylua to format lua files and no linter
 			ft("lua"):fmt("stylua")
 
+			ft("markdown"):fmt("prettier")
+
 			-- use lsp to format first then use golines to format
 			-- ft('go'):fmt('lsp')
 			--     :append('golines')
