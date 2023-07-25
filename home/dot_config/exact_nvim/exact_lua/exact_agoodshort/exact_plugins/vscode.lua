@@ -1,7 +1,13 @@
 return {
 	{
 		"asvetliakov/vim-easymotion",
-		cond = vim.g.vscode,
+		cond = function()
+			if not vim.g.vscode then
+				return false
+			else
+				return true
+			end
+		end,
 		config = function()
 			vim.g.EasyMotion_do_mapping = 0
 			vim.g.EasyMotion_smartcase = 1
