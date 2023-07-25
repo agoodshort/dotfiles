@@ -154,6 +154,15 @@ return {
 				s = { "<Cmd>Neotree toggle document_symbols<CR>", "Neotree Symbols" },
 			}, leader_opts)
 
+			-- Markdown --
+			wk.register({
+				m = {
+					name = "Markdown", -- optional group name
+					p = { "<Cmd>MarkdownPreview<CR>", "Preview Markdown" },
+					c = { "<Cmd>FeMaco<CR>", "Fenced Code-block" },
+				},
+			}, leader_opts)
+
 			-- telescope --
 			wk.register({
 				B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
