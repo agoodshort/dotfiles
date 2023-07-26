@@ -11,7 +11,7 @@ Skipping cask obsidian (on Linux)
 
 Not needed, if I go ahead with using only nerd font
 
-```
+```bash
 git clone --filter=blob:none --sparse git@agoodshort.github.com:ryanoasis/nerd-fonts
 cd nerd-fonts
 git sparse-checkout add patched-fonts/Hack
