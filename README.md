@@ -31,7 +31,7 @@ I will make this a little more readable later, for now here is the command I wan
 
 #### 1.1. Create ssh key
 
-```sh
+```bash
 mkdir ~/.ssh && cd $_
 ssh-keygen -t ed25519 -C "adrien.goodshort@gmail.com" -f "github-agoodshort"
 if [[ $OSTYPE == 'darwin'* ]]; then
@@ -48,7 +48,7 @@ Add the copied key in your [GitHub Profile SSH keys](https://github.com/settings
 
 #### 1.3. Add the GitHub SSH key to known_host
 
-```sh
+```bash
 curl --silent https://api.github.com/meta \
   | jq --raw-output '"github.com "+.ssh_keys[]' >> ~/.ssh/known_hosts
 ```
@@ -57,7 +57,7 @@ curl --silent https://api.github.com/meta \
 
 [Homebrew requirements for Linux](https://docs.brew.sh/Homebrew-on-Linux#requirements)
 
-```sh
+```bash
 sudo  pacman -S base-devel # Arch Linux only
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
@@ -66,7 +66,7 @@ sudo  pacman -S base-devel # Arch Linux only
 
 ### 3. Getting started with chezmoi
 
-```sh
+```bash
 brew install chezmoi
 chezmoi init --apply agoodshort
 ```
@@ -79,7 +79,7 @@ TODO: do not install zsh with brew if on arch
 
 Note: we need to write manually `zsh` in `/etc/shells` because we install it from homebrew
 
-```sh
+```bash
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 ```
@@ -94,7 +94,7 @@ nvm install lts/gallium
 
 ### 6. Install yay (AUR helper) and create the personal directory
 
-```sh
+```bash
 mkdir -p ~/Coding/Personal && cd $_
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -108,7 +108,7 @@ yay -Y --devel --save
 
 ### 7. Install packages
 
-```sh
+```bash
 yay -Sy microsoft-edge-stable-bin \
 flameshot-git \
 postman-bin \
@@ -126,7 +126,7 @@ xdg-settings set default-web-browser microsoft-edge.desktop
 
 ### 8 Neovim post-install
 
-```sh
+```bash
 python3 -m pip install --user --upgrade pynvim
 npm install -g neovim
 ```
@@ -153,7 +153,7 @@ npm install -g neovim
 
 ### Install Kanagawa theme
 
-```sh
+```bash
 cd ~/Coding/Personal/
 git clone git@agoodshort.github.com:Fausto-Korpsvart/Kanagawa-GKT-Theme.git
 cd Kanagawa-GKT-Theme
@@ -172,7 +172,7 @@ cp -r themes/Kanagawa-B/gtk-4.0/* ~/.config/gtk-4.0/
 - requires nvm, node and C
 - needed to have the steps below ran:
 
-```sh
+```bash
 scoop install mingw
 npm install -g tree-sitter-cli
 
@@ -184,4 +184,10 @@ make
 chezmoi should create (or edit if not existing) the Powershell profile ($PROFILE) and have the line `Invoke-Expression (&starship init powershell)`
 
 https://github.com/twpayne/chezmoi/issues/2273
+
+## Cool things to note
+
+```bash
+wf-recorder -f publish_mobile.mp4 -g "$(slurp)"
+```
 
