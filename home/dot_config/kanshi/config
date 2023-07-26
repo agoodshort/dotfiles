@@ -37,9 +37,21 @@ profile laptop {
     exec swaymsg workspace 10 output eDP-1
 }
 
-# profile home {
-#     output eDP-1 pos 0 0 resolution 1920x1080
-#     output DP-3 pos 1920 0 resolution 1920x1080
-#     output DP-1 pos 3840 0 resolution 3440x1440
-#     exec swaymsg workspace 6 output eDP-1
-# }
+profile home {
+    output eDP-1 position 0,0 mode 1920x1080
+    output "Samsung Electric Company C24F390 H4ZMB07597" position 1920,0 mode 1920x1080
+    output "AOC AG352UCG6 #ASO7QFAlij7d" position 3840,-360  mode 3440x1440
+    exec swaymsg workspace 1 output eDP-1
+    exec swaymsg workspace 2 output "Samsung Electric Company C24F390 H4ZMB07597"
+    exec swaymsg workspace 3 output "AOC AG352UCG6 #ASO7QFAlij7d"
+    exec swaymsg workspace 4 output "Samsung Electric Company C24F390 H4ZMB07597"
+    exec swaymsg workspace 5 output "Samsung Electric Company C24F390 H4ZMB07597"
+    exec swaymsg workspace 6 output eDP-1
+    exec swaymsg workspace 7 output "AOC AG352UCG6 #ASO7QFAlij7d"
+    exec swaymsg workspace 8 output "AOC AG352UCG6 #ASO7QFAlij7d"
+    exec swaymsg workspace 9 output "AOC AG352UCG6 #ASO7QFAlij7d"
+    exec swaymsg workspace 10 output "AOC AG352UCG6 #ASO7QFAlij7d"
+    exec swaymsg workspace 3
+    exec swaymsg workspace 7
+    exec swaymsg workspace 2
+}
