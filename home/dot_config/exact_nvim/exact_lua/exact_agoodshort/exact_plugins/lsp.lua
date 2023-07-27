@@ -23,6 +23,28 @@ return {
 			"folke/neodev.nvim",
 			"kevinhwang91/nvim-ufo",
 			"someone-stole-my-name/yaml-companion.nvim",
+			{
+				"nvimdev/guard.nvim",
+				config = function()
+					local ft = require("guard.filetype")
+
+					-- use stylua to format lua files and no linter
+					ft("lua"):fmt("stylua")
+
+					ft("markdown"):fmt("prettier")
+
+					-- use lsp to format first then use golines to format
+					-- ft('go'):fmt('lsp')
+					--     :append('golines')
+					--     :lint('golangci')
+
+					-- call setup LAST
+					require("guard").setup({
+						fmt_on_save = true,
+						lsp_as_default_formatter = false,
+					})
+				end,
+			},
 		},
 		config = function()
 			require("mason").setup()
@@ -75,28 +97,6 @@ return {
 					yamlconfig["capabilities"] = lsp_capabilities
 					lspconfig.yamlls.setup(yamlconfig)
 				end,
-			})
-		end,
-	},
-	{
-		"nvimdev/guard.nvim",
-		config = function()
-			local ft = require("guard.filetype")
-
-			-- use stylua to format lua files and no linter
-			ft("lua"):fmt("stylua")
-
-			ft("markdown"):fmt("prettier")
-
-			-- use lsp to format first then use golines to format
-			-- ft('go'):fmt('lsp')
-			--     :append('golines')
-			--     :lint('golangci')
-
-			-- call setup LAST
-			require("guard").setup({
-				-- the only option for the setup function
-				fmt_on_save = true,
 			})
 		end,
 	},
