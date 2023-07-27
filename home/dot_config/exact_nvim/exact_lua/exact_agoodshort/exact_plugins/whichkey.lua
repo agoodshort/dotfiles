@@ -193,7 +193,7 @@ return {
 
 			-- Git --
 			wk.register({
-				gg = {
+				g = {
 					name = "Git Tools", -- optional name
 					f = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
 					c = { "<Cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
@@ -237,7 +237,7 @@ return {
 
 			-- vim-doge --
 			wk.register({
-				d = { "<Cmd>DogeGenerate<CR>", "Generate documentation" },
+				d = { "<Cmd>DogeGenerate<CR>", "Generate Documentation" },
 			}, leader_opts)
 
 			-- incline --
@@ -316,6 +316,15 @@ return {
 					i = { "<Cmd>PackageInfoInstall<CR>", "Install" },
 				},
 			}, leader_opts)
+
+			-- NPM Package Info --
+			wk.register({
+				f = {
+					name = "Fun",
+					h = { "<Cmd>HackFollow<CR>", "Hack This File" },
+					r = { "<Cmd>CellularAutomaton make_it_rain<CR>", "Make It Rain" },
+				},
+			}, leader2_opts)
 		end
 
 		wk.setup()
