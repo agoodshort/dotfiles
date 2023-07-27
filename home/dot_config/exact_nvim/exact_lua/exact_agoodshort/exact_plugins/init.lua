@@ -2,7 +2,6 @@ return {
 	-- simple plugin
 	"wakatime/vim-wakatime",
 	"alker0/chezmoi.vim",
-	"kmonad/kmonad-vim",
 	{
 		"norcalli/nvim-colorizer.lua",
 		event = "BufReadPost",
