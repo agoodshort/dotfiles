@@ -142,6 +142,7 @@ npm install -g neovim
 - [ ] should we use a template for Neovim dashboard to point to `{{ .chezmoi.homeDir }}` or is XDG_CONFIG_HOME fine? => windows issue
 - [ ] Install docker engine through brew in MacOS?
 - [ ] Create a run-once to install the brew basics and login to lastpass
+- [ ] Add a note about yay colour to be added
 
 ## References
 
