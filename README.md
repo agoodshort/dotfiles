@@ -124,7 +124,7 @@ sudo chmod 666 /var/run/docker.sock
 xdg-settings set default-web-browser microsoft-edge.desktop
 ```
 
-### 8 Neovim post-install
+### 8. Neovim post-install
 
 ```bash
 python3 -m pip install --user --upgrade pynvim
@@ -191,3 +191,4 @@ https://github.com/twpayne/chezmoi/issues/2273
 wf-recorder -f publish_mobile.mp4 -g "$(slurp)"
 ```
 
+`show me the key` to display keystroes
