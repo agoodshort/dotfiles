@@ -1,8 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	build = function()
-		require("nvim-treesitter.install").update({ with_sync = true })
-	end,
+	build = ":TSUpdate",
 	event = "BufReadPost",
 	dependencies = { "HiPhish/nvim-ts-rainbow2", "windwp/nvim-ts-autotag" },
 	config = function()
