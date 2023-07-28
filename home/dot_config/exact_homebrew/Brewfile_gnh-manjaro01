@@ -26,8 +26,6 @@ brew "exa"
 brew "fd"
 # GNU compiler collection
 brew "gcc"
-# GitHub command-line tool
-brew "gh"
 # Distributed revision control system
 brew "git"
 # Blazing fast terminal-ui for git written in rust

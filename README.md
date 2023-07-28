@@ -117,7 +117,8 @@ nosql-workbench \
 sworkstyle \
 zoom \
 slack-desktop \
-deskreen-bin
+deskreen-bin \
+github-cli
 pacman -Sy docker \
 brave-browser
 sudo chmod 666 /var/run/docker.sock
@@ -143,6 +144,7 @@ npm install -g neovim
 - [ ] Install docker engine through brew in MacOS?
 - [ ] Create a run-once to install the brew basics and login to lastpass
 - [ ] Add a note about yay colour to be added
+- [ ] Sync Sway calendar
 
 ## References
 

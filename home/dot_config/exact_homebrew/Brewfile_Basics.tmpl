@@ -13,8 +13,6 @@ brew "chezmoi"
 brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# GitHub command-line tool
-brew "gh"
 # Distributed revision control system
 brew "git"
 # Blazing fast terminal-ui for git written in rust
@@ -79,4 +77,6 @@ brew "wez/wezterm-linuxbrew/wezterm"
 {{ else if eq .chezmoi.os "darwin" }}
 # UNIX shell (command interpreter)
 brew "zsh"
+# GitHub command-line tool
+brew "gh"
 {{ end -}}
