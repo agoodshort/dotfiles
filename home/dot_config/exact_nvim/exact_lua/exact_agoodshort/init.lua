@@ -2,36 +2,44 @@ require("agoodshort.set")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 -- import lazy safely
 local status, lazy = pcall(require, "lazy")
 if not status then
-	return
+    return
 end
 
-local lazy_defaults = { defaults = {
-	lazy = false,
-	git = {
-		url_format = "git@agoodshort.github.com/%s.git",
-	},
-} }
+local lazy_defaults = {
+    defaults = {
+        lazy = false,
+        git = {
+            url_format = "git@agoodshort.github.com/%s.git",
+        },
+    },
+}
 
 if not vim.g.vscode then
-	lazy.setup("agoodshort.plugins", lazy_defaults)
+    lazy.setup({
+        { import = "agoodshort.plugins" },
+        { import = "agoodshort.plugins.lsp" },
+        { import = "agoodshort.plugins.terminal" },
+        { import = "agoodshort.plugins.theme" },
+        { import = "agoodshort.plugins.typing" },
+    }, lazy_defaults)
 else
-	lazy.setup({ { import = "agoodshort.plugins.whichkey" }, { import = "agoodshort.plugins.vscode" } }, lazy_defaults)
-	vim.api.nvim_exec(
-		[[
+    lazy.setup({ { import = "agoodshort.plugins.whichkey" }, { import = "agoodshort.plugins.vscode" } }, lazy_defaults)
+    vim.api.nvim_exec(
+        [[
     " THEME CHANGER
     function! SetCursorLineNrColorInsert(mode)
         " Insert mode: blue
@@ -53,6 +61,6 @@ else
         autocmd CursorHold * call VSCodeNotify('nvim-theme.normal')
     augroup END
 ]],
-		false
-	)
+        false
+    )
 end
