@@ -163,6 +163,17 @@ return {
 				},
 			}, leader_opts)
 
+			-- Noice --
+			wk.register({
+				n = {
+					name = "Noice", -- optional group name
+					t = { "<Cmd>Telescope noice<CR>", "Telescope History" },
+					h = { "<Cmd>Noice history<CR>", "Noice History" },
+					e = { "<Cmd>Noice errors<CR>", "Noice Errors" },
+					l = { "<Cmd>Noice last<CR>", "Noice Last" },
+				},
+			}, leader2_opts)
+
 			-- telescope --
 			wk.register({
 				B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
@@ -175,7 +186,7 @@ return {
 					e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
 					f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
 					h = { "<Cmd>Telescope help_tags<CR>", "Help Tags" },
-					H = { "<Cmd>Telescope noice<CR>", "Noice History" },
+					i = { "<Cmd>IconPickerYank<CR>", "Icons Picker" },
 					k = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" },
 					l = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
 					m = { "<Cmd>Telescope media_files<CR>", "Preview Images" },
@@ -273,7 +284,7 @@ return {
 						name = "Diagnostics",
 						c = { "<Cmd>Lspsaga show_cursor_diagnostics<CR>", "Lspsaga Show Cursor Diagnostics" },
 						l = { "<Cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga Show Line Diagnostics" },
-						b = { "<Cmd>Lspsaga show_buffer_diagnostics<CR>", "Lspsaga Show Buffer Diagnostics" },
+						b = { "<Cmd>Lspsaga show_buf_diagnostics<CR>", "Lspsaga Show Buffer Diagnostics" },
 						w = { "<Cmd>Lspsaga show_workspace_diagnostics<CR>", "Lspsaga Show Workspace Diagnostics" },
 					},
 				},
@@ -317,7 +328,7 @@ return {
 				},
 			}, leader_opts)
 
-			-- NPM Package Info --
+			-- Fun --
 			wk.register({
 				f = {
 					name = "Fun",
@@ -325,6 +336,16 @@ return {
 					r = { "<Cmd>CellularAutomaton make_it_rain<CR>", "Make It Rain" },
 				},
 			}, leader2_opts)
+
+			-- kiwi --
+			wk.register({
+				w = {
+					name = "Kiwi",
+					w = { "<Cmd>lua require('kiwi').open_wiki_index()<CR>", "Open Wiki Index" },
+					d = { "<Cmd>lua require('kiwi').open_diary_index()<CR>", "Open Diary Index" },
+					n = { "<Cmd>lua require('kiwi').open_diary_new()<CR>", "Open Diary New" },
+				},
+			}, leader_opts)
 		end
 
 		wk.setup()
