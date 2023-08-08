@@ -14,6 +14,7 @@
     "height": 30,
     "position": "top",
     "modules-left": [
+        "sway/mode",
         "custom/menu",
         "sway/workspaces",
         "custom/scratchpad"
@@ -21,21 +22,18 @@
     "modules-center": [
         "tray",
         "custom/wf-recorder",
-        "sway/mode",
         "custom/pacman",
-        "custom/github"
+        "custom/github",
+        "custom/playerctl"
     ],
     "modules-right": [
         "custom/clipboard",
-        // connecting
-        "network",
-        "bluetooth",
-        // media
-        "custom/playerctl",
         "idle_inhibitor",
         "custom/dnd",
+        // connecting
+        "bluetooth",
+        "network",
         "pulseaudio",
-        "backlight",
         // system
         "cpu",
         "memory",
@@ -43,6 +41,9 @@
         "temperature",
         "clock"
     ],
+    // Unused modules
+    // "backlight"
+
     // -------------------------------------------------------------------------
     // Modules
     // -------------------------------------------------------------------------
@@ -98,7 +99,7 @@
         "on-click": "swaymsg exec \\$term_float nmtui"
     },
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>",
+        "format": "<span style=\"italic\">{} </span>",
         "tooltip": false
     },
     "idle_inhibitor": {
