@@ -184,7 +184,7 @@ return {
 					a = { "<Cmd>Telescope lazy<CR>", "List Lazy plugins" },
 					c = { "<Cmd>Telescope neoclip<CR>", "List Clipboard" },
 					e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
-					f = { "<Cmd>Telescope find_files hidden=true<CR>", "Find Files (inc. hidden)" },
+					f = { "<Cmd>Telescope find_files hidden=true<CR>", "Find Files" },
 					h = { "<Cmd>Telescope help_tags<CR>", "Help Tags" },
 					i = { "<Cmd>IconPickerYank<CR>", "Icons Picker" },
 					k = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" },
