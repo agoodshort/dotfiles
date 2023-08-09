@@ -50,6 +50,15 @@ return {
 						},
 					},
 				},
+				pickers = {
+					live_grep = {
+						additional_args = function(opts)
+							if opts.hidden == true then
+								return { "--hidden" }
+							end
+						end,
+					},
+				},
 				extensions = {
 					undo = {
 						initial_mode = "normal",
