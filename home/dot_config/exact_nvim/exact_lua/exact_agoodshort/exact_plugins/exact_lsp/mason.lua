@@ -20,6 +20,7 @@ return {
 
                 ft("markdown"):fmt("prettier")
                 ft("typescript"):fmt("prettier")
+                ft("typescriptreact"):fmt("prettier")
 
                 -- use lsp to format first then use golines to format
                 -- ft('go'):fmt('lsp')
