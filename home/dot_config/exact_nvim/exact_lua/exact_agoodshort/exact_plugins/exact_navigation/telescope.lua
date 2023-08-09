@@ -21,6 +21,7 @@ return {
 			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "neovim/nvim-lspconfig" },
 			{ "nvim-telescope/telescope-file-browser.nvim", dependencies = "nvim-lua/plenary.nvim" },
 			{ "tiagovla/scope.nvim", opts = {} },
+			{ "ziontee113/icon-picker.nvim", opts = { disable_legacy_commands = true } },
 		},
 		config = function()
 			local fb_actions = require("telescope._extensions.file_browser.actions")
@@ -47,6 +48,15 @@ return {
 							["<C-c>"] = actions.close,
 							["<tab>"] = actions.toggle_selection,
 						},
+					},
+				},
+				pickers = {
+					live_grep = {
+						additional_args = function(opts)
+							if opts.hidden == true then
+								return { "--hidden" }
+							end
+						end,
 					},
 				},
 				extensions = {

@@ -10,14 +10,18 @@ brew "openssl@3"
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Collection of Linux utilities
+brew "util-linux"
+# X.Org: Protocol Headers
+brew "xorgproto"
 # Validate CloudFormation templates against the CloudFormation spec
 brew "cfn-lint"
+# Versatile and fast Unicode/ASCII/ANSI graphics renderer
+brew "chafa"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # C library implementing the SSH2 protocol
 brew "libssh2"
-# Collection of Linux utilities
-brew "util-linux"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Modern replacement for 'ls'
@@ -26,8 +30,6 @@ brew "exa"
 brew "fd"
 # GNU compiler collection
 brew "gcc"
-# GitHub command-line tool
-brew "gh"
 # Distributed revision control system
 brew "git"
 # Blazing fast terminal-ui for git written in rust
@@ -50,8 +52,6 @@ brew "starship"
 brew "wego"
 # Internet file retriever
 brew "wget"
-# X.Org: Protocol Headers
-brew "xorgproto"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh

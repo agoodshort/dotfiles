@@ -5,7 +5,8 @@
 # Read `man 5 sway` for a complete reference.
 
 # styles - set the folder for your theme definition file
-set $theme /usr/share/sway/themes/matcha-green
+# set $theme /usr/share/sway/themes/matcha-green
+set $theme $HOME/.config/sway/themes/kanagawa
 
 # theme variables
 include $theme/definitions
@@ -36,5 +37,7 @@ exec sworkstyle &> /tmp/sworkstyle.log
 
 # App Start-up
 exec slack
+exec brave
+exec cider
 exec microsoft-edge-stable
 exec microsoft-edge-stable --app-id=pkooggnaalmfkidjmlhoelhdllpphaga --app-url=https://outlook.office365.com/mail/

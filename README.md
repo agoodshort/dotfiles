@@ -14,13 +14,16 @@
     - [5. Configure node with nvm](#5-configure-node-with-nvm)
     - [6. Install yay (AUR helper) and create the personal directory](#6-install-yay-aur-helper-and-create-the-personal-directory)
     - [7. Install packages](#7-install-packages)
-    - [8 Neovim post-install](#8-neovim-post-install)
+    - [8. Neovim post-install](#8-neovim-post-install)
   - [To-Do](#to-do)
   - [References](#references)
     - [Git multi user](#git-multi-user)
     - [Install Kanagawa theme](#install-kanagawa-theme)
   - [Notes](#notes)
-  - [Windows](#windows) - [neovim](#neovim)
+  - [Windows](#windows)
+    - [Neovim](#neovim)
+    - [Arch setup](#arch-setup)
+  - [Cool things to note](#cool-things-to-note) - [Theme](#theme)
   <!--toc:end-->
 
 I will make this a little more readable later, for now here is the command I wanted to save somewhere.
@@ -117,7 +120,8 @@ nosql-workbench \
 sworkstyle \
 zoom \
 slack-desktop \
-deskreen-bin
+deskreen-bin \
+github-cli
 pacman -Sy docker \
 brave-browser
 sudo chmod 666 /var/run/docker.sock
@@ -143,6 +147,10 @@ npm install -g neovim
 - [ ] Install docker engine through brew in MacOS?
 - [ ] Create a run-once to install the brew basics and login to lastpass
 - [ ] Add a note about yay colour to be added
+- [ ] Sync Sway calendar
+- [ ] Add Vimium key mappings
+- [ ] Configure Calcurse
+- [ ] Look at Timeshift and find out how to partition properly
 
 ## References
 
@@ -186,6 +194,10 @@ chezmoi should create (or edit if not existing) the Powershell profile ($PROFILE
 
 https://github.com/twpayne/chezmoi/issues/2273
 
+### Arch setup
+
+To use laptop with dock, make sure to remove security in BIOS and allow Enhanced USB support. Also read through [this](https://community.frame.work/t/arch-caldigit-ts4-dock-xfce4-trials-tribulations-and-fixes/29117) if issues and [configure Kernel parameters in GRUB](https://forum.manjaro.org/t/how-could-i-edit-a-kernel-parameter/63241/3).
+
 ## Cool things to note
 
 ```bash
@@ -193,3 +205,23 @@ wf-recorder -f publish_mobile.mp4 -g "$(slurp)"
 ```
 
 `show me the key` to display keystroes
+
+`yay -Yc` remove unneeded packages
+
+### Theme
+
+There are 2 styling method => gtk and Qt
+
+```
+lxappearance
+qt5ct
+qt6ct
+```
+
+[For theme matching](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#QGtkStyle)
+
+```
+yay -S kanagawa-gtk-theme-git qt6gtk2 qt5-styleplugins
+```
+
+https://github.com/candyclaws/Utterly-Kanagawa

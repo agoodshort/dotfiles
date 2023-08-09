@@ -56,17 +56,17 @@
 	{
 		"command": "workbench.action.toggleSidebarVisibility",
 		"key": "space e",
-		"when": "neovim.mode == normal"
+		"when": "editorTextFocus && neovim.mode == normal"
 	},
 	{
 		"command": "editor.action.commentLine",
 		"key": "g c c",
-		"when": "neovim.mode == normal"
+		"when": "editorTextFocus && neovim.mode == normal"
 	},
 	{
 		"command": "editor.action.commentLine",
 		"key": "g c",
-		"when": "neovim.mode == visual"
+		"when": "editorTextFocus && neovim.mode == visual"
 	}
 ]
 

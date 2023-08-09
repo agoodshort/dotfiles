@@ -19,17 +19,29 @@ if not status then
 	return
 end
 
-local lazy_defaults = { defaults = {
-	lazy = false,
-	git = {
-		url_format = "git@agoodshort.github.com/%s.git",
+local lazy_defaults = {
+	defaults = {
+		lazy = false,
+		git = {
+			url_format = "git@agoodshort.github.com/%s.git",
+		},
 	},
-} }
+}
 
 if not vim.g.vscode then
-	lazy.setup("agoodshort.plugins", lazy_defaults)
+	lazy.setup({
+		{ import = "agoodshort.plugins" },
+		{ import = "agoodshort.plugins.lsp" },
+		{ import = "agoodshort.plugins.navigation" },
+		{ import = "agoodshort.plugins.terminal" },
+		{ import = "agoodshort.plugins.theme" },
+		{ import = "agoodshort.plugins.typing" },
+	}, lazy_defaults)
 else
-	lazy.setup({ { import = "agoodshort.plugins.whichkey" }, { import = "agoodshort.plugins.vscode" } }, lazy_defaults)
+	lazy.setup({
+		{ import = "agoodshort.plugins.navigation.whichkey" },
+		{ import = "agoodshort.plugins.vscode" },
+	}, lazy_defaults)
 	vim.api.nvim_exec(
 		[[
     " THEME CHANGER

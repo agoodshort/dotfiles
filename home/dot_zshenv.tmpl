@@ -28,4 +28,7 @@ export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ .chezmoi.hostnam
 
 # Adds Homebrew to PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# QGtkStle
+export QT_QPA_PLATFORMTHEME=gtk2
 {{- end }}
