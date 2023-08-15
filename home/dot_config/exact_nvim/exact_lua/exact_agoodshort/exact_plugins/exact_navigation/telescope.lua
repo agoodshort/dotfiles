@@ -16,6 +16,7 @@ return {
 			"nvim-telescope/telescope-node-modules.nvim",
 			"tsakirist/telescope-lazy.nvim",
 			"paopaol/telescope-git-diffs.nvim",
+			"nvim-telescope/telescope-live-grep-args.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "nvim-telescope/telescope-media-files.nvim", dependencies = "nvim-lua/popup.nvim" },
 			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "neovim/nvim-lspconfig" },
@@ -53,8 +54,8 @@ return {
 				pickers = {
 					live_grep = {
 						additional_args = function(opts)
-							if opts.hidden == true then
-								return { "--hidden" }
+							if opts.custom_hidden == true then
+								return { "--hidden", "-g", "!{.git,node_modules}/*" }
 							end
 						end,
 					},
@@ -210,6 +211,7 @@ return {
 			require("telescope").load_extension("scope")
 			require("telescope").load_extension("package_info")
 			require("telescope").load_extension("file_browser")
+			require("telescope").load_extension("live_grep_args")
 		end,
 	},
 	{
