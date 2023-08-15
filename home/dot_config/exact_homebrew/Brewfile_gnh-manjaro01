@@ -46,6 +46,8 @@ brew "neovim"
 brew "nvm"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Autoformat shell script source code
+brew "shfmt"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Weather app for the terminal
