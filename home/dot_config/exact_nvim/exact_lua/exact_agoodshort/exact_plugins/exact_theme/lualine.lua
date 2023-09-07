@@ -104,7 +104,7 @@ return {
 				},
 			},
 			render = function(props)
-				local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":p:.")
+				local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":~:.")
 
 				-- local filename = vim.fn.expand("%")
 				local colors = require("kanagawa.colors").setup()
