@@ -15,12 +15,14 @@ return {
 			config = function()
 				local ft = require("guard.filetype")
 
-				-- use stylua to format lua files and no linter
 				ft("lua"):fmt("stylua")
 
+				-- prettier
 				ft("markdown"):fmt("prettier")
-
+				ft("json"):fmt("prettier")
+				ft("yaml"):fmt("prettier")
 				ft("typescript,javascript,typescriptreact"):fmt("prettier")
+
 				ft("sh"):fmt("shfmt")
 
 				-- use lsp to format first then use golines to format
