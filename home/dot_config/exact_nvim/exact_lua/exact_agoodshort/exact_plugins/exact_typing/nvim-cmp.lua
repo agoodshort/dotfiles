@@ -4,7 +4,7 @@ return {
 		build = ":call doge#install()",
 		cmd = "DogeGenerate",
 		config = function()
-			vim.g.doge_enaable_mapping = 0
+			vim.g.doge_enable_mapping = 0
 			vim.g.doge_mapping_comment_jump_forward = "<C-j>"
 			vim.g.doge_mapping_comment_jump_backward = "<C-k>"
 		end,
