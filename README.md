@@ -225,3 +225,11 @@ yay -S kanagawa-gtk-theme-git qt6gtk2 qt5-styleplugins
 ```
 
 https://github.com/candyclaws/Utterly-Kanagawa
+
+### Downgrade
+
+Used to Downgrade previously working packages
+
+```
+sudo downgrade code
+```
