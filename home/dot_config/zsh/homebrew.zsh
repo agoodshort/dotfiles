@@ -18,6 +18,7 @@ fi
 
 # awscli
 if [[ -f "$HOMEBREW_PREFIX/bin/aws" ]]; then
+    export AWS_PROFILE=default
     export AWS_REGION=eu-west-1
 fi
 
