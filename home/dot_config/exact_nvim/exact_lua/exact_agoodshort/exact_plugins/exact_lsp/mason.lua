@@ -12,6 +12,9 @@ return {
 		"someone-stole-my-name/yaml-companion.nvim",
 		{
 			"nvimdev/guard.nvim",
+    dependencies = {
+        "nvimdev/guard-collection",
+    },
 			config = function()
 				local ft = require("guard.filetype")
 
