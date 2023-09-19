@@ -16,13 +16,6 @@ success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set
 [aws]
 format = 'on [$symbol$profile]($style) '
 
-[custom.chezmoi_status]
-disabled = true
-description = "The current chezmoi status"
-symbol = ' '
-format = '- [$symbol](bold purple)[\[!\]](bold red) '
-when = ' ! chezmoi verify -x scripts '
-
 [custom.chezmoi_status_diff]
 disabled = false
 description = "The current chezmoi status and number of diffs"
