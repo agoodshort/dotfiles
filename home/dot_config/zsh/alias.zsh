@@ -1,13 +1,13 @@
-# exa
-alias l="exa --icons --group-directories-first"
-alias ll="exa --icons --group-directories-first -la"
-alias lg="exa --icons --group-directories-first --git -la"
+# eza
+alias l="eza --icons --group-directories-first"
+alias ll="eza --icons --group-directories-first -la"
+alias lg="eza --icons --group-directories-first --git -la"
 function tree() {
     if [[ "$@" != "" ]]
     then
-        exa --tree --icons --group-directories-first "$@"
+        eza --tree --icons --group-directories-first "$@"
     else
-        exa --tree --icons --group-directories-first
+        eza --tree --icons --group-directories-first
     fi
 }
 
