@@ -11,6 +11,8 @@ brew "bat"
 brew "cfn-lint"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# C library of Git core methods that is re-entrant and linkable
+brew "libgit2"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -23,6 +25,8 @@ brew "gh"
 brew "git"
 # Blazing fast terminal-ui for git written in rust
 brew "gitui"
+# LastPass command-line interface tool
+brew "lastpass-cli"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -59,16 +63,14 @@ brew "jesseduffield/lazydocker/lazydocker"
 brew "jesseduffield/lazynpm/lazynpm"
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
 # Configuration tool for the Betaflight firmware
 cask "betaflight-configurator"
 # Use the Bing daily image as your wallpaper
 cask "bing-wallpaper"
 # Tool to remove unnecessary files and folders from disk
 cask "cleanmymac"
-# Turns any device with a web browser into a secondary screen
-cask "deskreen"
-# Remote desktop and second display tool
-cask "duet"
 # Screenshot software
 cask "flameshot"
 # Developer targeted fonts with a high number of glyphs
@@ -103,8 +105,6 @@ cask "visual-studio-code"
 cask "wezterm"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
-# Video communication and virtual meeting platform
-cask "zoom"
 vscode "adpyke.codesnap"
 vscode "arr.marksman"
 vscode "asvetliakov.vscode-neovim"
