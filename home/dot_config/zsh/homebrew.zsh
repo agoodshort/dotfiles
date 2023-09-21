@@ -22,6 +22,11 @@ if [[ -f "$HOMEBREW_PREFIX/bin/aws" ]]; then
     export AWS_REGION=eu-west-1
 fi
 
+# neovim
+if [[ -f "$HOMEBREW_PREFIX/bin/nvim" ]]; then
+    export MANPAGER="nvim +Man!"
+fi
+
 # starship
 if [[ -f "$HOMEBREW_PREFIX/bin/starship" ]]; then
     eval "$(starship init zsh)"
