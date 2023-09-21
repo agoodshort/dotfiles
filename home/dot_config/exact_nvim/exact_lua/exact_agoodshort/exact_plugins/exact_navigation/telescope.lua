@@ -1,7 +1,6 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
 		cmd = "Telescope",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -112,6 +111,7 @@ return {
 						prompt_path = false,
 						quiet = false,
 						display_stat = { date = true, size = true, mode = true },
+						preview = { ls_short = true },
 						hijack_netrw = true,
 						use_fd = true,
 						git_status = true,
