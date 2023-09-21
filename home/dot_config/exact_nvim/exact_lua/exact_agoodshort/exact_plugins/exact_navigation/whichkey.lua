@@ -136,6 +136,18 @@ return {
 			["<C-d>"] = { "<C-d>zz", "Move down centered" },
 		}, blank_opts)
 
+		-- Quickfix
+		wk.register({
+			["[q"] = { "<Cmd>QNext<CR>", "Previous Quickfix" },
+			["]q"] = { "<Cmd>QPrev<CR>", "Next Quickfix" },
+		}, blank_opts)
+
+		wk.register({
+			q = { "<Cmd>QFToggle<CR>", "Toggle Quickfix" },
+			ql = { "<Cmd>LLToggle<CR>", "Toggle Loclist" },
+			qd = { "<Cmd>Reject<CR>", "Remove Item From Quickfix" },
+		}, leader_opts)
+
 		-- Escape
 		wk.register({
 			["<C-c>"] = { "<ESC>", "Escape" },
@@ -200,6 +212,13 @@ return {
 					["?"] = { "<Cmd>Telescope find_pickers<CR>", "List Telescope Pickers" },
 				},
 			}, leader_opts)
+
+			wk.register({
+				fl = {
+					"\"zy<Cmd>exec 'Telescope live_grep default_text=' . escape(@z, ' ')<cr>",
+					"Live Grep Current Selection",
+				},
+			}, leader_opts_visual)
 
 			wk.register({ ["<C-p>"] = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" } }, blank_opts)
 
