@@ -236,6 +236,7 @@ return {
 					["1"] = { "<Cmd>1ToggleTerm<CR>", "Terminal 1" },
 					["2"] = { "<Cmd>2ToggleTerm<CR>", "Terminal 2" },
 					["3"] = { "<Cmd>3ToggleTerm<CR>", "Terminal 3" },
+					["d"] = { "<Cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
 				},
 			}, leader_opts)
 			wk.register({

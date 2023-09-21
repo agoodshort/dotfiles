@@ -39,10 +39,17 @@ return {
 
 		local Terminal = require("toggleterm.terminal").Terminal
 		local gitui = Terminal:new({ cmd = "gitui", close_on_exit = true, hidden = true, direction = "float" })
+		local lazydocker =
+			Terminal:new({ cmd = "lazydocker", close_on_exit = true, hidden = true, direction = "float" })
 
 		function _GITUI_TOGGLE()
 			gitui.dir = vim.fn.expand("%:p:h")
 			gitui:toggle()
+		end
+
+		function _LAZYDOCKER_TOGGLE()
+			lazydocker.dir = vim.fn.getcwd()
+			lazydocker:toggle()
 		end
 	end,
 }
