@@ -151,6 +151,7 @@ npm install -g neovim
 - [ ] Add Vimium key mappings
 - [ ] Configure Calcurse
 - [ ] Look at Timeshift and find out how to partition properly
+- [ ] Install hoebrew first, because `jq` is not available by default on macos
 
 ## References
 
