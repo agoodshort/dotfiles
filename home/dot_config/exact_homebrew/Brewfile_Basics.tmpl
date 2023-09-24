@@ -49,6 +49,8 @@ cask "amethyst"
 cask "balenaetcher"
 # Developer targeted fonts with a high number of glyphs
 cask "font-hack-nerd-font"
+# GitHub command-line tool
+brew "gh"
 # Web browser
 cask "google-chrome"
 # Keyboard customizer
@@ -74,9 +76,9 @@ cask "xquartz"
 tap "wez/wezterm-linuxbrew"
 # A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
 brew "wez/wezterm-linuxbrew/wezterm"
-{{ else if eq .chezmoi.os "darwin" }}
+{{ end -}}
+
+{{- if not (contains "zsh" (env "SHELL")) }}
 # UNIX shell (command interpreter)
 brew "zsh"
-# GitHub command-line tool
-brew "gh"
 {{ end -}}
