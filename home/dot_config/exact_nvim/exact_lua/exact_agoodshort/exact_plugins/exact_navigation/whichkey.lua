@@ -143,10 +143,21 @@ return {
 		}, blank_opts)
 
 		wk.register({
-			q = { "<Cmd>QFToggle<CR>", "Toggle Quickfix" },
-			ql = { "<Cmd>LLToggle<CR>", "Toggle Loclist" },
-			qd = { "<Cmd>Reject<CR>", "Remove Item From Quickfix" },
+			q = {
+				name = "Quickfix",
+				q = { "<Cmd>QFToggle<CR>", "Toggle Quickfix" },
+				l = { "<Cmd>LLToggle<CR>", "Toggle Loclist" },
+				d = { "<Cmd>Reject<CR>", "Remove Item From Quickfix" },
+				c = { ":cdo ", "Do For All (use :cdo)" },
+			},
 		}, leader_opts)
+
+		wk.register({
+			q = {
+				name = "Quickfix",
+				c = { ":cdo ", "Do For All" },
+			},
+		}, { mode = "n", prefix = "<Leader>", buffer = nil, silent = false, noremap = true, nowait = false })
 
 		-- Escape
 		wk.register({
@@ -186,7 +197,7 @@ return {
 				},
 			}, leader2_opts)
 
-			-- telescope --
+			-- Telescope --
 			wk.register({
 				B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
 				bb = { "<Cmd>Telescope buffers initial_mode=normal<CR>", "Tabbed Buffers" },
@@ -246,7 +257,13 @@ return {
 					["h"] = { "<Cmd>tabp<CR>", "Go To Left Tab" },
 				},
 			}, blank_opts)
-			vim.keymap.set("n", "<C-t>r", ":TabRename ") -- to review
+
+			wk.register({
+				["<C-t>"] = {
+					name = "Tabs",
+					["r"] = { ":TabRename ", "Rename Tab" },
+				},
+			}, { mode = "v", prefix = "", buffer = nil, silent = false, noremap = true, nowait = false })
 
 			-- toggleterm --
 			wk.register({
