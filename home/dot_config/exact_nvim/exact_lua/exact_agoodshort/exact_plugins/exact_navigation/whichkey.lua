@@ -8,7 +8,7 @@ return {
 
 		local wk = require("which-key")
 
-		-- which-key leader config --
+		-- Which-key leader config
 		local leader_opts = {
 			mode = "n", -- NORMAL mode
 			-- prefix: use "<Leader>f" for example to map everything related to finding files
@@ -76,14 +76,14 @@ return {
 
 		-- ####################################################################
 
-		-- Default vim keymaps --
+		-- Default vim keymaps
 		wk.register({
 			N = { "<Cmd>lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" }, -- Does not work in VSCode
 			["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format" },
 			["/"] = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
 		}, leader_opts)
 
-		-- yank/paste --
+		-- Yank/paste
 		wk.register({
 			y = { '"+y', "Yank to System Clipboard" },
 			p = { '"+p', "Paste from System Clipboard" },
@@ -104,7 +104,7 @@ return {
 			p = { '"_dP', "Paste and Delete using Void Buffer" },
 		}, leader2_opts_visual)
 
-		-- windows
+		-- Windows
 		wk.register({
 			["<C-w>"] = { -- map to "\"
 				["n"] = { "<Cmd>vsplit<CR>", "Open New Window vertically" },
@@ -112,7 +112,7 @@ return {
 			},
 		}, blank_opts)
 
-		-- buffers
+		-- Buffers
 		wk.register({
 			["<C-h>"] = { "<Cmd>bprevious<CR>", "Previous buffer" },
 			["<C-l>"] = { "<Cmd>bnext<CR>", "Next buffer" },
@@ -170,14 +170,14 @@ return {
 		-- ####################################################################
 
 		if not vim.g.vscode then
-			-- Neo-tree --
+			-- Neo-tree
 			wk.register({
 				b = { "<Cmd>Neotree toggle buffers<CR>", "Neotree Filesystem" },
 				e = { "<Cmd>Neotree toggle filesystem<CR>", "Neotree Filesystem" },
 				s = { "<Cmd>Neotree toggle document_symbols<CR>", "Neotree Symbols" },
 			}, leader_opts)
 
-			-- Markdown --
+			-- Markdown
 			wk.register({
 				m = {
 					name = "Markdown", -- optional group name
@@ -186,7 +186,7 @@ return {
 				},
 			}, leader_opts)
 
-			-- Noice --
+			-- Noice
 			wk.register({
 				n = {
 					name = "Noice", -- optional group name
@@ -197,7 +197,7 @@ return {
 				},
 			}, leader2_opts)
 
-			-- Telescope --
+			-- Telescope
 			wk.register({
 				B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
 				bb = { "<Cmd>Telescope buffers initial_mode=normal<CR>", "Tabbed Buffers" },
@@ -233,7 +233,7 @@ return {
 
 			wk.register({ ["<C-p>"] = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" } }, blank_opts)
 
-			-- Git --
+			-- Git
 			wk.register({
 				g = {
 					name = "Git Tools", -- optional name
@@ -247,7 +247,7 @@ return {
 				},
 			}, leader_opts)
 
-			-- Tab Management --
+			-- Tab Management
 			wk.register({
 				["<C-t>"] = {
 					name = "Tabs",
@@ -265,7 +265,7 @@ return {
 				},
 			}, { mode = "v", prefix = "", buffer = nil, silent = false, noremap = true, nowait = false })
 
-			-- toggleterm --
+			-- Toggleterm
 			wk.register({
 				["\\"] = { -- map to "\"
 					name = "ToggleTerm",
@@ -285,17 +285,17 @@ return {
 				},
 			}, leader_opts_visual)
 
-			-- vim-doge --
+			-- Vim-doge
 			wk.register({
 				d = { "<Cmd>DogeGenerate<CR>", "Generate Documentation" },
 			}, leader_opts)
 
-			-- incline --
+			-- Incline
 			wk.register({
 				i = { "<Cmd>lua require('incline').toggle()<CR>", "Toggle Incline" },
 			}, leader_opts)
 
-			-- Hop manual keymap register --
+			-- Hop manual keymap register
 			wk.register({
 				f = { "<Cmd>HopChar1CurrentLineAC<CR>", "Hop Current Line After" },
 				F = { "<Cmd>HopChar1CurrentLineBC<CR>", "Hop Current Line Before" },
@@ -310,7 +310,7 @@ return {
 				h = { "<Cmd>HopChar2MW<CR>", "Hop Anywhere" },
 			}, leader2_opts)
 
-			-- LSP --
+			-- LSP
 			wk.register({
 				l = {
 					name = "LSP",
@@ -339,24 +339,24 @@ return {
 				K = { "<Cmd>Lspsaga hover_doc<CR>", "Lspsaga Hover Doc" },
 			}, blank_opts)
 
-			-- guard.nvim  --
+			-- Guard.nvim 
 			wk.register({
 				["="] = { "<Cmd>GuardFmt<CR>", "Format Using guard.nvim Only" },
 			}, leader_opts)
 
-			-- Undotree --
+			-- Undotree
 			wk.register({
 				["u"] = { "<Cmd>UndotreeToggle<CR>", "Undotree" },
 			}, leader_opts)
 
-			-- Codeium --
+			-- Codeium
 			wk.register({
 				["<C-l>"] = { "<Cmd>call codeium#CycleCompletions(1)<CR>", "Codeium next" },
 				["<C-h>"] = { "<Cmd>call codeium#CycleCompletions(-1)<CR>", "Codeium previous" },
 				["<S-Tab>"] = { "<Cmd>call codeium#Clear()<CR>", "Codeium clear" },
 			}, blank_opts_insert)
 
-			-- NPM Package Info --
+			-- NPM Package Info
 			wk.register({
 				n = {
 					name = "NPM Package Info",
@@ -367,7 +367,7 @@ return {
 				},
 			}, leader_opts)
 
-			-- Fun --
+			-- Fun
 			wk.register({
 				f = {
 					name = "Fun",
@@ -376,7 +376,7 @@ return {
 				},
 			}, leader2_opts)
 
-			-- kiwi --
+			-- Kiwi
 			wk.register({
 				w = {
 					name = "Kiwi",
