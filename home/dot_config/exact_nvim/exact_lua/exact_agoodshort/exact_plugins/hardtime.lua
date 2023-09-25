@@ -52,6 +52,17 @@ return {
 			-- ["<LEFT>"] = { "", "i" },
 			-- ["<RIGHT>"] = { "", "i" },
 		},
-		disabled_filetypes = { "qf", "netrw", "neo-tree", "lazy", "mason", "help", "noice", "toggleterm" },
+		disabled_filetypes = {
+			"qf",
+			"netrw",
+			"neo-tree",
+			"lazy",
+			"mason",
+			"help",
+			"noice",
+			"toggleterm",
+			"undotree",
+			"diff",
+		},
 	},
 }
