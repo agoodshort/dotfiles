@@ -36,6 +36,7 @@ if not vim.g.vscode then
 		{ import = "agoodshort.plugins.terminal" },
 		{ import = "agoodshort.plugins.theme" },
 		{ import = "agoodshort.plugins.typing" },
+		{ import = "agoodshort.plugins.git" },
 	}, lazy_defaults)
 else
 	lazy.setup({
