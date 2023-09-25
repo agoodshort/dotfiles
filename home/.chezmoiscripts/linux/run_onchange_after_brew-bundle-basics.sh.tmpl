@@ -9,7 +9,14 @@ if [[ -e $HOME/.config/homebrew/Brewfile_Basics ]]; then
     brew bundle --no-upgrade --file $HOME/.config/homebrew/Brewfile_Basics
     echo "Done installing homebrew basics basics"
 else
-    echo "HOMEBREW_BUNDLE_FILE isn't set, impossible to generate Brewfile"
+    echo "No Brewfile_Basics found, impossible to install homebrew basics"
+fi
+
+echo "Generating machine specific Brewfile..."
+if [[ -n $HOMEBREW_BUNDLE_FILE ]]; then
+    $whichbrew bundle dump --force --describe
+else
+    echo "Impossible to generate Brewfile, HOMEBREW_BUNDLE_FILE isn't set"
 fi
 
 echo "----- end: brew-bundle-basics.sh -----"

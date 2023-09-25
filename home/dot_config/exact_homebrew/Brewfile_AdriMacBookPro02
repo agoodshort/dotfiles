@@ -13,10 +13,14 @@ brew "chezmoi"
 brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # Blazing fast terminal-ui for git written in rust
 brew "gitui"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # LastPass command-line interface tool
 brew "lastpass-cli"
 # Simple terminal UI for git commands
@@ -49,8 +53,6 @@ cask "amethyst"
 cask "balenaetcher"
 # Developer targeted fonts with a high number of glyphs
 cask "font-hack-nerd-font"
-# GitHub command-line tool
-brew "gh"
 # Web browser
 cask "google-chrome"
 # Keyboard customizer
@@ -71,43 +73,3 @@ cask "visual-studio-code"
 cask "wezterm"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
-vscode "adpyke.codesnap"
-vscode "arr.marksman"
-vscode "asvetliakov.vscode-neovim"
-vscode "bierner.github-markdown-preview"
-vscode "bierner.markdown-checkbox"
-vscode "bierner.markdown-emoji"
-vscode "bierner.markdown-footnotes"
-vscode "bierner.markdown-mermaid"
-vscode "bierner.markdown-preview-github-styles"
-vscode "bierner.markdown-yaml-preamble"
-vscode "ChakrounAnas.turbo-console-log"
-vscode "CircleCI.circleci"
-vscode "Codeium.codeium"
-vscode "dbaeumer.vscode-eslint"
-vscode "eamodio.gitlens"
-vscode "esbenp.prettier-vscode"
-vscode "github.vscode-github-actions"
-vscode "JulianIaquinandi.nvim-ui-modifier"
-vscode "metaphore.kanagawa-vscode-color-theme"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
-vscode "ms-vscode-remote.remote-wsl"
-vscode "ms-vscode.remote-explorer"
-vscode "steoates.autoimport"
-vscode "ThreadHeap.serverless-ide-vscode"
-vscode "WakaTime.vscode-wakatime"
-vscode "wix.vscode-import-cost"
-
-{{- if eq .chezmoi.os "linux" }}
-tap "wez/wezterm-linuxbrew"
-# A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
-brew "wez/wezterm-linuxbrew/wezterm"
-{{ end -}}
-
-{{- if not (contains "zsh" (env "SHELL")) }}
-# UNIX shell (command interpreter)
-brew "zsh"
-{{ end -}}
