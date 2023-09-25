@@ -1,9 +1,7 @@
 # My chezmoi dotfiles
 
 <!--toc:start-->
-
 - [My chezmoi dotfiles](#my-chezmoi-dotfiles)
-  - [To get started](#to-get-started)
     - [1. Setup ssh for GitHub](#1-setup-ssh-for-github)
       - [1.1. Create ssh key](#11-create-ssh-key)
       - [1.2. Associate the key with GitHub](#12-associate-the-key-with-github)
@@ -15,20 +13,21 @@
     - [6. Install yay (AUR helper) and create the personal directory](#6-install-yay-aur-helper-and-create-the-personal-directory)
     - [7. Install packages](#7-install-packages)
     - [8. Neovim post-install](#8-neovim-post-install)
+    - [9. Install Snapcraft](#9-install-snapcraft)
+    - [10. Make yay/pacman colourful](#10-make-yaypacman-colourful)
+    - [11. Install microcode](#11-install-microcode)
   - [To-Do](#to-do)
   - [References](#references)
     - [Git multi user](#git-multi-user)
     - [Install Kanagawa theme](#install-kanagawa-theme)
   - [Notes](#notes)
-  - [Windows](#windows)
-    - [Neovim](#neovim)
+    - [Windows](#windows)
+      - [Neovim](#neovim)
     - [Arch setup](#arch-setup)
-  - [Cool things to note](#cool-things-to-note) - [Theme](#theme)
-  <!--toc:end-->
-
-I will make this a little more readable later, for now here is the command I wanted to save somewhere.
-
-## To get started
+      - [Cool things to note](#cool-things-to-note)
+      - [Theme](#theme)
+      - [Downgrade](#downgrade)
+<!--toc:end-->
 
 ### 1. Setup ssh for GitHub
 
@@ -135,22 +134,45 @@ python3 -m pip install --user --upgrade pynvim
 npm install -g neovim
 ```
 
+### 9. Install Snapcraft
+
+```bash
+yay snapd
+sudo systemctl enable --now snapd.socket
+```
+
+### 10. Make yay/pacman colourful
+
+```bash
+sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+```
+
+### 11. Install microcode
+
+Install based on the CPU used
+
+```bash
+yay -S intel-ucode
+# yay -S amd-ucode
+```
+
+It is recommended to restart the machine after installation.
+
 ## To-Do
 
 - [ ] Review bashrc and profile (use only profile)
 - [ ] Review required `brew casks/formula` to run the zsh or bash properly
-- [ ] Review vim XDG location
-- [ ] Add `pbcopy` on Linux => https://ostechnix.com/how-to-use-pbcopy-and-pbpaste-commands-on-linux/
 - [ ] Mission Control is left by default as karabiner keymaps are built on top of it
 - [ ] List desktop to be assigned on MacOS and display (with the right click on icon)
 - [ ] should we use a template for Neovim dashboard to point to `{{ .chezmoi.homeDir }}` or is XDG_CONFIG_HOME fine? => windows issue
 - [ ] Install docker engine through brew in MacOS?
 - [ ] Create a run-once to install the brew basics and login to lastpass
-- [ ] Add a note about yay colour to be added
 - [ ] Sync Sway calendar
 - [ ] Add Vimium key mappings
 - [ ] Configure Calcurse
 - [ ] Look at Timeshift and find out how to partition properly
+- [ ] `yay -Qm` to list all packages from AUR
+- [ ] Neovim `initial_mode = "normal"` does not work for extensions git_diffs
 
 ## References
 
@@ -174,9 +196,9 @@ cp -r themes/Kanagawa-B/gtk-4.0/* ~/.config/gtk-4.0/
 
 - Scripts under `linux` and `windows` are running based on the OS because of `.chezmoiignore.tmpl`
 
-## Windows
+### Windows
 
-### Neovim
+#### Neovim
 
 - requires nvm, node and C
 - needed to have the steps below ran:
@@ -198,17 +220,17 @@ https://github.com/twpayne/chezmoi/issues/2273
 
 To use laptop with dock, make sure to remove security in BIOS and allow Enhanced USB support. Also read through [this](https://community.frame.work/t/arch-caldigit-ts4-dock-xfce4-trials-tribulations-and-fixes/29117) if issues and [configure Kernel parameters in GRUB](https://forum.manjaro.org/t/how-could-i-edit-a-kernel-parameter/63241/3).
 
-## Cool things to note
+#### Cool things to note
 
 ```bash
 wf-recorder -f publish_mobile.mp4 -g "$(slurp)"
 ```
 
-`show me the key` to display keystroes
+drun `show me the key` to display keystrokes
 
 `yay -Yc` remove unneeded packages
 
-### Theme
+#### Theme
 
 There are 2 styling method => gtk and Qt
 
@@ -226,7 +248,7 @@ yay -S kanagawa-gtk-theme-git qt6gtk2 qt5-styleplugins
 
 https://github.com/candyclaws/Utterly-Kanagawa
 
-### Downgrade
+#### Downgrade
 
 Used to Downgrade previously working packages
 
