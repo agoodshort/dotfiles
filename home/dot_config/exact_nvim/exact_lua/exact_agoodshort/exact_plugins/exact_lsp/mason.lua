@@ -10,36 +10,7 @@ return {
 		"folke/neodev.nvim",
 		"kevinhwang91/nvim-ufo",
 		"someone-stole-my-name/yaml-companion.nvim",
-		{
-			"nvimdev/guard.nvim",
-    dependencies = {
-        "nvimdev/guard-collection",
-    },
-			config = function()
-				local ft = require("guard.filetype")
-
-				ft("lua"):fmt("stylua")
-
-				-- prettier
-				ft("markdown"):fmt("prettier")
-				ft("json"):fmt("prettier")
-				ft("yaml"):fmt("prettier")
-				ft("typescript,javascript,typescriptreact"):fmt("prettier")
-
-				ft("sh"):fmt("shfmt")
-
-				-- use lsp to format first then use golines to format
-				-- ft('go'):fmt('lsp')
-				--     :append('golines')
-				--     :lint('golangci')
-
-				-- call setup LAST
-				require("guard").setup({
-					fmt_on_save = true,
-					lsp_as_default_formatter = true,
-				})
-			end,
-		},
+		"nvimdev/guard.nvim",
 	},
 	config = function()
 		require("mason").setup()
