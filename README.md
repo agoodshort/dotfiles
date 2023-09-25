@@ -29,9 +29,29 @@
       - [Downgrade](#downgrade)
 <!--toc:end-->
 
-### 1. Setup ssh for GitHub
+### 1.1. Install Homebrew and required tools
 
-#### 1.1. Create ssh key
+[Homebrew requirements for Linux](https://docs.brew.sh/Homebrew-on-Linux#requirements)
+
+```bash
+if [[ $OSTYPE != 'darwin'* ]];
+  sudo  pacman -S base-devel # At least for Arch Linux
+fi
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+**Warning**: Make sure to follow the steps in "next steps" displayed after the installation.
+
+### 1.2. Install `jq` and `lpass`
+
+```bash
+brew install jq lastpass-cli
+lpass login USERNAME
+```
+
+### 2. Setup ssh for GitHub
+
+#### 2.1. Create ssh key
 
 ```bash
 mkdir ~/.ssh && cd $_
@@ -44,27 +64,16 @@ fi
 
 ```
 
-#### 1.2. Associate the key with GitHub
+#### 2.2. Associate the key with GitHub
 
 Add the copied key in your [GitHub Profile SSH keys](https://github.com/settings/keys).
 
-#### 1.3. Add the GitHub SSH key to known_host
+#### 2.3. Add the GitHub SSH key to known_host
 
 ```bash
 curl --silent https://api.github.com/meta \
   | jq --raw-output '"github.com "+.ssh_keys[]' >> ~/.ssh/known_hosts
 ```
-
-### 2. Install Homebrew
-
-[Homebrew requirements for Linux](https://docs.brew.sh/Homebrew-on-Linux#requirements)
-
-```bash
-sudo  pacman -S base-devel # Arch Linux only
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-**Warning**: Make sure to follow the steps in "next steps" displayed after the installation.
 
 ### 3. Getting started with chezmoi
 
@@ -173,6 +182,8 @@ It is recommended to restart the machine after installation.
 - [ ] Look at Timeshift and find out how to partition properly
 - [ ] `yay -Qm` to list all packages from AUR
 - [ ] Neovim `initial_mode = "normal"` does not work for extensions git_diffs
+- [ ] Install homebrew first, because `jq` is not available by default on macos
+- [ ] Review the `base-devel` step at the beggining to match all distros
 
 ## References
 
