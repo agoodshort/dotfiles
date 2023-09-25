@@ -226,7 +226,8 @@ return {
 			wk.register({
 				g = {
 					name = "Git Tools", -- optional name
-					f = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
+					F = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
+					f = { "<Cmd>DiffviewFileHistory --base=LOCAL %<CR>", "Diffview File History" },
 					c = { "<Cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
 					g = { "<Cmd>Telescope lazygit_toggleterm<CR>", "LazyGit" },
 					u = { "<Cmd>lua _GITUI_TOGGLE()<CR>", "GitUI" },
