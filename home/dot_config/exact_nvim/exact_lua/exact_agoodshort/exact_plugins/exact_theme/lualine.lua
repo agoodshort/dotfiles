@@ -1,10 +1,7 @@
 return {
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = {
-			"kanagawa.nvim",
-			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "neovim/nvim-lspconfig" },
-		},
+		dependencies = "kanagawa.nvim",
 		config = function()
 			local function fileloc()
 				return vim.fn.getcwd()
@@ -16,14 +13,6 @@ return {
 
 			local function codeium()
 				return vim.fn["codeium#GetStatusString"]()
-			end
-
-			local function get_schema()
-				local schema = require("yaml-companion").get_buf_schema(0)
-				if schema.result[1].name == "none" then
-					return ""
-				end
-				return schema.result[1].name
 			end
 
 			local config = {
@@ -39,7 +28,7 @@ return {
 					},
 					lualine_b = { fileloc },
 					lualine_c = { "branch", "diff" },
-					lualine_x = { package_info, "diagnostics", get_schema },
+					lualine_x = { package_info, "diagnostics" },
 					lualine_y = { "filetype" },
 					lualine_z = {
 						{

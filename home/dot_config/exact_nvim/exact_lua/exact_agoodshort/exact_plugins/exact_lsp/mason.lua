@@ -9,7 +9,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"folke/neodev.nvim",
 		"kevinhwang91/nvim-ufo",
-		"someone-stole-my-name/yaml-companion.nvim",
+		"b0o/schemastore.nvim",
 		"nvimdev/guard.nvim",
 	},
 	config = function()
@@ -30,12 +30,14 @@ return {
 
 		-- Add folding capabilities required by ufo.nvim
 		lsp_capabilities.textDocument.foldingRange = {
-			-- dynamicRegistration = false,
+			dynamicRegistration = false,
 			lineFoldingOnly = true,
 		}
 
 		-- local lsp_attach = function(client, bufnr)
 		--              -- Create your keybindings here...
+		--              -- Could it be used to display the name of the schema?
+		--              -- SchemaStore.nvim cannot do it for us
 		-- end
 
 		require("neodev").setup({})
@@ -49,19 +51,36 @@ return {
 				})
 			end,
 
-			-- YAML
-			["yamlls"] = function()
-				-- TODO: Figure out how to call my lsp_attach from inside plugin on_attach
-				local yamlconfig = require("yaml-companion").setup({
+			-- JSON
+			["jsonls"] = function()
+				lspconfig.jsonls.setup({
+					capabilities = lsp_capabilities, -- Needs to be added manually for each LSP
 					settings = {
-						yaml = {
-							keyOrdering = false,
+						json = {
+							schemas = require("schemastore").json.schemas(),
+							validate = { enable = true },
 						},
 					},
 				})
+			end,
 
-				yamlconfig["capabilities"] = lsp_capabilities
-				lspconfig.yamlls.setup(yamlconfig)
+			-- YAML
+			["yamlls"] = function()
+				lspconfig.yamlls.setup({
+					capabilities = lsp_capabilities, -- Needs to be added manually for each LSP
+					settings = {
+						yaml = {
+							keyOrdering = false,
+							schemaStore = {
+								-- You must disable built-in schemaStore support if you want to use this plugin and its advanced options like `ignore`.
+								enable = false,
+								-- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+								url = "",
+							},
+							schemas = require("schemastore").yaml.schemas(),
+						},
+					},
+				})
 			end,
 		})
 	end,

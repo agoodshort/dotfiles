@@ -18,7 +18,6 @@ return {
 			"nvim-telescope/telescope-live-grep-args.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "nvim-telescope/telescope-media-files.nvim", dependencies = "nvim-lua/popup.nvim" },
-			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "neovim/nvim-lspconfig" },
 			{ "nvim-telescope/telescope-file-browser.nvim", dependencies = "nvim-lua/plenary.nvim" },
 			{ "tiagovla/scope.nvim", opts = {} },
 			{ "ziontee113/icon-picker.nvim", opts = { disable_legacy_commands = true } },
@@ -192,7 +191,6 @@ return {
 			require("telescope").load_extension("lazy")
 			require("telescope").load_extension("git_diffs")
 			require("telescope").load_extension("noice")
-			require("telescope").load_extension("yaml_schema")
 			require("telescope").load_extension("scope")
 			require("telescope").load_extension("package_info")
 			require("telescope").load_extension("file_browser")
