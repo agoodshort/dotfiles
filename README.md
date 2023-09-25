@@ -2,11 +2,12 @@
 
 <!--toc:start-->
 - [My chezmoi dotfiles](#my-chezmoi-dotfiles)
-    - [1. Setup ssh for GitHub](#1-setup-ssh-for-github)
-      - [1.1. Create ssh key](#11-create-ssh-key)
-      - [1.2. Associate the key with GitHub](#12-associate-the-key-with-github)
-      - [1.3. Add the GitHub SSH key to known_host](#13-add-the-github-ssh-key-to-knownhost)
-    - [2. Install Homebrew](#2-install-homebrew)
+    - [1.1. Install Homebrew and required tools](#11-install-homebrew-and-required-tools)
+    - [1.2. Install `jq` and `lpass`](#12-install-jq-and-lpass)
+    - [2. Setup ssh for GitHub](#2-setup-ssh-for-github)
+      - [2.1. Create ssh key](#21-create-ssh-key)
+      - [2.2. Associate the key with GitHub](#22-associate-the-key-with-github)
+      - [2.3. Add the GitHub SSH key to known_host](#23-add-the-github-ssh-key-to-knownhost)
     - [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
     - [4. Set zsh as default shell](#4-set-zsh-as-default-shell)
     - [5. Configure node with nvm](#5-configure-node-with-nvm)
