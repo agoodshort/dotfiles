@@ -16,6 +16,3 @@ alias cat='bat'
 
 # global
 alias grep='grep --color'
-
-# vim
-# alias vim='VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc" vim'
