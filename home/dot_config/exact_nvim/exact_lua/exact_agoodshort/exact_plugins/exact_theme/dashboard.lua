@@ -25,25 +25,40 @@ return {
 				{
 					desc = " Files",
 					group = "Float",
-					action = "Telescope file_browser",
+					action = function()
+						vim.cmd("TabRename " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~"))
+						vim.cmd("Telescope file_browser")
+					end,
 					key = "f",
 				},
 				{
 					desc = " Dotfiles",
 					group = "DiagnosticHint",
-					action = "tcd $XDG_CONFIG_HOME | Telescope file_browser",
+					action = function()
+						vim.cmd("tcd $XDG_CONFIG_HOME")
+						vim.cmd("TabRename DotFiles")
+						vim.cmd("Telescope file_browser")
+					end,
 					key = "d",
 				},
 				{
 					desc = " Neovim",
 					group = "String",
-					action = "tcd $XDG_CONFIG_HOME/nvim | Telescope file_browser",
+					action = function()
+						vim.cmd("tcd $XDG_CONFIG_HOME/nvim")
+						vim.cmd("TabRename Neovim Config")
+						vim.cmd("Telescope file_browser")
+					end,
 					key = "n",
 				},
 				{
 					desc = "󰌵 Chezmoi",
 					group = "@property",
-					action = "tcd $XDG_DATA_HOME/chezmoi | Telescope file_browser",
+					action = function()
+						vim.cmd("tcd $XDG_DATA_HOME/chezmoi")
+						vim.cmd("TabRename Chezmoi")
+						vim.cmd("Telescope file_browser")
+					end,
 					key = "c",
 				},
 			},

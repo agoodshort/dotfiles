@@ -1,14 +1,18 @@
 return {
 	"nanozuki/tabby.nvim",
-	event = "TabNew", -- load when new tab is opened
 	config = function()
 		require("tabby.tabline").use_preset(
 			"tab_only",
-			{ tab_name = {
-				name_fallback = function()
-					return ""
-				end,
-			} }
+			{
+				tab_name = {
+					name_fallback = function()
+						return vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
+					end,
+				},
+			}
 		)
+		vim.cmd([[
+    autocmd DirChanged * lua vim.cmd("TabRename " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~"))
+]])
 	end,
 }
