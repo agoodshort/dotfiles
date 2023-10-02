@@ -3,12 +3,11 @@ alias l="eza --icons --group-directories-first"
 alias ll="eza --icons --group-directories-first -la"
 alias lg="eza --icons --group-directories-first --git -la"
 function tree() {
-    if [[ "$@" != "" ]]
-    then
-        eza --tree --icons --group-directories-first "$@"
-    else
-        eza --tree --icons --group-directories-first
-    fi
+	if [[ "$@" != "" ]]; then
+		eza --tree --icons --group-directories-first "$@"
+	else
+		eza --tree --icons --group-directories-first
+	fi
 }
 
 # bat
