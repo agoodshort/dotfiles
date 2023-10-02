@@ -75,12 +75,24 @@ return {
 		}
 
 		-- ####################################################################
+		-- Default keymaps
 
-		-- Default vim keymaps
+		-- Toggle
 		wk.register({
-			N = { "<Cmd>lua vim.opt.relativenumber = false<CR>", "Hide Relative Numbers" }, -- Does not work in VSCode
 			["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format" },
 			["/"] = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
+			N = {
+				function()
+					vim.o.relativenumber = not vim.o.relativenumber
+				end,
+				"Toggle Relative Numbers",
+			},
+			z = {
+				function()
+					vim.o.spell = not vim.o.spell
+				end,
+				"Toggle Spell Check",
+			},
 		}, leader_opts)
 
 		-- Yank/paste
@@ -106,7 +118,7 @@ return {
 
 		-- Windows
 		wk.register({
-			["<C-w>"] = { -- map to "\"
+			["<C-w>"] = {
 				["n"] = { "<Cmd>vsplit<CR>", "Open New Window vertically" },
 				["x"] = { "<C-w>c", "Close Current Window" },
 			},
@@ -148,7 +160,6 @@ return {
 				q = { "<Cmd>QFToggle<CR>", "Toggle Quickfix" },
 				l = { "<Cmd>LLToggle<CR>", "Toggle Loclist" },
 				d = { "<Cmd>Reject<CR>", "Remove Item From Quickfix" },
-				c = { ":cdo ", "Do For All (use :cdo)" },
 			},
 		}, leader_opts)
 
@@ -157,7 +168,7 @@ return {
 				name = "Quickfix",
 				c = { ":cdo ", "Do For All" },
 			},
-		}, { mode = "n", prefix = "<Leader>", buffer = nil, silent = false, noremap = true, nowait = false })
+		}, { mode = "n", prefix = "<Leader>", buffer = nil, silent = false, noremap = true, nowait = false }) -- silent = false makes the command line appear
 
 		-- Escape
 		wk.register({
@@ -168,6 +179,7 @@ return {
 		}, blank_opts_insert)
 
 		-- ####################################################################
+		-- Plugins
 
 		if not vim.g.vscode then
 			-- Neo-tree

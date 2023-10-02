@@ -33,6 +33,11 @@ vim.opt.termguicolors = true
 -- Vim updates faster
 vim.opt.updatetime = 250
 
+-- Spelling
+vim.opt.spelllang = "en_gb"
+vim.opt.spell = true
+vim.cmd([[autocmd TermOpen * setlocal nospell]])
+
 -- Make sure .env.* files get syntax hightlight
 vim.cmd([[autocmd BufNewFile,BufReadPost .env.* set ft=sh]])
 vim.cmd([[autocmd BufNewFile,BufReadPost Brewfile* set ft=sh]])

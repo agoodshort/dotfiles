@@ -47,7 +47,7 @@ fi
 
 ```bash
 brew install jq lastpass-cli
-lpass login USERNAME
+lpass login --trust USERNAME
 ```
 
 ### 2. Setup ssh for GitHub
