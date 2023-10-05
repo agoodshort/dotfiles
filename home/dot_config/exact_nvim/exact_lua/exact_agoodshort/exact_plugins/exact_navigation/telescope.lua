@@ -76,14 +76,14 @@ return {
 					},
 				},
 				extensions = {
-					lazygit_toggleterm = {
-						initial_mode = "normal",
-					},
-					git_diffs = {
-						initial_mode = "normal",
-					},
+					-- lazygit_toggleterm = {
+					-- 	initial_mode = "normal",
+					-- },
+					-- git_diffs = {
+					-- 	initial_mode = "normal",
+					-- },
 					undo = {
-						initial_mode = "normal",
+						-- initial_mode = "normal",
 						use_delta = true,
 						use_custom_command = nil, -- setting this implies `use_delta = false`. Accepted format is: { "bash", "-c", "echo '$DIFF' | delta" }
 						side_by_side = false,
@@ -120,7 +120,7 @@ return {
 						theme = "ivy",
 					},
 					file_browser = {
-						initial_mode = "normal",
+						-- initial_mode = "normal",
 						grouped = true,
 						files = true,
 						add_dirs = true,
