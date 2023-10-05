@@ -18,7 +18,7 @@ return {
 		ft("typescript,javascript,typescriptreact"):fmt("prettier")
 
 		-- sh
-		ft("sh"):fmt("shfmt")
+		ft("sh,zsh"):fmt("shfmt")
 
 		-- use lsp to format first then use golines to format
 		-- ft('go'):fmt('lsp')
