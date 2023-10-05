@@ -190,7 +190,12 @@ return {
 				window = {
 					mappings = {
 						["<bs>"] = "navigate_up",
-						["."] = "set_root",
+						["."] = function(state)
+							local node = state.tree:get_node()
+							if node.type == "directory" then
+								vim.cmd("tcd " .. node.path)
+							end
+						end,
 						["H"] = "toggle_hidden",
 						["/"] = "fuzzy_finder",
 						["D"] = "fuzzy_finder_directory",
