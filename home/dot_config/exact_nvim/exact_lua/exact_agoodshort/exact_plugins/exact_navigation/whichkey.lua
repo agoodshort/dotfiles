@@ -79,7 +79,7 @@ return {
 
 		-- Toggle
 		wk.register({
-			["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format" },
+			["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format Using LSP Only" },
 			["/"] = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
 			N = {
 				function()
@@ -237,9 +237,13 @@ return {
 
 		wk.register({
 			fl = {
-				"\"zy<Cmd>exec 'Telescope live_grep default_text=' . escape(@z, ' ')<cr>",
-				"Live Grep Current Selection",
+				"\"zy<Cmd>exec 'Telescope live_grep custom_hidden=true default_text=' . escape(@z, ' ')<cr>",
+				"Live Grep Current Selection (inc. hidden, exc. .git)",
 			},
+            fll = {
+                "\"zy<Cmd>exec 'Telescope live_grep_args default_text=' . escape(@z, ' ')<cr>",
+                "Live Grep Args Current Selection",
+            }
 		}, leader_opts_visual)
 
 		wk.register({ ["<C-p>"] = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" } }, blank_opts)
@@ -352,7 +356,7 @@ return {
 
 		-- Guard.nvim
 		wk.register({
-			["="] = { "<Cmd>GuardFmt<CR>", "Format Using guard.nvim Only" },
+			["="] = { "<Cmd>GuardFmt<CR>", "Format Using guard.nvim" },
 		}, leader_opts)
 
 		-- Undotree
