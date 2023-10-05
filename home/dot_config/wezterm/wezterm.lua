@@ -15,6 +15,10 @@ end
 -- For example, changing the color scheme:
 -- config.color_scheme = "AdventureTime"
 
+-- Used with indent-blankline.nvim scope
+config.underline_thickness = 2
+config.underline_position = -3
+
 -- Kanagawa theme
 config.force_reverse_video_cursor = true
 config.colors = {
