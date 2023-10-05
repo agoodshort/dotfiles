@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/command-not-found"
+tap "homebrew/services"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazynpm"
 tap "wez/wezterm-linuxbrew"
@@ -10,6 +11,8 @@ brew "openssl@3"
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Yet another cross-platform graphical process/system monitor
+brew "bottom"
 # Collection of Linux utilities
 brew "util-linux"
 # X.Org: Protocol Headers
@@ -24,12 +27,16 @@ brew "chezmoi"
 brew "libssh2"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Anti-virus software
+brew "clamav"
 # Modern, maintained replacement for ls
 brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # GNU compiler collection
 brew "gcc"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # Blazing fast terminal-ui for git written in rust
@@ -52,6 +59,8 @@ brew "ripgrep"
 brew "shfmt"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Upgrade all the things
+brew "topgrade"
 # Weather app for the terminal
 brew "wego"
 # Internet file retriever
@@ -70,6 +79,7 @@ brew "jesseduffield/lazynpm/lazynpm"
 brew "wez/wezterm-linuxbrew/wezterm"
 vscode "bfrangi.vscode-nightingale-theme"
 vscode "bierner.markdown-mermaid"
+vscode "bierner.markdown-preview-github-styles"
 vscode "Codeium.codeium"
 vscode "dbaeumer.vscode-eslint"
 vscode "eamodio.gitlens"
