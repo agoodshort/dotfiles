@@ -65,7 +65,7 @@ return {
 				char = "▏",
 			},
 			exclude = {
-				filetype = {
+				filetypes = {
 					"lspinfo",
 					"packer",
 					"checkhealth",
