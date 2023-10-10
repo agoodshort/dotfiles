@@ -5,6 +5,9 @@ export HOMEBREW_BUNDLE_NO_LOCK=1
 # zsh-syntax-highlighting
 [[ -f "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+# zsh-vim-mode
+[[ -f "$HOMEBREW_PREFIX/share/zsh-vim-mode/zsh-vim-mode.plugin.zsh" ]] && source "$HOMEBREW_PREFIX/share/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
+
 # zsh-autosuggestions
 [[ -f "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 

@@ -39,6 +39,8 @@ brew "zoxide"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# Better and friendly vi(vim) mode plugin for ZSH
+brew "zsh-vi-mode"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker"
 # A simple terminal UI for git commands, written in Go
@@ -87,6 +89,11 @@ vscode "wix.vscode-import-cost"
 tap "wez/wezterm-linuxbrew"
 # A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
 brew "wez/wezterm-linuxbrew/wezterm"
+{{ end -}}
+
+{{- if eq .chezmoi.os "darwin" }}
+# Yet another cross-platform graphical process/system monitor
+brew "bottom"
 {{ end -}}
 
 {{- if not (contains "zsh" (env "SHELL")) }}

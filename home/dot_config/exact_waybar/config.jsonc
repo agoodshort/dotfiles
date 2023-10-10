@@ -43,7 +43,6 @@
     ],
     // Unused modules
     // "backlight"
-
     // -------------------------------------------------------------------------
     // Modules
     // -------------------------------------------------------------------------
@@ -63,7 +62,8 @@
             "",
             ""
         ],
-        "tooltip": true
+        "tooltip": true,
+        "on-click": "swaymsg exec \\$term_float -- btm -e --battery --default_widget_type batt"
     },
     "clock": {
         "interval": 60,
