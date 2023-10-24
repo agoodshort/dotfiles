@@ -57,6 +57,10 @@ brew "ripgrep"
 brew "shfmt"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Simplified and community-driven man pages
+brew "tldr"
 # Upgrade all the things
 brew "topgrade"
 # Weather app for the terminal
