@@ -19,7 +19,7 @@
 
 [matching]
 'brave-browser' = ''
-'microsoft-edge' = '󰇩'
+'Microsoft-edge' = '󰇩'
 '/zsh/' = ''
 '/JIRA/' = '󰌃'
 '/Outlook/' = '󰴢'
