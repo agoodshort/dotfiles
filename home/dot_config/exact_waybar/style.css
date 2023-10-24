@@ -59,7 +59,6 @@ window#waybar {
 #custom-pacman,
 #custom-menu,
 #custom-help,
-#custom-scratchpad,
 #custom-github,
 #custom-clipboard,
 #custom-dnd,
@@ -86,7 +85,6 @@ window#waybar {
  * Module styles
  * -------------------------------------------------------------------------- */
 
-#custom-scratchpad,
 #custom-menu,
 #workspaces button.focused,
 #clock {
