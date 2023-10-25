@@ -1,41 +1,14 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
-# styles - set the folder for your theme definition file
-# set $theme /usr/share/sway/themes/matcha-green
-set $theme $HOME/.config/sway/themes/kanagawa
-
 # theme variables
-include $theme/definitions
+include $HOME/.config/sway/themes/kanagawa/definitions
 
 # global variables
-include /etc/sway/definitions
-
-# user variables
-include $HOME/.config/sway/definitions.d/*.conf
-
-include /etc/sway/inputs/*
-include /etc/sway/outputs/*
+include $HOME/.config/sway/definitions
 
 # enable modes
-include /etc/sway/modes/*
+include $HOME/.config/sway/modes/*
 
 # only enable this if every app you use is compatible with wayland
 # xwayland disable
 
 # include additional configs e.g. to autostart applications
-include /etc/sway/config.d/*
-
-# user config
 include $HOME/.config/sway/config.d/*.conf
-
-# Icon trays
-exec sworkstyle &> /tmp/sworkstyle.log
-
-# App Start-up
-exec slack
-exec microsoft-edge-stable
-exec microsoft-edge-stable --app-id=pkooggnaalmfkidjmlhoelhdllpphaga --app-url=https://outlook.office365.com/mail/

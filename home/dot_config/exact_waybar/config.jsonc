@@ -16,8 +16,7 @@
     "modules-left": [
         "sway/mode",
         "custom/menu",
-        "sway/workspaces",
-        "custom/scratchpad"
+        "sway/workspaces"
     ],
     "modules-center": [
         "tray",
@@ -63,14 +62,15 @@
             ""
         ],
         "tooltip": true,
-        "on-click": "swaymsg exec \\$term_float -- btm -e --battery --default_widget_type batt"
+        "on-click": "swaymsg exec \\$term_float -- btm -e --battery --default_widget_type batt",
+        "on-click-right": "swaymsg exec \\$term_float -- btm"
     },
     "clock": {
         "interval": 60,
         "format": "{:%e %b %Y %H:%M}",
         "tooltip": true,
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
-        "on-click": "swaymsg exec \\$calendar"
+        "on-click": "swaymsg exec \\$term_float calcurse"
     },
     "cpu": {
         "interval": 5,
@@ -79,7 +79,8 @@
             "warning": 70,
             "critical": 90
         },
-        "on-click": "swaymsg exec \\$term_float htop"
+        "on-click": "swaymsg exec \\$term_float -- btm -e --default_widget_type cpu",
+        "on-click-right": "swaymsg exec \\$term_float -- btm"
     },
     "memory": {
         "interval": 5,
@@ -88,7 +89,8 @@
             "warning": 70,
             "critical": 90
         },
-        "on-click": "swaymsg exec \\$term_float htop"
+        "on-click": "swaymsg exec \\$term_float -- btm -e --default_widget_type mem",
+        "on-click-right": "swaymsg exec \\$term_float -- btm"
     },
     "network": {
         "interval": 5,
@@ -96,6 +98,7 @@
         "format-ethernet": "",
         "format-disconnected": "睊",
         "tooltip-format": "{ifname} ({essid}): {ipaddr}",
+        "on-click-right": "swaymsg exec \\$term_float -- btm -e --default_widget_type network",
         "on-click": "swaymsg exec \\$term_float nmtui"
     },
     "sway/mode": {
@@ -139,7 +142,7 @@
         },
         "tooltip-format": "{icon} {volume}% {format_source}",
         "on-click": "swaymsg exec \\$pulseaudio",
-        "on-click-middle": "swaymsg exec \\$volume_mute",
+        "on-click-right": "swaymsg exec \\$volume_mute",
         "on-scroll-up": "swaymsg exec \\$volume_up",
         "on-scroll-down": "swaymsg exec \\$volume_down"
     },
@@ -154,7 +157,8 @@
             ""
         ],
         "tooltip": false,
-        "on-click": "swaymsg exec \"\\$term_float watch sensors\""
+        "on-click": "swaymsg exec \\$term_float -- btm -e --default_widget_type temp",
+        "on-click-right": "swaymsg exec \\$term_float -- btm"
     },
     "tray": {
         "icon-size": 21,
@@ -179,18 +183,6 @@
         "on-click": "swaymsg exec \\$bluetooth",
         "on-click-right": "rfkill toggle bluetooth",
         "tooltip-format": "{}"
-    },
-    "custom/scratchpad": {
-        "interval": "once",
-        "return-type": "json",
-        "format": "{icon}",
-        "format-icons": {
-            "one": "类",
-            "many": "缾"
-        },
-        "exec": "/bin/sh /usr/share/sway/scripts/scratchpad.sh",
-        "on-click": "swaymsg 'scratchpad show'",
-        "signal": 7
     },
     "custom/wf-recorder": {
         "interval": "once",
@@ -218,8 +210,8 @@
         "return-type": "json",
         "format": "{icon}",
         "format-icons": {
-            "Playing": "",
-            "Paused": "奈"
+            "Playing": "",
+            "Paused": ""
         },
         "exec": "playerctl metadata --format '{\"alt\": \"{{status}}\", \"tooltip\": \"{{playerName}}:  {{markup_escape(title)}} - {{markup_escape(artist)}}\" }'",
         "on-click": "playerctl play-pause; pkill -RTMIN+5 waybar",
