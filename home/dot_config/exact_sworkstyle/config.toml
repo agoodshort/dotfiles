@@ -1,6 +1,6 @@
 #
 # pattern: Can either be the exact "app_name" (app_id/class) of the window or a regex string in the format of `"/{regex}/"` which will match the window "title".
-# icon: Your beatiful icon
+# icon: Your beautiful icon
 #
 # verbose format:
 #
@@ -17,15 +17,19 @@
 # You can find icons for nerd fonts here: https://www.nerdfonts.com/cheat-sheet
 # Anything added in here will override the defaults in the package.
 
+fallback = ''
+separator = ' '
+
 [matching]
-'brave-browser' = ''
-'Microsoft-edge' = '󰇩'
-'/zsh/' = ''
-'/JIRA/' = '󰌃'
+# When updating here make sure that the same name is used in sway/config.d/98-application-defaults.conf
+'Brave-browser' = ''
+# Edge web apps before Edge
 '/Outlook/' = '󰴢'
 '/GitHub/' = ''
+'/Google Meet/' = '󰋉'
+'Microsoft-edge' = '󰇩'
+'/zsh/' = ''
 '/Cider/' = ''
 '/Visual Studio Code/' = '󰨞'
 '/Google Chrome/' = ''
 '/lazydocker/' = ''
-'/Google Meet/' = '󰋉'
