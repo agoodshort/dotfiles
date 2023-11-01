@@ -51,6 +51,10 @@ brew "jesseduffield/lazynpm/lazynpm"
 cask "amethyst"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
+# Web browser focusing on privacy
+cask "brave-browser"
+# Tool to remove unnecessary files and folders from disk
+cask "cleanmymac"
 # Developer targeted fonts with a high number of glyphs
 cask "font-hack-nerd-font"
 # Web browser
@@ -73,3 +77,18 @@ cask "visual-studio-code"
 cask "wezterm"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
+vscode "bfrangi.vscode-nightingale-theme"
+vscode "bierner.markdown-checkbox"
+vscode "bierner.markdown-emoji"
+vscode "bierner.markdown-mermaid"
+vscode "bierner.markdown-yaml-preamble"
+vscode "Codeium.codeium"
+vscode "dbaeumer.vscode-eslint"
+vscode "eamodio.gitlens"
+vscode "esbenp.prettier-vscode"
+vscode "ms-azuretools.vscode-docker"
+vscode "ozaki.markdown-github-dark"
+vscode "sndst00m.markdown-github-dark-pack"
+vscode "steoates.autoimport"
+vscode "WakaTime.vscode-wakatime"
+vscode "wix.vscode-import-cost"
