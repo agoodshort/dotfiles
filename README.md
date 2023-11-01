@@ -1,9 +1,12 @@
 # My chezmoi dotfiles
 
 <!--toc:start-->
+
 - [My chezmoi dotfiles](#my-chezmoi-dotfiles)
-    - [1.1. Install Homebrew and required tools](#11-install-homebrew-and-required-tools)
-    - [1.2. Install `jq` and `lpass`](#12-install-jq-and-lpass)
+  - [Installation steps](#installation-steps)
+    - [1. Homebrew](#1-homebrew)
+      - [1.1. Install Homebrew and required tools](#11-install-homebrew-and-required-tools)
+      - [1.2. Install `jq` and `lpass`](#12-install-jq-and-lpass)
     - [2. Setup ssh for GitHub](#2-setup-ssh-for-github)
       - [2.1. Create ssh key](#21-create-ssh-key)
       - [2.2. Associate the key with GitHub](#22-associate-the-key-with-github)
@@ -11,39 +14,32 @@
     - [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
     - [4. Set zsh as default shell](#4-set-zsh-as-default-shell)
     - [5. Configure node with nvm](#5-configure-node-with-nvm)
-    - [6. Install yay (AUR helper) and create the personal directory](#6-install-yay-aur-helper-and-create-the-personal-directory)
-    - [7. Install packages](#7-install-packages)
-    - [8. Neovim post-install](#8-neovim-post-install)
-    - [9. Install Snapcraft](#9-install-snapcraft)
-    - [10. Make yay/pacman colourful](#10-make-yaypacman-colourful)
-    - [11. Install microcode](#11-install-microcode)
+    - [6. Install packages](#6-install-packages)
+    - [7. Neovim post-install](#7-neovim-post-install)
+    - [8. Install Sway](#8-install-sway)
   - [To-Do](#to-do)
-  - [References](#references)
-    - [Git multi user](#git-multi-user)
-    - [Install Kanagawa theme](#install-kanagawa-theme)
   - [Notes](#notes)
     - [Windows](#windows)
       - [Neovim](#neovim)
-    - [Arch setup](#arch-setup)
-      - [Cool things to note](#cool-things-to-note)
-      - [Theme](#theme)
-      - [Downgrade](#downgrade)
-<!--toc:end-->
+    - [Ubuntu](#ubuntu)
+  - [References](#references) - [Git multi user](#git-multi-user)
+  <!--toc:end-->
 
-### 1.1. Install Homebrew and required tools
+## Installation steps
 
-[Homebrew requirements for Linux](https://docs.brew.sh/Homebrew-on-Linux#requirements)
+### 1. Homebrew
+
+#### 1.1. Install Homebrew and required tools
+
+Install the [Homebrew dependencies for Linux](https://docs.brew.sh/Homebrew-on-Linux#requirements)
 
 ```bash
-if [[ $OSTYPE != 'darwin'* ]];
-  sudo  pacman -S base-devel # At least for Arch Linux
-fi
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 **Warning**: Make sure to follow the steps in "next steps" displayed after the installation.
 
-### 1.2. Install `jq` and `lpass`
+#### 1.2. Install `jq` and `lpass`
 
 ```bash
 brew install jq lastpass-cli
@@ -78,16 +74,16 @@ curl --silent https://api.github.com/meta \
 
 ### 3. Getting started with chezmoi
 
+Install Visual Studio Code before installing `chezmoi` as `brew` will fail to install Visual Studio Code extensions at first run.
+TODO: Can we check if vscode is installed on the brewfile template?
+
 ```bash
+snap install code --classic
 brew install chezmoi
 chezmoi init --apply agoodshort
 ```
 
 ### 4. Set zsh as default shell
-
-Default on Arch linux.
-
-TODO: do not install zsh with brew if on arch
 
 Note: we need to write manually `zsh` in `/etc/shells` because we install it from homebrew
 
@@ -104,109 +100,84 @@ chsh -s $(which zsh)
 nvm install lts/gallium
 ```
 
-### 6. Install yay (AUR helper) and create the personal directory
-
-```bash
-mkdir -p ~/Coding/Personal && cd $_
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ../
-rm -rf yay
-yay -Y --gendb
-yay -Syu --devel
-yay -Y --devel --save
-```
-
-### 7. Install packages
+### 6. Install packages
 
 ```bash
 yay -Sy microsoft-edge-stable-bin \
-flameshot-git \
-postman-bin \
-visual-studio-code-bin \
-nosql-workbench \
-sworkstyle \
-zoom \
-slack-desktop \
-deskreen-bin \
-github-cli
+nosql-workbench
 pacman -Sy docker \
 brave-browser
 sudo chmod 666 /var/run/docker.sock
 xdg-settings set default-web-browser microsoft-edge.desktop
 ```
 
-### 8. Neovim post-install
+### 7. Neovim post-install
 
 ```bash
 python3 -m pip install --user --upgrade pynvim
 npm install -g neovim
 ```
 
-### 9. Install Snapcraft
+### 8. Install Sway
+
+TODO: Find a way to install `mako`
+TODO: list cargos
 
 ```bash
-yay snapd
-sudo systemctl enable --now snapd.socket
+sudo apt install sway rofi swayidle waybar playerctl kanshi qt5-style-kvantum qt5-style-kvantum-themes
+cargo install sworstyle
 ```
 
-### 10. Make yay/pacman colourful
+Required with this config and `grimshot` => `grim`, `slurp`, `swaymsg`, `wl-copy`, `jq`, `notify-send`
+
+### 9. Theme Ubuntu
 
 ```bash
-sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+sudo apt install gnome-tweaks gnome-shell-extensions
 ```
-
-### 11. Install microcode
-
-Install based on the CPU used
-
-```bash
-yay -S intel-ucode
-# yay -S amd-ucode
-```
-
-It is recommended to restart the machine after installation.
 
 ## To-Do
 
 - [ ] Review bashrc and profile (use only profile)
-- [ ] Review required `brew casks/formula` to run the zsh or bash properly
 - [ ] Mission Control is left by default as karabiner keymaps are built on top of it
 - [ ] List desktop to be assigned on MacOS and display (with the right click on icon)
 - [ ] should we use a template for Neovim dashboard to point to `{{ .chezmoi.homeDir }}` or is XDG_CONFIG_HOME fine? => windows issue
 - [ ] Install docker engine through brew in MacOS?
 - [ ] Create a run-once to install the brew basics and login to lastpass
-- [ ] Sync Sway calendar
 - [ ] Add Vimium key mappings
+- [ ] Set custom/pamac in waybar as a template to work based on the OS
 - [ ] Configure Calcurse
 - [ ] Look at Timeshift and find out how to partition properly
-- [ ] `yay -Qm` to list all packages from AUR
 - [ ] Neovim `initial_mode = "normal"` does not work for extensions git_diffs
-- [ ] Install homebrew first, because `jq` is not available by default on macos
-- [ ] Review the `base-devel` step at the beggining to match all distros
+- [ ] Review how to use `K` when on neovim man page
+- [ ] Can we find a cross platform flameshot with wayland
+- [ ] Mount [secondary drive as home folder](https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/)
+- [ ] Review the install of `clamav` with brew
 
-## References
+```
+To finish installation & run clamav you will need to edit
+the example conf files at /home/linuxbrew/.linuxbrew/etc/clamav/
 
-### Git multi user
+To start clamav now and restart at startup:
+  sudo brew services start clamav
+Or, if you don't want/need a background service you can just run:
+  /home/linuxbrew/.linuxbrew/opt/clamav/sbin/clamd --foreground
+```
 
-- https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610
-- https://stackoverflow.com/a/74832574/13795415
-- https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3
-
-### Install Kanagawa theme
+- [ ] When installing `neovim` we need to use `env TERM=wezterm nvim` - [documentation](https://wezfurlong.org/wezterm/faq.html#how-do-i-enable-undercurl-curly-underlines)
 
 ```bash
-cd ~/Coding/Personal/
-git clone git@agoodshort.github.com:Fausto-Korpsvart/Kanagawa-GKT-Theme.git
-cd Kanagawa-GKT-Theme
-cp -r themes/Kanagawa-B ~/.themes
-cp -r themes/Kanagawa-B/gtk-4.0/* ~/.config/gtk-4.0/
+tempfile=$(mktemp) \
+  && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo \
+  && tic -x -o ~/.terminfo $tempfile \
+  && rm $tempfile
 ```
 
 ## Notes
 
 - Scripts under `linux` and `windows` are running based on the OS because of `.chezmoiignore.tmpl`
+
+- `wezterm imgcat /path/to/image.png` to display an image
 
 ### Windows
 
@@ -228,42 +199,19 @@ chezmoi should create (or edit if not existing) the Powershell profile ($PROFILE
 
 https://github.com/twpayne/chezmoi/issues/2273
 
-### Arch setup
+### Ubuntu
 
-To use laptop with dock, make sure to remove security in BIOS and allow Enhanced USB support. Also read through [this](https://community.frame.work/t/arch-caldigit-ts4-dock-xfce4-trials-tribulations-and-fixes/29117) if issues and [configure Kernel parameters in GRUB](https://forum.manjaro.org/t/how-could-i-edit-a-kernel-parameter/63241/3).
+Look for a way to install:
 
-#### Cool things to note
+- patat
+- keylogger like showmethekey
+- edge
+- Cider
 
-```bash
-wf-recorder -f publish_mobile.mp4 -g "$(slurp)"
-```
+## References
 
-drun `show me the key` to display keystrokes
+### Git multi user
 
-`yay -Yc` remove unneeded packages
-
-#### Theme
-
-There are 2 styling method => gtk and Qt
-
-```
-lxappearance
-qt5ct
-qt6ct
-```
-
-[For theme matching](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#QGtkStyle)
-
-```
-yay -S kanagawa-gtk-theme-git qt6gtk2 qt5-styleplugins
-```
-
-https://github.com/candyclaws/Utterly-Kanagawa
-
-#### Downgrade
-
-Used to Downgrade previously working packages
-
-```
-sudo downgrade code
-```
+- https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610
+- https://stackoverflow.com/a/74832574/13795415
+- https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3
