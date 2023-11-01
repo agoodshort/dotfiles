@@ -5,6 +5,10 @@
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+{{- if (or (eq (env "XDG_RUNTIME_DIR") "") (ne (env "XDG_RUNTIME_DIR") "$HOME/.run")) }}
+export XDG_RUNTIME_DIR="$HOME/.run"
+mkdir -p -m 0700 $HOME/.run
+{{- end }}
 
 # Wakatime
 export WAKATIME_HOME="$HOME/.config/wakatime"
