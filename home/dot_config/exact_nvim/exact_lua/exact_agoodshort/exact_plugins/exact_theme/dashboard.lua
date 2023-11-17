@@ -27,7 +27,7 @@ return {
 					group = "Float",
 					action = function()
 						vim.cmd("TabRename " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~"))
-						vim.cmd("Telescope file_browser")
+						vim.cmd("Neotree position=current")
 					end,
 					key = "f",
 				},
@@ -37,7 +37,7 @@ return {
 					action = function()
 						vim.cmd("tcd $XDG_CONFIG_HOME")
 						vim.cmd("TabRename DotFiles")
-						vim.cmd("Telescope file_browser")
+						vim.cmd("Neotree position=current")
 					end,
 					key = "d",
 				},
@@ -47,7 +47,7 @@ return {
 					action = function()
 						vim.cmd("tcd $XDG_CONFIG_HOME/nvim")
 						vim.cmd("TabRename Neovim Config")
-						vim.cmd("Telescope file_browser")
+						vim.cmd("Neotree position=current")
 					end,
 					key = "n",
 				},
@@ -57,7 +57,7 @@ return {
 					action = function()
 						vim.cmd("tcd $XDG_DATA_HOME/chezmoi")
 						vim.cmd("TabRename Chezmoi")
-						vim.cmd("Telescope file_browser")
+						vim.cmd("Neotree position=current")
 					end,
 					key = "c",
 				},

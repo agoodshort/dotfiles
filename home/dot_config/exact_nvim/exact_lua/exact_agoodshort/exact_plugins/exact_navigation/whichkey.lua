@@ -212,7 +212,6 @@ return {
 		wk.register({
 			B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
 			bb = { "<Cmd>Telescope buffers initial_mode=normal<CR>", "Tabbed Buffers" },
-			ee = { "<Cmd>Telescope file_browser<CR>", "File Browser" },
 			f = {
 				name = "Telescope", -- optional group name
 				a = { "<Cmd>Telescope lazy<CR>", "List Lazy plugins" },
@@ -224,7 +223,6 @@ return {
 				k = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" },
 				l = { "<Cmd>Telescope live_grep custom_hidden=true<CR>", "Live Grep (inc. hidden, exc. .git)" },
 				ll = { "<Cmd>Telescope live_grep_args<CR>", "Live Grep Args" },
-				m = { "<Cmd>Telescope media_files<CR>", "Preview Images" },
 				n = { "<Cmd>Telescope node_modules list<CR>", "List Node Modules" },
 				N = { "<Cmd>Telescope package_info<CR>", "Package Info" },
 				s = { "<Cmd>Telescope grep_string<CR>", "Grep String" },

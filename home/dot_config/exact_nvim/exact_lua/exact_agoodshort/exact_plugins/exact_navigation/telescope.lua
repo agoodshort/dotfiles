@@ -17,33 +17,11 @@ return {
 			"paopaol/telescope-git-diffs.nvim",
 			"nvim-telescope/telescope-live-grep-args.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			{ "nvim-telescope/telescope-media-files.nvim", dependencies = "nvim-lua/popup.nvim" },
-			{ "nvim-telescope/telescope-file-browser.nvim", dependencies = "nvim-lua/plenary.nvim" },
 			{ "tiagovla/scope.nvim", opts = {} },
 			{ "ziontee113/icon-picker.nvim", opts = { disable_legacy_commands = true } },
 		},
 		config = function()
-			local fb_actions = require("telescope._extensions.file_browser.actions")
-			local fb_utils = require("telescope._extensions.file_browser.utils")
 			local actions = require("telescope.actions")
-			local action_state = require("telescope.actions.state")
-
-			local custom_change_tab_cwd = function(prompt_bufnr)
-				local current_picker = action_state.get_current_picker(prompt_bufnr)
-				local finder = current_picker.finder
-				local entry_path = action_state.get_selected_entry().Path
-				finder.path = entry_path:is_dir() and entry_path:absolute() or entry_path:parent():absolute()
-				finder.cwd = finder.path
-				vim.cmd("tcd " .. finder.path)
-
-				fb_utils.redraw_border_title(current_picker)
-				current_picker:refresh(finder, { reset_prompt = true, multi = current_picker._multi })
-				fb_utils.notify("action.custom_change_tab_cwd", {
-					msg = "Set the tab current working directory",
-					level = "INFO",
-					quiet = finder.quiet,
-				})
-			end
 
 			require("telescope").setup({
 				defaults = {
@@ -95,11 +73,6 @@ return {
 							},
 						},
 					},
-					media_files = {
-						-- filetypes whitelist
-						filetypes = { "png", "webp", "jpg", "jpeg" }, -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-						find_cmd = "rg", -- find command (defaults to `fd`)
-					},
 					lazy = {
 						-- Whether or not to show the icon in the first column
 						show_icon = true,
@@ -119,62 +92,6 @@ return {
 						-- Optional theme (the extension doesn't set a default theme)
 						theme = "ivy",
 					},
-					file_browser = {
-						-- initial_mode = "normal",
-						grouped = true,
-						files = true,
-						add_dirs = true,
-						depth = 1,
-						auto_depth = false,
-						select_buffer = true,
-						hidden = true,
-						hide_parent_dir = false,
-						-- collapse_dirs = true, -- if present breaks the config
-						prompt_path = false,
-						quiet = false,
-						display_stat = { date = true, size = true, mode = true },
-						preview = { ls_short = true },
-						hijack_netrw = true,
-						use_fd = true,
-						git_status = true,
-						mappings = {
-							["i"] = {
-								["<C-c>"] = actions.close,
-								["<C-n>"] = fb_actions.create,
-								["<S-CR>"] = fb_actions.create_from_prompt,
-								["<C-r>"] = fb_actions.rename,
-								["<A-m>"] = fb_actions.move,
-								["<A-y>"] = fb_actions.copy,
-								["<A-d>"] = fb_actions.remove,
-								["<C-o>"] = fb_actions.open,
-								["<C-g>"] = fb_actions.goto_parent_dir,
-								["<C-e>"] = fb_actions.goto_home_dir,
-								["<C-w>"] = fb_actions.goto_cwd,
-								["<C-f>"] = fb_actions.toggle_browser,
-								["<C-h>"] = fb_actions.toggle_hidden,
-								["<C-a>"] = fb_actions.toggle_all,
-								["<bs>"] = fb_actions.backspace,
-								["<C-.>"] = custom_change_tab_cwd,
-							},
-							["n"] = {
-								["<C-c>"] = actions.close,
-								["q"] = actions.close,
-								["n"] = fb_actions.create,
-								["r"] = fb_actions.rename,
-								["m"] = fb_actions.move,
-								["c"] = fb_actions.copy,
-								["d"] = fb_actions.remove,
-								["o"] = fb_actions.open,
-								["g"] = fb_actions.goto_parent_dir,
-								["e"] = fb_actions.goto_home_dir,
-								["w"] = fb_actions.goto_cwd,
-								["f"] = fb_actions.toggle_browser,
-								["h"] = fb_actions.toggle_hidden,
-								["a"] = fb_actions.toggle_all,
-								["."] = custom_change_tab_cwd,
-							},
-						},
-					},
 				},
 			})
 			require("telescope").load_extension("fzf")
@@ -186,14 +103,12 @@ return {
 			require("telescope").load_extension("neoclip")
 			require("telescope").load_extension("ui-select")
 			require("telescope").load_extension("lazygit_toggleterm")
-			require("telescope").load_extension("media_files")
 			require("telescope").load_extension("node_modules")
 			require("telescope").load_extension("lazy")
 			require("telescope").load_extension("git_diffs")
 			require("telescope").load_extension("noice")
 			require("telescope").load_extension("scope")
 			require("telescope").load_extension("package_info")
-			require("telescope").load_extension("file_browser")
 			require("telescope").load_extension("live_grep_args")
 		end,
 	},
