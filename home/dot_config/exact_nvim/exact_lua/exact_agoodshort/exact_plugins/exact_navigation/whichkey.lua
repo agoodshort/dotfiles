@@ -142,11 +142,11 @@ return {
 			["K"] = { ":m '<-2<CR>gv=gv", "Move Text to Previous line" },
 		}, blank_opts_visual)
 
-		-- Up and down centered
-		wk.register({
-			["<C-u>"] = { "<C-u>zz", "Move up centered" },
-			["<C-d>"] = { "<C-d>zz", "Move down centered" },
-		}, blank_opts)
+		-- -- Up and down centered
+		-- wk.register({
+		-- 	["<C-u>"] = { "<C-u>zz", "Move up centered" },
+		-- 	["<C-d>"] = { "<C-d>zz", "Move down centered" },
+		-- }, blank_opts)
 
 		-- Quickfix
 		wk.register({
