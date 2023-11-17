@@ -1,6 +1,7 @@
 return {
 	"petertriho/nvim-scrollbar",
 	event = "BufReadPost",
+	dependencies = { "lewis6991/gitsigns.nvim", "kevinhwang91/nvim-hlslens" },
 	config = function()
 		require("scrollbar").setup({
 			show = true,
@@ -117,7 +118,7 @@ return {
 				"TelescopePrompt",
 				"noice",
 				"neo-tree",
-                "lazy"
+				"lazy",
 			},
 			autocmd = {
 				render = {
@@ -140,9 +141,9 @@ return {
 			handlers = {
 				cursor = true,
 				diagnostic = true,
-				gitsigns = false, -- Requires gitsigns
+				gitsigns = true, -- Requires gitsigns
 				handle = true,
-				search = false, -- Requires hlslens
+				search = true, -- Requires hlslens
 				ale = false, -- Requires ALE
 			},
 		})

@@ -2,11 +2,9 @@ return {
 	"folke/noice.nvim",
 	dependencies = {
 		"MunifTanjim/nui.nvim",
-		-- OPTIONAL:
-		--   `nvim-notify` is only needed, if you want to use the notification view.
-		--   If not available, we use `mini` as the fallback
 		"rcarriga/nvim-notify",
 	},
+    event = "VeryLazy",
 	config = function()
 		require("noice").setup({
 			commands = {
@@ -43,6 +41,24 @@ return {
 					throttle = 1000 / 30, -- frequency to update lsp progress message
 					view = "mini",
 				},
+			},
+			smart_move = {
+				-- noice tries to move out of the way of existing floating windows.
+				enabled = true, -- you can disable this behaviour here
+				-- add any filetypes here, that shouldn't trigger smart move.
+				-- excluded_filetypes = { "cmp_menu", "cmp_docs", "notify" },
+				excluded_filetypes = { "cmp_menu", "cmp_docs" },
+			},
+			messages = {
+				-- NOTE: If you enable messages, then the cmdline is enabled automatically.
+				-- This is a current Neovim limitation.
+				enabled = true, -- enables the Noice messages UI
+				view = "notify", -- default view for messages
+				view_error = "notify", -- view for errors
+				view_warn = "notify", -- view for warnings
+				view_history = "messages", -- view for :messages
+				-- view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+				view_search = false, -- set to false to use the nvim-hlslens instead
 			},
 			-- you can enable a preset for easier configuration
 			presets = {
