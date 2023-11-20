@@ -29,6 +29,8 @@ brew "lastpass-cli"
 brew "lazygit"
 # Curses-based tool for viewing and analyzing log files
 brew "lnav"
+# Mac App Store command-line interface
+brew "mas"
 # Fast, highly customisable system info script
 brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -91,6 +93,7 @@ cask "visual-studio-code"
 cask "wezterm"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
+mas "Numbers", id: 409203825
 vscode "bfrangi.vscode-nightingale-theme"
 vscode "bierner.markdown-checkbox"
 vscode "bierner.markdown-emoji"
