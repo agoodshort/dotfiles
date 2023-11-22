@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# lazy-lock.json hash: {{ include "dot_config/exact_nvim/lazy-lock.json" | sha256sum }}
-
 echo "----- start: nvim-update.sh -----"
 
 if [[ -e $HOME/.config/nvim/lazy-lock.json ]]; then
@@ -13,7 +11,7 @@ if [[ -e $HOME/.config/nvim/lazy-lock.json ]]; then
         echo "npm is not installed. npm is required by Mason"
     fi
 else
-    echo "lazy-lock.json does not exist, impossible to update"
+    echo "lazy-lock.json does not exist, impossible to update Neovim plugins"
 fi
 
 echo "----- end: nvim-update.sh -----"
