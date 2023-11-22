@@ -9,7 +9,7 @@ return {
 			"jvgrootveld/telescope-zoxide",
 			"keyvchan/telescope-find-pickers.nvim",
 			"debugloop/telescope-undo.nvim",
-			"agoodshort/telescope-lazygit-toggleterm.nvim",
+			"agoodshort/telescope-git-submodules.nvim",
 			"AckslD/nvim-neoclip.lua",
 			"nvim-telescope/telescope-ui-select.nvim",
 			"nvim-telescope/telescope-node-modules.nvim",
@@ -54,7 +54,7 @@ return {
 					},
 				},
 				extensions = {
-					-- lazygit_toggleterm = {
+					-- git_submodules = {
 					-- 	initial_mode = "normal",
 					-- },
 					-- git_diffs = {
@@ -102,7 +102,7 @@ return {
 			require("telescope").load_extension("undo")
 			require("telescope").load_extension("neoclip")
 			require("telescope").load_extension("ui-select")
-			require("telescope").load_extension("lazygit_toggleterm")
+			require("telescope").load_extension("git_submodules")
 			require("telescope").load_extension("node_modules")
 			require("telescope").load_extension("lazy")
 			require("telescope").load_extension("git_diffs")
