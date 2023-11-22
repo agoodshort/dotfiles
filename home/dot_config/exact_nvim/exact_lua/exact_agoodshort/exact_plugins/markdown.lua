@@ -14,9 +14,13 @@ return {
 	},
 	{
 		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = "markdown",
 		lazy = true,
-		build = "cd app && npm install && git reset --hard",
+		build = "cd app && npm install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
 	},
 
 	{
