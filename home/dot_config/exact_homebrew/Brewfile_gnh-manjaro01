@@ -5,6 +5,12 @@ tap "homebrew/services"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazynpm"
 tap "wez/wezterm-linuxbrew"
+# C parser in Python
+brew "pycparser"
+# C Foreign Function Interface for Python
+brew "cffi"
+# Text processing system for reStructuredText
+brew "docutils"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
 # Official Amazon AWS command-line interface
@@ -19,6 +25,10 @@ brew "util-linux"
 brew "xorgproto"
 # Validate CloudFormation templates against the CloudFormation spec
 brew "cfn-lint"
+# Database of common MIME types
+brew "shared-mime-info"
+# Library to render SVG files using Cairo
+brew "librsvg"
 # Versatile and fast Unicode/ASCII/ANSI graphics renderer
 brew "chafa"
 # Manage your dotfiles across multiple diverse machines, securely
@@ -55,12 +65,18 @@ brew "neofetch"
 brew "neovim"
 # Manage multiple Node.js versions
 brew "nvm"
+# Tools for and transforming and inspecting PDF files
+brew "qpdf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Autoformat shell script source code
 brew "shfmt"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Opinionated Lua code formatter
+brew "stylua"
+# TOML toolkit written in Rust
+brew "taplo"
 # Programmatically correct mistyped console commands
 brew "thefuck"
 # Simplified and community-driven man pages
