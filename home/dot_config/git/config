@@ -16,3 +16,5 @@
     insteadOf = ssh://git@github.com/mgtgnh
 [url "git@agoodshort.github.com:agoodshort"]
     insteadOf = https://github.com/agoodshort
+[init]
+	defaultBranch = main
