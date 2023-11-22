@@ -1,7 +1,6 @@
 # My chezmoi dotfiles
 
 <!--toc:start-->
-
 - [My chezmoi dotfiles](#my-chezmoi-dotfiles)
   - [Installation steps](#installation-steps)
     - [1. Homebrew](#1-homebrew)
@@ -17,13 +16,13 @@
     - [6. Install packages](#6-install-packages)
     - [7. Neovim post-install](#7-neovim-post-install)
     - [8. Install Sway](#8-install-sway)
+    - [9. Theme Ubuntu](#9-theme-ubuntu)
   - [To-Do](#to-do)
   - [Notes](#notes)
-    - [Windows](#windows)
-      - [Neovim](#neovim)
     - [Ubuntu](#ubuntu)
-  - [References](#references) - [Git multi user](#git-multi-user)
-  <!--toc:end-->
+  - [References](#references)
+    - [Git multi user](#git-multi-user)
+<!--toc:end-->
 
 ## Installation steps
 
@@ -139,17 +138,12 @@ sudo apt install gnome-tweaks gnome-shell-extensions
 ## To-Do
 
 - [ ] Review bashrc and profile (use only profile)
-- [ ] Mission Control is left by default as karabiner keymaps are built on top of it
-- [ ] List desktop to be assigned on MacOS and display (with the right click on icon)
-- [ ] should we use a template for Neovim dashboard to point to `{{ .chezmoi.homeDir }}` or is XDG_CONFIG_HOME fine? => windows issue
-- [ ] Install docker engine through brew in MacOS?
-- [ ] Create a run-once to install the brew basics and login to lastpass
 - [ ] Add Vimium key mappings
 - [ ] Set custom/pamac in waybar as a template to work based on the OS
 - [ ] Configure Calcurse
+- [ ] Create a [bootstrap script](https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/) using chezmoi `run_once_before` to install the brew basics and login to lastpass
 - [ ] Look at Timeshift and find out how to partition properly
-- [ ] Neovim `initial_mode = "normal"` does not work for extensions git_diffs
-- [ ] Review how to use `K` when on neovim man page
+- [ ] Review `zathura` and `qpdf` for pdf and file preview
 - [ ] Can we find a cross platform flameshot with wayland
 - [ ] Mount [secondary drive as home folder](https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/)
 - [ ] Review the install of `clamav` with brew
@@ -178,26 +172,6 @@ tempfile=$(mktemp) \
 - Scripts under `linux` and `windows` are running based on the OS because of `.chezmoiignore.tmpl`
 
 - `wezterm imgcat /path/to/image.png` to display an image
-
-### Windows
-
-#### Neovim
-
-- requires nvm, node and C
-- needed to have the steps below ran:
-
-```bash
-scoop install mingw
-npm install -g tree-sitter-cli
-
-
-cd C:\Users\Digital6\AppData\Local\nvim-data\site\pack\packer\start\telescope-fzf-native.nvim
-make
-```
-
-chezmoi should create (or edit if not existing) the Powershell profile ($PROFILE) and have the line `Invoke-Expression (&starship init powershell)`
-
-https://github.com/twpayne/chezmoi/issues/2273
 
 ### Ubuntu
 
