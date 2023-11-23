@@ -1,23 +1,18 @@
 # Notes dedicated to Arch Linux
 
-### 9. Make yay/pacman colourful
+<!--toc:start-->
+- [Notes dedicated to Arch Linux](#notes-dedicated-to-arch-linux)
+  - [1. Install yay (AUR helper) and create the personal directory](#1-install-yay-aur-helper-and-create-the-personal-directory)
+  - [2. Make yay/pacman colourful](#2-make-yaypacman-colourful)
+  - [3. Install microcode](#3-install-microcode)
+  - [4. Install Kanagawa theme](#4-install-kanagawa-theme)
+  - [4. Theming between GTK and QT - to review](#4-theming-between-gtk-and-qt-to-review)
+  - [5. Configure dock](#5-configure-dock)
+  - [6. Cool things to note](#6-cool-things-to-note)
+    - [Downgrade](#downgrade)
+<!--toc:end-->
 
-```bash
-sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
-```
-
-### 10. Install microcode
-
-Install based on the CPU used
-
-Already installed on Ubuntu
-
-```bash
-yay -S intel-ucode
-# yay -S amd-ucode
-```
-
-### 6. Install yay (AUR helper) and create the personal directory
+## 1. Install yay (AUR helper) and create the personal directory
 
 ```bash
 mkdir -p ~/Coding/Personal && cd $_
@@ -31,7 +26,22 @@ yay -Syu --devel
 yay -Y --devel --save
 ```
 
-### Install Kanagawa theme
+## 2. Make yay/pacman colourful
+
+```bash
+sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+```
+
+## 3. Install microcode
+
+Install based on the CPU used (this is installed by default on Ubuntu)
+
+```bash
+yay -S intel-ucode
+# yay -S amd-ucode
+```
+
+## 4. Install Kanagawa theme
 
 ```bash
 yay -S kanagawa-gtk-theme-git
@@ -44,7 +54,7 @@ cd stylepak
 
 Use `lxappearance` to review the theme applied.
 
-#### Theming between GTK and QT - to review
+## 4. Theming between GTK and QT - to review
 
 There are 2 styling method => gtk and Qt
 
@@ -62,11 +72,11 @@ yay -S kanagawa-gtk-theme-git qt6gtk2 qt5-styleplugins
 
 If needed => https://github.com/candyclaws/Utterly-Kanagawa
 
-### Arch setup
+## 5. Configure dock
 
 To use laptop with dock, make sure to remove security in BIOS and allow Enhanced USB support. Also read through [this](https://community.frame.work/t/arch-caldigit-ts4-dock-xfce4-trials-tribulations-and-fixes/29117) if issues and [configure Kernel parameters in GRUB](https://forum.manjaro.org/t/how-could-i-edit-a-kernel-parameter/63241/3).
 
-#### Cool things to note
+## 6. Cool things to note
 
 ```bash
 wf-recorder -f publish_mobile.mp4 -g "$(slurp)"
@@ -78,8 +88,7 @@ drun `show me the key` to display keystrokes
 
 `yay -Qm` list all AUR packages
 
-
-#### Downgrade
+### Downgrade
 
 Used to Downgrade previously working packages
 
