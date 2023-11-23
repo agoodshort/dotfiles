@@ -14,9 +14,8 @@
     - [4. Set zsh as default shell](#4-set-zsh-as-default-shell)
     - [5. Configure node with nvm](#5-configure-node-with-nvm)
     - [6. Install packages](#6-install-packages)
-    - [7. Neovim post-install](#7-neovim-post-install)
-    - [8. Install Sway](#8-install-sway)
-    - [9. Theme Ubuntu](#9-theme-ubuntu)
+    - [7. Install Sway](#7-install-sway)
+    - [8. Theme Ubuntu](#8-theme-ubuntu)
   - [To-Do](#to-do)
   - [Notes](#notes)
     - [Ubuntu](#ubuntu)
@@ -110,14 +109,7 @@ sudo chmod 666 /var/run/docker.sock
 xdg-settings set default-web-browser microsoft-edge.desktop
 ```
 
-### 7. Neovim post-install
-
-```bash
-python3 -m pip install --user --upgrade pynvim
-npm install -g neovim
-```
-
-### 8. Install Sway
+### 7. Install Sway
 
 TODO: Find a way to install `mako`
 TODO: list cargos
@@ -129,7 +121,7 @@ cargo install sworstyle
 
 Required with this config and `grimshot` => `grim`, `slurp`, `swaymsg`, `wl-copy`, `jq`, `notify-send`
 
-### 9. Theme Ubuntu
+### 8. Theme Ubuntu
 
 ```bash
 sudo apt install gnome-tweaks gnome-shell-extensions
@@ -141,7 +133,7 @@ sudo apt install gnome-tweaks gnome-shell-extensions
 - [ ] Add Vimium key mappings
 - [ ] Set custom/pamac in waybar as a template to work based on the OS
 - [ ] Configure Calcurse
-- [ ] Create a [bootstrap script](https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/) using chezmoi `run_once_before` to install the brew basics and login to lastpass
+- [ ] Create a bootstrap script to install the brew bases and login to lastpass
 - [ ] Look at Timeshift and find out how to partition properly
 - [ ] Review `zathura` and `qpdf` for pdf and file preview
 - [ ] Can we find a cross platform flameshot with wayland
