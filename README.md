@@ -1,6 +1,7 @@
 # My chezmoi dotfiles
 
 <!--toc:start-->
+
 - [My chezmoi dotfiles](#my-chezmoi-dotfiles)
   - [Installation steps](#installation-steps)
     - [1. Homebrew](#1-homebrew)
@@ -19,9 +20,8 @@
   - [To-Do](#to-do)
   - [Notes](#notes)
     - [Ubuntu](#ubuntu)
-  - [References](#references)
-    - [Git multi user](#git-multi-user)
-<!--toc:end-->
+  - [References](#references) - [Git multi user](#git-multi-user)
+  <!--toc:end-->
 
 ## Installation steps
 
@@ -102,11 +102,9 @@ nvm install lts/gallium
 
 ```bash
 yay -Sy microsoft-edge-stable-bin \
-nosql-workbench
-pacman -Sy docker \
+docker \
 brave-browser
 sudo chmod 666 /var/run/docker.sock
-xdg-settings set default-web-browser microsoft-edge.desktop
 ```
 
 ### 7. Install Sway

@@ -1,4 +1,3 @@
-
 [Default Applications]
 text/html=com.microsoft.Edge.desktop
 x-scheme-handler/http=com.microsoft.Edge.desktop
