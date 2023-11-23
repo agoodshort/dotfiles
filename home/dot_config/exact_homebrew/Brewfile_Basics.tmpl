@@ -93,6 +93,7 @@ brew "wez/wezterm-linuxbrew/wezterm"
 # MacOS
 # ---------------------------------------------------------------
 {{- if eq .chezmoi.os "darwin" }}
+tap "buo/cask-upgrade"
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
 # Tool to flash OS images to SD cards & USB drives

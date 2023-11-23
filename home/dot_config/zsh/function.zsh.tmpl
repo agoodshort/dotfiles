@@ -1,5 +1,4 @@
 whichbrew=$(which brew)
-whichmas=$(which mas)
 
 function brew() {
 	if [[ $1 == "install" ]]; then
@@ -36,12 +35,25 @@ function brew() {
 		fi
 		echo "----- end: Generate Brewfile -----"
 
+{{ if eq .chezmoi.os "darwin" }}
+	elif [[ $1 == "upgrade" || $1 == "update" ]]; then
+		echo "----- start: brew cu -----"
+		$whichbrew cu "$@"
+		echo "----- end: brew cu -----"
+
+		echo "----- start: brew autoremove -----"
+		$whichbrew autoremove
+		echo "----- end: brew autoremove -----"
+{{ end }}
+
 	else
 		$whichbrew "$@"
 	fi
 }
 
-# ------------------------------------------------------------------ 
+# ------------------------------------------------------------------
+
+whichmas=$(which mas)
 
 function mas() {
 	if [[ $1 == "install" ]]; then
@@ -75,7 +87,7 @@ function mas() {
 	fi
 }
 
-# ------------------------------------------------------------------ 
+# ------------------------------------------------------------------
 
 whichnvim=$(which nvim)
 
