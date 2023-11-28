@@ -69,14 +69,8 @@ brew "nvm"
 brew "qpdf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Autoformat shell script source code
-brew "shfmt"
 # Cross-shell prompt for astronauts
 brew "starship"
-# Opinionated Lua code formatter
-brew "stylua"
-# TOML toolkit written in Rust
-brew "taplo"
 # Programmatically correct mistyped console commands
 brew "thefuck"
 # Simplified and community-driven man pages
