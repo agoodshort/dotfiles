@@ -11,11 +11,10 @@
         + [2.2. Associate the key with GitHub](#22-associate-the-key-with-github)
         + [2.3. Add the GitHub SSH key to known_host](#23-add-the-github-ssh-key-to-known_host)
     * [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
-    * [4. Set zsh as default shell](#4-set-zsh-as-default-shell)
-    * [5. Configure node with nvm](#5-configure-node-with-nvm)
-    * [6. Install packages](#6-install-packages)
-    * [7. Install Sway](#7-install-sway)
-    * [8. Theme Ubuntu](#8-theme-ubuntu)
+    * [4. Install node through nvm](#4-install-node-through-nvm)
+    * [5. Install packages](#5-install-packages)
+    * [6. Install Sway](#6-install-sway)
+    * [7. Theme Ubuntu](#7-theme-ubuntu)
 - [To-Do](#to-do)
 - [Notes](#notes)
     * [Ubuntu](#ubuntu)
@@ -73,32 +72,25 @@ curl --silent https://api.github.com/meta |
 ### 3. Getting started with chezmoi
 
 Install Visual Studio Code before installing `chezmoi` as `brew` will fail to install Visual Studio Code extensions at first run.
-TODO: Can we check if vscode is installed on the brewfile template?
 
 ```bash
-snap install code --classic
+if [[ $OSTYPE == 'darwin'* ]]; then
+	brew install --cask visual-studio-code
+else
+	snap install code --classic
+fi
 brew install chezmoi
 chezmoi init --apply agoodshort
 ```
 
-### 4. Set zsh as default shell
-
-Note: we need to write manually `zsh` in `/etc/shells` because we install it from homebrew
+### 4. Install node through nvm
 
 ```bash
-sudo sh -c "echo $(which zsh) >> /etc/shells"
-chsh -s $(which zsh)
-```
-
-**Note**: After this step you will need to log out and log back in.
-
-### 5. Configure node with nvm
-
-```
 nvm install lts/gallium
+nvm use lts/gallium
 ```
 
-### 6. Install packages
+### 5. Install packages
 
 ```bash
 yay -Sy microsoft-edge-stable-bin \
@@ -107,7 +99,7 @@ yay -Sy microsoft-edge-stable-bin \
 sudo chmod 666 /var/run/docker.sock
 ```
 
-### 7. Install Sway
+### 6. Install Sway
 
 TODO: Find a way to install `mako`
 TODO: list cargos
@@ -119,7 +111,9 @@ cargo install sworstyle
 
 Required with this config and `grimshot` => `grim`, `slurp`, `swaymsg`, `wl-copy`, `jq`, `notify-send`
 
-### 8. Theme Ubuntu
+### 7. Theme Ubuntu
+
+TODO: list gnome shells extensions and their config
 
 ```bash
 sudo apt install gnome-tweaks gnome-shell-extensions
