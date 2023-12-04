@@ -12,9 +12,8 @@
         + [2.3. Add the GitHub SSH key to known_host](#23-add-the-github-ssh-key-to-known_host)
     * [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
     * [4. Install node through nvm](#4-install-node-through-nvm)
-    * [5. Install packages](#5-install-packages)
-    * [6. Install Sway](#6-install-sway)
-    * [7. Theme Ubuntu](#7-theme-ubuntu)
+    * [5. Install Sway](#5-install-sway)
+    * [6. Theme Ubuntu](#6-theme-ubuntu)
 - [To-Do](#to-do)
 - [Notes](#notes)
     * [Ubuntu](#ubuntu)
@@ -90,16 +89,7 @@ nvm install lts/gallium
 nvm use lts/gallium
 ```
 
-### 5. Install packages
-
-```bash
-yay -Sy microsoft-edge-stable-bin \
-	docker \
-	brave-browser
-sudo chmod 666 /var/run/docker.sock
-```
-
-### 6. Install Sway
+### 5. Install Sway
 
 TODO: Find a way to install `mako`
 TODO: list cargos
@@ -111,7 +101,7 @@ cargo install sworstyle
 
 Required with this config and `grimshot` => `grim`, `slurp`, `swaymsg`, `wl-copy`, `jq`, `notify-send`
 
-### 7. Theme Ubuntu
+### 6. Theme Ubuntu
 
 TODO: list gnome shells extensions and their config
 

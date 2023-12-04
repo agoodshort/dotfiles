@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# my-flatpak-apps.txt hash: {{ include "dot_config/exact_flatpak/my-flatpak-apps.txt" | sha256sum }}
+
+echo "----- start: my-flatpak-install.sh -----"
+
+if [[ ! -x "$(command -v flatpak)" && ! -x "$(command -v apt)" ]]; then
+    echo "Installing flatpak..."
+    sudo apt install flatpak
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    echo "Done installing flatpak"
+fi
+
+if [[ -e $HOME/.config/flatpak/my-flatpak-apps.txt ]]; then
+    echo "Installing my flatpak apps..."
+    xargs flatpak install flathub < $HOME/.config/flatpak/my-flatpak-apps.txt
+    echo "Done installing my flatpak apps"
+else
+    echo "No my-flatpak-apps.txt found, impossible to install my flatpak apps"
+fi
+
+echo "----- end: my-flatpak-install.sh -----"
