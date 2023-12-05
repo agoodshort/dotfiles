@@ -132,14 +132,6 @@ Or, if you don't want/need a background service you can just run:
   /home/linuxbrew/.linuxbrew/opt/clamav/sbin/clamd --foreground
 ```
 
-- [ ] When installing `neovim` we need to use `env TERM=wezterm nvim` - [documentation](https://wezfurlong.org/wezterm/faq.html#how-do-i-enable-undercurl-curly-underlines)
-
-```bash
-tempfile=$(mktemp) &&
-	curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo &&
-	tic -x -o ~/.terminfo $tempfile &&
-	rm $tempfile
-```
 
 ## Notes
 
