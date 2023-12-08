@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "depcheck": "^1.4.7",
+    "dynamodump": "^2.0.0",
+    "neovim": "^4.10.1"
+  }
+}
