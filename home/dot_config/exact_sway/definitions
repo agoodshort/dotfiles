@@ -105,7 +105,7 @@ set $ws8 number 8
 set $ws9 number 9
 set $ws10 number 10
 
-# screenshot 
+# screenshot
 set $grimshot $HOME/.config/sway/scripts/grimshot
 set $pipe_output $grimshot save output -
 set $pipe_selection $grimshot save window -
@@ -115,7 +115,7 @@ set $swappy_pipe swappy -f - -o -
 set $upload_pipe curl -s -F "file=@-;filename=.png" https://x0.at/ | tee >(wl-copy) >(xargs notify-send)
 
 set $screenshot_screen $pipe_output | $swappy && $notify_paste
-set $screenshot_screen_upload $pipe_output | $swappy_pipe | $upload_pipe 
+set $screenshot_screen_upload $pipe_output | $swappy_pipe | $upload_pipe
 
 set $screenshot_selection $pipe_selection | $swappy && $notify_paste
 set $screenshot_selection_upload $pipe_selection | $swappy_pipe | $upload_pipe
@@ -135,7 +135,7 @@ set $update_rofi_theme 'mkdir -p $HOME/.config/rofi/ && echo $rofi_theme > $HOME
 set $create_rofi_config '[ ! -f $HOME/.config/rofi/config.rasi ] && echo '@import \\"Manjaro\\"' > $HOME/.config/rofi/config.rasi'
 
 # daemons
-set $mako 'mako --font "$term-font" --text-color "$text-color" --border-color "$accent-color" --background-color "$background-color" --border-size 3 --width 400 --height 200 --padding 20 --margin 20 --default-timeout 15000'
+set $notifications '[ -x "$(command -v swaync)" ] && swaync'
 set $swappy_notify '[ -x "$(command -v swappy)" ] && $HOME/.config/sway/scripts/screenshot-notify.sh'
 set $swayr_daemon '[ -x "$(command -v swayrd)" ] && pkill swayrd; RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd &> /tmp/swayrd.log'
 set $cliphist_watch '[ -x "$(command -v wl-paste)" ] && [ -x "$(command -v cliphist)" ] && wl-paste --watch pkill -RTMIN+9 waybar'

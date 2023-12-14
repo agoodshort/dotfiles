@@ -91,11 +91,10 @@ nvm use lts/gallium
 
 ### 5. Install Sway
 
-TODO: Find a way to install `mako`
 TODO: list cargos
 
 ```bash
-sudo apt install sway rofi swayidle waybar playerctl kanshi qt5-style-kvantum qt5-style-kvantum-themes
+sudo apt install sway rofi swayidle waybar playerctl kanshi qt5-style-kvantum qt5-style-kvantum-themes sway-notification-center
 cargo install sworstyle
 ```
 
@@ -112,13 +111,12 @@ sudo apt install gnome-tweaks gnome-shell-extensions
 ## To-Do
 
 - [ ] Add Vimium key mappings
-- [ ] Set custom/pamac in waybar as a template to work based on the OS
+- [ ] Set custom/pamac in waybar as a template to work based on the OS and test `checkupdates && yay -Qua`
 - [ ] Configure Calcurse
 - [ ] Create a bootstrap script to install the brew bases and login to lastpass
 - [ ] Look at Timeshift and find out how to partition properly
 - [ ] Review `zathura` and `qpdf` for pdf and file preview
 - [ ] Write my-npm-tools README.md
-- [ ] Can we find a cross platform flameshot with wayland
 - [ ] Mount [secondary drive as home folder](https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/)
 - [ ] Review the install of `clamav` with brew
 
@@ -131,7 +129,6 @@ To start clamav now and restart at startup:
 Or, if you don't want/need a background service you can just run:
   /home/linuxbrew/.linuxbrew/opt/clamav/sbin/clamd --foreground
 ```
-
 
 ## Notes
 
