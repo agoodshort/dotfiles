@@ -1,3 +1,4 @@
+tap "abdfnx/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/command-not-found"
@@ -15,6 +16,8 @@ brew "docutils"
 brew "openssl@3"
 # Official Amazon AWS command-line interface
 brew "awscli"
+# C library implementing the SSH2 protocol
+brew "libssh2"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
@@ -33,12 +36,12 @@ brew "librsvg"
 brew "chafa"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
-# C library implementing the SSH2 protocol
-brew "libssh2"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Anti-virus software
 brew "clamav"
+# Defines a standard way of committing rules and communicating it
+brew "commitizen"
 # Modern, maintained replacement for ls
 brew "eza"
 # Simple, fast and user-friendly alternative to find
@@ -89,6 +92,8 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # Better and friendly vi(vim) mode plugin for ZSH
 brew "zsh-vi-mode"
+# a CLI app can send pretty HTTP & API requests with TUI
+brew "abdfnx/tap/resto"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker"
 # A simple terminal UI for git commands, written in Go
