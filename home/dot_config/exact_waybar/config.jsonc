@@ -15,13 +15,12 @@
     "position": "top",
     "modules-left": [
         "sway/mode",
-        "custom/menu",
         "sway/workspaces"
     ],
     "modules-center": [
         "tray",
         "custom/wf-recorder",
-        "custom/pacman",
+        "custom/pacman-yay",
         "custom/github",
         "custom/playerctl",
         "custom/notifications"
@@ -40,8 +39,6 @@
         "battery",
         "clock"
     ],
-    // Unused modules
-    // "backlight"
     // -------------------------------------------------------------------------
     // Modules
     // -------------------------------------------------------------------------
@@ -62,15 +59,15 @@
             ""
         ],
         "tooltip": true,
-        "on-click": "swaymsg exec \\$term_float -- btm -e --battery --default_widget_type batt",
-        "on-click-right": "swaymsg exec \\$term_float -- btm"
+        "on-click": "swaymsg exec \\$term_float_corner -- btm -e --battery --default_widget_type batt",
+        "on-click-right": "swaymsg exec \\$term_float_corner -- btm"
     },
     "clock": {
         "interval": 60,
         "format": "{:%e %b %Y %H:%M}",
         "tooltip": true,
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
-        "on-click": "swaymsg exec \\$term_float calcurse"
+        "on-click": "swaymsg exec \\$term_float_corner calcurse"
     },
     "cpu": {
         "interval": 5,
@@ -79,8 +76,8 @@
             "warning": 70,
             "critical": 90
         },
-        "on-click": "swaymsg exec \\$term_float -- btm -e --default_widget_type cpu",
-        "on-click-right": "swaymsg exec \\$term_float -- btm"
+        "on-click": "swaymsg exec \\$term_float_corner -- btm -e --default_widget_type cpu",
+        "on-click-right": "swaymsg exec \\$term_float_corner -- btm"
     },
     "memory": {
         "interval": 5,
@@ -89,8 +86,8 @@
             "warning": 70,
             "critical": 90
         },
-        "on-click": "swaymsg exec \\$term_float -- btm -e --default_widget_type mem",
-        "on-click-right": "swaymsg exec \\$term_float -- btm"
+        "on-click": "swaymsg exec \\$term_float_corner -- btm -e --default_widget_type mem",
+        "on-click-right": "swaymsg exec \\$term_float_corner -- btm"
     },
     "network": {
         "interval": 5,
@@ -98,8 +95,8 @@
         "format-ethernet": "",
         "format-disconnected": "睊",
         "tooltip-format": "{ifname} ({essid}): {ipaddr}",
-        "on-click-right": "swaymsg exec \\$term_float -- btm -e --default_widget_type network",
-        "on-click": "swaymsg exec \\$term_float nmtui"
+        "on-click-right": "swaymsg exec \\$term_float_corner -- btm -e --default_widget_type network",
+        "on-click": "swaymsg exec \\$term_float_corner nmtui"
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{} </span>",
@@ -112,25 +109,13 @@
             "deactivated": "鈴"
         },
         "tooltip": true,
-        "tooltip-format-activated": "power-saving disabled",
-        "tooltip-format-deactivated": "power-saving enabled"
-    },
-    "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ],
-        "on-scroll-up": "swaymsg exec \\$brightness_up",
-        "on-scroll-down": "swaymsg exec \\$brightness_down"
+        "tooltip-format-activated": "idle sleep disabled",
+        "tooltip-format-deactivated": "idle sleep enabled"
     },
     "pulseaudio": {
         "scroll-step": 5,
-        "format": "{icon} {volume}%{format_source}",
-        "format-muted": "婢 {format_source}",
-        "format-source": "",
-        "format-source-muted": " ",
+        "format": "{icon} {volume}%",
+        "format-muted": "婢",
         "format-icons": {
             "headphone": "",
             "headset": "",
@@ -157,25 +142,22 @@
             ""
         ],
         "tooltip": false,
-        "on-click": "swaymsg exec \\$term_float -- btm -e --default_widget_type temp",
-        "on-click-right": "swaymsg exec \\$term_float -- btm"
+        "on-click": "swaymsg exec \\$term_float_corner -- btm -e --default_widget_type temp",
+        "on-click-right": "swaymsg exec \\$term_float_corner -- btm"
     },
     "tray": {
-        "icon-size": 21,
-        "spacing": 5
+        "spacing": 10
     },
-    // "custom/pacman": {
-    //     "format": " {}",
-    //     "interval": 3600,
-    //     "exec-if": "[ $(pamac checkupdates -q | wc -l) -gt 0 ]",
-    //     "exec": "pamac checkupdates -q | wc -l",
-    //     "on-click": "pamac-manager --updates; pkill -RTMIN+4 waybar",
-    //     "signal": 4
-    // },
-    "custom/menu": {
-        "format": "",
-        "on-click": "swaymsg exec \\$menu",
-        "tooltip": false
+    "custom/pacman-yay": {
+        "format": "{icon}{}",
+        "return-type": "json",
+        "format-icons": {
+            "pending-updates": " ",
+            "updated": ""
+        },
+        "exec-if": "which waybar-updates",
+        "exec": "waybar-updates",
+        "on-click": "swaymsg exec \\$term start -- yay -Qu"
     },
     "bluetooth": {
         "format": "",
@@ -210,8 +192,8 @@
         "return-type": "json",
         "format": "{icon}",
         "format-icons": {
-            "Playing": "",
-            "Paused": ""
+            "Playing": "",
+            "Paused": ""
         },
         "exec": "playerctl metadata --format '{\"alt\": \"{{status}}\", \"tooltip\": \"{{playerName}}:  {{markup_escape(title)}} - {{markup_escape(artist)}}\" }'",
         "on-click": "playerctl play-pause; pkill -RTMIN+5 waybar",
@@ -280,5 +262,5 @@
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
-    },
+    }
 }
