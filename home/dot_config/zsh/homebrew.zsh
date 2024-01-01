@@ -28,6 +28,12 @@ fi
 # neovim
 if [[ -f "$HOMEBREW_PREFIX/bin/nvim" ]]; then
     export MANPAGER="nvim +Man!"
+
+# lastpass-cli
+if [[ -f "$HOMEBREW_PREFIX/bin/lpass" ]]; then
+	export LPASS_AGENT_TIMEOUT=0 # Lastpass-cli never quit
+fi
+
 fi
 
 # starship
