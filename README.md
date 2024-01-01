@@ -111,12 +111,14 @@ sudo apt install gnome-tweaks gnome-shell-extensions
 ## To-Do
 
 - [ ] Add Vimium key mappings
-- [ ] Set custom/pamac in waybar as a template to work based on the OS and test `checkupdates && yay -Qua`
+- [ ] Set custom/pamac-yay in waybar as a template to work based on the OS
+- [ ] When adding edge application, if it doesn't show in wofi, use the create shortcut from edge settings
 - [ ] Configure Calcurse
 - [ ] Create a bootstrap script to install the brew bases and login to lastpass
 - [ ] Look at Timeshift and find out how to partition properly
 - [ ] Review `zathura` and `qpdf` for pdf and file preview
 - [ ] Write my-npm-tools README.md
+- [ ] Work on the format with `{{ end -}}`
 - [ ] Mount [secondary drive as home folder](https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/)
 - [ ] Review the install of `clamav` with brew
 
