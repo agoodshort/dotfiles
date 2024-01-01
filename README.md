@@ -118,6 +118,7 @@ sudo apt install gnome-tweaks gnome-shell-extensions
 - [ ] Look at Timeshift and find out how to partition properly
 - [ ] Review `zathura` and `qpdf` for pdf and file preview
 - [ ] Write my-npm-tools README.md
+- [ ] fix flatpak install
 - [ ] Work on the format with `{{ end -}}`
 - [ ] Mount [secondary drive as home folder](https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/)
 - [ ] Review the install of `clamav` with brew

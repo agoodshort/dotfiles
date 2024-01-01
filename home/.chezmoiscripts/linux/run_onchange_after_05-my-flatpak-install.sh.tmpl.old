@@ -13,7 +13,7 @@ fi
 
 if [[ -e $HOME/.config/flatpak/my-flatpak-apps.txt ]]; then
     echo "Installing my flatpak apps..."
-    xargs flatpak install flathub < $HOME/.config/flatpak/my-flatpak-apps.txt
+    xargs flatpak install -y flathub < $XDG_CONFIG_HOME/flatpak/my-flatpak-apps.txt
     echo "Done installing my flatpak apps"
 else
     echo "No my-flatpak-apps.txt found, impossible to install my flatpak apps"
