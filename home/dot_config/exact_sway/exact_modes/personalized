@@ -1,18 +1,9 @@
 set $mode_layout "<span foreground='$color10'></span>  \
-<span foreground='$color5'><b>Split</b></span> <span foreground='$color10'>(<b>b/v/e</b>)</span> \
-<span foreground='$color5'><b>Styles</b></span> <span foreground='$color10'>(<b>s/w/e</b>)</span> \
+<span foreground='$color5'><b>Toggle layouts</b></span> <span foreground='$color10'>(<b>Shift+Alt+Space</b>)</span> \
 <span foreground='$color5'><b>Fullscreen</b></span> <span foreground='$color10'>(<b>Space</b>)</span> \
 <span foreground='$color5'><b>Floating</b></span> <span foreground='$color10'>(<b>f</b>)</span>"
 
 mode --pango_markup $mode_layout {
-    bindsym b splith
-    bindsym v splitv
-
-    # Switch the current container between different layout styles
-    bindsym s layout stacking
-    bindsym w layout tabbed
-    bindsym e layout toggle split
-
     # Make the current focus fullscreen
     bindsym space fullscreen
 
@@ -26,6 +17,8 @@ mode --pango_markup $mode_layout {
 }
 
 bindsym $mod+l mode $mode_layout
+
+bindsym $altShift+space layout toggle splith splitv stacking
 
 # -------------------------------------------------------------------------
 
