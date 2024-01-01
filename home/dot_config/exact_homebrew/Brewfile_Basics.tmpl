@@ -76,19 +76,19 @@ brew "bottom"
 # Fast, highly customisable system info script
 brew "neofetch"
 
+{{ if eq .chezmoi.os "linux" }}
 # ---------------------------------------------------------------
 # Linux
 # ---------------------------------------------------------------
-{{- if eq .chezmoi.os "linux" }}
 tap "wez/wezterm-linuxbrew"
 # A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
 brew "wez/wezterm-linuxbrew/wezterm"
 {{ end -}}
 
+{{ if eq .chezmoi.os "darwin" }}
 # ---------------------------------------------------------------
 # MacOS
 # ---------------------------------------------------------------
-{{- if eq .chezmoi.os "darwin" }}
 tap "buo/cask-upgrade"
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
