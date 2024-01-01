@@ -3,7 +3,6 @@
 Library
 .config/amethyst
 .config/karabiner
-.config/alacritty.yml
 {{ end }}
 
 {{ if eq .chezmoi.os "darwin" }}
@@ -13,6 +12,11 @@ Library
 .config/waybar
 .config/kanshi
 .config/foot
+.config/flatpak
+.config/swaync
+
+## Scripts
+.chezmoiscripts/linux/05-my-flatpak-install.sh
 {{ end }}
 
 ###################################
