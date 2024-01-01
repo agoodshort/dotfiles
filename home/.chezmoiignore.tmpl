@@ -1,11 +1,14 @@
-# MacOS specific
+# Unix
+
 {{ if ne .chezmoi.os "darwin" }}
+## Only needed on MacOS
 Library
 .config/amethyst
 .config/karabiner
 {{ end }}
 
 {{ if eq .chezmoi.os "darwin" }}
+## Only needed on Linux
 .config/mimeapps.list
 .config/sway
 .config/sworkstyle
@@ -14,23 +17,14 @@ Library
 .config/foot
 .config/flatpak
 .config/swaync
-
-## Scripts
-.chezmoiscripts/linux/05-my-flatpak-install.sh
 {{ end }}
 
 ###################################
 
-# Windows specific
-{{ if ne .chezmoi.os "windows" }}
-.chezmoiscripts/windows/**
-AppData
-.config/scoop
-OneDrive - Great National Hotels/**
-{{ end }}
+# Windows
 
 {{ if eq .chezmoi.os "windows" }}
-.chezmoiscripts/linux/**
+## Only keeping what Windows needs
 .config/*
 !.config/nvim
 !.config/scoop
@@ -39,4 +33,25 @@ OneDrive - Great National Hotels/**
 .local
 .ssh
 .zshenv
+
+{{ else }}
+## Only needed on Windows
+AppData
+.config/scoop
+OneDrive - Great National Hotels/**
+{{ end }}
+
+###################################
+
+# Scripts
+
+{{ if ne .chezmoi.os "windows" }}
+.chezmoiscripts/windows/**
+{{ else }}
+.chezmoiscripts/linux/**
+{{ end }}
+
+{{ if eq .chezmoi.os "darwin" }}
+## Scripts that shouldn't run on MacOS
+.chezmoiscripts/linux/05-my-flatpak-install.sh
 {{ end }}
