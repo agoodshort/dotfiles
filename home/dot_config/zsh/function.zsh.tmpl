@@ -18,6 +18,14 @@ function brew() {
 		fi
 		echo "----- end: Generate Brewfile -----"
 
+		echo "----- start: Source zsh homebrew config -----"
+		if [[ -e $XDG_CONFIG_HOME/zsh/homebrew.zsh ]]; then
+			source $XDG_CONFIG_HOME/zsh/homebrew.zsh
+		else
+			echo "Impossible to source zsh homebrew config, $XDG_CONFIG_HOME/zsh/homebrew.zsh doesn't exist"
+		fi
+		echo "----- end: Source zsh homebrew config -----"
+
 	elif [[ $1 == "uninstall" ]]; then
 		echo "----- start: brew uninstall -----"
 		$whichbrew "$@"
@@ -34,6 +42,14 @@ function brew() {
 			echo "Impossible to generate Brewfile, HOMEBREW_BUNDLE_FILE isn't set"
 		fi
 		echo "----- end: Generate Brewfile -----"
+
+		echo "----- start: Source zsh homebrew config -----"
+		if [[ -e $XDG_CONFIG_HOME/zsh/homebrew.zsh ]]; then
+			source $XDG_CONFIG_HOME/zsh/homebrew.zsh
+		else
+			echo "Impossible to source zsh homebrew config, $XDG_CONFIG_HOME/zsh/homebrew.zsh doesn't exist"
+		fi
+		echo "----- end: Source zsh homebrew config -----"
 
 {{ if eq .chezmoi.os "darwin" }}
 	elif [[ $1 == "upgrade" || $1 == "update" ]]; then
@@ -53,6 +69,7 @@ function brew() {
 
 # ------------------------------------------------------------------
 
+{{ if eq .chezmoi.os "darwin" }}
 whichmas=$(which mas)
 
 function mas() {
@@ -88,6 +105,7 @@ function mas() {
 }
 
 # ------------------------------------------------------------------
+{{ end }}
 
 whichnvim=$(which nvim)
 

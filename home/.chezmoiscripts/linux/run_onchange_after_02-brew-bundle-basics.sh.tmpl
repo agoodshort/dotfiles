@@ -12,6 +12,13 @@ else
     echo "No Brewfile_Basics found, impossible to install homebrew basics"
 fi
 
+echo "Sourcing zsh homebrew config..."
+if [[ -e $XDG_CONFIG_HOME/zsh/homebrew.zsh ]]; then
+    source $XDG_CONFIG_HOME/zsh/homebrew.zsh
+else
+    echo "Impossible to source zsh homebrew config, $XDG_CONFIG_HOME/zsh/homebrew.zsh doesn't exist"
+fi
+
 echo "Generating machine specific Brewfile..."
 if [[ -n $HOMEBREW_BUNDLE_FILE ]]; then
     brew bundle dump --force --describe
