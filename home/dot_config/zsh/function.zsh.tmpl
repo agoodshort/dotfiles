@@ -11,7 +11,7 @@ function brew() {
 		echo "----- end: brew autoremove -----"
 
 		echo "----- start: Generate Brewfile -----"
-		if [[ -n $HOMEBREW_BUNDLE_FILE ]]; then
+		if [[ -f $HOMEBREW_BUNDLE_FILE ]]; then
 			$whichbrew bundle dump --force --describe
 		else
 			echo "Impossible to generate Brewfile, HOMEBREW_BUNDLE_FILE isn't set"
@@ -19,7 +19,7 @@ function brew() {
 		echo "----- end: Generate Brewfile -----"
 
 		echo "----- start: Source zsh homebrew config -----"
-		if [[ -e $XDG_CONFIG_HOME/zsh/homebrew.zsh ]]; then
+		if [[ -f $XDG_CONFIG_HOME/zsh/homebrew.zsh ]]; then
 			source $XDG_CONFIG_HOME/zsh/homebrew.zsh
 		else
 			echo "Impossible to source zsh homebrew config, $XDG_CONFIG_HOME/zsh/homebrew.zsh doesn't exist"
@@ -36,7 +36,7 @@ function brew() {
 		echo "----- end: brew autoremove -----"
 
 		echo "----- start: Generate Brewfile -----"
-		if [[ -n $HOMEBREW_BUNDLE_FILE ]]; then
+		if [[ -f $HOMEBREW_BUNDLE_FILE ]]; then
 			$whichbrew bundle dump --force --describe
 		else
 			echo "Impossible to generate Brewfile, HOMEBREW_BUNDLE_FILE isn't set"
@@ -44,7 +44,7 @@ function brew() {
 		echo "----- end: Generate Brewfile -----"
 
 		echo "----- start: Source zsh homebrew config -----"
-		if [[ -e $XDG_CONFIG_HOME/zsh/homebrew.zsh ]]; then
+		if [[ -f $XDG_CONFIG_HOME/zsh/homebrew.zsh ]]; then
 			source $XDG_CONFIG_HOME/zsh/homebrew.zsh
 		else
 			echo "Impossible to source zsh homebrew config, $XDG_CONFIG_HOME/zsh/homebrew.zsh doesn't exist"
@@ -79,7 +79,7 @@ function mas() {
 		echo "----- end: mas install -----"
 
 		echo "----- start: Generate Brewfile -----"
-		if [[ -n $HOMEBREW_BUNDLE_FILE ]]; then
+		if [[ -f $HOMEBREW_BUNDLE_FILE ]]; then
 			$whichbrew bundle dump --force --describe
 		else
 			echo "Impossible to generate Brewfile, HOMEBREW_BUNDLE_FILE isn't set"
@@ -92,7 +92,7 @@ function mas() {
 		echo "----- end: mas uninstall -----"
 
 		echo "----- start: Generate Brewfile -----"
-		if [[ -n $HOMEBREW_BUNDLE_FILE ]]; then
+		if [[ -f $HOMEBREW_BUNDLE_FILE ]]; then
 			$whichbrew bundle dump --force --describe
 		else
 			echo "Impossible to generate Brewfile, HOMEBREW_BUNDLE_FILE isn't set"

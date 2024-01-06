@@ -11,7 +11,7 @@ if [[ ! -x "$(command -v flatpak)" && -x "$(command -v apt)" ]]; then
     echo "Done installing flatpak"
 fi
 
-if [[ -e $HOME/.config/flatpak/my-flatpak-apps.txt ]]; then
+if [[ -f $HOME/.config/flatpak/my-flatpak-apps.txt ]]; then
     echo "Installing my flatpak apps..."
     xargs flatpak install -y flathub < $XDG_CONFIG_HOME/flatpak/my-flatpak-apps.txt
     echo "Done installing my flatpak apps"

@@ -2,7 +2,7 @@
 
 echo "----- start: nvim-update.sh -----"
 
-if [[ -e $HOME/.config/nvim/lazy-lock.json ]]; then
+if [[ -f $HOME/.config/nvim/lazy-lock.json ]]; then
     echo "Updating Neovim plugins to the state in the lockfile..."
     if [[ -x "$(command -v npm)" ]]; then
         nvim --headless "+Lazy! restore" +qa

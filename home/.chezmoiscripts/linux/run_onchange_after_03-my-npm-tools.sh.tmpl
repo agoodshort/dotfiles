@@ -4,7 +4,7 @@
 
 echo "----- start: my-npm-tools.sh -----"
 
-if [[ -e $XDG_DATA_HOME/my-npm-tools/package-lock.json ]]; then
+if [[ -f $XDG_DATA_HOME/my-npm-tools/package-lock.json ]]; then
     echo "Installing my-npm-tools..."
     npm install --prefix $XDG_DATA_HOME/my-npm-tools
     echo "Done installing my-npm-tools"
