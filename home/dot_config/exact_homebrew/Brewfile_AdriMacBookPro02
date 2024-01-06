@@ -86,6 +86,8 @@ cask "brave-browser"
 cask "cleanmymac"
 # Voice and text chat software
 cask "discord"
+# Screenshot software
+cask "flameshot"
 # Developer targeted fonts with a high number of glyphs
 cask "font-hack-nerd-font"
 # Web browser
