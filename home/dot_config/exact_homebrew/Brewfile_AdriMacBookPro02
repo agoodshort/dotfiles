@@ -10,6 +10,8 @@ brew "awscli"
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
+# X.Org: Protocol Headers
+brew "xorgproto"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # Defines a standard way of committing rules and communicating it
@@ -24,6 +26,8 @@ brew "gh"
 brew "git"
 # Blazing fast terminal-ui for git written in rust
 brew "gitui"
+# Manage your Java environment
+brew "jenv"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # LastPass command-line interface tool
@@ -42,6 +46,8 @@ brew "neofetch"
 brew "neovim"
 # Manage multiple Node.js versions
 brew "nvm"
+# Development kit for the Java programming language
+brew "openjdk@17"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Autoformat shell script source code
@@ -58,8 +64,6 @@ brew "tldr"
 brew "topgrade"
 # Internet file retriever
 brew "wget"
-# X.Org: Protocol Headers
-brew "xorgproto"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
