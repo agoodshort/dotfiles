@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "----- start: zsh.sh -----"
+echo "----- start: 01-zsh.sh -----"
 if [[ $SHELL != *"zsh"* ]]; then
     echo "Changing shell to zsh..."
     if  ! grep -q "$(which zsh)" /etc/shells; then
@@ -12,4 +12,4 @@ if [[ $SHELL != *"zsh"* ]]; then
 else
     echo "zsh is already the default shell"
 fi
-echo "----- end: zsh.sh -----"
+echo "----- end: 01-zsh.sh -----"

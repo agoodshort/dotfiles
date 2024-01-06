@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "----- start: neovim-post-install.sh -----"
+echo "----- start: 04-neovim-post-install.sh -----"
 echo "Installing pynvim..."
 python3 -m pip install --user --upgrade pynvim
 echo "Done installing pynvim"
@@ -13,4 +13,4 @@ tempfile=$(mktemp) &&
 	tic -x -o ~/.terminfo $tempfile &&
 	rm $tempfile
 echo "Done installing terminfo file for undercurl"
-echo "----- end: neovim-post-install.sh -----"
+echo "----- end: 04-neovim-post-install.sh -----"
