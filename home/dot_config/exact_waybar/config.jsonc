@@ -96,7 +96,7 @@
         "format-disconnected": "睊",
         "tooltip-format": "{ifname} ({essid}): {ipaddr}",
         "on-click-right": "swaymsg exec \\$term_float_corner -- btm -e --default_widget_type network",
-        "on-click": "swaymsg exec \\$term_float_corner nmtui"
+        "on-click": "swaymsg exec \\$term_float nmtui"
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{} </span>",
@@ -153,7 +153,6 @@
         "return-type": "json",
         "format-icons": {
             "pending-updates": " ",
-            "updated": ""
         },
         "exec-if": "which waybar-updates",
         "exec": "waybar-updates",
