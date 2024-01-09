@@ -1,11 +1,14 @@
 tap "homebrew/bundle"
 
-# Official Amazon AWS command-line interface
-brew "awscli"
+# ---------------------------------------------------------------
+# Programming languages
+# ---------------------------------------------------------------
 # Manage multiple Node.js versions
 brew "nvm"
-# Curses-based tool for viewing and analyzing log files
-brew "lnav"
+# Manage your Java environment
+brew "jenv"
+# Development kit for the Java programming language
+brew "openjdk@17"
 
 # ---------------------------------------------------------------
 # Git
@@ -76,8 +79,42 @@ brew "bottom"
 # Fast, highly customisable system info script
 brew "neofetch"
 
-{{ if eq .chezmoi.os "linux" }}
 # ---------------------------------------------------------------
+# Shell
+# ---------------------------------------------------------------
+{{- if not (contains "zsh" (env "SHELL")) }}
+# UNIX shell (command interpreter)
+brew "zsh"
+{{ end -}}
+
+tap "homebrew/command-not-found"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# Better and friendly vi(vim) mode plugin for ZSH
+brew "zsh-vi-mode"
+# Modern, maintained replacement for ls
+brew "eza"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+
+# ---------------------------------------------------------------
+# Misc
+# ---------------------------------------------------------------
+# Internet file retriever
+brew "wget"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Curses-based tool for viewing and analyzing log files
+brew "lnav"
+
+# ---------------------------------------------------------------
+{{ if eq .chezmoi.os "linux" }}
 # Linux
 # ---------------------------------------------------------------
 tap "wez/wezterm-linuxbrew"
@@ -86,7 +123,6 @@ brew "wez/wezterm-linuxbrew/wezterm"
 {{ end -}}
 
 {{ if eq .chezmoi.os "darwin" }}
-# ---------------------------------------------------------------
 # MacOS
 # ---------------------------------------------------------------
 tap "buo/cask-upgrade"
@@ -125,33 +161,3 @@ cask "cleanmymac"
 brew "mas"
 mas "Numbers", id: 409203825
 {{ end -}}
-
-# ---------------------------------------------------------------
-# Shell
-# ---------------------------------------------------------------
-{{- if not (contains "zsh" (env "SHELL")) }}
-# UNIX shell (command interpreter)
-brew "zsh"
-{{ end -}}
-
-tap "homebrew/command-not-found"
-# Fish-like fast/unobtrusive autosuggestions for zsh
-brew "zsh-autosuggestions"
-# Fish shell like syntax highlighting for zsh
-brew "zsh-syntax-highlighting"
-# Better and friendly vi(vim) mode plugin for ZSH
-brew "zsh-vi-mode"
-# Modern, maintained replacement for ls
-brew "eza"
-# Shell extension to navigate your filesystem faster
-brew "zoxide"
-# Cross-shell prompt for astronauts
-brew "starship"
-# Clone of cat(1) with syntax highlighting and Git integration
-brew "bat"
-
-# ---------------------------------------------------------------
-# Misc
-# ---------------------------------------------------------------
-# Internet file retriever
-brew "wget"

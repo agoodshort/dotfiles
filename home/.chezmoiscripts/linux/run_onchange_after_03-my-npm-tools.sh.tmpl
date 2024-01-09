@@ -2,9 +2,9 @@
 
 # package-lock.json hash: {{ include "private_dot_local/private_share/my-npm-tools/package-lock.json" | sha256sum }}
 
-echo "----- start: my-npm-tools.sh -----"
+echo "----- start: 03-my-npm-tools.sh -----"
 
-if [[ -e $XDG_DATA_HOME/my-npm-tools/package-lock.json ]]; then
+if [[ -f $XDG_DATA_HOME/my-npm-tools/package-lock.json ]]; then
     echo "Installing my-npm-tools..."
     npm install --prefix $XDG_DATA_HOME/my-npm-tools
     echo "Done installing my-npm-tools"
@@ -12,4 +12,4 @@ else
     echo "No package-lock.json found, impossible to install my-npm-tools"
 fi
 
-echo "----- end: my-npm-tools.sh -----"
+echo "----- end: 03-my-npm-tools.sh -----"
