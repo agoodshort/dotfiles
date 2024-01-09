@@ -8,3 +8,12 @@
 ### Maybe to use
 
 - [ ] <https://github.com/ralexander-phi/marp-to-pages/>
+
+## Rustup
+
+To uninstall:
+
+```sh
+rm -rf $RUSTUP_HOME
+rm -rf $CARGO_HOME
+```
