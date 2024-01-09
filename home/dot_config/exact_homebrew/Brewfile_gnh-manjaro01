@@ -68,10 +68,14 @@ brew "neofetch"
 brew "neovim"
 # Manage multiple Node.js versions
 brew "nvm"
+# Command-line Git information tool
+brew "onefetch"
 # Tools for and transforming and inspecting PDF files
 brew "qpdf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Command-line interface for https://speedtest.net bandwidth tests
+brew "speedtest-cli"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Programmatically correct mistyped console commands
