@@ -1,7 +1,6 @@
 # eza
-alias l="eza --icons --group-directories-first"
+alias ls="eza --icons --group-directories-first"
 alias ll="eza --icons --group-directories-first -la"
-alias lg="eza --icons --group-directories-first --git -la"
 function tree() {
 	if [[ "$@" != "" ]]; then
 		eza --tree --icons --group-directories-first "$@"
@@ -11,7 +10,13 @@ function tree() {
 }
 
 # bat
-alias cat='bat'
+alias cat="bat"
 
 # global
-alias grep='grep --color'
+alias grep="grep --color"
+
+# lazygit
+alias lg="lazygit"
+
+# lazydocker
+alias ld="lazydocker"
