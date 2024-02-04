@@ -54,7 +54,7 @@ function brew() {
 {{ if eq .chezmoi.os "darwin" }}
 	elif [[ $1 == "upgrade" || $1 == "update" ]]; then
 		echo "----- start: brew cu -----"
-		$whichbrew cu "$@"
+		$whichbrew cu -y -a
 		echo "----- end: brew cu -----"
 
 		echo "----- start: brew autoremove -----"
