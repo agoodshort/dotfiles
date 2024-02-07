@@ -22,14 +22,17 @@ separator = ' '
 
 [matching]
 # When updating here make sure that the same name is used in sway/config.d/98-application-defaults.conf
-'Brave-browser' = ''
+
 # Edge web apps before Edge
 '/Outlook/' = '󰴢'
 '/GitHub/' = ''
 '/Google Meet/' = '󰋉'
+'/Microsoft Teams/' = '󰊻'
 'Microsoft-edge' = '󰇩'
+
 '/zsh/' = ''
 '/Cider/' = ''
 '/Visual Studio Code/' = '󰨞'
 '/Google Chrome/' = ''
 '/lazydocker/' = ''
+'Brave-browser' = '󰢏'
