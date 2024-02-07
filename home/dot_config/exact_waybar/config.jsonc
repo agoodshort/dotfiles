@@ -152,7 +152,7 @@
         "format": "{icon}{}",
         "return-type": "json",
         "format-icons": {
-            "pending-updates": " ",
+            "pending-updates": " "
         },
         "exec-if": "which waybar-updates",
         "exec": "waybar-updates",
