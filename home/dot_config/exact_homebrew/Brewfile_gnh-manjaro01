@@ -54,6 +54,8 @@ brew "gh"
 brew "git"
 # Blazing fast terminal-ui for git written in rust
 brew "gitui"
+# Manage your Java environment
+brew "jenv"
 # LastPass command-line interface tool
 brew "lastpass-cli"
 # Simple terminal UI for git commands
@@ -70,6 +72,8 @@ brew "neovim"
 brew "nvm"
 # Command-line Git information tool
 brew "onefetch"
+# Development kit for the Java programming language
+brew "openjdk@17"
 # Tools for and transforming and inspecting PDF files
 brew "qpdf"
 # Search tool like grep and The Silver Searcher
@@ -114,7 +118,14 @@ vscode "dbaeumer.vscode-eslint"
 vscode "eamodio.gitlens"
 vscode "esbenp.prettier-vscode"
 vscode "ms-azuretools.vscode-docker"
+vscode "Pivotal.vscode-boot-dev-pack"
+vscode "redhat.java"
 vscode "sndst00m.markdown-github-dark-pack"
 vscode "steoates.autoimport"
+vscode "vmware.vscode-spring-boot"
+vscode "vscjava.vscode-java-debug"
+vscode "vscjava.vscode-maven"
+vscode "vscjava.vscode-spring-boot-dashboard"
+vscode "vscjava.vscode-spring-initializr"
 vscode "WakaTime.vscode-wakatime"
 vscode "wix.vscode-import-cost"
