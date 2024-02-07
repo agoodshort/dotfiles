@@ -24,7 +24,7 @@ set $bindsym bindsym --to-code
 set $unbindsym unbindsym --to-code
 
 # background
-set $background $HOME/.config/sway/themes/wallpapers/The_Legend_of_Zelda_Tears_of_the_Kingdom_3840x2160.jpg
+set $background $HOME/.config/sway/themes/wallpapers/MathWorks.jpeg
 output * bg $background fill
 
 # Your preferred terminal emulator
