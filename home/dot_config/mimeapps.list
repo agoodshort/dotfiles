@@ -6,3 +6,6 @@ x-scheme-handler/about=com.microsoft.Edge.desktop
 x-scheme-handler/unknown=com.microsoft.Edge.desktop
 x-scheme-handler/mailto=microsoft-edge.desktop
 x-scheme-handler/postman=Postman.desktop
+
+[Added Associations]
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=org.pwmt.zathura.desktop;
