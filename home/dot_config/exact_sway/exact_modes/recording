@@ -1,6 +1,6 @@
-set $mode_recording "<span foreground='$color10'></span>  \
-<span foreground='$color5'><b>Record</b></span> <span foreground='$color10'>(<b>r</b>)</span> \
-<span foreground='$color5'>+ [<span foreground='$color10'><b>Shift</b></span> for ]</span>"
+set $mode_recording "<span foreground='$subtext1'></span>  \
+<span foreground='$subtext0'><b>Record</b></span> <span foreground='$subtext1'>(<b>r</b>)</span> \
+<span foreground='$subtext0'>+ [<span foreground='$subtext1'><b>Shift</b></span> for ]</span>"
 
 set $recorder $HOME/.config/sway/scripts/recorder.sh
 

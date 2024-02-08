@@ -5,7 +5,7 @@
 - [1. Install yay (AUR helper) and create the personal directory](#1-install-yay-aur-helper-and-create-the-personal-directory)
 - [2. Make yay/pacman colourful](#2-make-yaypacman-colourful)
 - [3. Install microcode](#3-install-microcode)
-- [4. Install Kanagawa theme](#4-install-kanagawa-theme)
+- [4. Install catppuccin theme](#4-install-catppuccin-theme)
 - [4. Theming between GTK and QT - to review](#4-theming-between-gtk-and-qt---to-review)
 - [5. Configure dock](#5-configure-dock)
 - [6. Cool things to note](#6-cool-things-to-note)
@@ -42,16 +42,13 @@ yay -S intel-ucode
 # yay -S amd-ucode
 ```
 
-## 4. Install Kanagawa theme
+## 4. Install catppuccin theme
 
 ```bash
-yay -S kanagawa-gtk-theme-git
-cd /tmp/
-git clone git@agoodshort.github.com:refi64/stylepak.git
-cd stylepak
-./stylepak install-system
-./stylepak install-user
+yay -S catppuccin-gtk-theme-macchiato
 ```
+
+For Kvantum => <https://github.com/catppuccin/Kvantum>
 
 Use `lxappearance` to review the theme applied.
 

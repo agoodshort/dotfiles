@@ -7,6 +7,7 @@
  * =========================================================================== */
 
 /* import css definitions for current theme */
+@import "macchiato.css";
 
 /* -----------------------------------------------------------------------------
  * Keyframes
@@ -14,28 +15,28 @@
 
 @keyframes blink-warning {
   70% {
-    color: @wm_icon_bg;
+    color: @text;
   }
 
   to {
-    color: @wm_icon_bg;
-    background-color: @warning_color;
+    color: @text;
+    background-color: @peach;
   }
 }
 
 @keyframes blink-critical {
   70% {
-    color: @wm_icon_bg;
+    color: @text;
   }
 
   to {
-    color: @wm_icon_bg;
-    background-color: @error_color;
+    color: @text;
+    background-color: @red;
   }
 }
 
 /* -----------------------------------------------------------------------------
- * Base styles
+ * crust styles
  * -------------------------------------------------------------------------- */
 
 /* Reset all styles */
@@ -45,17 +46,17 @@
   min-height: 0;
   margin: 0;
   padding: 0;
-    border-radius: 20px;
-    transition: none;
+  border-radius: 20px;
+  transition: none;
   font-family: "RobotoMono Nerd Font", "Roboto Mono", sans-serif;
 }
 
 /* The whole bar */
 window#waybar {
-  background: @theme_bg_color;
-  color: @wm_icon_bg;
+  background: @crust;
+  color: @text;
   font-size: 14px;
-    border-radius: 0px;
+  border-radius: 0px;
 }
 
 /* Each module */
@@ -85,11 +86,11 @@ window#waybar {
  * -------------------------------------------------------------------------- */
 
 #clock {
-  color: @theme_bg_color;
-  background-color: @theme_selected_bg_color;
+  color: @surface0;
+  background-color: @rosewater;
   font-weight: bold;
-    margin-right: 10px;
-    margin-left: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 #battery {
@@ -99,11 +100,11 @@ window#waybar {
 }
 
 #battery.warning {
-  color: @warning_color;
+  color: @peach;
 }
 
 #battery.critical {
-  color: @error_color;
+  color: @red;
 }
 
 #battery.warning.discharging {
@@ -117,11 +118,11 @@ window#waybar {
 }
 
 #cpu.warning {
-  color: @warning_color;
+  color: @peach;
 }
 
 #cpu.critical {
-  color: @error_color;
+  color: @red;
 }
 
 #memory {
@@ -131,69 +132,73 @@ window#waybar {
 }
 
 #memory.warning {
-  color: @warning_color;
+  color: @peach;
 }
 
 #memory.critical {
-  color: @error_color;
+  color: @red;
   animation-name: blink-critical;
   animation-duration: 2s;
 }
 
 #mode {
-  background: @background_color;
+  background: @crust;
 }
 
 #network.disconnected {
-  color: @warning_color;
+  color: @peach;
 }
 
 #pulseaudio.muted {
-  color: @warning_color;
+  color: @peach;
 }
 
 #temperature.critical {
-  color: @error_color;
+  color: @red;
 }
 
 #workspaces {
-    border-radius: 20px;
-    margin-left: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-  background-color: @unfocused_insensitive_color;
+  border-radius: 20px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: @mantle;
 }
 
 #workspaces button {
   border: 2px solid transparent;
   padding-top: 2px;
   padding-bottom: 2px;
-        padding-left: 10px;
-        padding-right: 10px;
-  color: @theme_bg_color;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: @text;
+}
+
+#workspaces button:hover {
+  background: @surface1;
+  background-color: @surface1;
+  box-shadow: inherit;
+  text-shadow: inherit;
 }
 
 #workspaces button.focused {
-  border-color: @theme_bg_color;
-  background-color: @theme_selected_bg_color;
-    color: @theme_selected_fg_color;
-    font-weight: bold;
+  background-color: @blue;
 }
 
 #workspaces button.urgent {
-  border-color: @error_color;
-  color: @error_color;
+  border-color: @red;
+  color: @red;
 }
 
 #custom-pacman {
-  color: @warning_color;
+  color: @peach;
 }
 
 #bluetooth.disabled {
-  color: @warning_color;
+  color: @peach;
 }
 
 #custom-wf-recorder {
-  color: @error_color;
+  color: @red;
   padding-right: 10px;
 }

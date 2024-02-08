@@ -1,5 +1,5 @@
 # theme variables
-include $HOME/.config/sway/themes/kanagawa/definitions
+include $HOME/.config/sway/themes/catppuccin/definitions
 
 # global variables
 include $HOME/.config/sway/definitions
