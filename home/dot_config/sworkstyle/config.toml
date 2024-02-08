@@ -25,7 +25,6 @@ separator = ' '
 
 # Edge web apps before Edge
 '/Outlook/' = '󰴢'
-'/GitHub/' = ''
 '/Google Meet/' = '󰋉'
 '/Microsoft Teams/' = '󰊻'
 'Microsoft-edge' = '󰇩'
