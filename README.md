@@ -19,6 +19,7 @@
     * [Ubuntu](#ubuntu)
 - [References](#references)
     * [Git multi user](#git-multi-user)
+- [Additional documentation](#additional-documentation)
 
 <!-- tocstop -->
 
@@ -117,7 +118,6 @@ sudo apt install gnome-tweaks gnome-shell-extensions
 - [ ] Create a bootstrap script to install the brew bases and login to lastpass
 - [ ] Look at Timeshift and find out how to partition properly
 - [ ] Review `zathura` and `qpdf` for pdf and file preview
-- [ ] Write my-npm-tools README.md
 - [ ] fix flatpak install
 - [ ] Work on the format with `{{ end -}}`
 - [ ] Mount [secondary drive as home folder](https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/)
@@ -154,3 +154,7 @@ Look for a way to install:
 - <https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610>
 - <https://stackoverflow.com/a/74832574/13795415>
 - <https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3>
+
+## Additional documentation
+
+- [my-npm-tools](./home/private_dot_local/private_share/my-npm-tools/README.md)
