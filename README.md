@@ -74,13 +74,24 @@ curl --silent https://api.github.com/meta |
 Install Visual Studio Code before installing `chezmoi` as `brew` will fail to install Visual Studio Code extensions at first run.
 
 ```bash
-if [[ $OSTYPE == 'darwin'* ]]; then
-	brew install --cask visual-studio-code
+if [[ ! -x "$(command -v code)" ]]; then
+
+	if [[ $OSTYPE == 'darwin'* ]]; then
+		brew install --cask visual-studio-code
+	else
+		if [[ -x "$(command -v snap)" ]]; then
+			snap install code --classic
+		elif [[ -x "$(command -v yay)" ]]; then
+			yay -S code --noconfirm
+		else
+			echo "snap or yay is not installed, cannot install Visual Studio Code"
+		fi
+	fi
+
 else
-	snap install code --classic
+	brew install chezmoi
+	chezmoi init --apply agoodshort
 fi
-brew install chezmoi
-chezmoi init --apply agoodshort
 ```
 
 ### 4. Install node through nvm
