@@ -64,6 +64,8 @@ brew "lazygit"
 brew "lf"
 # Curses-based tool for viewing and analyzing log files
 brew "lnav"
+# Package manager for the Lua programming language
+brew "luarocks"
 # Fast, highly customisable system info script
 brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
