@@ -13,7 +13,7 @@ mode --pango_markup $mode_layout {
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym Control+e mode "default"
+    bindsym Control+e exec wtype -k 'Escape'
 }
 
 bindsym $mod+l mode $mode_layout
@@ -39,7 +39,7 @@ mode --pango_markup $mode_mode {
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym Control+e mode "default"
+    bindsym Control+e exec wtype -k 'Escape'
 }
 
 bindsym $mod+m mode $mode_mode

@@ -5,11 +5,13 @@ set $mode_recording "<span foreground='$subtext1'></span>  \
 set $recorder $HOME/.config/sway/scripts/recorder.sh
 
 mode --pango_markup $mode_recording {
-        $bindsym r exec $recorder, mode "default"
-        $bindsym Shift+r exec $recorder -a, mode "default"
+    $bindsym r exec $recorder, mode "default"
+    $bindsym Shift+r exec $recorder -a, mode "default"
 
-        # Return to default mode.
-        $bindsym Escape mode "default"
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Control+e exec wtype -k 'Escape'
 }
 
 ## Launch // Recording Mode ##

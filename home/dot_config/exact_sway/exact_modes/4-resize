@@ -33,8 +33,9 @@ mode --pango_markup $mode_resize {
     $bindsym plus gaps inner current plus 5px
 
     # Return to default mode
-    $bindsym Return mode "default"
-    $bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Control+e exec wtype -k 'Escape'
 }
 ## Launch // Resize Mode ##
 $bindsym $mod+r mode $mode_resize
