@@ -47,7 +47,11 @@ lpass login --trust USERNAME
 
 ```bash
 mkdir ~/.ssh && cd $_
+if [[ ! $OSTYPE == 'darwin'* && ! -x "$(command -v ssh-keygen)" ]]; then
+	sudo pacman -S openssh
+fi
 ssh-keygen -t ed25519 -C "adrien.goodshort@gmail.com" -f "github-agoodshort"
+
 if [[ $OSTYPE == 'darwin'* ]]; then
 	pbcopy <~/.ssh/github-agoodshort.pub # copy public key to clipboard
 else
