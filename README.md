@@ -10,7 +10,7 @@
         + [2.1. Create ssh key](#21-create-ssh-key)
         + [2.2. Associate the key with GitHub](#22-associate-the-key-with-github)
         + [2.3. Add the GitHub SSH key to known_host](#23-add-the-github-ssh-key-to-known_host)
-    * [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
+    * [3. Getting started with chezmoi and create personal directory](#3-getting-started-with-chezmoi-and-create-personal-directory)
     * [4. Install node through nvm](#4-install-node-through-nvm)
     * [5. Additional steps based on OS](#5-additional-steps-based-on-os)
 - [Tools](#tools)
@@ -66,29 +66,29 @@ curl --silent https://api.github.com/meta |
 	jq --raw-output '"github.com "+.ssh_keys[]' >>~/.ssh/known_hosts
 ```
 
-### 3. Getting started with chezmoi
+### 3. Getting started with chezmoi and create personal directory
 
 Install Visual Studio Code before installing `chezmoi` as `brew` will fail to install Visual Studio Code extensions during the first run.
 
 ```bash
+mkdir -p ~/Coding/Personal
+
 if [[ ! -x "$(command -v code)" ]]; then
 
 	if [[ $OSTYPE == 'darwin'* ]]; then
 		brew install --cask visual-studio-code
 	else
-		if [[ -x "$(command -v snap)" ]]; then
-			snap install code --classic
-		elif [[ -x "$(command -v yay)" ]]; then
-			yay -S code --noconfirm
+		if [[ -x "$(command -v pacman)" ]]; then
+			sudo pacman -S code --noconfirm
 		else
-			echo "snap or yay is not installed, cannot install Visual Studio Code"
+			echo "pacman is not available, cannot install Visual Studio Code"
+			exit 1
 		fi
 	fi
-
-else
-	brew install chezmoi
-	chezmoi init --apply agoodshort
 fi
+
+brew install chezmoi
+chezmoi init --apply agoodshort
 ```
 
 ### 4. Install node through nvm
@@ -100,7 +100,6 @@ nvm use lts/gallium
 
 ### 5. Additional steps based on OS
 
-- [Ubuntu](/docs/UBUNUTU.md)
 - [Windows](/docs/WINDOWS.md)
 - [MacOS](/docs/MACOS.md)
 - [Arch](/docs/ARCH.md)
@@ -117,7 +116,6 @@ List of tools used is available in [Tools](/docs/TOOLS.md).
 - [ ] Create a bootstrap script to install the brew bases and login to lastpass
 - [ ] Look at Timeshift and find out how to partition properly
 - [ ] Review `zathura` and `qpdf` for pdf and file preview
-- [ ] fix flatpak install and description in [Tools](/docs/TOOLS.md)
 - [ ] Work on the format with `{{ end -}}`
 - [ ] Mount [secondary drive as home folder](https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/)
 - [ ] Change `zsh/` to `exact_zsh/`
