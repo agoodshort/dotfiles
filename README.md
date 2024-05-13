@@ -51,6 +51,9 @@ ssh-keygen -t ed25519 -C "adrien.goodshort@gmail.com" -f "github-agoodshort"
 if [[ $OSTYPE == 'darwin'* ]]; then
 	pbcopy <~/.ssh/github-agoodshort.pub # copy public key to clipboard
 else
+	if [[ ! -x "$(command -v wl-copy)" ]]; then
+		sudo pacman -S wl-clipboard --noconfirm
+	fi
 	wl-copy <~/.ssh/github-agoodshort.pub # https://neovim.io/doc/user/provider.html#provider-clipboard
 fi
 ```
@@ -78,12 +81,7 @@ if [[ ! -x "$(command -v code)" ]]; then
 	if [[ $OSTYPE == 'darwin'* ]]; then
 		brew install --cask visual-studio-code
 	else
-		if [[ -x "$(command -v pacman)" ]]; then
-			sudo pacman -S code --noconfirm
-		else
-			echo "pacman is not available, cannot install Visual Studio Code"
-			exit 1
-		fi
+		sudo pacman -S code --noconfirm
 	fi
 fi
 
