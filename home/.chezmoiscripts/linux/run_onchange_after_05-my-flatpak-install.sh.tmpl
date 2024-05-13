@@ -4,9 +4,14 @@
 
 echo "----- start: 05-my-flatpak-install.sh -----"
 
-if [[ ! -x "$(command -v flatpak)" && -x "$(command -v apt)" ]]; then
+if [[ ! -x "$(command -v flatpak)" ]]; then
     echo "Installing flatpak..."
-    sudo apt install flatpak
+    if [[ -x "$(command -v pacman)" ]]; then
+        sudo pacman -S flatpak
+    else
+        echo "No supported package manager found, impossible to install flatpak"
+        exit 1
+    fi
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     echo "Done installing flatpak"
 fi

@@ -1,2 +1,6 @@
 com.microsoft.Edge
+com.brave.Browser
+com.slack.Slack
+us.zoom.Zoom
+sh.cider.Cider
 org.wezfurlong.wezterm
