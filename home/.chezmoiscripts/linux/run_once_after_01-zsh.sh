@@ -2,6 +2,9 @@
 
 echo "----- start: 01-zsh.sh -----"
 if [[ $SHELL != *"zsh"* ]]; then
+    if [[ ! $OSTYPE == 'darwin'* && ! -x "$(command -v zsh)" ]]; then
+        sudo pacman -S zsh --noconfirm
+    fi
     echo "Changing shell to zsh..."
     if  ! grep -q "$(which zsh)" /etc/shells; then
         sudo sh -c "echo $(which zsh) >> /etc/shells"
