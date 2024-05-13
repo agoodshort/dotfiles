@@ -6,32 +6,44 @@ tap "homebrew/services"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazynpm"
 tap "wez/wezterm-linuxbrew"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Build full-stack web and mobile apps in hours. Easy to start, easy to scale
+brew "aws-amplify"
 # C parser in Python
 brew "pycparser"
 # C Foreign Function Interface for Python
 brew "cffi"
-# Text processing system for reStructuredText
-brew "docutils"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
+# CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM
+brew "aws-sam-cli"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # C library implementing the SSH2 protocol
 brew "libssh2"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Implementation of the DNS protocols
+brew "bind"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
 # Collection of Linux utilities
 brew "util-linux"
+# Core application library for C
+brew "glib"
 # X.Org: Protocol Headers
 brew "xorgproto"
 # Validate CloudFormation templates against the CloudFormation spec
 brew "cfn-lint"
 # Database of common MIME types
 brew "shared-mime-info"
+# OpenType text shaping engine
+brew "harfbuzz"
 # Library to render SVG files using Cairo
 brew "librsvg"
 # Versatile and fast Unicode/ASCII/ANSI graphics renderer
@@ -40,10 +52,20 @@ brew "chafa"
 brew "chezmoi"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Protocol buffers library
+brew "protobuf-c"
+# Malware identification and classification tool
+brew "yara"
 # Anti-virus software
 brew "clamav"
+# Statistics utility to count lines of code
+brew "cloc"
 # Defines a standard way of committing rules and communicating it
 brew "commitizen"
+# Image previews for lf file manager
+brew "ctpv"
+# Text processing system for reStructuredText
+brew "docutils"
 # Modern, maintained replacement for ls
 brew "eza"
 # Simple, fast and user-friendly alternative to find
@@ -58,6 +80,8 @@ brew "git"
 brew "gitui"
 # Manage your Java environment
 brew "jenv"
+# Library for storing/retrieving passwords and other secrets
+brew "libsecret"
 # LastPass command-line interface tool
 brew "lastpass-cli"
 # Simple terminal UI for git commands
@@ -78,6 +102,8 @@ brew "nvm"
 brew "onefetch"
 # Development kit for the Java programming language
 brew "openjdk@17"
+# Terminal-based presentations using Pandoc
+brew "patat"
 # Tools for and transforming and inspecting PDF files
 brew "qpdf"
 # Search tool like grep and The Silver Searcher
