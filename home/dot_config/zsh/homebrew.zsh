@@ -42,6 +42,11 @@ if [[ -f "$HOMEBREW_PREFIX/bin/rustup-init" ]]; then
 	export PATH="$CARGO_HOME/bin:$PATH"
 fi
 
+# thefuck
+if [[ -f "$HOMEBREW_PREFIX/bin/thefuck" ]]; then
+	eval "$(thefuck --alias)"
+fi
+
 # starship
 if [[ -f "$HOMEBREW_PREFIX/bin/starship" ]]; then
 	eval "$(starship init zsh)"
