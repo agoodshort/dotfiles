@@ -122,6 +122,12 @@ List of tools used is available in [Tools](/docs/TOOLS.md).
 - [ ] Mount [secondary drive as home folder](https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/)
 - [ ] Change `zsh/` to `exact_zsh/`
 
+![image](https://github.com/agoodshort/dotfiles/assets/33832653/f9eaa504-ca26-4b2b-bd64-a3a4da49b793)
+
+![image](https://github.com/agoodshort/dotfiles/assets/33832653/c0a70690-0ea0-4842-890a-8b85a028b6f6)
+
+![image](https://github.com/agoodshort/dotfiles/assets/33832653/9c983bb1-1872-4e86-b08b-51ff29c18a18)
+
 ## References
 
 ### Git multi user
