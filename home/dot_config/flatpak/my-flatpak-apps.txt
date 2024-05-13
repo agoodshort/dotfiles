@@ -4,3 +4,4 @@ com.slack.Slack
 us.zoom.Zoom
 sh.cider.Cider
 org.wezfurlong.wezterm
+org.libreoffice.LibreOffice

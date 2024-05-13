@@ -6,11 +6,12 @@
     * [1. Homebrew](#1-homebrew)
         + [1.1. Install Homebrew and required tools](#11-install-homebrew-and-required-tools)
         + [1.2. Install `jq` and `lpass`](#12-install-jq-and-lpass)
+        + [1.3. Install dependencies](#13-install-dependencies)
     * [2. Setup ssh for GitHub](#2-setup-ssh-for-github)
         + [2.1. Create ssh key](#21-create-ssh-key)
         + [2.2. Associate the key with GitHub](#22-associate-the-key-with-github)
         + [2.3. Add the GitHub SSH key to known_host](#23-add-the-github-ssh-key-to-known_host)
-    * [3. Getting started with chezmoi and create personal directory](#3-getting-started-with-chezmoi-and-create-personal-directory)
+    * [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
     * [4. Install node through nvm](#4-install-node-through-nvm)
     * [5. Additional steps based on OS](#5-additional-steps-based-on-os)
 - [Tools](#tools)
@@ -41,23 +42,44 @@ brew install jq lastpass-cli
 lpass login --trust USERNAME
 ```
 
+#### 1.3. Install dependencies
+
+```bash
+mkdir -p ~/Coding/Personal
+
+if [[ ! $OSTYPE == 'darwin'* ]]; then
+	sudo pacman -S openssh wl-clipboard flatpak zsh --noconfirm
+
+	if [[ ! -x "$(command -v yay)" ]]; then
+		cd ~/Coding/Personal
+		git clone https://aur.archlinux.org/yay.git
+		cd yay
+		makepkg -si
+		cd ../
+		rm -rf yay
+		yay -Y --gendb
+		yay -Syu --devel
+		yay -Y --devel --save
+	fi
+
+	# Make yay/pacman colourful
+	sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+
+	yay -S catppuccin-gtk-theme-macchiato akm --noconfirm
+fi
+```
+
 ### 2. Setup ssh for GitHub
 
 #### 2.1. Create ssh key
 
 ```bash
 mkdir ~/.ssh && cd $_
-if [[ ! $OSTYPE == 'darwin'* && ! -x "$(command -v ssh-keygen)" ]]; then
-	sudo pacman -S openssh
-fi
 ssh-keygen -t ed25519 -C "adrien.goodshort@gmail.com" -f "github-agoodshort"
 
 if [[ $OSTYPE == 'darwin'* ]]; then
 	pbcopy <~/.ssh/github-agoodshort.pub # copy public key to clipboard
 else
-	if [[ ! -x "$(command -v wl-copy)" ]]; then
-		sudo pacman -S wl-clipboard --noconfirm
-	fi
 	wl-copy <~/.ssh/github-agoodshort.pub # https://neovim.io/doc/user/provider.html#provider-clipboard
 fi
 ```
@@ -73,13 +95,11 @@ curl --silent https://api.github.com/meta |
 	jq --raw-output '"github.com "+.ssh_keys[]' >>~/.ssh/known_hosts
 ```
 
-### 3. Getting started with chezmoi and create personal directory
+### 3. Getting started with chezmoi
 
 Install Visual Studio Code before installing `chezmoi` as `brew` will fail to install Visual Studio Code extensions during the first run.
 
 ```bash
-mkdir -p ~/Coding/Personal
-
 if [[ ! -x "$(command -v code)" ]]; then
 
 	if [[ $OSTYPE == 'darwin'* ]]; then

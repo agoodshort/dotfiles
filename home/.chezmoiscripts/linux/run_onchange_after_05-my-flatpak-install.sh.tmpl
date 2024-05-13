@@ -7,7 +7,7 @@ echo "----- start: 05-my-flatpak-install.sh -----"
 if [[ ! -x "$(command -v flatpak)" ]]; then
     echo "Installing flatpak..."
     if [[ -x "$(command -v pacman)" ]]; then
-        sudo pacman -S flatpak
+        sudo pacman -S flatpak --noconfirm
     else
         echo "No supported package manager found, impossible to install flatpak"
         exit 1

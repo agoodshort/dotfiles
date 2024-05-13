@@ -129,15 +129,6 @@ brew "lf"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
 
-# ---------------------------------------------------------------
-{{ if eq .chezmoi.os "linux" }}
-# Linux
-# ---------------------------------------------------------------
-tap "wez/wezterm-linuxbrew"
-# A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
-brew "wez/wezterm-linuxbrew/wezterm"
-{{ end -}}
-
 {{ if eq .chezmoi.os "darwin" }}
 # MacOS
 # ---------------------------------------------------------------
