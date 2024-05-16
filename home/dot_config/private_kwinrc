@@ -1,0 +1,23 @@
+[Desktops]
+Id_1=5d28b4ed-3410-46cf-941f-6692300ef86f
+Id_2=acf528e0-4728-4aed-9727-b9163702299f
+Id_3=5cd6c62f-0368-415f-8bf7-8a6630665dbd
+Id_4=623ceb96-2dd9-4f86-ae4f-9080b07e0ebb
+Number=4
+Rows=1
+
+[Plugins]
+desktopchangeosdEnabled=false
+
+[SubSession: 70f6ec42-63b5-48cf-8ced-ee6488fcecfc]
+active=-1
+count=0
+
+[Tiling]
+padding=4
+
+[Tiling][519dad1d-b9a7-51d8-b9c8-bfadc32f0172]
+tiles={"layoutDirection":"horizontal","tiles":[]}
+
+[Xwayland]
+Scale=1.25
