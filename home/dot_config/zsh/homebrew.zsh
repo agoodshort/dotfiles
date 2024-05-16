@@ -28,6 +28,7 @@ fi
 # neovim
 if [[ -f "$HOMEBREW_PREFIX/bin/nvim" ]]; then
 	export MANPAGER="nvim +Man!"
+	export EDITOR=nvim
 fi
 
 # lastpass-cli
