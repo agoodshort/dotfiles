@@ -28,9 +28,10 @@ set $background $HOME/.config/sway/themes/wallpapers/MathWorks.jpeg
 output * bg $background fill
 
 # Your preferred terminal emulator
-set $term wezterm
-set $term_float wezterm --config 'window_close_confirmation = "NeverPrompt"' --config 'window_background_opacity = 1' start --class floating_shell
-set $term_float_corner wezterm --config 'window_close_confirmation = "NeverPrompt"' --config 'window_background_opacity = 1' start --class floating_shell_corner
+set $term_cmd flatpak run org.wezfurlong.wezterm
+set $term $term_cmd
+set $term_float $term_cmd --config 'window_close_confirmation = "NeverPrompt"' --config 'window_background_opacity = 1' start --class floating_shell
+set $term_float_corner $term_cmd --config 'window_close_confirmation = "NeverPrompt"' --config 'window_background_opacity = 1' start --class floating_shell_corner
 
 # onscreen bar
 set $onscreen_bar $HOME/.config/sway/scripts/wob.sh "$accent-color" "$background-color"
