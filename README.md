@@ -5,8 +5,8 @@
 - [Installation](#installation)
     * [1. Homebrew](#1-homebrew)
         + [1.1. Install Homebrew and required tools](#11-install-homebrew-and-required-tools)
-        + [1.2. Install `jq` and `lpass`](#12-install-jq-and-lpass)
-        + [1.3. Install dependencies](#13-install-dependencies)
+        + [1.2. Install dependencies](#12-install-dependencies)
+    * [1.3. Install kvantum theme](#13-install-kvantum-theme)
     * [2. Setup ssh for GitHub](#2-setup-ssh-for-github)
         + [2.1. Create ssh key](#21-create-ssh-key)
         + [2.2. Associate the key with GitHub](#22-associate-the-key-with-github)
@@ -35,16 +35,12 @@ Install the [Homebrew dependencies for Linux](https://docs.brew.sh/Homebrew-on-L
 
 **Warning**: Make sure to follow the steps in "next steps" displayed after the installation.
 
-#### 1.2. Install `jq` and `lpass`
+#### 1.2. Install dependencies
 
 ```bash
-brew install jq lastpass-cli
+brew install jq lastpass-cli nvm
 lpass login --trust USERNAME
-```
 
-#### 1.3. Install dependencies
-
-```bash
 mkdir -p ~/Coding/Personal
 
 if [[ ! $OSTYPE == 'darwin'* ]]; then
@@ -65,9 +61,29 @@ if [[ ! $OSTYPE == 'darwin'* ]]; then
 	# Make yay/pacman colourful
 	sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
 
-	yay -S catppuccin-gtk-theme-macchiato akm --noconfirm
+	yay -S akm --noconfirm        # great tool for kernel selection
+	yay -S xmlstarlet --noconfirm # used by apdatifier
+	yay -S docker docker-compose --noconfirm
+	systemctl enable --now docker
+	sudo usermod -aG docker $USER
+	newgrp docker
+
+	# Sway dependencies
+	yay -S sway rofi swayidle waybar playerctl kanshi light swaync swaybg swaylock kvantum waybar-updates bluetuith swappy cliphist inotify-tools catppuccin-gtk-theme-macchiato ttf-roboto-mono-nerd ttf-roboto-mono
+	cargo install sworkstyle
+	brew install calcurse
 fi
 ```
+
+### 1.3. Install kvantum theme
+
+```bash
+cd ~/Coding/Personal
+git clone https://github.com/catppuccin/Kvantum.git
+kvantummanager
+```
+
+In `kvantummanager` select the theme folder `Catppuccin-Macchiato-blue` and install it. Then set it as the default.
 
 ### 2. Setup ssh for GitHub
 
