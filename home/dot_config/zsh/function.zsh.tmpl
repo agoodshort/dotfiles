@@ -11,6 +11,10 @@ function brew() {
 		echo "----- end: brew autoremove -----"
 
 		echo "----- start: Generate Brewfile -----"
+		if [[ ! -f $HOMEBREW_BUNDLE_FILE ]]; then
+            echo "HOMEBREW_BUNDLE_FILE file does not exit, attempting to create it..."
+            touch $HOMEBREW_BUNDLE_FILE
+		fi
 		if [[ -f $HOMEBREW_BUNDLE_FILE ]]; then
 			$whichbrew bundle dump --force --describe
 		else
