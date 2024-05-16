@@ -4,11 +4,12 @@
 
 - [Installation](#installation)
     * [1. Theming between GTK and QT - to review](#1-theming-between-gtk-and-qt---to-review)
-    * [3. Configure dock](#3-configure-dock)
+    * [2. Configure dock](#2-configure-dock)
 - [How-to](#how-to)
     * [Screen recording](#screen-recording)
     * [AUR](#aur)
     * [Downgrade](#downgrade)
+    * [iPhone Hotspot](#iphone-hotspot)
 
 <!-- tocstop -->
 
@@ -52,13 +53,25 @@ drun `show me the key` to display keystrokes
 
 ### AUR
 
-- `yay -Yc` remove unneeded packages
-- `yay -Qm` list all AUR packages
+| Command   | Description              |
+|-----------|--------------------------|
+| `yay -Yc` | remove unneeded packages |
+| `yay -Qm` | list all AUR packages    |
 
 ### Downgrade
 
 Used to Downgrade previously working packages
 
-```
+```bash
 sudo downgrade code
+```
+
+### iPhone Hotspot
+
+Make sure that `usbmuxd` is installed and start the service. Plug the iPhone and enable hotspot. More info here: <https://wiki.archlinux.org/title/IPhone_tethering>
+
+```bash
+yay -S usbmuxd
+
+systemctl start usbmuxd.service
 ```
