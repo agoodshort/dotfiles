@@ -33,6 +33,7 @@ fi
 # lastpass-cli
 if [[ -f "$HOMEBREW_PREFIX/bin/lpass" ]]; then
 	export LPASS_AGENT_TIMEOUT=0 # Lastpass-cli never quit
+	export LPASS_PINENTRY=1      # Lastpass-cli can't read master password on flatpak wezterm
 fi
 
 # rustup-init
