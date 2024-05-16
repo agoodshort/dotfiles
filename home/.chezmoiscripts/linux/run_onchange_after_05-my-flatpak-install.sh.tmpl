@@ -19,7 +19,10 @@ fi
 if [[ -f $HOME/.config/flatpak/my-flatpak-apps.txt ]]; then
     echo "Installing my flatpak apps..."
     xargs flatpak install -y flathub < $XDG_CONFIG_HOME/flatpak/my-flatpak-apps.txt
+    echo "Setting override for Google Chrome to create PWAs shortcuts..."
+    flatpak override --user --filesystem=~/.local/share/applications:create --filesystem=~/.local/share/icons:create com.google.Chrome
     echo "Done installing my flatpak apps"
+
 else
     echo "No my-flatpak-apps.txt found, impossible to install my flatpak apps"
 fi

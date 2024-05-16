@@ -1,7 +1,10 @@
 com.microsoft.Edge
+com.google.Chrome
 com.brave.Browser
 com.slack.Slack
 us.zoom.Zoom
 sh.cider.Cider
 org.wezfurlong.wezterm
 org.libreoffice.LibreOffice
+com.github.tchx84.Flatseal
+com.getpostman.Postman
