@@ -17,30 +17,9 @@ success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set
 format = 'on [$symbol$profile]($style) '
 
 [custom.chezmoi_status_diff]
-disabled = false
+disabled = true
 description = "The current chezmoi status and number of diffs"
 symbol = ' '
 format = '- [$symbol](bold purple)[\[$output\]](bold red) '
-# command = 'echo $(chezmoi status -x scripts | wc -l)'
-# command = "echo M$(chezmoi status | cut -c 1-2 | grep 'M' | wc -l)"
 command = "$XDG_CONFIG_HOME/starship/chezmoi_status_diff.sh"
 when = ' ! chezmoi verify -x scripts '
-
-[custom.chezmoi_diff_current_directory]
-disabled = true
-description = "The current chezmoi status in the current directory"
-symbol = ' '
-format = '- [$symbol$output]($style) '
-command = '[[ $PWD = $HOME ]] && echo $(chezmoi status -x scripts | wc -l) || echo $(chezmoi status -x scripts $PWD | wc -l)' # $HOME is not seen as a managed directory by chezmoi, so running `managed` or `status` on $HOME fails
-when = ' [[ $PWD = $HOME ]] && [[ $(chezmoi managed | wc -l) >  0 ]] || [[ $(chezmoi managed $PWD | wc -l) >  0 ]] ' # returns "0" if $PWD is not a managed directory (e.g. /etc/)
-
-[custom.chezmoi_diff]
-disabled = true
-description = "The current chezmoi status (displayed as a total number of diff)"
-symbol = ' '
-format = '- [$symbol$output]($style) '
-command = 'echo $(chezmoi status -x scripts | wc -l)'
-when = ' ! chezmoi verify -x scripts '
-
-
-# Do a number of files managed in this directory => (status $PWD) / (ls -l | wc -l)
