@@ -19,6 +19,8 @@ brew "chezmoi"
 brew "commitizen"
 # Modern, maintained replacement for ls
 brew "eza"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # GNU compiler collection
@@ -43,8 +45,6 @@ brew "lf"
 brew "lnav"
 # Package manager for the Lua programming language
 brew "luarocks"
-# Fast, highly customisable system info script
-brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Manage multiple Node.js versions
@@ -61,6 +61,8 @@ brew "starship"
 brew "tldr"
 # Upgrade all the things
 brew "topgrade"
+# Weather app for the terminal
+brew "wego"
 # Internet file retriever
 brew "wget"
 # Personal information dashboard for your terminal
@@ -81,6 +83,7 @@ brew "jesseduffield/lazydocker/lazydocker"
 brew "jesseduffield/lazynpm/lazynpm"
 # terminal feed viewer
 brew "ymgyt/syndicationd/synd"
+vscode "bfrangi.vscode-nightingale-theme"
 vscode "bierner.markdown-mermaid"
 vscode "bierner.markdown-preview-github-styles"
 vscode "catppuccin.catppuccin-vsc"
