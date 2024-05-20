@@ -115,10 +115,8 @@ set $swappy_pipe swappy -f - -o -
 set $upload_pipe curl -s -F "file=@-;filename=.png" https://x0.at/ | tee >(wl-copy) >(xargs notify-send)
 
 set $screenshot_screen $pipe_output | $swappy && $notify_paste
-set $screenshot_screen_upload $pipe_output | $swappy_pipe | $upload_pipe
 
 set $screenshot_selection $pipe_selection | $swappy && $notify_paste
-set $screenshot_selection_upload $pipe_selection | $swappy_pipe | $upload_pipe
 
 # autostarts
 set $autostart_dex '[ -x "$(command -v dex)" ] && gdbus wait --session org.kde.StatusNotifierWatcher && dex --autostart'
