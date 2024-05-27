@@ -17,6 +17,8 @@ brew "calcurse"
 brew "chezmoi"
 # Defines a standard way of committing rules and communicating it
 brew "commitizen"
+# Image previews for lf file manager
+brew "ctpv"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
