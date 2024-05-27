@@ -2,7 +2,7 @@
   "dependencies": {
     "depcheck": "^1.4.7",
     "markmap-cli": "^0.15.8",
-    "neovim": "^4.11.0",
+    "neovim": "^5.1.0",
     "serverless": "^3.38.0"
   }
 }
