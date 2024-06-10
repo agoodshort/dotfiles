@@ -28,13 +28,13 @@ fi
 # neovim
 if [[ -f "$HOMEBREW_PREFIX/bin/nvim" ]]; then
 	export MANPAGER="nvim +Man!"
-	export EDITOR=nvim
+	export VISUAL=nvim
+	export EDITOR=$VISUAL
 fi
 
 # lastpass-cli
 if [[ -f "$HOMEBREW_PREFIX/bin/lpass" ]]; then
 	export LPASS_AGENT_TIMEOUT=0 # Lastpass-cli never quit
-	export LPASS_PINENTRY=1      # Lastpass-cli can't read master password on flatpak wezterm
 fi
 
 # rustup-init

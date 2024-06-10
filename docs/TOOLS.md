@@ -53,9 +53,7 @@ rm -rf $CARGO_HOME
 
 ## Terminal
 
-Default terminal is [WezTerm](https://github.com/wez/wezterm)
-
-Use `wezterm imgcat /path/to/image.png` to display an image
+Default terminal is [Kitty](https://sw.kovidgoyal.net/kitty/)
 
 ## Browsers
 

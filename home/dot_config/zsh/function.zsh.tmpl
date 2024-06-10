@@ -71,9 +71,8 @@ function brew() {
 	fi
 }
 
-# ------------------------------------------------------------------
-
 {{ if eq .chezmoi.os "darwin" }}
+# ------------------------------------------------------------------
 whichmas=$(which mas)
 
 function mas() {
@@ -107,14 +106,4 @@ function mas() {
 		$whichmas "$@"
 	fi
 }
-
-# ------------------------------------------------------------------
 {{ end }}
-
-# https://wezfurlong.org/wezterm/faq.html#how-do-i-enable-undercurl-curly-underlines
-
-whichnvim=$(which nvim)
-
-function nvim() {
-	env TERM=wezterm $whichnvim "$@"
-}
