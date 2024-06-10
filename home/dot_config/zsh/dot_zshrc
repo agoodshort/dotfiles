@@ -12,5 +12,7 @@ setopt interactivecomments # Allow comments on the command line
 setopt correct             # Turn on spelling correction
 setopt ignoreeof           # Force user to use `exit`
 
+pokeget random
+
 ## Uncomment to profile zsh startup
 # zprof
