@@ -8,42 +8,45 @@
 
 profile office {
     output "BNQ BenQ GW2270 4BG04011SL0" position 0,0
-    output eDP-1 position 1920,0 mode 1920x1080
-    exec swaymsg workspace 1 output "'BNQ BenQ GW2270 4BG04011SL0'"
-    exec swaymsg workspace 2 output "'BNQ BenQ GW2270 4BG04011SL0'"
-    exec swaymsg workspace 3 output "'BNQ BenQ GW2270 4BG04011SL0'"
-    exec swaymsg workspace 4 output "'BNQ BenQ GW2270 4BG04011SL0'"
-    exec swaymsg workspace 5 output "'BNQ BenQ GW2270 4BG04011SL0'"
-    exec swaymsg workspace 6 output eDP-1
-    exec swaymsg workspace 7 output eDP-1
-    exec swaymsg workspace 8 output eDP-1
-    exec swaymsg workspace 9 output eDP-1
+    output eDP-1 position 1920,0 mode 1920x1080 scale 1
+    exec hyprctl keyword workspace "1, monitor:desc:BNQ BenQ GW2270 4BG04011SL0"
+    exec hyprctl keyword workspace "2, monitor:desc:BNQ BenQ GW2270 4BG04011SL0"
+    exec hyprctl keyword workspace "3, monitor:desc:BNQ BenQ GW2270 4BG04011SL0"
+    exec hyprctl keyword workspace "4, monitor:desc:BNQ BenQ GW2270 4BG04011SL0"
+    exec hyprctl keyword workspace "5, monitor:desc:BNQ BenQ GW2270 4BG04011SL0"
+    exec hyprctl keyword workspace "6, monitor:eDP-1"
+    exec hyprctl keyword workspace "7, monitor:eDP-1"
+    exec hyprctl keyword workspace "8, monitor:eDP-1"
+    exec hyprctl keyword workspace "9, monitor:eDP-1"
+    exec hyprctl keyword workspace "10, monitor:eDP-1"
 }
 
 profile laptop {
-    output eDP-1 position 0,0 mode 1920x1080
-    exec swaymsg workspace 1 output eDP-1
-    exec swaymsg workspace 2 output eDP-1
-    exec swaymsg workspace 3 output eDP-1
-    exec swaymsg workspace 4 output eDP-1
-    exec swaymsg workspace 5 output eDP-1
-    exec swaymsg workspace 6 output eDP-1
-    exec swaymsg workspace 7 output eDP-1
-    exec swaymsg workspace 8 output eDP-1
-    exec swaymsg workspace 9 output eDP-1
+    output eDP-1 position 0,0 mode 1920x1080 scale 1
+    exec hyprctl keyword workspace "1, monitor:eDP-1"
+    exec hyprctl keyword workspace "2, monitor:eDP-1"
+    exec hyprctl keyword workspace "3, monitor:eDP-1"
+    exec hyprctl keyword workspace "4, monitor:eDP-1"
+    exec hyprctl keyword workspace "5, monitor:eDP-1"
+    exec hyprctl keyword workspace "6, monitor:eDP-1"
+    exec hyprctl keyword workspace "7, monitor:eDP-1"
+    exec hyprctl keyword workspace "8, monitor:eDP-1"
+    exec hyprctl keyword workspace "9, monitor:eDP-1"
+    exec hyprctl keyword workspace "10, monitor:eDP-1"
 }
 
 profile home {
-    output eDP-1 position 0,360 mode 1920x1080
+    output eDP-1 position 0,360 mode 1920x1080@60.00Hz scale 1
     output "Samsung Electric Company C24F390 H4ZMB07597" position 1920,360 mode 1920x1080
     output "AOC AG352UCG6 #ASO7QFAlij7d" position 3840,0 mode 3440x1440
-    exec swaymsg workspace 1 output eDP-1
-    exec swaymsg workspace 2 output eDP-1
-    exec swaymsg workspace 3 output eDP-1
-    exec swaymsg workspace 4 output "'Samsung Electric Company C24F390 H4ZMB07597'"
-    exec swaymsg workspace 5 output "'Samsung Electric Company C24F390 H4ZMB07597'"
-    exec swaymsg workspace 6 output "'Samsung Electric Company C24F390 H4ZMB07597'"
-    exec swaymsg workspace 7 output "'AOC AG352UCG6 #ASO7QFAlij7d'"
-    exec swaymsg workspace 8 output "'AOC AG352UCG6 #ASO7QFAlij7d'"
-    exec swaymsg workspace 9 output "'AOC AG352UCG6 #ASO7QFAlij7d'"
+    exec hyprctl keyword workspace "1, monitor:eDP-1"
+    exec hyprctl keyword workspace "2, monitor:eDP-1"
+    exec hyprctl keyword workspace "3, monitor:eDP-1"
+    exec hyprctl keyword workspace "4, monitor:desc:Samsung Electric Company C24F390 H4ZMB07597"
+    exec hyprctl keyword workspace "5, monitor:desc:Samsung Electric Company C24F390 H4ZMB07597"
+    exec hyprctl keyword workspace "6, monitor:desc:Samsung Electric Company C24F390 H4ZMB07597"
+    exec hyprctl keyword workspace "7, monitor:desc:AOC AG352UCG6 #ASO7QFAlij7d"
+    exec hyprctl keyword workspace "8, monitor:desc:AOC AG352UCG6 #ASO7QFAlij7d"
+    exec hyprctl keyword workspace "9, monitor:desc:AOC AG352UCG6 #ASO7QFAlij7d"
+    exec hyprctl keyword workspace "10, monitor:desc:AOC AG352UCG6 #ASO7QFAlij7d"
 }
