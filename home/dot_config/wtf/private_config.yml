@@ -6,20 +6,53 @@ wtf:
       normal: gray
   grid:
     columns: [32, 32, 32, 32, 32]
-    rows: [4, 10, 10, 10, 10, 10]
+    rows: [10, 10, 10, 10, 10, 10]
   refreshInterval: 30s
   mods:
-    uptime:
-      # args: [""]
-      cmd: "uptime"
+    # first row
+    devto:
       enabled: true
+      numberOfArticles: 10
       position:
         top: 0
         left: 0
         height: 1
+        width: 2
+      # contentTag: "showdev"
+      # contentState: "rising"
+    feedreader:
+      enabled: true
+      feeds:
+        - https://news.itsfoss.com/latest/rss/
+      feedLimit: 10
+      position:
+        top: 0
+        left: 2
         width: 3
-      refreshInterval: 30s
-      type: cmdrunner
+        height: 1
+      refreshInterval: 14400s
+
+    # second row
+    power:
+      enabled: true
+      position:
+        top: 1
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 15s
+      title: "⚡️"
+    ipinfo:
+      colors:
+        name: "lightblue"
+        value: "white"
+      enabled: true
+      position:
+        top: 1
+        left: 1
+        height: 1
+        width: 2
+      refreshInterval: 150s
     clocks:
       colors:
         rows:
@@ -31,7 +64,7 @@ wtf:
         Dublin: "Europe/Dublin"
         New Dhelia: "Asia/Kolkata"
       position:
-        top: 0
+        top: 1
         left: 3
         height: 1
         width: 2
@@ -39,46 +72,18 @@ wtf:
       sort: "alphabetical"
       title: "Clocks"
       type: "clocks"
-    feedreader:
-      enabled: true
-      feeds:
-        - http://feeds.bbci.co.uk/news/rss.xml
-      feedLimit: 10
-      position:
-        top: 1
-        left: 0
-        width: 2
-        height: 1
-      refreshInterval: 14400s
-    ipinfo:
-      colors:
-        name: "lightblue"
-        value: "white"
-      enabled: true
-      position:
-        top: 1
-        left: 3
-        height: 1
-        width: 2
-      refreshInterval: 150s
-    power:
-      enabled: true
-      position:
-        top: 1
-        left: 2
-        height: 1
-        width: 1
-      refreshInterval: 15s
-      title: "⚡️"
+
+    # third row (height 2)
     weather:
-      # args: [""]
+      title: "🌈"
+      args: ["-d", "1"]
       cmd: "wego"
       enabled: true
       type: "cmdrunner"
       position:
         top: 2
         left: 0
-        height: 3
+        height: 2
         width: 4
       refreshInterval: 1h
     security:
@@ -89,3 +94,15 @@ wtf:
         height: 2
         width: 1
       refreshInterval: 1h
+
+    # fourth row
+    docker:
+      type: docker
+      enabled: true
+      labelColor: lightblue
+      position:
+        top: 4
+        left: 0
+        height: 3
+        width: 1
+      refreshInterval: 1s
