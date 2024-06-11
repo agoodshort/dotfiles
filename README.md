@@ -70,7 +70,6 @@ if [[ ! $OSTYPE == 'darwin'* ]]; then
 
 	# Sway dependencies
 	yay -S sway rofi swayidle waybar playerctl kanshi light swaync swaybg swaylock kvantum waybar-updates bluetuith swappy cliphist inotify-tools catppuccin-gtk-theme-macchiato ttf-roboto-mono-nerd ttf-roboto-mono
-	cargo install sworkstyle
 	brew install calcurse
 fi
 ```

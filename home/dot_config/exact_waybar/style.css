@@ -181,7 +181,7 @@ window#waybar {
   text-shadow: inherit;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   background-color: @blue;
 }
 

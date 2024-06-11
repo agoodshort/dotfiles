@@ -14,8 +14,8 @@
     "height": 30,
     "position": "top",
     "modules-left": [
-        "sway/mode",
-        "sway/workspaces"
+        "hyprland/submap",
+        "hyprland/workspaces"
     ],
     "modules-center": [
         "tray",
@@ -80,7 +80,7 @@
     },
     "memory": {
         "interval": 5,
-        "format": " {}%",
+        "format": "  {}%",
         "states": {
             "warning": 70,
             "critical": 90
@@ -97,8 +97,13 @@
         "on-click-right": "swaymsg exec \\$term_float_corner -- btm -e --default_widget_type network",
         "on-click": "swaymsg exec \\$term_float nmtui"
     },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{} </span>",
+    //"sway/mode": {
+    //    "format": "<span style=\"italic\">{} </span>",
+    //    "tooltip": false
+    //},
+    "hyprland/submap": {
+        "format": "✌️ {}",
+        "max-length": 8,
         "tooltip": false
     },
     "idle_inhibitor": {
@@ -136,9 +141,9 @@
         "interval": 5,
         "format": "{icon} {temperatureC}°",
         "format-icons": [
-            " ",
-            " ",
-            " "
+            "",
+            "",
+            ""
         ],
         "tooltip": false,
         "on-click": "swaymsg exec \\$term_float_corner -- btm -e --default_widget_type temp",
@@ -178,7 +183,7 @@
         "interval": 300,
         "tooltip": false,
         "return-type": "json",
-        "format": " {}",
+        "format": "󰊤 {}",
         "exec": "gh api '/notifications' -q '{ text: length }' | cat -",
         "exec-if": "[ -x \"$(command -v gh)\" ] && gh auth status 2>&1 | grep -q -m 1 'Logged in' && gh api '/notifications' -q 'length' | grep -q -m 1 '0' ; test $? -eq 1",
         "on-click": "xdg-open https://github.com/notifications && sleep 30 && pkill -RTMIN+4 waybar",
@@ -201,7 +206,7 @@
         "signal": 5
     },
     "custom/clipboard": {
-        "format": "",
+        "format": " ",
         "interval": "once",
         "return-type": "json",
         "on-click": "swaymsg -q exec '$clipboard'; pkill -RTMIN+9 waybar",
