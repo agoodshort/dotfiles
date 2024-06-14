@@ -10,9 +10,9 @@
     // Global configuration
     // -------------------------------------------------------------------------
     "layer": "top",
-    // If height property would be not present, it'd be calculated dynamically
-    "height": 30,
+    "height": 30, // If height property would be not present, it'd be calculated dynamically
     "position": "top",
+    "reload_style_on_change": true,
     "modules-left": [
         "hyprland/submap",
         "hyprland/workspaces"
@@ -70,7 +70,7 @@
     },
     "cpu": {
         "interval": 5,
-        "format": " {usage}%",
+        "format": "  {usage}%",
         "states": {
             "warning": 70,
             "critical": 90

@@ -60,6 +60,7 @@ window#waybar {
 }
 
 /* Each module */
+/* Should I add the rest */
 #custom-pacman,
 #custom-github,
 #custom-clipboard,
@@ -88,7 +89,6 @@ window#waybar {
 #clock {
   color: @surface0;
   background-color: @rosewater;
-  font-weight: bold;
   margin-right: 10px;
   margin-left: 10px;
 }
@@ -182,7 +182,8 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background-color: @blue;
+  color: @surface0;
+  background-color: @yellow;
 }
 
 #workspaces button.urgent {

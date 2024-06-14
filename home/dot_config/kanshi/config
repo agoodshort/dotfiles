@@ -1,7 +1,7 @@
 # configure as many display profiles as you need
 # refer to "man kanshi" to find out how to configure profiles
 # https://github.com/emersion/kanshi#configuration-file
-# * get your current screen name: swaymsg -t get_outputs
+# * get your current screen name: hyprctl monitors all
 # * set the resolution and position for your screen: output HDMI1 mode 1920x1080 position 0,0
 # * set the scaling for your screen: output HDMI1 scale 2
 # eDP-1 => laptop screen
@@ -36,9 +36,12 @@ profile laptop {
 }
 
 profile home {
+    # output eDP-1 position 0,360 mode 1920x1080@60.00Hz scale 1.2
+    # output "Samsung Electric Company C24F390 H4ZMB07597" position 1536,360 mode 1920x1080
+    # output "AOC AG352UCG6 #ASO7QFAlij7d" position 3456,0 mode 3440x1440@49.99Hz
     output eDP-1 position 0,360 mode 1920x1080@60.00Hz scale 1
     output "Samsung Electric Company C24F390 H4ZMB07597" position 1920,360 mode 1920x1080
-    output "AOC AG352UCG6 #ASO7QFAlij7d" position 3840,0 mode 3440x1440
+    output "AOC AG352UCG6 #ASO7QFAlij7d" position 3840,0 mode 3440x1440@49.99Hz
     exec hyprctl keyword workspace "1, monitor:eDP-1"
     exec hyprctl keyword workspace "2, monitor:eDP-1"
     exec hyprctl keyword workspace "3, monitor:eDP-1"

@@ -5,7 +5,7 @@ dedup = true
 dedup_inactive_fullscreen = false
 delim = " "
 client = "{icon}"
-client_active = "<span color='red'>{icon}</span>"
+client_active = "<span color='#ed8796'>{icon}</span>"
 workspace = "{id}:{delim}{clients}"
 workspace_empty = "{id}"
 client_dup = "{icon}{counter_sup}{delim}"
