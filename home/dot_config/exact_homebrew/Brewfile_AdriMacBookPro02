@@ -1,21 +1,30 @@
 tap "buo/cask-upgrade"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "homebrew/command-not-found"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazynpm"
+# CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM
+brew "aws-sam-cli"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# X.Org: Protocol Headers
+brew "xorgproto"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # Defines a standard way of committing rules and communicating it
 brew "commitizen"
+# Image previews for lf file manager
+brew "ctpv"
 # Modern, maintained replacement for ls
 brew "eza"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # GitHub command-line tool
@@ -24,26 +33,32 @@ brew "gh"
 brew "git"
 # Blazing fast terminal-ui for git written in rust
 brew "gitui"
+# Manage your Java environment
+brew "jenv"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # LastPass command-line interface tool
 brew "lastpass-cli"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Terminal file manager
+brew "lf"
 # Curses-based tool for viewing and analyzing log files
 brew "lnav"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Mac App Store command-line interface
 brew "mas"
-# Fast, highly customisable system info script
-brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Manage multiple Node.js versions
 brew "nvm"
+# Development kit for the Java programming language
+brew "openjdk@17"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Rust toolchain installer
+brew "rustup-init"
 # Autoformat shell script source code
 brew "shfmt"
 # Cross-shell prompt for astronauts
@@ -58,8 +73,6 @@ brew "tldr"
 brew "topgrade"
 # Internet file retriever
 brew "wget"
-# X.Org: Protocol Headers
-brew "xorgproto"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
@@ -82,11 +95,12 @@ cask "brave-browser"
 cask "cleanmymac"
 # Voice and text chat software
 cask "discord"
-# Developer targeted fonts with a high number of glyphs
+# Screenshot software
+cask "flameshot"
 cask "font-hack-nerd-font"
 # Web browser
 cask "google-chrome"
-# Keyboard customizer
+# Keyboard customiser
 cask "karabiner-elements"
 # GPU-based terminal emulator
 cask "kitty"
@@ -100,6 +114,8 @@ cask "obsidian"
 cask "postman"
 # Team communication and collaboration software
 cask "slack"
+# Menu bar indicator showing the currently selected space
+cask "spaceid"
 # Open-source code editor
 cask "visual-studio-code"
 # Remote desktop application focusing on security
@@ -107,18 +123,30 @@ cask "vnc-viewer"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
 mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 vscode "bfrangi.vscode-nightingale-theme"
 vscode "bierner.markdown-checkbox"
 vscode "bierner.markdown-emoji"
 vscode "bierner.markdown-mermaid"
+vscode "bierner.markdown-preview-github-styles"
 vscode "bierner.markdown-yaml-preamble"
-vscode "Codeium.codeium"
+vscode "catppuccin.catppuccin-vsc"
+vscode "catppuccin.catppuccin-vsc-icons"
+vscode "catppuccin.catppuccin-vsc-pack"
+vscode "codeium.codeium"
+vscode "cucumberopen.cucumber-official"
 vscode "dbaeumer.vscode-eslint"
 vscode "eamodio.gitlens"
 vscode "esbenp.prettier-vscode"
 vscode "ms-azuretools.vscode-docker"
 vscode "ozaki.markdown-github-dark"
+vscode "redhat.java"
 vscode "sndst00m.markdown-github-dark-pack"
 vscode "steoates.autoimport"
-vscode "WakaTime.vscode-wakatime"
+vscode "vmware.vscode-spring-boot"
+vscode "vscjava.vscode-java-debug"
+vscode "vscjava.vscode-maven"
+vscode "vscjava.vscode-spring-boot-dashboard"
+vscode "vscjava.vscode-spring-initializr"
+vscode "wakatime.vscode-wakatime"
 vscode "wix.vscode-import-cost"
