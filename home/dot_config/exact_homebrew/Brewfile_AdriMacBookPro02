@@ -88,6 +88,8 @@ cask "font-hack-nerd-font"
 cask "google-chrome"
 # Keyboard customizer
 cask "karabiner-elements"
+# GPU-based terminal emulator
+cask "kitty"
 # Snippet management app
 cask "lepton"
 # Web browser
@@ -102,8 +104,6 @@ cask "slack"
 cask "visual-studio-code"
 # Remote desktop application focusing on security
 cask "vnc-viewer"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
 mas "Numbers", id: 409203825
