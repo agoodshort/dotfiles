@@ -6,4 +6,3 @@ us.zoom.Zoom
 sh.cider.Cider
 org.libreoffice.LibreOffice
 com.github.tchx84.Flatseal
-com.getpostman.Postman
