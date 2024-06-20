@@ -4,7 +4,6 @@
 
 - [Chezmoi](#chezmoi)
     * [Overview](#overview)
-    * [my-npm-tools](#my-npm-tools)
     * [my-flatpak-apps](#my-flatpak-apps)
 - [Rust](#rust)
 - [Terminal](#terminal)
@@ -28,11 +27,6 @@ Chezmoi allows the use of scripts which are triggered only once, on a file chang
 - Scripts are running in numerical order
 - Some scripts are a bootstrap install of a few tools and will run only once
 
-### my-npm-tools
-
-These are the few npm tools I use daily. I install them "globally" through [my-npm-tools](../home/private_dot_local/private_share/my-npm-tools/README.md) and add them to the PATH in [.zshenv](../home/dot_zshenv.tmpl).
-Whenever an npm package is installed in this location, the [03-my-npm-tools script](../home/.chezmoiscripts/linux/run_onchange_after_03-my-npm-tools.sh.tmpl) is triggered.
-
 ### my-flatpak-apps
 
 The file [my-flatpak-apps.txt](../home/dot_config/flatpak/my-flatpak-apps.txt) is used to install flatpak apps. Once I am happy with a flatpak app, I will add its name in this file and will be automatically installed across my machines.
@@ -42,7 +36,7 @@ The file [my-flatpak-apps.txt](../home/dot_config/flatpak/my-flatpak-apps.txt) i
 Rust tools are installed using [rustup](https://rustup.rs/).
 
 `rustup` is installed automatically through chezmoi via the [Brewfile_Basics.tmpl](../home/dot_config/exact_homebrew/Brewfile_Basics.tmpl).
-It is then run once via the [run_once_after_06-rustup.sh](../home/private_dot_local/private_share/my-npm-tools/run_once_after_06-rustup.sh) script.
+It is then run once via the [run_once_after_06-rustup.sh](../home/.chezmoiscripts/linux/run_once_after_06-rustup.sh) script.
 
 To uninstall :
 
