@@ -153,6 +153,10 @@ plugin=org.kde.plasma.battery
 [Containments][115][Applets][133][Configuration]
 PreloadWeight=42
 
+[Containments][115][Applets][135]
+immutability=1
+plugin=org.kde.plasma.mediacontroller
+
 [Containments][115][Configuration]
 PreloadWeight=42
 
@@ -570,7 +574,7 @@ immutability=1
 plugin=com.github.exequtic.apdatifier
 
 [Containments][8][Applets][79][Configuration]
-PreloadWeight=80
+PreloadWeight=100
 
 [Containments][8][Applets][79][Configuration][ConfigDialog]
 DialogHeight=540
@@ -668,6 +672,10 @@ plugin=org.kde.plasma.networkmanagement
 
 [Containments][88][Applets][106][Configuration]
 PreloadWeight=42
+
+[Containments][88][Applets][134]
+immutability=1
+plugin=org.kde.plasma.mediacontroller
 
 [Containments][88][Applets][89]
 immutability=1
