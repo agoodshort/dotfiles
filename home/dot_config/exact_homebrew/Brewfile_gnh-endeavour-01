@@ -47,6 +47,8 @@ brew "lf"
 brew "lnav"
 # Package manager for the Lua programming language
 brew "luarocks"
+# Scalable distributed version control system
+brew "mercurial"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Manage multiple Node.js versions
