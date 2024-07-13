@@ -12,7 +12,7 @@
         + [2.2. Associate the key with GitHub](#22-associate-the-key-with-github)
         + [2.3. Add the GitHub SSH key to known_host](#23-add-the-github-ssh-key-to-known_host)
     * [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
-    * [4. Install node through nvm](#4-install-node-through-nvm)
+    * [4. Install node through fnm](#4-install-node-through-fnm)
     * [5. Additional steps based on OS](#5-additional-steps-based-on-os)
 - [Tools](#tools)
 - [To-Do](#to-do)
@@ -38,7 +38,7 @@ Install the [Homebrew dependencies for Linux](https://docs.brew.sh/Homebrew-on-L
 #### 1.2. Install dependencies
 
 ```bash
-brew install jq lastpass-cli nvm
+brew install jq lastpass-cli fnm
 lpass login --trust USERNAME
 
 mkdir -p ~/Coding/Personal
@@ -128,11 +128,11 @@ brew install chezmoi
 chezmoi init --apply agoodshort
 ```
 
-### 4. Install node through nvm
+### 4. Install node through fnm
 
 ```bash
-nvm install lts/gallium
-nvm use lts/gallium
+fnm install lts/gallium
+fnm use lts/gallium
 ```
 
 ### 5. Additional steps based on OS

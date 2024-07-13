@@ -55,34 +55,9 @@ if [[ -f "$HOMEBREW_PREFIX/bin/starship" ]]; then
 	export "STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml"
 fi
 
-# nvm
-if [[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" && -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ]]; then
-	export NVM_DIR="$XDG_CONFIG_HOME/nvm"
-	mkdir -p $NVM_DIR
-	source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"                    # This loads nvm
-	source "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-
-	function nvm_auto_use() {
-		local node_version="$(nvm version)"
-		local nvmrc_path="$(nvm_find_nvmrc)"
-
-		if [ -n "$nvmrc_path" ]; then
-			local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-			if [ "$nvmrc_node_version" = "N/A" ]; then
-				nvm install
-			elif [ "$nvmrc_node_version" != "$node_version" ]; then
-				nvm use
-			fi
-		elif [ "$node_version" != "$(nvm version default)" ]; then
-			echo "Reverting to nvm default version"
-			nvm use default
-		fi
-	}
-
-	# autoload -Uz add-zsh-hook # load add-zsh-hook with zsh (-z) and suppress aliases (-U)
-	add-zsh-hook chpwd nvm_auto_use
-	nvm_auto_use
+# fnm
+if [[ -f "$HOMEBREW_PREFIX/bin/fnm" ]]; then
+    eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 fi
 
 # Homebrew Command Not Found
