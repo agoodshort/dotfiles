@@ -156,6 +156,7 @@ List of tools used is available in [Tools](/docs/TOOLS.md).
 - [ ] Work on the format with `{{ end -}}`
 - [ ] Mount [secondary drive as home folder](https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/)
 - [ ] Change `zsh/` to `exact_zsh/`
+- [ ] Neovim post-install and my-npm-tools fails on macos
 
 ![image](https://github.com/agoodshort/dotfiles/assets/33832653/f9eaa504-ca26-4b2b-bd64-a3a4da49b793)
 
