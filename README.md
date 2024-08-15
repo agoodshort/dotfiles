@@ -3,21 +3,20 @@
 <!-- toc -->
 
 - [Installation](#installation)
-    * [1. Homebrew](#1-homebrew)
-        + [1.1. Install Homebrew and required tools](#11-install-homebrew-and-required-tools)
-        + [1.2. Install dependencies](#12-install-dependencies)
-    * [1.3. Install kvantum theme](#13-install-kvantum-theme)
-    * [2. Setup ssh for GitHub](#2-setup-ssh-for-github)
-        + [2.1. Create ssh key](#21-create-ssh-key)
-        + [2.2. Associate the key with GitHub](#22-associate-the-key-with-github)
-        + [2.3. Add the GitHub SSH key to known_host](#23-add-the-github-ssh-key-to-known_host)
-    * [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
-    * [4. Install node through fnm](#4-install-node-through-fnm)
-    * [5. Additional steps based on OS](#5-additional-steps-based-on-os)
+  - [1. Homebrew](#1-homebrew)
+    - [1.1. Install Homebrew and required tools](#11-install-homebrew-and-required-tools)
+    - [1.2. Install dependencies](#12-install-dependencies)
+  - [2. Setup ssh for GitHub](#2-setup-ssh-for-github)
+    - [2.1. Create ssh key](#21-create-ssh-key)
+    - [2.2. Associate the key with GitHub](#22-associate-the-key-with-github)
+    - [2.3. Add the GitHub SSH key to known_host](#23-add-the-github-ssh-key-to-known_host)
+  - [3. Getting started with chezmoi](#3-getting-started-with-chezmoi)
+  - [4. Install node through fnm](#4-install-node-through-fnm)
+  - [5. Additional steps based on OS](#5-additional-steps-based-on-os)
 - [Tools](#tools)
 - [To-Do](#to-do)
 - [References](#references)
-    * [Git multi user](#git-multi-user)
+  - [Git multi user](#git-multi-user)
 
 <!-- tocstop -->
 
@@ -93,9 +92,9 @@ mkdir ~/.ssh && cd $_
 ssh-keygen -t ed25519 -C "adrien.goodshort@gmail.com" -f "github-agoodshort"
 
 if [[ $OSTYPE == 'darwin'* ]]; then
-	pbcopy <~/.ssh/github-agoodshort.pub # copy public key to clipboard
+ pbcopy <~/.ssh/github-agoodshort.pub # copy public key to clipboard
 else
-	wl-copy <~/.ssh/github-agoodshort.pub # https://neovim.io/doc/user/provider.html#provider-clipboard
+ wl-copy <~/.ssh/github-agoodshort.pub # https://neovim.io/doc/user/provider.html#provider-clipboard
 fi
 ```
 
@@ -107,7 +106,7 @@ Add the copied key in your [GitHub Profile SSH keys](https://github.com/settings
 
 ```bash
 curl --silent https://api.github.com/meta |
-	jq --raw-output '"github.com "+.ssh_keys[]' >>~/.ssh/known_hosts
+ jq --raw-output '"github.com "+.ssh_keys[]' >>~/.ssh/known_hosts
 ```
 
 ### 3. Getting started with chezmoi
@@ -117,11 +116,11 @@ Install Visual Studio Code before installing `chezmoi` as `brew` will fail to in
 ```bash
 if [[ ! -x "$(command -v code)" ]]; then
 
-	if [[ $OSTYPE == 'darwin'* ]]; then
-		brew install --cask visual-studio-code
-	else
-		sudo pacman -S code --noconfirm
-	fi
+ if [[ $OSTYPE == 'darwin'* ]]; then
+  brew install --cask visual-studio-code
+ else
+  sudo pacman -S code --noconfirm
+ fi
 fi
 
 brew install chezmoi
