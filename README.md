@@ -43,45 +43,53 @@ lpass login --trust USERNAME
 mkdir -p ~/Coding/Personal
 
 if [[ ! $OSTYPE == 'darwin'* ]]; then
-	sudo pacman -S openssh wl-clipboard flatpak zsh --noconfirm
+ # Make sure yay is installed
+ if [[ ! -x "$(command -v yay)" ]]; then
+  cd ~/Coding/Personal
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg -si
+  cd ../
+  rm -rf yay
+  yay -Y --gendb
+  yay -Syu --devel
+  yay -Y --devel --save
+ fi
 
-	if [[ ! -x "$(command -v yay)" ]]; then
-		cd ~/Coding/Personal
-		git clone https://aur.archlinux.org/yay.git
-		cd yay
-		makepkg -si
-		cd ../
-		rm -rf yay
-		yay -Y --gendb
-		yay -Syu --devel
-		yay -Y --devel --save
-	fi
+ # Make yay/pacman colourful
+ sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
 
-	# Make yay/pacman colourful
-	sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+ yay -S openssh wl-clipboard flatpak zsh kitty --noconfirm
+ yay -S akm --noconfirm        # great tool for kernel selection
+ yay -S xmlstarlet --noconfirm # used by apdatifier
 
-	yay -S akm --noconfirm        # great tool for kernel selection
-	yay -S xmlstarlet --noconfirm # used by apdatifier
-	yay -S docker docker-compose --noconfirm
-	systemctl enable --now docker
-	sudo usermod -aG docker $USER
-	newgrp docker
+ # Install docker
+ yay -S docker docker-compose --noconfirm
+ systemctl enable --now docker
+ sudo usermod -aG docker $USER
+ newgrp docker # switch to docker group straight away
 
-	# Sway dependencies
-	yay -S sway rofi swayidle waybar playerctl kanshi light swaync swaybg swaylock kvantum waybar-updates bluetuith swappy cliphist inotify-tools catppuccin-gtk-theme-macchiato ttf-roboto-mono-nerd ttf-roboto-mono
-	brew install calcurse
+ # Sway dependencies
+ # yay -S sway rofi swayidle waybar playerctl kanshi light swaync swaybg swaylock kvantum waybar-updates bluetuith swappy cliphist inotify-tools catppuccin-gtk-theme-macchiato ttf-roboto-mono-nerd ttf-roboto-mono
+ # brew install calcurse
+
+ # hyprland dependencies
+ yay -S hyprland xdg-desktop-portal-hyprland wofi swaync --noconfirm
+ yay -S grimblast-git swappy showmethekey wf-recorder --noconfirm # Need to implement shortcuts in hyprland
+ yay -S waybar ttf-roboto-mono-nerd ttf-roboto-mono hyprland-autoname-workspaces waybar-updates bluetuith --noconfirm
+ yay -S hyprlock hypridle kanshi --noconfirm # To finish
+ # to review: waybar-mpris swww
+
+ # Delete the swaync systemd, otherwise it clashes with KDE plasma notification service
+ systemctl --user disable --now swaync
+ sudo rm /usr/lib/systemd/user/swaync.service
+
+ cargo install pokeget
+
+ # theme: install and run both nwg-look and qt6ct to set as you're liking, however config should be saved already
+ yay -S catppuccin-gtk-theme-macchiato nwg-look qt6ct
 fi
 ```
-
-### 1.3. Install kvantum theme
-
-```bash
-cd ~/Coding/Personal
-git clone https://github.com/catppuccin/Kvantum.git
-kvantummanager
-```
-
-In `kvantummanager` select the theme folder `Catppuccin-Macchiato-blue` and install it. Then set it as the default.
 
 ### 2. Setup ssh for GitHub
 
@@ -146,21 +154,26 @@ List of tools used is available in [Tools](/docs/TOOLS.md).
 
 ## To-Do
 
-- [ ] Set custom/pamac-yay in waybar as a template to work based on the OS
 - [ ] List cargo
 - [ ] Configure Calcurse
 - [ ] Create a bootstrap script to install the brew bases and login to lastpass
 - [ ] Look at Timeshift and find out how to partition properly
-- [ ] Review `zathura` and `qpdf` for pdf and file preview
 - [ ] Work on the format with `{{ end -}}`
 - [ ] Mount [secondary drive as home folder](https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/)
 - [ ] Change `zsh/` to `exact_zsh/`
+- [ ] Tograde requires `cargo install cargo-update`
+- [ ] Finish to setup `wtfutil`
+- [ ] Finish setting up required tools for `lf` previewer => <https://github.com/NikitaIvanovV/ctpv>
+- [ ] Switch to Kitty on MacOS
+- [ ] To share wifi between KDE and Hyprland, you have to set password security to unencrypted
 
 ![image](https://github.com/agoodshort/dotfiles/assets/33832653/f9eaa504-ca26-4b2b-bd64-a3a4da49b793)
 
 ![image](https://github.com/agoodshort/dotfiles/assets/33832653/c0a70690-0ea0-4842-890a-8b85a028b6f6)
 
 ![image](https://github.com/agoodshort/dotfiles/assets/33832653/9c983bb1-1872-4e86-b08b-51ff29c18a18)
+
+<https://mozilla.github.io/webrtc-landing/gum_test.html> => to test screensharing features
 
 ## References
 
