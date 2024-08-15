@@ -12,17 +12,23 @@ export WAKATIME_HOME="$HOME/.config/wakatime"
 # Any additional .zsh files should be stored in .config
 export ZDOTDIR="$HOME/.config/zsh"
 
+# Used with brew imagemagick
+# https://github.com/3rd/image.nvim#installing-imagemagick
+export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+
 ############################################
 # Machine specific handled through chezmoi #
 ############################################
 {{ if eq .chezmoi.os "darwin" }}
+# Homebrew
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ output "scutil" "--get" "ComputerName" | trim }}"
 
-# Adds Homebrew to PATH
+## Adds Homebrew to PATH
 eval "$(/usr/local/bin/brew shellenv)"
 {{- else if eq .chezmoi.os "linux" }}
+# Homebrew
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile_{{ .chezmoi.hostname }}"
 
-# Adds Homebrew to PATH
+## Adds Homebrew to PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{- end }}
