@@ -138,8 +138,8 @@ chezmoi init --apply agoodshort
 ### 4. Install node through fnm
 
 ```bash
-fnm install lts/gallium
-fnm use lts/gallium
+fnm install lts/iron
+fnm use lts/iron
 ```
 
 ### 5. Additional steps based on OS
@@ -166,7 +166,6 @@ List of tools used is available in [Tools](/docs/TOOLS.md).
 - [ ] Finish setting up required tools for `lf` previewer => <https://github.com/NikitaIvanovV/ctpv>
 - [ ] Switch to Kitty on MacOS
 - [ ] To share wifi between KDE and Hyprland, you have to set password security to unencrypted
-- [ ] Neovim post-install and my-npm-tools fails on macos
 
 ![image](https://github.com/agoodshort/dotfiles/assets/33832653/f9eaa504-ca26-4b2b-bd64-a3a4da49b793)
 
