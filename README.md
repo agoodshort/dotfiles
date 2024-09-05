@@ -71,7 +71,6 @@ if [[ ! $OSTYPE == 'darwin'* ]]; then
 
  # Sway dependencies
  # yay -S sway rofi swayidle waybar playerctl kanshi light swaync swaybg swaylock kvantum waybar-updates bluetuith swappy cliphist inotify-tools catppuccin-gtk-theme-macchiato ttf-roboto-mono-nerd ttf-roboto-mono
- # brew install calcurse
 
  # hyprland dependencies
  yay -S hyprland xdg-desktop-portal-hyprland wofi swaync --noconfirm
@@ -155,7 +154,6 @@ List of tools used is available in [Tools](/docs/TOOLS.md).
 ## To-Do
 
 - [ ] List cargo
-- [ ] Configure Calcurse
 - [ ] Create a bootstrap script to install the brew bases and login to lastpass
 - [ ] Look at Timeshift and find out how to partition properly
 - [ ] Work on the format with `{{ end -}}`
