@@ -84,6 +84,7 @@ if [[ ! $OSTYPE == 'darwin'* ]]; then
  sudo rm /usr/lib/systemd/user/swaync.service
 
  cargo install pokeget
+ cargo install cargo-update # used by topgrade
 
  # theme: install and run both nwg-look and qt6ct to set as you're liking, however config should be saved already
  yay -S catppuccin-gtk-theme-macchiato nwg-look qt6ct
@@ -158,10 +159,8 @@ List of tools used is available in [Tools](/docs/TOOLS.md).
 - [ ] Work on the format with `{{ end -}}`
 - [ ] Mount [secondary drive as home folder](https://www.howtogeek.com/442101/how-to-move-your-linux-home-directory-to-another-hard-drive/)
 - [ ] Change `zsh/` to `exact_zsh/`
-- [ ] Tograde requires `cargo install cargo-update`
 - [ ] Finish to setup `wtfutil`
 - [ ] Finish setting up required tools for `lf` previewer => <https://github.com/NikitaIvanovV/ctpv>
-- [ ] Switch to Kitty on MacOS
 - [ ] To share wifi between KDE and Hyprland, you have to set password security to unencrypted
 
 ![image](https://github.com/agoodshort/dotfiles/assets/33832653/f9eaa504-ca26-4b2b-bd64-a3a4da49b793)
