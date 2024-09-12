@@ -3,13 +3,13 @@
 <!-- toc -->
 
 - [Installation](#installation)
-    * [1. Theming between GTK and QT - to review](#1-theming-between-gtk-and-qt---to-review)
-    * [2. Configure dock](#2-configure-dock)
+  - [1. Theming between GTK and QT - to review](#1-theming-between-gtk-and-qt---to-review)
+  - [2. Configure dock](#2-configure-dock)
 - [How-to](#how-to)
-    * [Screen recording](#screen-recording)
-    * [AUR](#aur)
-    * [Downgrade](#downgrade)
-    * [iPhone Hotspot](#iphone-hotspot)
+  - [Screen recording](#screen-recording)
+  - [AUR](#aur)
+  - [Downgrade](#downgrade)
+  - [iPhone Hotspot](#iphone-hotspot)
 
 <!-- tocstop -->
 
@@ -54,7 +54,7 @@ drun `show me the key` to display keystrokes
 ### AUR
 
 | Command   | Description              |
-|-----------|--------------------------|
+| --------- | ------------------------ |
 | `yay -Yc` | remove unneeded packages |
 | `yay -Qm` | list all AUR packages    |
 
