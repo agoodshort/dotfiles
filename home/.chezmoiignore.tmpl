@@ -43,28 +43,6 @@ Library
 
 ###################################
 
-# Windows
-
-{{ if eq .chezmoi.os "windows" }}
-## Only keeping what Windows needs
-.config/*
-!.config/nvim
-!.config/scoop
-!.config/git
-!.config/lazygit
-.local
-.ssh
-.zshenv
-
-{{ else }}
-## Only needed on Windows
-AppData
-.config/scoop
-OneDrive - Great National Hotels/**
-{{ end }}
-
-###################################
-
 # Scripts
 
 {{ if ne .chezmoi.os "windows" }}

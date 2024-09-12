@@ -143,7 +143,6 @@ fnm use lts/iron
 
 ### 5. Additional steps based on OS
 
-- [Windows](/docs/WINDOWS.md)
 - [MacOS](/docs/MACOS.md)
 - [Arch](/docs/ARCH.md)
 
