@@ -127,7 +127,7 @@ if [[ ! -x "$(command -v code)" ]]; then
  if [[ $OSTYPE == 'darwin'* ]]; then
   brew install --cask visual-studio-code
  else
-  sudo pacman -S code --noconfirm
+  sudo yay -S visual-studio-code-bin --noconfirm
  fi
 fi
 
