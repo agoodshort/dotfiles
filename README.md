@@ -70,7 +70,8 @@ if [[ ! $OSTYPE == 'darwin'* ]]; then
  newgrp docker # switch to docker group straight away
 
  # Sway dependencies
- # yay -S sway rofi swayidle waybar playerctl kanshi light swaync swaybg swaylock kvantum waybar-updates bluetuith swappy cliphist inotify-tools catppuccin-gtk-theme-macchiato ttf-roboto-mono-nerd ttf-roboto-mono
+ # yay -S sway rofi swayidle waybar playerctl kanshi light swaync
+ # swaybg swaylock kvantum waybar-updates bluetuith swappy cliphist inotify-tools catppuccin-gtk-theme-macchiato ttf-roboto-mono-nerd ttf-roboto-mono
 
  # hyprland dependencies
  yay -S hyprland xdg-desktop-portal-hyprland wofi swaync --noconfirm
@@ -162,6 +163,7 @@ List of tools used is available in [Tools](/docs/TOOLS.md).
 - [ ] Finish to setup `wtfutil`
 - [ ] Finish setting up required tools for `lf` previewer => <https://github.com/NikitaIvanovV/ctpv>
 - [ ] To share wifi between KDE and Hyprland, you have to set password security to unencrypted
+- [ ] Install `howdy`, follow the steps on [this page](https://forum.endeavouros.com/t/tutorial-installing-howdy-now-its-personal/38095)
 
 ![image](https://github.com/agoodshort/dotfiles/assets/33832653/f9eaa504-ca26-4b2b-bd64-a3a4da49b793)
 
