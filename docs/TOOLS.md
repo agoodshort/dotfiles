@@ -3,15 +3,15 @@
 <!-- toc -->
 
 - [Chezmoi](#chezmoi)
-    * [Overview](#overview)
-    * [my-flatpak-apps](#my-flatpak-apps)
+  - [Overview](#overview)
+  - [my-flatpak-apps](#my-flatpak-apps)
 - [Rust](#rust)
 - [Terminal](#terminal)
 - [Browsers](#browsers)
-    * [Work browser](#work-browser)
-    * [Personal browser](#personal-browser)
+  - [Work browser](#work-browser)
+  - [Personal browser](#personal-browser)
 - [Presentation](#presentation)
-    * [To consider](#to-consider)
+  - [To consider](#to-consider)
 - [To-Do](#to-do)
 
 <!-- tocstop -->
@@ -30,6 +30,15 @@ Chezmoi allows the use of scripts which are triggered only once, on a file chang
 ### my-flatpak-apps
 
 The file [my-flatpak-apps.txt](../home/dot_config/flatpak/my-flatpak-apps.txt) is used to install flatpak apps. Once I am happy with a flatpak app, I will add its name in this file and will be automatically installed across my machines.
+
+The apps below were facing issues when installed through flatpak, hence installing them through `yay`.
+
+```sh
+yay -S android-studio \
+postman-bin \
+visual-studio-code-bin
+
+```
 
 ## Rust
 

@@ -2,7 +2,9 @@ com.microsoft.Edge
 com.google.Chrome
 com.brave.Browser
 com.slack.Slack
-us.zoom.Zoom
 sh.cider.Cider
 org.libreoffice.LibreOffice
 com.github.tchx84.Flatseal
+com.getmailspring.Mailspring
+org.gimp.Gimp
+org.remmina.Remmina
